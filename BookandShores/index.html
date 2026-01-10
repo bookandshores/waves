@@ -124,7 +124,7 @@
             padding-bottom: 0.6rem;
         }
 
-        /* Books grid - fixed height for uniform size */
+        /* Books grid - FIXED HEIGHT for uniform visual size */
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -142,10 +142,10 @@
         }
 
         .book-card img {
-            height: 320px;
+            height: 320px;                /* All books same height → uniform size */
             width: auto;
             max-width: 100%;
-            object-fit: contain;
+            object-fit: contain;          /* Keeps proportions, no distortion */
             border: 3px solid var(--black);
             box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             transition: box-shadow 0.4s ease;
@@ -188,7 +188,7 @@
             margin-top: 1rem;
         }
 
-        /* Postcards - only TWO: Jarmusch and Bardot */
+        /* Postcards - only two: Jarmusch and Bardot */
         .postcards {
             display: flex;
             justify-content: center;
@@ -291,6 +291,7 @@
             .postcards { gap: 4rem; }
             .postcard img { transform: none; }
             .postcard:hover { transform: scale(1.05); }
+            .book-card img { height: 280px; } /* Slightly smaller on mobile */
         }
     </style>
 </head>
@@ -309,7 +310,7 @@
     </header>
 
     <main>
-        <!-- Weekly Reads -->
+        <!-- Weekly Reads – FIXED HEIGHT images -->
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid">
@@ -344,7 +345,7 @@
             </div>
         </section>
 
-        <!-- Penpal / Postcards – ONLY TWO now -->
+        <!-- Penpal / Postcards - only two -->
         <section id="penpal" class="section">
             <h2>Send a Postcard</h2>
             <p>Let pen and ink be your guide.</p>
