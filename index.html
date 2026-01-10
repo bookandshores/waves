@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Book & Shores</title>
+
+    <!-- KCRW-inspired fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --yellow: #fcc028;
+            --black: #000;
+            --offwhite: #f8f8f8;
+            --gray: #444;
+            --lightgray: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--black);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.03), transparent);
+        }
+
+        h1 {
+            font-family: 'Neue Haas Grotesk Display', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #111;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background: var(--black);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 8rem;
+            padding: 4rem 3rem;
+            border: 3px solid var(--black);
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .section h2 {
+            font-family: 'Neue Haas Grotesk Display', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            border-bottom: 3px solid var(--black);
+            display: inline-block;
+            padding-bottom: 0.6rem;
+        }
+
+        /* Books grid - FIXED HEIGHT for uniform visual size */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .book-card {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-12px);
+        }
+
+        .book-card img {
+            height: 320px;                /* All books same height → uniform size */
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;          /* Keeps proportions, no distortion */
+            border: 3px solid var(--black);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            transition: box-shadow 0.4s ease;
+        }
+
+        .book-card:hover img {
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+
+        .book-title {
+            margin-top: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .coming-soon {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-top: 2rem;
+            color: var(--gray);
+        }
+
+        /* Audio player */
+        .audio-player {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .audio-player audio {
+            width: 100%;
+            max-width: 600px;
+            margin: 1.5rem 0;
+        }
+
+        .credit {
+            font-style: italic;
+            color: var(--gray);
+            margin-top: 1rem;
+        }
+
+        /* Postcards - only two: Jarmusch and Bardot */
+        .postcards {
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .postcard {
+            width: 280px;
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .postcard:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        .postcard img {
+            width: 100%;
+            border: 12px solid white;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+            background: white;
+            transform: rotate(-1deg);
+        }
+
+        .postcard-caption {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Sidebar radio support */
+        .sidebar {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 340px;
+            z-index: 100;
+        }
+
+        .radio-card {
+            background: rgba(0,0,0,0.05);
+            border: 2px solid var(--black);
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .radio-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.9rem 1.6rem;
+            background: var(--black);
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #111;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: rgba(0,0,0,0.03);
+            border-top: 4px solid var(--black);
+        }
+
+        .signature {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 1100px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+                margin: 4rem auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 5rem; }
+            .section { padding: 3rem 1.5rem; }
+            .postcards { gap: 4rem; }
+            .postcard img { transform: none; }
+            .postcard:hover { transform: scale(1.05); }
+            .book-card img { height: 280px; } /* Slightly smaller on mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Book & Shores</h1>
+        <div class="tagline">A place to listen, read, write back, and support the waves</div>
+
+        <nav>
+            <a href="#reads">Weekly Reads</a>
+            <a href="#sounds">Original Sounds</a>
+            <a href="#penpal">Send a Postcard</a>
+            <a href="#support">Support Radio</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Weekly Reads – FIXED HEIGHT images -->
+        <section id="reads" class="section">
+            <h2>Weekly Reads</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <img src="https://d23eqwv5slm408.cloudfront.net/api/file/cUbMire1StaLhkh6Qgko/convert?fit=max&h=874&w=1312&compress=true" alt="Practicing Dying">
+                    <div class="book-title">Practicing Dying — Charlotte Northall</div>
+                </div>
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/71sCNEH7tRL.jpg" alt="Aqua">
+                    <div class="book-title">Aqua — Chiara Barzini</div>
+                </div>
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
+                    <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
+                </div>
+            </div>
+            <p class="coming-soon">Selective community bookstore launching soon — handpicked titles, direct from the shores.</p>
+        </section>
+
+        <!-- Original Sounds -->
+        <section id="sounds" class="section">
+            <h2>Original Sounds</h2>
+            <p>Recorded in the moment, shared freely.</p>
+
+            <div class="audio-player">
+                <audio controls>
+                    <source src="BookandShores/MUSICBYBOOKANDSHORES_1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p class="credit">Written and played by me -A.E.G.</p>
+                <a href="BookandShores/MUSICBYBOOKANDSHORES_1.mp3" download class="btn">Download This Track</a>
+            </div>
+        </section>
+
+        <!-- Penpal / Postcards - only two -->
+        <section id="penpal" class="section">
+            <h2>Send a Postcard</h2>
+            <p>Let pen and ink be your guide.</p>
+            <p>Send a postcard — I will always write you back (postcards only)</p>
+            <p><strong>1968 S. Coastal Hwy #4182<br>Laguna Beach, CA 92651</strong></p>
+
+            <div class="postcards">
+                <div class="postcard">
+                    <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" alt="Jim Jarmusch">
+                    <div class="postcard-caption">Postmark your thoughts</div>
+                </div>
+
+                <div class="postcard">
+                    <img src="https://i.ebayimg.com/images/g/0W0AAOSwGshdvFvg/s-l1200.jpg" alt="Brigitte Bardot">
+                    <div class="postcard-caption">Words that linger</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Radio -->
+        <section id="support" class="section">
+            <h2>Support Local Radio</h2>
+            <p>Independent voices need your support — keep the airwaves alive.</p>
+
+            <div class="books-grid" style="margin-top:3rem;">
+                <div class="radio-card" style="text-align:center;">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/92/Black_KCRW_Logo_Wordmark%2C_2022.png" alt="KCRW" style="max-width:180px; margin-bottom:1rem;">
+                    <h3>Eclectic24 – KCRW</h3>
+                    <a href="https://www.kcrw.com/music/shows/eclectic24" target="_blank" class="btn">Listen Live</a>
+                    <a href="https://join.kcrw.com/" target="_blank" class="btn" style="margin-left:1rem;">Support KCRW</a>
+                </div>
+
+                <div class="radio-card" style="text-align:center;">
+                    <img src="https://m.media-amazon.com/images/I/31pzE4n5SbL.jpg" alt="Brigitte Bardot vibe" style="width:180px; margin-bottom:1rem; border-radius:8px;">
+                    <h3>WFUV NYC</h3>
+                    <a href="https://wfuv.org/support" target="_blank" class="btn">Support WFUV (Donate)</a>
+                </div>
+
+                <div class="radio-card" style="text-align:center;">
+                    <h3>WQSV – Staunton, Virginia</h3>
+                    <a href="https://www.wqsv.org/" target="_blank" class="btn">Listen Live</a>
+                    <a href="https://www.wqsv.org/support" target="_blank" class="btn" style="margin-left:1rem;">Support WQSV</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Thanks for Visiting</h2>
+        <p class="signature">I will always write you back — A.E.G</p>
+        <p>© 2025 Book & Shores</p>
+
+        <div class="footer-insta">
+            <a href="https://www.instagram.com/westwaveslaguna/" target="_blank">Follow the feed @westwaveslaguna</a>
+            <div class="insta-embed">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/?hl=en" data-instgrm-version="14" style="max-width:400px; width:100%;"></blockquote>
+            </div>
+        </div>
+    </footer>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
