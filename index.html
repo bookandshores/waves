@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Favicon links (root-level files from your Lakki Reddy generator) -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+
     <title>Book & Shores</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,7 +132,6 @@
             padding-bottom: 0.6rem;
         }
 
-        /* Books grid - BALANCED fixed height */
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -141,7 +149,7 @@
         }
 
         .book-card img {
-            height: 360px;                /* Balanced size — Northall now matches Lethem perfectly */
+            height: 360px;
             width: auto;
             max-width: 100%;
             object-fit: contain;
@@ -170,7 +178,6 @@
             color: var(--gray);
         }
 
-        /* Audio player */
         .audio-player {
             text-align: center;
             margin: 3rem 0;
@@ -182,13 +189,32 @@
             margin: 1.5rem 0;
         }
 
+        .small-sound-img {
+            max-width: 200px;
+            height: auto;
+            border: 3px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .credit {
             font-style: italic;
             color: var(--gray);
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
-        /* Postcards - only two */
+        .support-buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
         .postcards {
             display: flex;
             justify-content: center;
@@ -221,7 +247,6 @@
             font-style: italic;
         }
 
-        /* Sidebar radio support */
         .sidebar {
             position: fixed;
             top: 2rem;
@@ -246,7 +271,6 @@
 
         .btn {
             display: inline-block;
-            margin-top: 1rem;
             padding: 0.9rem 1.6rem;
             background: var(--black);
             color: var(--yellow);
@@ -262,7 +286,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -276,7 +299,6 @@
             margin: 1.5rem 0;
         }
 
-        /* Mobile adjustments */
         @media (max-width: 1100px) {
             .sidebar {
                 position: static;
@@ -291,7 +313,9 @@
             .postcards { gap: 4rem; }
             .postcard img { transform: none; }
             .postcard:hover { transform: scale(1.05); }
-            .book-card img { height: 300px; } /* Slightly smaller on mobile */
+            .book-card img { height: 300px; }
+            .support-buttons { flex-direction: column; gap: 1rem; }
+            .small-sound-img { max-width: 160px; }
         }
     </style>
 </head>
@@ -335,11 +359,20 @@
 
             <div class="audio-player">
                 <audio controls>
-                    <source src="BookandShores/MUSICBYBOOKANDSHORES_1.mp3" type="audio/mpeg">
+                    <source src="WAYBACK.MP3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
-                <p class="credit">Written and played by me -A.E.G.</p>
-                <a href="BookandShores/MUSICBYBOOKANDSHORES_1.mp3" download class="btn">Download This Track</a>
+
+                <img src="IMG_0473.jpg" alt="Original Sound Recording" class="small-sound-img">
+
+                <p class="credit">Written and played by me -A.E.</p>
+
+                <div class="support-buttons">
+                    <a href="WAYBACK.MP3" download class="btn">Download This Track</a>
+                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="background: #111; color: var(--yellow);">
+                        Support / Tip ☕
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -379,19 +412,13 @@
                     <h3>WFUV NYC</h3>
                     <a href="https://wfuv.org/support" target="_blank" class="btn">Support WFUV (Donate)</a>
                 </div>
-
-                <div class="radio-card" style="text-align:center;">
-                    <h3>WQSV – Staunton, Virginia</h3>
-                    <a href="https://www.wqsv.org/" target="_blank" class="btn">Listen Live</a>
-                    <a href="https://www.wqsv.org/support" target="_blank" class="btn" style="margin-left:1rem;">Support WQSV</a>
-                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <h2>Thanks for Visiting</h2>
-        <p class="signature">I will always write you back — A.E.G</p>
+        <p class="signature">I will always write you back — A.E</p>
         <p>© 2025 Book & Shores</p>
 
         <div class="footer-insta">
