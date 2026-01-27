@@ -158,8 +158,8 @@
         }
 
         .ae-message {
-            background: rgba(0,0,0,0.1);
-            color: var(--black);
+            background: #111;
+            color: var(--yellow);
             margin-right: 20%;
         }
 
@@ -178,6 +178,16 @@
 
         .chat-input button {
             padding: 0.8rem 1.2rem;
+            background: #111;
+            color: var(--yellow);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .chat-input button:hover {
+            background: #222;
         }
 
         .track-title {
@@ -306,6 +316,23 @@
             font-style: italic;
         }
 
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 1.6rem;
+            background: var(--black);
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #111;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -343,12 +370,20 @@
                     <div class="book-title">Practicing Dying — Charlotte Northall</div>
                 </div>
                 <div class="book-card">
-                    <img src="https://m.media-amazon.com/images/I/71sCNEH7tRL.jpg" alt="Aqua">
-                    <div class="book-title">Aqua — Chiara Barzini</div>
+                    <img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga">
+                    <div class="book-title">Finding the Raga — Amit Chaudhuri</div>
                 </div>
                 <div class="book-card">
                     <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
                     <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
+                </div>
+                <div class="book-card">
+                    <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781627931663/autobiography-of-a-yogi-9781627931663_lg.jpg" alt="Autobiography of a Yogi">
+                    <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
+                </div>
+                <div class="book-card">
+                    <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake">
+                    <div class="book-title">Creation Lake — Rachel Kushner</div>
                 </div>
             </div>
             <p class="coming-soon">Selective bookstore launching March 1st — handpicked titles, direct from the shores.</p>
@@ -406,78 +441,19 @@
                     <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" alt="Jim Jarmusch">
                     <div class="postcard-caption">Postmark your thoughts</div>
                 </div>
-
-                <div class="postcard">
-                    <img src="https://i.ebayimg.com/images/g/0W0AAOSwGshdvFvg/s-l1200.jpg" alt="Brigitte Bardot">
-                    <div class="postcard-caption">Words that linger</div>
-                </div>
             </div>
 
-            <!-- Digital Postcard Creator -->
-            <div style="margin-top: 4rem; text-align: center;">
-                <h3>Send a Digital Postcard</h3>
-                <p style="margin: 1rem auto; max-width: 600px; color: var(--gray);">
-                    Choose a background, pick a stamp, write your message, and download to share.
-                </p>
-
-                <div style="max-width: 600px; margin: 2rem auto; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; border: 2px solid var(--black);">
-                    <div style="margin-bottom: 1.5rem;">
-                        <label for="bgSelect" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Background:</label>
-                        <select id="bgSelect" style="padding: 0.8rem; width: 100%; max-width: 400px; border: 2px solid var(--black); border-radius: 6px;">
-                            <option value="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg">Jim Jarmusch vibe</option>
-                            <option value="https://i.ebayimg.com/images/g/0W0AAOSwGshdvFvg/s-l1200.jpg">Brigitte Bardot vibe</option>
-                        </select>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Stamp:</label>
-                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-                            <label style="cursor: pointer;">
-                                <input type="radio" name="stamp" value="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/George_Harrison_1987.jpg/120px-George_Harrison_1987.jpg" checked style="display:none;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/George_Harrison_1987.jpg/120px-George_Harrison_1987.jpg" alt="George Harrison" style="width:70px; height:70px; border-radius:50%;" onclick="this.previousElementSibling.checked=true; updatePreview();">
-                            </label>
-                            <label style="cursor: pointer;">
-                                <input type="radio" name="stamp" value="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Paramahansa_Yogananda.jpg/120px-Paramahansa_Yogananda.jpg" style="display:none;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Paramahansa_Yogananda.jpg/120px-Paramahansa_Yogananda.jpg" alt="Paramahansa Yogananda" style="width:70px; height:70px; border-radius:50%;" onclick="this.previousElementSibling.checked=true; updatePreview();">
-                            </label>
-                            <label style="cursor: pointer;">
-                                <input type="radio" name="stamp" value="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Joan_Didion_1977.jpg/120px-Joan_Didion_1977.jpg" style="display:none;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Joan_Didion_1977.jpg/120px-Joan_Didion_1977.jpg" alt="Joan Didion" style="width:70px; height:70px; border-radius:50%; object-fit:cover;" onclick="this.previousElementSibling.checked=true; updatePreview();">
-                            </label>
-                            <label style="cursor: pointer;">
-                                <input type="radio" name="stamp" value="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Abbey_Road_crossing_silhouette.svg/120px-Abbey_Road_crossing_silhouette.svg.png" style="display:none;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Abbey_Road_crossing_silhouette.svg/120px-Abbey_Road_crossing_silhouette.svg.png" alt="Beatles" style="width:70px; height:70px; border-radius:50%;" onclick="this.previousElementSibling.checked=true; updatePreview();">
-                            </label>
-                            <label style="cursor: pointer;">
-                                <input type="radio" name="stamp" value="https://img.icons8.com/ios-filled/100/000000/detective.png" style="display:none;">
-                                <img src="https://img.icons8.com/ios-filled/100/000000/detective.png" alt="Film Noir" style="width:70px; height:70px; border-radius:50%;" onclick="this.previousElementSibling.checked=true; updatePreview();">
-                            </label>
-                        </div>
-                    </div>
-
-                    <canvas id="postcardCanvas" width="600" height="400" style="border: 4px solid var(--black); border-radius: 12px; background: #fff; max-width: 100%; box-shadow: 0 8px 20px rgba(0,0,0,0.2);"></canvas>
-
-                    <textarea id="message" placeholder="Your message..." rows="5" style="width: 100%; margin: 1.5rem 0; padding: 1rem; border: 2px solid var(--black); border-radius: 8px;"></textarea>
-                    <input type="text" id="fromName" placeholder="From (optional)" style="width: 100%; max-width: 400px; padding: 0.8rem; margin-bottom: 1.5rem; border: 2px solid var(--black); border-radius: 6px;">
-
-                    <div style="margin-top: 1.5rem;">
-                        <button onclick="updatePreview()" class="btn" style="margin-right: 1rem;">Preview</button>
-                        <button onclick="downloadPostcard()" class="btn">Download</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Waves Back Reflection Chat -->
+            <!-- Waves Back – Write & Receive a Fortune Cookie -->
             <div class="chat-section" style="margin-top: 4rem;">
-                <h3>Waves Back – Write & Receive</h3>
+                <h3>Waves Back – Write & Receive a Fortune Cookie</h3>
                 <p style="color: var(--gray); margin-bottom: 1rem;">
-                    Share a thought, feeling, or question. A.E. will write back with a wave of reflection.
+                    Share a thought, feeling, or question. The waves will return a fortune cookie message just for you.
                 </p>
 
                 <div class="chat-messages" id="chatMessages"></div>
 
                 <div class="chat-input">
-                    <input type="text" id="chatInput" placeholder="Type your message...">
+                    <input type="text" id="chatInput" placeholder="Write your message...">
                     <button onclick="sendMessage()" class="btn">Send</button>
                 </div>
             </div>
@@ -527,132 +503,37 @@
             });
         });
 
-        // Digital Postcard Logic
-        const canvas = document.getElementById('postcardCanvas');
-        const ctx = canvas.getContext('2d');
-        const bgSelect = document.getElementById('bgSelect');
-        const messageInput = document.getElementById('message');
-        const fromInput = document.getElementById('fromName');
+        // Waves Back – Fortune Cookie Logic
+        const fortuneCookies = [
+            "The tide brings what the heart quietly calls for — trust the pull.",
+            "A wave never apologizes for arriving — neither should your truth.",
+            "What you seek is already moving toward you, like moonlight on water.",
+            "The shore remembers every touch — so does your soul.",
+            "Let go of the oar; the current knows the way home.",
+            "Every doubt is a shell waiting to be opened by the next wave.",
+            "Joy hides in the pause between breaths — listen there.",
+            "The sea does not rush — neither should your becoming.",
+            "You are not lost; you are simply between tides.",
+            "Love arrives softly, like fog that suddenly reveals the horizon.",
+            "What breaks on the rocks today carves beauty for tomorrow.",
+            "The wave that crashes is the same one that rises again — so are you.",
+            "Silence is the deepest shore — walk it barefoot.",
+            "Your next step is already written in the sand by yesterday's tide.",
+            "The ocean never asks permission to be vast — neither should you.",
+            "A single breath can turn the tide within you.",
+            "What you carry lightly returns to you lightly.",
+            "The shore does not judge the waves — only welcomes them.",
+            "Every ending is a wave folding back into the sea of beginnings.",
+            "You are the question the waves have been asking all along.",
+            "The heart's compass points where the mind fears to look.",
+            "Let the wind write your worries on the water — they dissolve.",
+            "What is yours will find you when you stop searching the horizon.",
+            "The sea keeps no secrets from those who listen.",
+            "Every shell you find was once a home — so is your current moment."
+        ];
 
-        let currentBg = new Image();
-        let currentStamp = new Image();
-
-        function loadBackground(url) {
-            currentBg.src = url;
-            currentBg.crossOrigin = "anonymous";
-            currentBg.onload = updatePreview;
-        }
-
-        function loadStamp(url) {
-            currentStamp.src = url;
-            currentStamp.crossOrigin = "anonymous";
-            currentStamp.onload = updatePreview;
-        }
-
-        document.querySelectorAll('input[name="stamp"]').forEach(radio => {
-            radio.addEventListener('change', () => {
-                if (radio.checked) loadStamp(radio.value);
-            });
-        });
-
-        function updatePreview() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            if (currentBg.complete) ctx.drawImage(currentBg, 0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(248, 248, 248, 0.75)';
-            ctx.fillRect(40, 60, canvas.width - 80, canvas.height - 120);
-            ctx.font = '20px "IBM Plex Mono", monospace';
-            ctx.fillStyle = '#000';
-            ctx.textAlign = 'left';
-            wrapText(ctx, messageInput.value.trim() || "Your message...", 60, 120, canvas.width - 120, 28);
-            if (fromInput.value.trim()) {
-                ctx.font = 'italic 16px "IBM Plex Mono", monospace';
-                ctx.fillText(`— ${fromInput.value.trim()}`, 60, canvas.height - 80);
-            }
-            if (currentStamp.complete) {
-                const stampSize = 120;
-                ctx.drawImage(currentStamp, canvas.width - stampSize - 40, canvas.height - stampSize - 40, stampSize, stampSize);
-            }
-            ctx.font = 'italic 14px "IBM Plex Mono", monospace';
-            ctx.fillText("Book & Shores 🌊", canvas.width - 200, canvas.height - 30);
-        }
-
-        function wrapText(context, text, x, y, maxWidth, lineHeight) {
-            const words = text.split(' ');
-            let line = '';
-            for (let n = 0; n < words.length; n++) {
-                const testLine = line + words[n] + ' ';
-                if (context.measureText(testLine).width > maxWidth && n > 0) {
-                    context.fillText(line, x, y);
-                    line = words[n] + ' ';
-                    y += lineHeight;
-                } else line = testLine;
-            }
-            context.fillText(line, x, y);
-        }
-
-        function downloadPostcard() {
-            const link = document.createElement('a');
-            link.download = 'postcard.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-        }
-
-        bgSelect.addEventListener('change', () => loadBackground(bgSelect.value));
-        messageInput.addEventListener('input', updatePreview);
-        fromInput.addEventListener('input', updatePreview);
-        loadBackground(bgSelect.value);
-        const initialStamp = document.querySelector('input[name="stamp"]:checked');
-        if (initialStamp) loadStamp(initialStamp.value);
-
-        // Waves Back Chat Logic
-        const chatResponses = {
-            doubt: [
-                "Doubt is the undertow before the wave rises. What small truth can you stand on as the tide turns?",
-                "Even the shore doubts its shape after every storm, yet it holds. What part of you is still steady?",
-                "Doubt is just the sea asking if you're ready to swim deeper. Are you?"
-            ],
-            joy: [
-                "Joy arrives like sunlight breaking through fog on the water. Let it linger — what color does it paint the waves today?",
-                "The waves laugh when joy touches them. What made the ocean smile in you?",
-                "Joy is the crest before the fall — ride it gently. What's lifting you right now?"
-            ],
-            change: [
-                "Change is the tide — it pulls away what no longer serves, then returns new shells. What is the sea carrying away for you?",
-                "Every wave reshapes the shore, yet the shore remains. What new shape are you becoming?",
-                "The shore never resists the tide. What can you release to let the next wave come?"
-            ],
-            lost: [
-                "Being lost is just the sea showing you how vast the horizon is. What small star can you follow tonight?",
-                "The shore is never lost — it waits. Where do you feel the pull toward home?",
-                "Lost is only a moment between waves. Breathe — the next one knows the way."
-            ],
-            love: [
-                "Love is the undertow that draws us back to one another. What current is pulling you closer today?",
-                "The waves never ask permission to touch the shore. What love is already reaching for you?",
-                "Love moves like the sea — deep, quiet, unstoppable. What does it whisper when you're still?"
-            ],
-            wave: [
-                "The wave doesn't rush to the shore — it trusts the ocean to carry it. Where are you being carried right now?",
-                "Every wave is a breath of the sea. What does this one want to say?",
-                "Waves don't compete — they rise together. Who rises with you?"
-            ],
-            default: [
-                "The shore listens to every wave, no matter how quiet. What is yours carrying today?",
-                "Sometimes the sea speaks in silence. What do you hear when the waves hush?",
-                "The tide always returns. What are you waiting to welcome back?",
-                "Every message is a pebble dropped in the water — ripples go farther than we see."
-            ]
-        };
-
-        function getResponse(message) {
-            const lower = message.toLowerCase();
-            if (lower.includes('doubt')) return chatResponses.doubt[Math.floor(Math.random() * chatResponses.doubt.length)];
-            if (lower.includes('joy') || lower.includes('happy')) return chatResponses.joy[Math.floor(Math.random() * chatResponses.joy.length)];
-            if (lower.includes('change')) return chatResponses.change[Math.floor(Math.random() * chatResponses.change.length)];
-            if (lower.includes('lost')) return chatResponses.lost[Math.floor(Math.random() * chatResponses.lost.length)];
-            if (lower.includes('love')) return chatResponses.love[Math.floor(Math.random() * chatResponses.love.length)];
-            if (lower.includes('wave') || lower.includes('tide')) return chatResponses.wave[Math.floor(Math.random() * chatResponses.wave.length)];
-            return chatResponses.default[Math.floor(Math.random() * chatResponses.default.length)];
+        function getFortuneCookie() {
+            return fortuneCookies[Math.floor(Math.random() * fortuneCookies.length)];
         }
 
         function addMessage(text, isUser = false) {
@@ -673,9 +554,9 @@
             input.value = '';
 
             setTimeout(() => {
-                const reply = getResponse(text);
+                const reply = getFortuneCookie();
                 addMessage(reply);
-            }, 1000);
+            }, 800);
         }
 
         document.getElementById('chatInput').addEventListener('keypress', e => {
