@@ -10,11 +10,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <!-- Optional extras -->
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-
     <title>Book & Shores</title>
 
     <!-- Google Fonts -->
@@ -126,12 +121,12 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
 
-        .chat-section {
+        .chat-section, .tarot-section {
             background: rgba(0,0,0,0.05);
             border-radius: 12px;
             padding: 2rem;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 4rem auto 0;
         }
 
         .chat-messages {
@@ -176,7 +171,7 @@
             font-family: 'IBM Plex Mono', monospace;
         }
 
-        .chat-input button {
+        .chat-input button, .spin-button, .tarot-button {
             padding: 0.8rem 1.2rem;
             background: #111;
             color: var(--yellow);
@@ -186,94 +181,8 @@
             font-weight: 600;
         }
 
-        .chat-input button:hover {
+        .chat-input button:hover, .spin-button:hover, .tarot-button:hover {
             background: #222;
-        }
-
-        .track-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin: 1rem 0 0.5rem;
-            color: var(--black);
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 4rem;
-            margin-top: 4rem;
-        }
-
-        .book-card {
-            text-align: center;
-            transition: transform 0.4s ease;
-        }
-
-        .book-card:hover {
-            transform: translateY(-12px);
-        }
-
-        .book-card img {
-            height: 360px;
-            width: 100%;
-            object-fit: cover;
-            object-position: center;
-            border: 4px solid var(--black);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-            transition: all 0.4s ease;
-        }
-
-        .book-card:hover img {
-            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-            transform: scale(1.04);
-        }
-
-        .book-title {
-            margin-top: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-
-        .coming-soon {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 1.6rem;
-            font-style: italic;
-            margin-top: 3rem;
-            color: var(--gray);
-        }
-
-        .audio-player {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 1.5rem;
-            border: 2px solid var(--black);
-            border-radius: 12px;
-            background: rgba(0,0,0,0.03);
-        }
-
-        .audio-player audio {
-            width: 100%;
-            max-width: 600px;
-            margin: 1rem 0;
-        }
-
-        .small-sound-img {
-            max-width: 200px;
-            height: auto;
-            border: 3px solid var(--black);
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            margin-bottom: 1rem;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .credit {
-            font-style: italic;
-            color: var(--gray);
-            margin-top: 0.5rem;
         }
 
         .support-buttons {
@@ -333,6 +242,92 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
+        .bardot-container {
+            text-align: center;
+            margin: 2rem 0 4rem;
+            padding: 1.5rem;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.03);
+        }
+
+        #bardotSpinner {
+            width: 220px;
+            margin: 0 auto 1.5rem;
+            cursor: pointer;
+        }
+
+        #bardotSpinner img {
+            width: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--black);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        #bardotSpinner:hover img {
+            transform: scale(1.05);
+        }
+
+        .winkAnimation {
+            animation: wink 0.6s ease-in-out 2;
+        }
+
+        @keyframes wink {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        #revealMessage {
+            display: none;
+            margin-top: 1.5rem;
+            font-style: italic;
+            color: var(--gray);
+            font-size: 1.1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .tarot-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.05);
+        }
+
+        .tarot-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .tarot-card {
+            width: 180px;
+            text-align: center;
+        }
+
+        .tarot-card img {
+            width: 100%;
+            border: 4px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .tarot-card.reversed img {
+            transform: rotate(180deg);
+        }
+
+        .tarot-meaning {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: var(--gray);
+        }
+
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -345,6 +340,54 @@
             font-style: italic;
             margin: 1.5rem 0;
         }
+
+        /* Consistent book cover sizes */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .book-card {
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .book-card img {
+            width: 200px;
+            height: 300px;
+            object-fit: contain;
+            object-position: center;
+            border: 4px solid var(--black);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            background: white; /* white background for consistency */
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .book-card:hover img {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+        }
+
+        .book-title {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .coming-soon {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-top: 2rem;
+            color: var(--gray);
+        }
     </style>
 </head>
 <body>
@@ -355,8 +398,8 @@
 
         <nav>
             <a href="#reads">Weekly Reads</a>
-            <a href="#sounds">Original Sounds</a>
             <a href="#penpal">Send a Postcard</a>
+            <a href="#sounds">Original Sounds</a>
             <a href="#support">Support Radio</a>
         </nav>
     </header>
@@ -389,47 +432,6 @@
             <p class="coming-soon">Selective bookstore launching March 1st — handpicked titles, direct from the shores.</p>
         </section>
 
-        <section id="sounds" class="section">
-            <h2>Original Sounds</h2>
-            <p>Recorded in the moment, shared freely.</p>
-
-            <div class="audio-player">
-                <div class="track-title">Wayback</div>
-                <audio controls>
-                    <source src="WAYBACK.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-
-                <img src="IMG_0473.jpg" alt="Wayback Recording" class="small-sound-img">
-
-                <p class="credit">Written and played by me -A.E.</p>
-
-                <div class="support-buttons">
-                    <a href="WAYBACK.mp3" download class="btn">Download "Wayback"</a>
-                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="background: #111; color: var(--yellow);">
-                        Support / Tip ☕
-                    </a>
-                </div>
-            </div>
-
-            <div class="audio-player" style="margin-top: 3rem;">
-                <div class="track-title">Don't Walk Away</div>
-                <audio controls>
-                    <source src="walkaway.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-
-                <p class="credit">Written and played by me -A.E.</p>
-
-                <div class="support-buttons">
-                    <a href="walkaway.mp3" download class="btn">Download "Don't Walk Away"</a>
-                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="background: #111; color: var(--yellow);">
-                        Support / Tip ☕
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <section id="penpal" class="section">
             <h2>Send a Postcard</h2>
             <p>Let pen and ink be your guide.</p>
@@ -456,6 +458,43 @@
                     <input type="text" id="chatInput" placeholder="Write your message...">
                     <button onclick="sendMessage()" class="btn">Send</button>
                 </div>
+            </div>
+        </section>
+
+        <section id="sounds" class="section">
+            <h2>Original Sounds</h2>
+            <p>Recorded in the moment, shared freely.</p>
+
+            <!-- Spin Brigitte Bardot -->
+            <div class="bardot-container">
+                <h3>Spin Brigitte Bardot</h3>
+                <p style="color:var(--gray);">Let the icon of the shore choose your wave vibe.</p>
+
+                <div id="bardotSpinner">
+                    <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
+                </div>
+
+                <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
+
+                <div id="revealMessage"></div>
+
+                <div class="support-buttons" style="margin-top:2rem;">
+                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="background:#111; color:var(--yellow); font-size:1.1rem;">
+                        Tip $2 to help fund Book and Shores Community Bookstore ☕
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3-Card Tarot -->
+            <div class="tarot-section">
+                <h3>Waves of Insight: 3-Card Tarot</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem;">
+                    Draw three cards for Past, Present, Future. Let the waves reveal guidance.
+                </p>
+
+                <button class="tarot-button" onclick="drawTarot()">Draw Cards</button>
+
+                <div class="tarot-cards" id="tarotCards"></div>
             </div>
         </section>
 
@@ -495,6 +534,13 @@
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
+        // Preload voices for TTS
+        let voicesLoaded = false;
+        speechSynthesis.onvoiceschanged = () => {
+            voicesLoaded = true;
+            console.log("Voices loaded");
+        };
+
         // Smooth scrolling for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
@@ -503,7 +549,7 @@
             });
         });
 
-        // Waves Back – Fortune Cookie Logic
+        // Fortune Cookie Logic
         const fortuneCookies = [
             "The tide brings what the heart quietly calls for — trust the pull.",
             "A wave never apologizes for arriving — neither should your truth.",
@@ -562,6 +608,5 @@
         document.getElementById('chatInput').addEventListener('keypress', e => {
             if (e.key === 'Enter') sendMessage();
         });
-    </script>
-</body>
-</html>
+
+        // Brigitte...
