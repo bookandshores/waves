@@ -325,6 +325,43 @@
             border-radius: 8px;
         }
 
+        /* Postcards – fixed size + mobile scaling */
+        .postcards {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .postcard {
+            width: 280px;
+            max-width: 280px;
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .postcard:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        .postcard img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border: 12px solid white;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+            background: white;
+            transform: rotate(-1deg);
+            border-radius: 4px;
+        }
+
+        .postcard-caption {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -338,7 +375,7 @@
             margin: 1.5rem 0;
         }
 
-        /* Mobile adjustments */
+        /* Mobile adjustments – postcard gets smaller */
         @media (max-width: 768px) {
             .books-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -367,6 +404,15 @@
                 width: 180px;
             }
 
+            .postcard {
+                width: 240px;
+                max-width: 240px;
+            }
+
+            .postcard img {
+                max-width: 240px;
+            }
+
             .btn, .spin-button, .tarot-button, .chat-input button {
                 width: 100%;
                 margin: 0.6rem 0;
@@ -385,6 +431,15 @@
 
             h2 {
                 font-size: 2.1rem;
+            }
+
+            .postcard {
+                width: 220px;
+                max-width: 220px;
+            }
+
+            .postcard img {
+                max-width: 220px;
             }
         }
     </style>
@@ -552,13 +607,13 @@
         window.addEventListener('load', () => {
             const bbImg = document.getElementById('brigitteImg');
             if (!bbImg.complete || bbImg.naturalWidth === 0) {
-                console.warn("BB.jpg failed to load. Check file name and upload.");
+                console.warn("BB.jpg failed to load.");
             }
 
             const chineseImg = new Image();
             chineseImg.src = "Chinese.jpg";
-            chineseImg.onload = () => console.log("Chinese.jpg loaded successfully");
-            chineseImg.onerror = () => console.warn("Chinese.jpg failed to load. Check file name, upload, and case sensitivity.");
+            chineseImg.onload = () => console.log("Chinese.jpg loaded OK");
+            chineseImg.onerror = () => console.warn("Chinese.jpg failed – check name/upload");
         });
 
         // Smooth scrolling
@@ -612,13 +667,10 @@
         }
 
         function sendMessage() {
-            console.log("sendMessage called"); // Debug: check console when you click Send
+            console.log("sendMessage called");
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
-            if (!text) {
-                console.log("No message entered");
-                return;
-            }
+            if (!text) return;
 
             addMessage(text, true);
             input.value = '';
@@ -626,7 +678,6 @@
             setTimeout(() => {
                 const reply = getFortuneCookie();
                 addMessage(reply);
-                console.log("Fortune added:", reply); // Debug: confirm reply is generated
             }, 800);
         }
 
