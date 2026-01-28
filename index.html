@@ -325,7 +325,7 @@
             border-radius: 8px;
         }
 
-        /* Postcards – now slightly larger than book covers but balanced */
+        /* Postcards */
         .postcards {
             display: flex;
             justify-content: center;
@@ -375,7 +375,7 @@
             margin: 1.5rem 0;
         }
 
-        /* Mobile adjustments – postcard scales to stay slightly larger than books */
+        /* Mobile adjustments */
         @media (max-width: 768px) {
             .books-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -455,10 +455,20 @@
             <a href="#penpal">Send a Postcard</a>
             <a href="#sounds">Original Sounds</a>
             <a href="#support">Support Radio</a>
+            <a href="https://ko-fi.com/bookandshores/shop" target="_blank">Shop Posters</a>
         </nav>
     </header>
 
     <main>
+        <!-- Ko-fi Shop banner -->
+        <div style="text-align:center; background:var(--yellow); padding:1.5rem; border:3px solid var(--black); margin:2rem auto; max-width:900px; border-radius:8px;">
+            <h3 style="margin:0 0 0.5rem; color:var(--black);">Opening March 1st 2026</h3>
+            <p style="margin:0 0 1rem; color:var(--black);">Limited edition Book & Shores posters now available!</p>
+            <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn" style="font-size:1.1rem; padding:1rem 2rem;">
+                View & Buy Posters on Ko-fi
+            </a>
+        </div>
+
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid">
@@ -510,7 +520,7 @@
             </div>
 
             <div class="chat-section" style="margin-top: 4rem; text-align: center;">
-                <img src="Chinese.jpg" 
+                <img src="https://www.pngall.com/wp-content/uploads/2016/04/Chinese-Takeout-Box-Free-PNG-Image.png" 
                      alt="Chinese Takeout Box" 
                      style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
                 
@@ -537,7 +547,9 @@
                 <p style="color:var(--gray);">Let the icon of the shore choose your wave vibe.</p>
 
                 <div id="bardotSpinner">
-                    <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Brigitte_Bardot_in_1968.jpg" 
+                         alt="Brigitte Bardot" 
+                         id="brigitteImg">
                 </div>
 
                 <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
@@ -603,17 +615,17 @@
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Preload check for images
+        // Preload check for images (updated for external URLs)
         window.addEventListener('load', () => {
             const bbImg = document.getElementById('brigitteImg');
             if (!bbImg.complete || bbImg.naturalWidth === 0) {
-                console.warn("BB.jpg failed to load.");
+                console.warn("Brigitte Bardot image failed to load – check URL");
             }
 
-            const chineseImg = new Image();
-            chineseImg.src = "Chinese.jpg";
-            chineseImg.onload = () => console.log("Chinese.jpg loaded OK");
-            chineseImg.onerror = () => console.warn("Chinese.jpg failed – check name/upload");
+            const chineseImg = document.querySelector('.chat-section img');
+            if (!chineseImg.complete || chineseImg.naturalWidth === 0) {
+                console.warn("Chinese takeout image failed to load – check URL");
+            }
         });
 
         // Smooth scrolling
@@ -685,7 +697,7 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        // Spin Brigitte Bardot
+        // Spin Brigitte Bardot – should now work with external image
         const brigitteQuotes = [
             "Darling, life is too short for bad wine... or bad waves!",
             "If the tide doesn't come to you... steal its flip-flops!",
