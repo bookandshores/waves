@@ -21,16 +21,11 @@
         :root {
             --yellow: #fcc028;
             --black: #000;
-            --offwhite: #f8f8f8;
+            --dark-black: #111;
             --gray: #444;
-            --lightgray: #888;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: var(--yellow);
@@ -41,53 +36,46 @@
         }
 
         header {
-            padding: 3rem 2rem 2rem;
+            padding: 3rem 1.5rem 2rem;
             text-align: center;
             border-bottom: 4px solid var(--black);
-            background: linear-gradient(to bottom, rgba(0,0,0,0.03), transparent);
         }
 
         h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-size: clamp(3rem, 9vw, 6.5rem);
             font-weight: 700;
             letter-spacing: -0.03em;
-            line-height: 0.9;
-            margin-bottom: 0.5rem;
+            line-height: 0.92;
+            margin-bottom: 0.4rem;
             text-transform: uppercase;
         }
 
         .tagline {
-            font-size: 1.4rem;
-            font-weight: 400;
-            letter-spacing: 0.08em;
+            font-size: clamp(1.1rem, 3.5vw, 1.35rem);
             opacity: 0.9;
-            margin-top: 0.5rem;
         }
 
         nav {
-            margin: 2rem 0;
+            margin: 1.8rem 0;
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
         }
 
         nav a {
             color: var(--black);
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 500;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            transition: all 0.3s ease;
             position: relative;
         }
 
-        nav a:hover,
-        nav a:focus {
+        nav a:hover {
             color: #111;
-            transform: translateY(-2px);
         }
 
         nav a::after {
@@ -95,10 +83,10 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -6px;
+            bottom: -5px;
             left: 0;
             background: var(--black);
-            transition: width 0.3s ease;
+            transition: width 0.35s ease;
         }
 
         nav a:hover::after {
@@ -106,27 +94,122 @@
         }
 
         main {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 2rem 1rem;
         }
 
         .section {
-            margin-bottom: 8rem;
-            padding: 4rem 3rem;
+            margin-bottom: 6rem;
+            padding: 2.5rem 2rem;
             border: 3px solid var(--black);
             background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(8px);
             border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
         }
 
-        .chat-section, .tarot-section {
+        h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+        h3 { font-size: clamp(1.6rem, 4vw, 2rem); }
+
+        /* Uniform book covers */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem 2rem;
+            justify-items: center;
+        }
+
+        .book-card {
+            width: 240px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .book-cover-frame {
+            width: 200px;
+            height: 300px;
+            margin: 0 auto 1rem;
+            background: white;
+            border: 4px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book-cover-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .book-title {
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.35;
+        }
+
+        .coming-soon {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.35rem;
+            font-style: italic;
+            margin-top: 2.5rem;
+            color: var(--gray);
+        }
+
+        /* Black box buttons – consistent across all */
+        .btn, 
+        .spin-button, 
+        .tarot-button, 
+        .chat-input button,
+        .support-buttons a.btn,
+        .radio-card a.btn {
+            display: inline-block;
+            padding: 0.9rem 1.6rem;
+            background: var(--black);
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 160px;
+        }
+
+        .btn:hover, 
+        .spin-button:hover, 
+        .tarot-button:hover, 
+        .chat-input button:hover,
+        .support-buttons a.btn:hover,
+        .radio-card a.btn:hover {
+            background: var(--dark-black);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        /* Fortune Cookie section */
+        .chat-section {
             background: rgba(0,0,0,0.05);
             border-radius: 12px;
             padding: 2rem;
             max-width: 600px;
             margin: 4rem auto 0;
+            text-align: center;
         }
 
         .chat-messages {
@@ -136,112 +219,64 @@
             padding: 1rem;
             height: 300px;
             overflow-y: auto;
-            margin-bottom: 1rem;
-        }
-
-        .message {
-            margin: 0.5rem 0;
-            padding: 0.8rem;
-            border-radius: 8px;
-        }
-
-        .user-message {
-            background: var(--yellow);
-            color: var(--black);
-            text-align: right;
-            margin-left: 20%;
-        }
-
-        .ae-message {
-            background: #111;
-            color: var(--yellow);
-            margin-right: 20%;
+            margin: 1.5rem 0;
         }
 
         .chat-input {
             display: flex;
             gap: 0.5rem;
+            margin-top: 1rem;
         }
 
         .chat-input input {
             flex: 1;
-            padding: 0.8rem;
+            padding: 0.9rem;
             border: 2px solid var(--black);
             border-radius: 6px;
             font-family: 'IBM Plex Mono', monospace;
         }
 
-        .chat-input button, .spin-button, .tarot-button {
-            padding: 0.8rem 1.2rem;
-            background: #111;
-            color: var(--yellow);
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .chat-input button:hover, .spin-button:hover, .tarot-button:hover {
-            background: #222;
-        }
-
-        .support-buttons {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .postcards {
-            display: flex;
-            justify-content: center;
-            gap: 6rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .postcard {
-            width: 280px;
+        /* Tarot section */
+        .tarot-section {
+            background: rgba(0,0,0,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 4rem auto 0;
             text-align: center;
-            transition: transform 0.4s ease;
         }
 
-        .postcard:hover {
-            transform: rotate(2deg) scale(1.05);
+        .tarot-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
         }
 
-        .postcard img {
+        .tarot-card {
+            width: 180px;
+            text-align: center;
+        }
+
+        .tarot-card img {
             width: 100%;
-            border: 12px solid white;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-            background: white;
-            transform: rotate(-1deg);
+            border: 4px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        .postcard-caption {
-            margin-top: 1.2rem;
-            font-size: 1.1rem;
+        .tarot-card.reversed img {
+            transform: rotate(180deg);
+        }
+
+        .tarot-meaning {
+            margin-top: 0.5rem;
             font-style: italic;
+            color: var(--gray);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 1.6rem;
-            background: var(--black);
-            color: var(--yellow);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #111;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
+        /* Spinner */
         .bardot-container {
             text-align: center;
             margin: 2rem 0 4rem;
@@ -290,44 +325,6 @@
             border-radius: 8px;
         }
 
-        .tarot-section {
-            margin-top: 3rem;
-            padding: 2rem;
-            border: 2px solid var(--black);
-            border-radius: 12px;
-            background: rgba(0,0,0,0.05);
-        }
-
-        .tarot-cards {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        .tarot-card {
-            width: 180px;
-            text-align: center;
-        }
-
-        .tarot-card img {
-            width: 100%;
-            border: 4px solid var(--black);
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .tarot-card.reversed img {
-            transform: rotate(180deg);
-        }
-
-        .tarot-meaning {
-            margin-top: 0.5rem;
-            font-style: italic;
-            color: var(--gray);
-        }
-
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -341,52 +338,54 @@
             margin: 1.5rem 0;
         }
 
-        /* Consistent book cover sizes */
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .books-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2rem 1.5rem;
+            }
+
+            .book-cover-frame {
+                width: 180px;
+                height: 270px;
+            }
+
+            .section {
+                padding: 2rem 1.2rem;
+                margin-bottom: 5rem;
+            }
+
+            header {
+                padding: 2.2rem 1.2rem 1.6rem;
+            }
+
+            nav {
+                gap: 1.4rem;
+            }
+
+            #bardotSpinner {
+                width: 180px;
+            }
+
+            .btn, .spin-button, .tarot-button, .chat-input button {
+                width: 100%;
+                margin: 0.6rem 0;
+            }
         }
 
-        .book-card {
-            text-align: center;
-            transition: transform 0.4s ease;
-        }
+        @media (max-width: 480px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .book-card:hover {
-            transform: translateY(-8px);
-        }
+            .book-cover-frame {
+                width: 160px;
+                height: 240px;
+            }
 
-        .book-card img {
-            width: 200px;
-            height: 300px;
-            object-fit: contain;
-            object-position: center;
-            border: 4px solid var(--black);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            background: white; /* white background for consistency */
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .book-card:hover img {
-            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-        }
-
-        .book-title {
-            margin-top: 1rem;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .coming-soon {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 1.4rem;
-            font-style: italic;
-            margin-top: 2rem;
-            color: var(--gray);
+            h2 {
+                font-size: 2.1rem;
+            }
         }
     </style>
 </head>
@@ -409,23 +408,33 @@
             <h2>Weekly Reads</h2>
             <div class="books-grid">
                 <div class="book-card">
-                    <img src="https://d23eqwv5slm408.cloudfront.net/api/file/cUbMire1StaLhkh6Qgko/convert?fit=max&h=874&w=1312&compress=true" alt="Practicing Dying">
+                    <div class="book-cover-frame">
+                        <img src="https://d23eqwv5slm408.cloudfront.net/api/file/cUbMire1StaLhkh6Qgko/convert?fit=max&h=874&w=1312&compress=true" alt="Practicing Dying">
+                    </div>
                     <div class="book-title">Practicing Dying — Charlotte Northall</div>
                 </div>
                 <div class="book-card">
-                    <img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga">
+                    <div class="book-cover-frame">
+                        <img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga">
+                    </div>
                     <div class="book-title">Finding the Raga — Amit Chaudhuri</div>
                 </div>
                 <div class="book-card">
-                    <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
+                    <div class="book-cover-frame">
+                        <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
+                    </div>
                     <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
                 </div>
                 <div class="book-card">
-                    <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781627931663/autobiography-of-a-yogi-9781627931663_lg.jpg" alt="Autobiography of a Yogi">
+                    <div class="book-cover-frame">
+                        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781627931663/autobiography-of-a-yogi-9781627931663_lg.jpg" alt="Autobiography of a Yogi">
+                    </div>
                     <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
                 </div>
                 <div class="book-card">
-                    <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake">
+                    <div class="book-cover-frame">
+                        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake">
+                    </div>
                     <div class="book-title">Creation Lake — Rachel Kushner</div>
                 </div>
             </div>
@@ -445,10 +454,13 @@
                 </div>
             </div>
 
-            <!-- Waves Back – Write & Receive a Fortune Cookie -->
-            <div class="chat-section" style="margin-top: 4rem;">
+            <div class="chat-section" style="margin-top: 4rem; text-align: center;">
+                <img src="Chinese.jpg" 
+                     alt="Chinese Takeout Box" 
+                     style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
+                
                 <h3>Waves Back – Write & Receive a Fortune Cookie</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <p style="color: var(--gray); margin-bottom: 1.5rem;">
                     Share a thought, feeling, or question. The waves will return a fortune cookie message just for you.
                 </p>
 
@@ -456,7 +468,7 @@
 
                 <div class="chat-input">
                     <input type="text" id="chatInput" placeholder="Write your message...">
-                    <button onclick="sendMessage()" class="btn">Send</button>
+                    <button onclick="sendMessage()">Send</button>
                 </div>
             </div>
         </section>
@@ -465,7 +477,6 @@
             <h2>Original Sounds</h2>
             <p>Recorded in the moment, shared freely.</p>
 
-            <!-- Spin Brigitte Bardot -->
             <div class="bardot-container">
                 <h3>Spin Brigitte Bardot</h3>
                 <p style="color:var(--gray);">Let the icon of the shore choose your wave vibe.</p>
@@ -479,22 +490,25 @@
                 <div id="revealMessage"></div>
 
                 <div class="support-buttons" style="margin-top:2rem;">
-                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="background:#111; color:var(--yellow); font-size:1.1rem;">
+                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="font-size:1.1rem;">
                         Tip $2 to help fund Book and Shores Community Bookstore ☕
                     </a>
                 </div>
             </div>
 
-            <!-- 3-Card Tarot -->
-            <div class="tarot-section">
+            <div class="tarot-section" style="margin-top: 3.5rem; text-align: center;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/800px-RWS_Tarot_02_High_Priestess.jpg" 
+                     alt="The High Priestess Tarot Card" 
+                     style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
+                
                 <h3>Waves of Insight: 3-Card Tarot</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <p style="color: var(--gray); margin-bottom: 1.5rem;">
                     Draw three cards for Past, Present, Future. Let the waves reveal guidance.
                 </p>
 
                 <button class="tarot-button" onclick="drawTarot()">Draw Cards</button>
 
-                <div class="tarot-cards" id="tarotCards"></div>
+                <div class="tarot-cards" id="tarotCards" style="margin-top: 2rem;"></div>
             </div>
         </section>
 
@@ -534,14 +548,20 @@
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Preload voices for TTS
-        let voicesLoaded = false;
-        speechSynthesis.onvoiceschanged = () => {
-            voicesLoaded = true;
-            console.log("Voices loaded");
-        };
+        // Preload check for images
+        window.addEventListener('load', () => {
+            const bbImg = document.getElementById('brigitteImg');
+            if (!bbImg.complete || bbImg.naturalWidth === 0) {
+                console.warn("BB.jpg failed to load. Check file name and upload.");
+            }
 
-        // Smooth scrolling for nav links
+            const chineseImg = new Image();
+            chineseImg.src = "Chinese.jpg";
+            chineseImg.onload = () => console.log("Chinese.jpg loaded successfully");
+            chineseImg.onerror = () => console.warn("Chinese.jpg failed to load. Check file name, upload, and case sensitivity.");
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
                 e.preventDefault();
@@ -592,9 +612,13 @@
         }
 
         function sendMessage() {
+            console.log("sendMessage called"); // Debug: check console when you click Send
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
-            if (!text) return;
+            if (!text) {
+                console.log("No message entered");
+                return;
+            }
 
             addMessage(text, true);
             input.value = '';
@@ -602,6 +626,7 @@
             setTimeout(() => {
                 const reply = getFortuneCookie();
                 addMessage(reply);
+                console.log("Fortune added:", reply); // Debug: confirm reply is generated
             }, 800);
         }
 
@@ -609,4 +634,116 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        // Brigitte...
+        // Spin Brigitte Bardot
+        const brigitteQuotes = [
+            "Darling, life is too short for bad wine... or bad waves!",
+            "If the tide doesn't come to you... steal its flip-flops!",
+            "I kissed a wave once... it was salty but romantic.",
+            "Never trust a man who doesn't like croissants or sunsets.",
+            "My secret to looking fabulous? The ocean is my mirror!",
+            "Wear sunscreen... and confidence. Both are non-negotiable.",
+            "If you fall off the board, blame the wave, not me!",
+            "Love is like the tide... it comes back when you least expect it."
+        ];
+
+        function spinBardot() {
+            const spinner = document.getElementById('bardotSpinner');
+            const reveal = document.getElementById('revealMessage');
+
+            const degrees = Math.floor(Math.random() * 1440) + 1080;
+            spinner.style.transition = 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            spinner.style.transform = `rotate(${degrees}deg)`;
+
+            setTimeout(() => {
+                spinner.style.transition = 'none';
+                spinner.style.transform = 'rotate(0deg)';
+
+                spinner.classList.add('winkAnimation');
+                setTimeout(() => spinner.classList.remove('winkAnimation'), 1500);
+
+                const quote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
+                reveal.textContent = quote;
+                reveal.style.display = 'block';
+
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(quote);
+                    const voices = speechSynthesis.getVoices();
+                    const sexyFemale = voices.find(v => 
+                        v.lang === 'en-US' && 
+                        (v.name.includes('Samantha') || v.name.includes('Ava') || v.name.includes('Karen') || 
+                         v.name.includes('Google') || v.name.includes('Zira') || v.name.includes('Emma') || 
+                         v.name.includes('Joanna') || v.name.includes('female'))
+                    ) || voices.find(v => v.lang === 'en-US') || voices[0];
+
+                    utterance.voice = sexyFemale;
+                    utterance.lang = 'en-US';
+                    utterance.rate = 0.88;
+                    utterance.pitch = 1.18;
+                    utterance.volume = 0.95;
+
+                    speechSynthesis.speak(utterance);
+                }
+            }, 6000);
+        }
+
+        // Tarot
+        const tarotDeck = [
+            { name: "The Fool", image: "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg", meaning: "Leap into the unknown wave — pure adventure, no fear of the wipeout." },
+            { name: "The Magician", image: "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg", meaning: "Channel the tide — mastery of tools, turning chaos into art." },
+            { name: "The High Priestess", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg", meaning: "Listen to the deep ocean — intuition, secrets beneath the surface." },
+            { name: "The Empress", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg", meaning: "Nurture the shore — abundance, creative birth." },
+            { name: "The Emperor", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg", meaning: "Build the breakwall — structure, authority." },
+            { name: "The Hierophant", image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg", meaning: "Teach the ancient reef — tradition, guidance." },
+            { name: "The Lovers", image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/RWS_Tarot_06_Lovers.jpg", meaning: "Ride tandem on the wave — union, choices." },
+            { name: "The Chariot", image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg", meaning: "Drive through the storm — willpower, victory." },
+            { name: "Strength", image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg", meaning: "Tame the riptide — courage, patience." },
+            { name: "The Hermit", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg", meaning: "Walk the empty beach at dawn — solitude, truth." },
+            { name: "Wheel of Fortune", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_10_Wheel_of_Fortune.jpg", meaning: "Waves turn, tides change — cycles, destiny." },
+            { name: "Justice", image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg", meaning: "Weigh the balance — truth, fairness." },
+            { name: "The Hanged Man", image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg", meaning: "Hang in suspension — surrender, new perspective." },
+            { name: "Death", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg", meaning: "The wave crashes, old form dissolves — transformation." },
+            { name: "Temperance", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg", meaning: "Blend the waters — balance, harmony." },
+            { name: "The Devil", image: "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg", meaning: "Chained to the bottle — bondage, shadow." },
+            { name: "The Tower", image: "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg", meaning: "Pier collapses in storm — upheaval, liberation." },
+            { name: "The Star", image: "https://upload.wikimedia.org/wikipedia/commons/6/62/RWS_Tarot_17_Star.jpg", meaning: "Pour hope into tidepool — healing, inspiration." },
+            { name: "The Moon", image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg", meaning: "Walk moonlit shore — illusion, fear." },
+            { name: "The Sun", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg", meaning: "Ride golden wave — joy, vitality." },
+            { name: "Judgement", image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg", meaning: "Call soul from deep — awakening, rebirth." },
+            { name: "The World", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg", meaning: "Wave completes cycle — completion, wholeness." }
+        ];
+
+        function shuffle(array) {
+            let currentIndex = array.length;
+            while (currentIndex !== 0) {
+                let randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        function drawTarot() {
+            console.log("drawTarot called");
+            const shuffled = shuffle([...tarotDeck]);
+            const drawn = shuffled.slice(0, 3);
+
+            const container = document.getElementById('tarotCards');
+            container.innerHTML = '';
+
+            const positions = ["Past", "Present", "Future"];
+
+            drawn.forEach((card, index) => {
+                const isReversed = Math.random() < 0.5;
+                const div = document.createElement('div');
+                div.className = 'tarot-card' + (isReversed ? ' reversed' : '');
+                div.innerHTML = `
+                    <img src="${card.image}" alt="${card.name}">
+                    <p><strong>${positions[index]}: ${card.name}${isReversed ? ' (Reversed)' : ''}</strong></p>
+                    <p class="tarot-meaning">${card.meaning}</p>
+                `;
+                container.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
