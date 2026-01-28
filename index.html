@@ -325,43 +325,6 @@
             border-radius: 8px;
         }
 
-        /* Postcards – fixed size + mobile scaling */
-        .postcards {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .postcard {
-            width: 280px;
-            max-width: 280px;
-            text-align: center;
-            transition: transform 0.4s ease;
-        }
-
-        .postcard:hover {
-            transform: rotate(2deg) scale(1.05);
-        }
-
-        .postcard img {
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            border: 12px solid white;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-            background: white;
-            transform: rotate(-1deg);
-            border-radius: 4px;
-        }
-
-        .postcard-caption {
-            margin-top: 1.2rem;
-            font-size: 1.1rem;
-            font-style: italic;
-        }
-
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -375,7 +338,7 @@
             margin: 1.5rem 0;
         }
 
-        /* Mobile adjustments – postcard gets smaller */
+        /* Mobile adjustments */
         @media (max-width: 768px) {
             .books-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -404,15 +367,6 @@
                 width: 180px;
             }
 
-            .postcard {
-                width: 240px;
-                max-width: 240px;
-            }
-
-            .postcard img {
-                max-width: 240px;
-            }
-
             .btn, .spin-button, .tarot-button, .chat-input button {
                 width: 100%;
                 margin: 0.6rem 0;
@@ -431,15 +385,6 @@
 
             h2 {
                 font-size: 2.1rem;
-            }
-
-            .postcard {
-                width: 220px;
-                max-width: 220px;
-            }
-
-            .postcard img {
-                max-width: 220px;
             }
         }
     </style>
@@ -546,7 +491,7 @@
 
                 <div class="support-buttons" style="margin-top:2rem;">
                     <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="font-size:1.1rem;">
-                        Tip $2 to help fund Book and Shores Community Bookstore ☕
+                        Support the Book & Shores Online Bookstore with $2 (opening March 1st) ☕
                     </a>
                 </div>
             </div>
