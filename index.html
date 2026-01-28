@@ -117,7 +117,7 @@
         h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
         h3 { font-size: clamp(1.6rem, 4vw, 2rem); }
 
-        /* Uniform book covers */
+        /* Uniform book covers – 200×300 px frame */
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -170,7 +170,7 @@
             color: var(--gray);
         }
 
-        /* Black box buttons – consistent across all */
+        /* Black box buttons */
         .btn, 
         .spin-button, 
         .tarot-button, 
@@ -325,6 +325,43 @@
             border-radius: 8px;
         }
 
+        /* Postcards – now slightly larger than book covers but balanced */
+        .postcards {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .postcard {
+            max-width: 240px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .postcard:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        .postcard img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border: 10px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            background: white;
+            transform: rotate(-1deg);
+            border-radius: 4px;
+        }
+
+        .postcard-caption {
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -338,7 +375,7 @@
             margin: 1.5rem 0;
         }
 
-        /* Mobile adjustments */
+        /* Mobile adjustments – postcard scales to stay slightly larger than books */
         @media (max-width: 768px) {
             .books-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -367,6 +404,15 @@
                 width: 180px;
             }
 
+            .postcard {
+                max-width: 220px;
+            }
+
+            .postcard img {
+                max-width: 220px;
+                border-width: 8px;
+            }
+
             .btn, .spin-button, .tarot-button, .chat-input button {
                 width: 100%;
                 margin: 0.6rem 0;
@@ -385,6 +431,15 @@
 
             h2 {
                 font-size: 2.1rem;
+            }
+
+            .postcard {
+                max-width: 200px;
+            }
+
+            .postcard img {
+                max-width: 200px;
+                border-width: 8px;
             }
         }
     </style>
