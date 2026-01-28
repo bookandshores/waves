@@ -520,7 +520,7 @@
             </div>
 
             <div class="chat-section" style="margin-top: 4rem; text-align: center;">
-                <img src="https://www.pngall.com/wp-content/uploads/2016/04/Chinese-Takeout-Box-Free-PNG-Image.png" 
+                <img src="Chinese.jpg" 
                      alt="Chinese Takeout Box" 
                      style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
                 
@@ -547,9 +547,7 @@
                 <p style="color:var(--gray);">Let the icon of the shore choose your wave vibe.</p>
 
                 <div id="bardotSpinner">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Brigitte_Bardot_in_1968.jpg" 
-                         alt="Brigitte Bardot" 
-                         id="brigitteImg">
+                    <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
                 </div>
 
                 <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
@@ -615,16 +613,26 @@
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Preload check for images (updated for external URLs)
+        // Preload check for images (now using local files)
         window.addEventListener('load', () => {
             const bbImg = document.getElementById('brigitteImg');
-            if (!bbImg.complete || bbImg.naturalWidth === 0) {
-                console.warn("Brigitte Bardot image failed to load – check URL");
+            if (bbImg) {
+                if (!bbImg.complete || bbImg.naturalWidth === 0) {
+                    console.warn("BB.jpg failed to load – check file name, case, and repo push");
+                    bbImg.alt = "Brigitte Bardot (failed to load)";
+                } else {
+                    console.log("BB.jpg loaded successfully");
+                }
             }
 
             const chineseImg = document.querySelector('.chat-section img');
-            if (!chineseImg.complete || chineseImg.naturalWidth === 0) {
-                console.warn("Chinese takeout image failed to load – check URL");
+            if (chineseImg) {
+                if (!chineseImg.complete || chineseImg.naturalWidth === 0) {
+                    console.warn("Chinese.jpg failed to load – check file name, case, and repo push");
+                    chineseImg.alt = "Chinese Takeout Box (failed to load)";
+                } else {
+                    console.log("Chinese.jpg loaded successfully");
+                }
             }
         });
 
@@ -697,7 +705,7 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        // Spin Brigitte Bardot – should now work with external image
+        // Spin Brigitte Bardot
         const brigitteQuotes = [
             "Darling, life is too short for bad wine... or bad waves!",
             "If the tide doesn't come to you... steal its flip-flops!",
