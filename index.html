@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
     <title>Book & Shores</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -400,7 +406,7 @@
             <div class="books-grid">
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/81p2j4f5hBL._AC_SL1500_.jpg" alt="Practicing Dying">
+                        <img src="practicedying.jpg" alt="Practicing Dying">
                     </div>
                     <div class="book-title">Practicing Dying — Charlotte Northall</div>
                 </div>
@@ -447,7 +453,7 @@
             </div>
 
             <div class="chat-section" style="margin-top: 4rem; text-align: center;">
-                <img src="https://www.pngall.com/wp-content/uploads/5/Chinese-Take-Out-Box-PNG-Image.png" 
+                <img src="Chinese.jpg" 
                      alt="Chinese Takeout Box" 
                      style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
                 
@@ -468,8 +474,7 @@
         <section id="sounds" class="section">
             <div class="bardot-container">
                 <div id="bardotSpinner">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Brigitte_Bardot_in_1968.jpg" 
-                         alt="Brigitte Bardot" id="brigitteImg">
+                    <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
                 </div>
 
                 <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
@@ -535,16 +540,20 @@
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Debug image loading
+        // Debug loading of your GitHub files
         window.addEventListener('load', () => {
-            console.log("Checking images...");
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                if (img.complete && img.naturalWidth > 0) {
-                    console.log(img.alt + ' loaded OK');
-                } else {
-                    console.error(img.alt + ' FAILED to load');
-                }
+            console.log("Checking your uploaded files on GitHub Pages...");
+            const files = [
+                { src: 'BB.jpg', desc: 'Brigitte Bardot spinner' },
+                { src: 'Chinese.jpg', desc: 'Chinese takeout box' },
+                { src: 'practicedying.jpg', desc: 'Charlotte Northall book cover' }
+            ];
+
+            files.forEach(file => {
+                const img = new Image();
+                img.src = file.src;
+                img.onload = () => console.log(file.desc + ' (' + file.src + ') → LOADED successfully');
+                img.onerror = () => console.error(file.desc + ' (' + file.src + ') → FAILED (404, wrong name, or not pushed)');
             });
         });
 
@@ -556,7 +565,7 @@
             });
         });
 
-        // Fortune Cookie (unchanged)
+        // Fortune Cookie logic (unchanged)
         const fortuneCookies = [
             "The tide brings what the heart quietly calls for — trust the pull.",
             "A wave never apologizes for arriving — neither should your truth.",
@@ -582,4 +591,77 @@
             "Let the wind write your worries on the water — they dissolve.",
             "What is yours will find you when you stop searching the horizon.",
             "The sea keeps no secrets from those who listen.",
-           
+            "Every shell you find was once a home — so is your current moment."
+        ];
+
+        function getFortuneCookie() {
+            return fortuneCookies[Math.floor(Math.random() * fortuneCookies.length)];
+        }
+
+        function addMessage(text, isUser = false) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const msg = document.createElement('div');
+            msg.className = 'message ' + (isUser ? 'user-message' : 'ae-message');
+            msg.textContent = text;
+            messagesDiv.appendChild(msg);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            addMessage(text, true);
+            input.value = '';
+
+            setTimeout(() => {
+                const reply = getFortuneCookie();
+                addMessage(reply);
+            }, 800);
+        }
+
+        document.getElementById('chatInput').addEventListener('keypress', e => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Spin Brigitte
+        const brigitteQuotes = [
+            "Darling, life is too short for bad wine... or bad waves!",
+            "If the tide doesn't come to you... steal its flip-flops!",
+            "I kissed a wave once... it was salty but romantic.",
+            "Never trust a man who doesn't like croissants or sunsets.",
+            "My secret to looking fabulous? The ocean is my mirror!",
+            "Wear sunscreen... and confidence. Both are non-negotiable.",
+            "If you fall off the board, blame the wave, not me!",
+            "Love is like the tide... it comes back when you least expect it."
+        ];
+
+        function spinBardot() {
+            const spinner = document.getElementById('bardotSpinner');
+            const reveal = document.getElementById('revealMessage');
+
+            const degrees = Math.floor(Math.random() * 1440) + 1080;
+            spinner.style.transition = 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            spinner.style.transform = `rotate(${degrees}deg)`;
+
+            setTimeout(() => {
+                spinner.style.transition = 'none';
+                spinner.style.transform = 'rotate(0deg)';
+
+                spinner.classList.add('winkAnimation');
+                setTimeout(() => spinner.classList.remove('winkAnimation'), 1500);
+
+                const quote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
+                reveal.textContent = quote;
+                reveal.style.display = 'block';
+            }, 6000);
+        }
+
+        // Tarot (minimal)
+        function drawTarot() {
+            console.log("Tarot draw triggered");
+        }
+    </script>
+</body>
+</html>
