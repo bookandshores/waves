@@ -185,6 +185,19 @@
             transform: translateY(-3px);
         }
 
+        .poster-preview {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .poster-preview img {
+            max-width: 100%;
+            max-height: 400px;
+            border: 4px solid var(--black);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
         .chat-section {
             background: rgba(0,0,0,0.05);
             border-radius: 12px;
@@ -374,6 +387,10 @@
                 max-width: 220px;
                 border-width: 8px;
             }
+
+            .poster-preview img {
+                max-height: 300px;
+            }
         }
     </style>
 </head>
@@ -399,6 +416,11 @@
             <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn" style="font-size:1.1rem; padding:1rem 2rem;">
                 View & Buy Posters on Ko-fi
             </a>
+
+            <!-- New poster preview image -->
+            <div class="poster-preview">
+                <img src="1_BookShores2026.jpeg" alt="Book & Shores Opening Poster Preview 2026">
+            </div>
         </div>
 
         <section id="reads" class="section">
@@ -542,18 +564,19 @@
     <script>
         // Debug loading of your GitHub files
         window.addEventListener('load', () => {
-            console.log("Checking your uploaded files on GitHub Pages...");
+            console.log("Checking your uploaded files...");
             const files = [
                 { src: 'BB.jpg', desc: 'Brigitte Bardot spinner' },
                 { src: 'Chinese.jpg', desc: 'Chinese takeout box' },
-                { src: 'practicedying.jpg', desc: 'Charlotte Northall book cover' }
+                { src: 'practicedying.jpg', desc: 'Charlotte Northall book cover' },
+                { src: '1_BookShores2026.jpeg', desc: 'Opening poster preview' }
             ];
 
             files.forEach(file => {
                 const img = new Image();
                 img.src = file.src;
                 img.onload = () => console.log(file.desc + ' (' + file.src + ') → LOADED successfully');
-                img.onerror = () => console.error(file.desc + ' (' + file.src + ') → FAILED (404, wrong name, or not pushed)');
+                img.onerror = () => console.error(file.desc + ' (' + file.src + ') → FAILED (404, wrong name/case, or not in root)');
             });
         });
 
@@ -565,7 +588,7 @@
             });
         });
 
-        // Fortune Cookie logic (unchanged)
+        // Fortune Cookie (unchanged)
         const fortuneCookies = [
             "The tide brings what the heart quietly calls for — trust the pull.",
             "A wave never apologizes for arriving — neither should your truth.",
