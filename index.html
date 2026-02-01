@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Your exact favicon and manifest links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Optional extras if you have the files -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+
     <title>Book & Shores</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --yellow: #fcc028;
             --black: #000;
-            --dark-black: #111;
+            --offwhite: #f8f8f8;
             --gray: #444;
+            --lightgray: #888;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background: var(--yellow);
@@ -28,46 +45,53 @@
         }
 
         header {
-            padding: 3rem 1.5rem 2rem;
+            padding: 3rem 2rem 2rem;
             text-align: center;
             border-bottom: 4px solid var(--black);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.03), transparent);
         }
 
         h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(3rem, 9vw, 6.5rem);
+            font-family: 'Neue Haas Grotesk Display', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 7rem);
             font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 0.92;
-            margin-bottom: 0.4rem;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
 
         .tagline {
-            font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
             opacity: 0.9;
+            margin-top: 0.5rem;
         }
 
         nav {
-            margin: 1.8rem 0;
+            margin: 2rem 0;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
         }
 
         nav a {
             color: var(--black);
             text-decoration: none;
-            font-size: 1.15rem;
+            font-size: 1.3rem;
             font-weight: 500;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
+            transition: all 0.3s ease;
             position: relative;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: #111;
+            transform: translateY(-2px);
         }
 
         nav a::after {
@@ -75,10 +99,10 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
+            bottom: -6px;
             left: 0;
             background: var(--black);
-            transition: width 0.35s ease;
+            transition: width 0.3s ease;
         }
 
         nav a:hover::after {
@@ -86,228 +110,124 @@
         }
 
         main {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 4rem 2rem;
         }
 
         .section {
-            margin-bottom: 6rem;
-            padding: 2.5rem 2rem;
+            margin-bottom: 8rem;
+            padding: 4rem 3rem;
             border: 3px solid var(--black);
             background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(8px);
             border-radius: 12px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
 
-        h2, h3 {
-            font-family: 'Oswald', sans-serif;
-            margin-bottom: 1.5rem;
-            text-align: center;
+        .section h2 {
+            font-family: 'Neue Haas Grotesk Display', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            border-bottom: 3px solid var(--black);
+            display: inline-block;
+            padding-bottom: 0.6rem;
         }
-
-        h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
-        h3 { font-size: clamp(1.6rem, 4vw, 2rem); }
 
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem 2rem;
-            justify-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
         }
 
         .book-card {
-            width: 260px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .book-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-12px);
         }
 
-        .book-cover-frame {
-            width: 220px;
-            height: 330px;
-            margin: 0 auto 1rem;
-            background: white;
-            border: 4px solid var(--black);
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .book-cover-frame img {
-            width: 100%;
-            height: 100%;
+        .book-card img {
+            height: 360px;
+            width: auto;
+            max-width: 100%;
             object-fit: contain;
+            border: 4px solid var(--black);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+            transition: all 0.4s ease;
+        }
+
+        .book-card:hover img {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            transform: scale(1.04);
         }
 
         .book-title {
-            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 500;
-            line-height: 1.35;
         }
 
         .coming-soon {
             grid-column: 1 / -1;
             text-align: center;
-            font-size: 1.35rem;
+            font-size: 1.6rem;
             font-style: italic;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
             color: var(--gray);
         }
 
-        .btn, .spin-button, .tarot-button, .chat-input button {
-            display: inline-block;
-            padding: 0.9rem 1.6rem;
-            background: var(--black);
-            color: var(--yellow);
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 160px;
-        }
-
-        .btn:hover, .spin-button:hover, .tarot-button:hover, .chat-input button:hover {
-            background: var(--dark-black);
-            transform: translateY(-3px);
-        }
-
-        .chat-section {
-            background: rgba(0,0,0,0.05);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            margin: 4rem auto 0;
+        .audio-player {
             text-align: center;
+            margin: 3rem 0;
         }
 
-        .chat-messages {
-            background: #fff;
-            border: 2px solid var(--black);
-            border-radius: 8px;
-            padding: 1rem;
-            height: 300px;
-            overflow-y: auto;
+        .audio-player audio {
+            width: 100%;
+            max-width: 600px;
             margin: 1.5rem 0;
         }
 
-        .chat-input {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
+        .small-sound-img {
+            max-width: 200px;
+            height: auto;
+            border: 3px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .chat-input input {
-            flex: 1;
-            padding: 0.9rem;
-            border: 2px solid var(--black);
-            border-radius: 6px;
-        }
-
-        .bardot-container {
-            text-align: center;
-            margin: 2rem 0 4rem;
-            padding: 1.5rem;
-            border: 2px solid var(--black);
-            border-radius: 12px;
-            background: rgba(0,0,0,0.03);
-        }
-
-        #bardotSpinner {
-            width: 220px;
-            margin: 0 auto 1.5rem;
-            cursor: pointer;
-        }
-
-        #bardotSpinner img {
-            width: 100%;
-            border-radius: 50%;
-            border: 4px solid var(--black);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        #bardotSpinner:hover img {
-            transform: scale(1.05);
-        }
-
-        .winkAnimation {
-            animation: wink 0.6s ease-in-out 2;
-        }
-
-        @keyframes wink {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-        }
-
-        #revealMessage {
-            display: none;
-            margin-top: 1.5rem;
+        .credit {
             font-style: italic;
             color: var(--gray);
-            font-size: 1.1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
+            margin-top: 0.5rem;
         }
 
-        .tarot-section {
-            background: rgba(0,0,0,0.05);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            margin: 4rem auto 0;
-            text-align: center;
-        }
-
-        .tarot-cards {
+        .support-buttons {
+            margin-top: 1.5rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        .tarot-card {
-            width: 180px;
-            text-align: center;
-        }
-
-        .tarot-card img {
-            width: 100%;
-            border: 4px solid var(--black);
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .tarot-card.reversed img {
-            transform: rotate(180deg);
-        }
-
-        .tarot-meaning {
-            margin-top: 0.5rem;
-            font-style: italic;
-            color: var(--gray);
         }
 
         .postcards {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 2.5rem;
+            gap: 6rem;
+            margin-top: 3rem;
             flex-wrap: wrap;
         }
 
         .postcard {
-            max-width: 240px;
-            width: 100%;
+            width: 280px;
             text-align: center;
             transition: transform 0.4s ease;
         }
@@ -318,19 +238,55 @@
 
         .postcard img {
             width: 100%;
-            max-width: 240px;
-            height: auto;
-            border: 10px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            border: 12px solid white;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
             background: white;
             transform: rotate(-1deg);
-            border-radius: 4px;
         }
 
         .postcard-caption {
-            margin-top: 1rem;
-            font-size: 1rem;
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
             font-style: italic;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 340px;
+            z-index: 100;
+        }
+
+        .radio-card {
+            background: rgba(0,0,0,0.05);
+            border: 2px solid var(--black);
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .radio-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 1.6rem;
+            background: var(--black);
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #111;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         footer {
@@ -346,28 +302,23 @@
             margin: 1.5rem 0;
         }
 
+        @media (max-width: 1100px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+                margin: 4rem auto;
+            }
+        }
+
         @media (max-width: 768px) {
-            .books-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            }
-
-            .book-cover-frame {
-                width: 180px;
-                height: 270px;
-            }
-
-            #bardotSpinner {
-                width: 180px;
-            }
-
-            .postcard {
-                max-width: 220px;
-            }
-
-            .postcard img {
-                max-width: 220px;
-                border-width: 8px;
-            }
+            h1 { font-size: 5rem; }
+            .section { padding: 3rem 1.5rem; }
+            .postcards { gap: 4rem; }
+            .postcard img { transform: none; }
+            .postcard:hover { transform: scale(1.05); }
+            .book-card img { height: 300px; }
+            .support-buttons { flex-direction: column; gap: 1rem; }
+            .small-sound-img { max-width: 160px; }
         }
     </style>
 </head>
@@ -375,61 +326,57 @@
 
     <header>
         <h1>Book & Shores</h1>
-        <div class="tagline">Listen, read, write back, and support the waves</div>
+        <div class="tagline">A place to listen, read, write back, and support the waves</div>
 
         <nav>
             <a href="#reads">Weekly Reads</a>
-            <a href="#penpal">Send a Postcard</a>
             <a href="#sounds">Original Sounds</a>
+            <a href="#penpal">Send a Postcard</a>
             <a href="#support">Support Radio</a>
-            <a href="https://ko-fi.com/bookandshores/shop" target="_blank">Shop Posters</a>
         </nav>
     </header>
 
     <main>
-        <div style="text-align:center; background:var(--yellow); padding:1.5rem; border:3px solid var(--black); margin:2rem auto; max-width:900px; border-radius:8px;">
-            <h3 style="margin:0 0 0.5rem; color:var(--black);">Opening March 1st 2026</h3>
-            <p style="margin:0 0 1rem; color:var(--black);">Limited edition Book & Shores posters now available!</p>
-            <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn" style="font-size:1.1rem; padding:1rem 2rem;">
-                View & Buy Posters on Ko-fi
-            </a>
-        </div>
-
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid">
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/81p2j4f5hBL._AC_SL1500_.jpg" alt="Practicing Dying">
-                    </div>
+                    <img src="https://d23eqwv5slm408.cloudfront.net/api/file/cUbMire1StaLhkh6Qgko/convert?fit=max&h=874&w=1312&compress=true" alt="Practicing Dying">
                     <div class="book-title">Practicing Dying — Charlotte Northall</div>
                 </div>
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga">
-                    </div>
-                    <div class="book-title">Finding the Raga — Amit Chaudhuri</div>
+                    <img src="https://m.media-amazon.com/images/I/71sCNEH7tRL.jpg" alt="Aqua">
+                    <div class="book-title">Aqua — Chiara Barzini</div>
                 </div>
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
-                    </div>
+                    <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
                     <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
                 </div>
-                <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/61a7pBptqCL._AC_SL1500_.jpg" alt="Autobiography of a Yogi">
-                    </div>
-                    <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake">
-                    </div>
-                    <div class="book-title">Creation Lake — Rachel Kushner</div>
+            </div>
+            <p class="coming-soon">Selective community bookstore launching soon — handpicked titles, direct from the shores.</p>
+        </section>
+
+        <section id="sounds" class="section">
+            <h2>Original Sounds</h2>
+            <p>Recorded in the moment, shared freely.</p>
+
+            <div class="audio-player">
+                <audio controls>
+                    <source src="WAYBACK.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                <img src="IMG_0473.jpg" alt="Original Sound Recording" class="small-sound-img">
+
+                <p class="credit">Written and played by me -A.E.</p>
+
+                <div class="support-buttons">
+                    <a href="WAYBACK.mp3" download class="btn">Download This Track</a>
+                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="background: #111; color: var(--yellow);">
+                        Support / Tip ☕
+                    </a>
                 </div>
             </div>
-            <p class="coming-soon">Selective bookstore launching March 1st — handpicked titles, direct from the shores.</p>
         </section>
 
         <section id="penpal" class="section">
@@ -440,62 +387,14 @@
 
             <div class="postcards">
                 <div class="postcard">
-                    <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" 
-                         alt="Jim Jarmusch" style="max-width: 240px; height: auto;">
+                    <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" alt="Jim Jarmusch">
                     <div class="postcard-caption">Postmark your thoughts</div>
                 </div>
-            </div>
 
-            <div class="chat-section" style="margin-top: 4rem; text-align: center;">
-                <img src="https://www.pngall.com/wp-content/uploads/5/Chinese-Take-Out-Box-PNG-Image.png" 
-                     alt="Chinese Takeout Box" 
-                     style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
-                
-                <h3>Waves Back – Write & Receive a Fortune Cookie</h3>
-                <p style="color: var(--gray); margin-bottom: 1.5rem;">
-                    Share a thought, feeling, or question. The waves will return a fortune cookie message just for you.
-                </p>
-
-                <div class="chat-messages" id="chatMessages"></div>
-
-                <div class="chat-input">
-                    <input type="text" id="chatInput" placeholder="Write your message...">
-                    <button onclick="sendMessage()">Send</button>
+                <div class="postcard">
+                    <img src="https://i.ebayimg.com/images/g/0W0AAOSwGshdvFvg/s-l1200.jpg" alt="Brigitte Bardot">
+                    <div class="postcard-caption">Words that linger</div>
                 </div>
-            </div>
-        </section>
-
-        <section id="sounds" class="section">
-            <div class="bardot-container">
-                <div id="bardotSpinner">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Brigitte_Bardot_in_1968.jpg" 
-                         alt="Brigitte Bardot" id="brigitteImg">
-                </div>
-
-                <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
-
-                <div id="revealMessage"></div>
-
-                <div class="support-buttons" style="margin-top:2rem;">
-                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="font-size:1.1rem;">
-                        Support the Book & Shores Online Bookstore with $2 (opening March 1st) ☕
-                    </a>
-                </div>
-            </div>
-
-            <div class="tarot-section" style="margin-top: 3.5rem; text-align: center;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/800px-RWS_Tarot_02_High_Priestess.jpg" 
-                     alt="The High Priestess Tarot Card" 
-                     style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
-                
-                <h3>Waves of Insight: 3-Card Tarot</h3>
-                <p style="color: var(--gray); margin-bottom: 1.5rem;">
-                    Draw three cards for Past, Present, Future. Let the waves reveal guidance.
-                </p>
-
-                <button class="tarot-button" onclick="drawTarot()">Draw Cards</button>
-
-                <div class="tarot-cards" id="tarotCards" style="margin-top: 2rem;"></div>
             </div>
         </section>
 
@@ -535,124 +434,13 @@
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Debug all images on load
-        window.addEventListener('load', () => {
-            console.log("Page loaded. Checking images...");
-            const images = document.querySelectorAll('img');
-            images.forEach((img, index) => {
-                if (img.complete && img.naturalWidth > 0) {
-                    console.log(`Image ${index + 1} (${img.alt}): LOADED OK`);
-                } else {
-                    console.error(`Image ${index + 1} (${img.alt}): FAILED to load`);
-                }
-            });
-        });
-
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
                 e.preventDefault();
                 document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
-
-        // Fortune Cookie (unchanged)
-        const fortuneCookies = [
-            "The tide brings what the heart quietly calls for — trust the pull.",
-            "A wave never apologizes for arriving — neither should your truth.",
-            "What you seek is already moving toward you, like moonlight on water.",
-            "The shore remembers every touch — so does your soul.",
-            "Let go of the oar; the current knows the way home.",
-            "Every doubt is a shell waiting to be opened by the next wave.",
-            "Joy hides in the pause between breaths — listen there.",
-            "The sea does not rush — neither should your becoming.",
-            "You are not lost; you are simply between tides.",
-            "Love arrives softly, like fog that suddenly reveals the horizon.",
-            "What breaks on the rocks today carves beauty for tomorrow.",
-            "The wave that crashes is the same one that rises again — so are you.",
-            "Silence is the deepest shore — walk it barefoot.",
-            "Your next step is already written in the sand by yesterday's tide.",
-            "The ocean never asks permission to be vast — neither should you.",
-            "A single breath can turn the tide within you.",
-            "What you carry lightly returns to you lightly.",
-            "The shore does not judge the waves — only welcomes them.",
-            "Every ending is a wave folding back into the sea of beginnings.",
-            "You are the question the waves have been asking all along.",
-            "The heart's compass points where the mind fears to look.",
-            "Let the wind write your worries on the water — they dissolve.",
-            "What is yours will find you when you stop searching the horizon.",
-            "The sea keeps no secrets from those who listen.",
-            "Every shell you find was once a home — so is your current moment."
-        ];
-
-        function getFortuneCookie() {
-            return fortuneCookies[Math.floor(Math.random() * fortuneCookies.length)];
-        }
-
-        function addMessage(text, isUser = false) {
-            const messagesDiv = document.getElementById('chatMessages');
-            const msg = document.createElement('div');
-            msg.className = 'message ' + (isUser ? 'user-message' : 'ae-message');
-            msg.textContent = text;
-            messagesDiv.appendChild(msg);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            if (!text) return;
-
-            addMessage(text, true);
-            input.value = '';
-
-            setTimeout(() => {
-                const reply = getFortuneCookie();
-                addMessage(reply);
-            }, 800);
-        }
-
-        document.getElementById('chatInput').addEventListener('keypress', e => {
-            if (e.key === 'Enter') sendMessage();
-        });
-
-        // Spin Brigitte
-        const brigitteQuotes = [
-            "Darling, life is too short for bad wine... or bad waves!",
-            "If the tide doesn't come to you... steal its flip-flops!",
-            "I kissed a wave once... it was salty but romantic.",
-            "Never trust a man who doesn't like croissants or sunsets.",
-            "My secret to looking fabulous? The ocean is my mirror!",
-            "Wear sunscreen... and confidence. Both are non-negotiable.",
-            "If you fall off the board, blame the wave, not me!",
-            "Love is like the tide... it comes back when you least expect it."
-        ];
-
-        function spinBardot() {
-            const spinner = document.getElementById('bardotSpinner');
-            const reveal = document.getElementById('revealMessage');
-
-            const degrees = Math.floor(Math.random() * 1440) + 1080;
-            spinner.style.transition = 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)';
-            spinner.style.transform = `rotate(${degrees}deg)`;
-
-            setTimeout(() => {
-                spinner.style.transition = 'none';
-                spinner.style.transform = 'rotate(0deg)';
-
-                spinner.classList.add('winkAnimation');
-                setTimeout(() => spinner.classList.remove('winkAnimation'), 1500);
-
-                const quote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
-                reveal.textContent = quote;
-                reveal.style.display = 'block';
-            }, 6000);
-        }
-
-        // Tarot (minimal)
-        function drawTarot() {
-            console.log("Tarot draw triggered");
-        }
     </script>
 </body>
 </html>
+
