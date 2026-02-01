@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <!-- Favicon and manifest links -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-
     <title>Book & Shores</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Neue+Haas+Grotesk+Display:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -117,16 +109,15 @@
         h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
         h3 { font-size: clamp(1.6rem, 4vw, 2rem); }
 
-        /* Uniform book covers – 200×300 px frame */
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2.5rem 2rem;
             justify-items: center;
         }
 
         .book-card {
-            width: 240px;
+            width: 260px;
             text-align: center;
             transition: transform 0.3s ease;
         }
@@ -136,8 +127,8 @@
         }
 
         .book-cover-frame {
-            width: 200px;
-            height: 300px;
+            width: 220px;
+            height: 330px;
             margin: 0 auto 1rem;
             background: white;
             border: 4px solid var(--black);
@@ -150,13 +141,13 @@
         }
 
         .book-cover-frame img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
 
         .book-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 500;
             line-height: 1.35;
         }
@@ -170,39 +161,24 @@
             color: var(--gray);
         }
 
-        /* Black box buttons */
-        .btn, 
-        .spin-button, 
-        .tarot-button, 
-        .chat-input button,
-        .support-buttons a.btn,
-        .radio-card a.btn {
+        .btn, .spin-button, .tarot-button, .chat-input button {
             display: inline-block;
             padding: 0.9rem 1.6rem;
             background: var(--black);
             color: var(--yellow);
-            text-decoration: none;
             font-weight: 600;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
             min-width: 160px;
         }
 
-        .btn:hover, 
-        .spin-button:hover, 
-        .tarot-button:hover, 
-        .chat-input button:hover,
-        .support-buttons a.btn:hover,
-        .radio-card a.btn:hover {
+        .btn:hover, .spin-button:hover, .tarot-button:hover, .chat-input button:hover {
             background: var(--dark-black);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
         }
 
-        /* Fortune Cookie section */
         .chat-section {
             background: rgba(0,0,0,0.05);
             border-radius: 12px;
@@ -233,10 +209,55 @@
             padding: 0.9rem;
             border: 2px solid var(--black);
             border-radius: 6px;
-            font-family: 'IBM Plex Mono', monospace;
         }
 
-        /* Tarot section */
+        .bardot-container {
+            text-align: center;
+            margin: 2rem 0 4rem;
+            padding: 1.5rem;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.03);
+        }
+
+        #bardotSpinner {
+            width: 220px;
+            margin: 0 auto 1.5rem;
+            cursor: pointer;
+        }
+
+        #bardotSpinner img {
+            width: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--black);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        #bardotSpinner:hover img {
+            transform: scale(1.05);
+        }
+
+        .winkAnimation {
+            animation: wink 0.6s ease-in-out 2;
+        }
+
+        @keyframes wink {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        #revealMessage {
+            display: none;
+            margin-top: 1.5rem;
+            font-style: italic;
+            color: var(--gray);
+            font-size: 1.1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
         .tarot-section {
             background: rgba(0,0,0,0.05);
             border-radius: 12px;
@@ -276,56 +297,6 @@
             color: var(--gray);
         }
 
-        /* Spinner */
-        .bardot-container {
-            text-align: center;
-            margin: 2rem 0 4rem;
-            padding: 1.5rem;
-            border: 2px solid var(--black);
-            border-radius: 12px;
-            background: rgba(0,0,0,0.03);
-        }
-
-        #bardotSpinner {
-            width: 220px;
-            margin: 0 auto 1.5rem;
-            cursor: pointer;
-        }
-
-        #bardotSpinner img {
-            width: 100%;
-            border-radius: 50%;
-            border: 4px solid var(--black);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        #bardotSpinner:hover img {
-            transform: scale(1.05);
-        }
-
-        .winkAnimation {
-            animation: wink 0.6s ease-in-out 2;
-        }
-
-        @keyframes wink {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-
-        #revealMessage {
-            display: none;
-            margin-top: 1.5rem;
-            font-style: italic;
-            color: var(--gray);
-            font-size: 1.1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-        }
-
-        /* Postcards */
         .postcards {
             display: flex;
             justify-content: center;
@@ -375,29 +346,14 @@
             margin: 1.5rem 0;
         }
 
-        /* Mobile adjustments */
         @media (max-width: 768px) {
             .books-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 2rem 1.5rem;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             }
 
             .book-cover-frame {
                 width: 180px;
                 height: 270px;
-            }
-
-            .section {
-                padding: 2rem 1.2rem;
-                margin-bottom: 5rem;
-            }
-
-            header {
-                padding: 2.2rem 1.2rem 1.6rem;
-            }
-
-            nav {
-                gap: 1.4rem;
             }
 
             #bardotSpinner {
@@ -410,35 +366,6 @@
 
             .postcard img {
                 max-width: 220px;
-                border-width: 8px;
-            }
-
-            .btn, .spin-button, .tarot-button, .chat-input button {
-                width: 100%;
-                margin: 0.6rem 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .book-cover-frame {
-                width: 160px;
-                height: 240px;
-            }
-
-            h2 {
-                font-size: 2.1rem;
-            }
-
-            .postcard {
-                max-width: 200px;
-            }
-
-            .postcard img {
-                max-width: 200px;
                 border-width: 8px;
             }
         }
@@ -460,7 +387,6 @@
     </header>
 
     <main>
-        <!-- Ko-fi Shop banner -->
         <div style="text-align:center; background:var(--yellow); padding:1.5rem; border:3px solid var(--black); margin:2rem auto; max-width:900px; border-radius:8px;">
             <h3 style="margin:0 0 0.5rem; color:var(--black);">Opening March 1st 2026</h3>
             <p style="margin:0 0 1rem; color:var(--black);">Limited edition Book & Shores posters now available!</p>
@@ -474,7 +400,7 @@
             <div class="books-grid">
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="https://d23eqwv5slm408.cloudfront.net/api/file/cUbMire1StaLhkh6Qgko/convert?fit=max&h=874&w=1312&compress=true" alt="Practicing Dying">
+                        <img src="https://m.media-amazon.com/images/I/81p2j4f5hBL._AC_SL1500_.jpg" alt="Practicing Dying">
                     </div>
                     <div class="book-title">Practicing Dying — Charlotte Northall</div>
                 </div>
@@ -492,7 +418,7 @@
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781627931663/autobiography-of-a-yogi-9781627931663_lg.jpg" alt="Autobiography of a Yogi">
+                        <img src="https://m.media-amazon.com/images/I/61a7pBptqCL._AC_SL1500_.jpg" alt="Autobiography of a Yogi">
                     </div>
                     <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
                 </div>
@@ -514,13 +440,14 @@
 
             <div class="postcards">
                 <div class="postcard">
-                    <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" alt="Jim Jarmusch">
+                    <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" 
+                         alt="Jim Jarmusch" style="max-width: 240px; height: auto;">
                     <div class="postcard-caption">Postmark your thoughts</div>
                 </div>
             </div>
 
             <div class="chat-section" style="margin-top: 4rem; text-align: center;">
-                <img src="Chinese.jpg" 
+                <img src="https://www.pngall.com/wp-content/uploads/5/Chinese-Take-Out-Box-PNG-Image.png" 
                      alt="Chinese Takeout Box" 
                      style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
                 
@@ -539,15 +466,10 @@
         </section>
 
         <section id="sounds" class="section">
-            <h2>Original Sounds</h2>
-            <p>Recorded in the moment, shared freely.</p>
-
             <div class="bardot-container">
-                <h3>Spin Brigitte Bardot</h3>
-                <p style="color:var(--gray);">Let the icon of the shore choose your wave vibe.</p>
-
                 <div id="bardotSpinner">
-                    <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Brigitte_Bardot_in_1968.jpg" 
+                         alt="Brigitte Bardot" id="brigitteImg">
                 </div>
 
                 <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
@@ -613,27 +535,17 @@
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Preload check for images (now using local files)
+        // Debug all images on load
         window.addEventListener('load', () => {
-            const bbImg = document.getElementById('brigitteImg');
-            if (bbImg) {
-                if (!bbImg.complete || bbImg.naturalWidth === 0) {
-                    console.warn("BB.jpg failed to load – check file name, case, and repo push");
-                    bbImg.alt = "Brigitte Bardot (failed to load)";
+            console.log("Page loaded. Checking images...");
+            const images = document.querySelectorAll('img');
+            images.forEach((img, index) => {
+                if (img.complete && img.naturalWidth > 0) {
+                    console.log(`Image ${index + 1} (${img.alt}): LOADED OK`);
                 } else {
-                    console.log("BB.jpg loaded successfully");
+                    console.error(`Image ${index + 1} (${img.alt}): FAILED to load`);
                 }
-            }
-
-            const chineseImg = document.querySelector('.chat-section img');
-            if (chineseImg) {
-                if (!chineseImg.complete || chineseImg.naturalWidth === 0) {
-                    console.warn("Chinese.jpg failed to load – check file name, case, and repo push");
-                    chineseImg.alt = "Chinese Takeout Box (failed to load)";
-                } else {
-                    console.log("Chinese.jpg loaded successfully");
-                }
-            }
+            });
         });
 
         // Smooth scrolling
@@ -644,7 +556,7 @@
             });
         });
 
-        // Fortune Cookie Logic
+        // Fortune Cookie (unchanged)
         const fortuneCookies = [
             "The tide brings what the heart quietly calls for — trust the pull.",
             "A wave never apologizes for arriving — neither should your truth.",
@@ -687,7 +599,6 @@
         }
 
         function sendMessage() {
-            console.log("sendMessage called");
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
             if (!text) return;
@@ -705,7 +616,7 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        // Spin Brigitte Bardot
+        // Spin Brigitte
         const brigitteQuotes = [
             "Darling, life is too short for bad wine... or bad waves!",
             "If the tide doesn't come to you... steal its flip-flops!",
@@ -735,85 +646,12 @@
                 const quote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
                 reveal.textContent = quote;
                 reveal.style.display = 'block';
-
-                if ('speechSynthesis' in window) {
-                    const utterance = new SpeechSynthesisUtterance(quote);
-                    const voices = speechSynthesis.getVoices();
-                    const sexyFemale = voices.find(v => 
-                        v.lang === 'en-US' && 
-                        (v.name.includes('Samantha') || v.name.includes('Ava') || v.name.includes('Karen') || 
-                         v.name.includes('Google') || v.name.includes('Zira') || v.name.includes('Emma') || 
-                         v.name.includes('Joanna') || v.name.includes('female'))
-                    ) || voices.find(v => v.lang === 'en-US') || voices[0];
-
-                    utterance.voice = sexyFemale;
-                    utterance.lang = 'en-US';
-                    utterance.rate = 0.88;
-                    utterance.pitch = 1.18;
-                    utterance.volume = 0.95;
-
-                    speechSynthesis.speak(utterance);
-                }
             }, 6000);
         }
 
-        // Tarot
-        const tarotDeck = [
-            { name: "The Fool", image: "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg", meaning: "Leap into the unknown wave — pure adventure, no fear of the wipeout." },
-            { name: "The Magician", image: "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg", meaning: "Channel the tide — mastery of tools, turning chaos into art." },
-            { name: "The High Priestess", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg", meaning: "Listen to the deep ocean — intuition, secrets beneath the surface." },
-            { name: "The Empress", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg", meaning: "Nurture the shore — abundance, creative birth." },
-            { name: "The Emperor", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg", meaning: "Build the breakwall — structure, authority." },
-            { name: "The Hierophant", image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg", meaning: "Teach the ancient reef — tradition, guidance." },
-            { name: "The Lovers", image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/RWS_Tarot_06_Lovers.jpg", meaning: "Ride tandem on the wave — union, choices." },
-            { name: "The Chariot", image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg", meaning: "Drive through the storm — willpower, victory." },
-            { name: "Strength", image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg", meaning: "Tame the riptide — courage, patience." },
-            { name: "The Hermit", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg", meaning: "Walk the empty beach at dawn — solitude, truth." },
-            { name: "Wheel of Fortune", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_10_Wheel_of_Fortune.jpg", meaning: "Waves turn, tides change — cycles, destiny." },
-            { name: "Justice", image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg", meaning: "Weigh the balance — truth, fairness." },
-            { name: "The Hanged Man", image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg", meaning: "Hang in suspension — surrender, new perspective." },
-            { name: "Death", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg", meaning: "The wave crashes, old form dissolves — transformation." },
-            { name: "Temperance", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg", meaning: "Blend the waters — balance, harmony." },
-            { name: "The Devil", image: "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg", meaning: "Chained to the bottle — bondage, shadow." },
-            { name: "The Tower", image: "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg", meaning: "Pier collapses in storm — upheaval, liberation." },
-            { name: "The Star", image: "https://upload.wikimedia.org/wikipedia/commons/6/62/RWS_Tarot_17_Star.jpg", meaning: "Pour hope into tidepool — healing, inspiration." },
-            { name: "The Moon", image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg", meaning: "Walk moonlit shore — illusion, fear." },
-            { name: "The Sun", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg", meaning: "Ride golden wave — joy, vitality." },
-            { name: "Judgement", image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg", meaning: "Call soul from deep — awakening, rebirth." },
-            { name: "The World", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg", meaning: "Wave completes cycle — completion, wholeness." }
-        ];
-
-        function shuffle(array) {
-            let currentIndex = array.length;
-            while (currentIndex !== 0) {
-                let randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-            }
-            return array;
-        }
-
+        // Tarot (minimal)
         function drawTarot() {
-            console.log("drawTarot called");
-            const shuffled = shuffle([...tarotDeck]);
-            const drawn = shuffled.slice(0, 3);
-
-            const container = document.getElementById('tarotCards');
-            container.innerHTML = '';
-
-            const positions = ["Past", "Present", "Future"];
-
-            drawn.forEach((card, index) => {
-                const isReversed = Math.random() < 0.5;
-                const div = document.createElement('div');
-                div.className = 'tarot-card' + (isReversed ? ' reversed' : '');
-                div.innerHTML = `
-                    <img src="${card.image}" alt="${card.name}">
-                    <p><strong>${positions[index]}: ${card.name}${isReversed ? ' (Reversed)' : ''}</strong></p>
-                    <p class="tarot-meaning">${card.meaning}</p>
-                `;
-                container.appendChild(div);
-            });
+            console.log("Tarot draw triggered");
         }
     </script>
 </body>
