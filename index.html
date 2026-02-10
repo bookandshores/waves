@@ -158,16 +158,7 @@
             line-height: 1.35;
         }
 
-        .coming-soon {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 1.35rem;
-            font-style: italic;
-            margin-top: 2.5rem;
-            color: var(--gray);
-        }
-
-        .btn, .spin-button, .tarot-button, .chat-input button {
+        .btn, .spin-button, .chat-input button {
             display: inline-block;
             padding: 0.9rem 1.6rem;
             background: var(--black);
@@ -180,7 +171,7 @@
             min-width: 160px;
         }
 
-        .btn:hover, .spin-button:hover, .tarot-button:hover, .chat-input button:hover {
+        .btn:hover, .spin-button:hover, .chat-input button:hover {
             background: var(--dark-black);
             transform: translateY(-3px);
         }
@@ -233,28 +224,28 @@
         .bardot-container {
             text-align: center;
             margin: 2rem 0 4rem;
-            padding: 1.5rem;
-            border: 2px solid var(--black);
-            border-radius: 12px;
-            background: rgba(0,0,0,0.03);
+            padding: 2.5rem 1.5rem;
+            border: 3px solid var(--black);
+            border-radius: 16px;
+            background: rgba(0,0,0,0.04);
         }
 
         #bardotSpinner {
-            width: 220px;
-            margin: 0 auto 1.5rem;
+            width: 240px;
+            margin: 0 auto 1.8rem;
             cursor: pointer;
         }
 
         #bardotSpinner img {
             width: 100%;
             border-radius: 50%;
-            border: 4px solid var(--black);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 5px solid var(--black);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         #bardotSpinner:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .winkAnimation {
@@ -268,52 +259,16 @@
 
         #revealMessage {
             display: none;
-            margin-top: 1.5rem;
+            margin-top: 1.8rem;
             font-style: italic;
             color: var(--gray);
-            font-size: 1.1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-        }
-
-        .tarot-section {
-            background: rgba(0,0,0,0.05);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            margin: 4rem auto 0;
-            text-align: center;
-        }
-
-        .tarot-cards {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        .tarot-card {
-            width: 180px;
-            text-align: center;
-        }
-
-        .tarot-card img {
-            width: 100%;
-            border: 4px solid var(--black);
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .tarot-card.reversed img {
-            transform: rotate(180deg);
-        }
-
-        .tarot-meaning {
-            margin-top: 0.5rem;
-            font-style: italic;
-            color: var(--gray);
+            font-size: 1.2rem;
+            padding: 1.2rem;
+            background: rgba(255,255,255,0.12);
+            border-radius: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .postcards {
@@ -376,7 +331,7 @@
             }
 
             #bardotSpinner {
-                width: 180px;
+                width: 200px;
             }
 
             .postcard {
@@ -403,9 +358,8 @@
         <nav>
             <a href="#reads">Weekly Reads</a>
             <a href="#penpal">Send a Postcard</a>
-            <a href="#sounds">Original Sounds</a>
             <a href="#support">Support Radio</a>
-            <a href="https://ko-fi.com/bookandshores/shop" target="_blank">Shop Posters</a>
+            <a href="https://ko-fi.com/bookandshores/shop" target="_blank">Shop the Store</a>
         </nav>
     </header>
 
@@ -414,10 +368,9 @@
             <h3 style="margin:0 0 0.5rem; color:var(--black);">Opening March 1st 2026</h3>
             <p style="margin:0 0 1rem; color:var(--black);">Limited edition Book & Shores posters now available!</p>
             <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn" style="font-size:1.1rem; padding:1rem 2rem;">
-                View & Buy Posters on Ko-fi
+                View & Buy Book and Shores Collection Here
             </a>
 
-            <!-- New poster preview image -->
             <div class="poster-preview">
                 <img src="1_BookShores2026.jpeg" alt="Book & Shores Opening Poster Preview 2026">
             </div>
@@ -456,8 +409,28 @@
                     </div>
                     <div class="book-title">Creation Lake — Rachel Kushner</div>
                 </div>
+
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="Shadows.jpg" alt="Women in the Shadows">
+                    </div>
+                    <div class="book-title">Women in the Shadows Book by Ann Bannon</div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="Simpsons.jpg" alt="Compendium of Print Ads from The Simpsons">
+                    </div>
+                    <div class="book-title">Compendium of Print Ads from The Simpsons</div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="Tom of Finland.jpg" alt="Tom of Finland: The Complete Kake Comics">
+                    </div>
+                    <div class="book-title">Tom Of Finland: The Complete Kake Comics By Dian Hanson</div>
+                </div>
             </div>
-            <p class="coming-soon">Selective bookstore launching March 1st — handpicked titles, direct from the shores.</p>
         </section>
 
         <section id="penpal" class="section">
@@ -493,38 +466,17 @@
             </div>
         </section>
 
-        <section id="sounds" class="section">
-            <div class="bardot-container">
-                <div id="bardotSpinner">
-                    <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
-                </div>
-
-                <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
-
-                <div id="revealMessage"></div>
-
-                <div class="support-buttons" style="margin-top:2rem;">
-                    <a href="https://ko-fi.com/bookandshores" target="_blank" class="btn" style="font-size:1.1rem;">
-                        Support the Book & Shores Online Bookstore with $2 (opening March 1st) ☕
-                    </a>
-                </div>
+        <!-- Spin Brigitte – re-added as a fun standalone feature -->
+        <div class="bardot-container">
+            <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
+            <div id="bardotSpinner">
+                <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
             </div>
 
-            <div class="tarot-section" style="margin-top: 3.5rem; text-align: center;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/800px-RWS_Tarot_02_High_Priestess.jpg" 
-                     alt="The High Priestess Tarot Card" 
-                     style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
-                
-                <h3>Waves of Insight: 3-Card Tarot</h3>
-                <p style="color: var(--gray); margin-bottom: 1.5rem;">
-                    Draw three cards for Past, Present, Future. Let the waves reveal guidance.
-                </p>
+            <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
 
-                <button class="tarot-button" onclick="drawTarot()">Draw Cards</button>
-
-                <div class="tarot-cards" id="tarotCards" style="margin-top: 2rem;"></div>
-            </div>
-        </section>
+            <div id="revealMessage"></div>
+        </div>
 
         <section id="support" class="section">
             <h2>Support Local Radio</h2>
@@ -569,7 +521,10 @@
                 { src: 'BB.jpg', desc: 'Brigitte Bardot spinner' },
                 { src: 'Chinese.jpg', desc: 'Chinese takeout box' },
                 { src: 'practicedying.jpg', desc: 'Charlotte Northall book cover' },
-                { src: '1_BookShores2026.jpeg', desc: 'Opening poster preview' }
+                { src: '1_BookShores2026.jpeg', desc: 'Opening poster preview' },
+                { src: 'Shadows.jpg', desc: 'Women in the Shadows' },
+                { src: 'Simpsons.jpg', desc: 'Simpsons Compendium' },
+                { src: 'Tom of Finland.jpg', desc: 'Tom of Finland Kake Comics' }
             ];
 
             files.forEach(file => {
@@ -588,7 +543,7 @@
             });
         });
 
-        // Fortune Cookie (unchanged)
+        // Fortune Cookie
         const fortuneCookies = [
             "The tide brings what the heart quietly calls for — trust the pull.",
             "A wave never apologizes for arriving — neither should your truth.",
@@ -648,7 +603,7 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        // Spin Brigitte
+        // Spin Brigitte – restored functionality
         const brigitteQuotes = [
             "Darling, life is too short for bad wine... or bad waves!",
             "If the tide doesn't come to you... steal its flip-flops!",
@@ -679,11 +634,6 @@
                 reveal.textContent = quote;
                 reveal.style.display = 'block';
             }, 6000);
-        }
-
-        // Tarot (minimal)
-        function drawTarot() {
-            console.log("Tarot draw triggered");
         }
     </script>
 </body>
