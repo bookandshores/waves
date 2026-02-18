@@ -25,16 +25,25 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            font-size: 100%;
+            -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape on iOS */
+        }
+
         body {
             background: var(--yellow);
             color: var(--black);
             font-family: 'IBM Plex Mono', monospace;
             line-height: 1.6;
             min-height: 100vh;
+            font-size: clamp(1rem, 3.5vw, 1.125rem);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         header {
-            padding: 3rem 1.5rem 2rem;
+            padding: 3rem 1rem 2rem;
             text-align: center;
             border-bottom: 4px solid var(--black);
         }
@@ -49,57 +58,35 @@
             text-transform: uppercase;
         }
 
-        .tagline {
-            font-size: clamp(1.1rem, 3.5vw, 1.35rem);
-            opacity: 0.9;
-        }
-
         nav {
-            margin: 1.8rem 0;
+            margin: 2rem 0 1rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.8rem;
             flex-wrap: wrap;
         }
 
         nav a {
             color: var(--black);
             text-decoration: none;
-            font-size: 1.15rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
             font-weight: 500;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            position: relative;
         }
 
-        nav a:hover {
-            color: #111;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--black);
-            transition: width 0.35s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
+        nav a:hover { color: var(--dark-black); }
 
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
         }
 
         .section {
-            margin-bottom: 6rem;
-            padding: 2.5rem 2rem;
+            margin: 0 auto 5rem;
+            max-width: 1000px;
+            padding: 2.5rem 1.8rem;
             border: 3px solid var(--black);
             background: rgba(255,255,255,0.07);
             border-radius: 12px;
@@ -115,6 +102,122 @@
         h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
         h3 { font-size: clamp(1.6rem, 4vw, 2rem); }
 
+        .greeting-box {
+            text-align: center;
+            background: var(--yellow);
+            padding: 2rem 1.5rem;
+            border: 3px solid var(--black);
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 12px;
+        }
+
+        .greeting-box .btn {
+            margin-top: 1.2rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            padding: 1rem 2.2rem;
+        }
+
+        .poster-preview {
+            margin: 0 auto 1.5rem;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .poster-preview img {
+            max-width: 100%;
+            max-height: 420px;
+            border: 4px solid var(--black);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .btn, .spin-button, .chat-input button {
+            display: inline-block;
+            padding: 0.9rem 1.6rem;
+            background: var(--black);
+            color: var(--yellow);
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 160px;
+            text-decoration: none;
+            font-size: clamp(1rem, 4vw, 1.15rem);
+        }
+
+        .btn:hover, .spin-button:hover, .chat-input button:hover {
+            background: var(--dark-black);
+            transform: translateY(-3px);
+        }
+
+        a.btn, .radio-card a { text-decoration: none !important; }
+
+        .postcard-section { text-align: center; }
+
+        .postcard {
+            max-width: 280px;
+            margin: 2rem auto;
+        }
+
+        .postcard img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border: 10px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            background: white;
+            border-radius: 4px;
+        }
+
+        .postcard p {
+            margin: 1.2rem 0;
+            font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+        }
+
+        .postcard strong {
+            font-size: clamp(1.15rem, 4.8vw, 1.35rem);
+        }
+
+        .chat-section {
+            background: rgba(0,0,0,0.05);
+            border-radius: 12px;
+            padding: 1.8rem;
+            max-width: 480px;
+            margin: 3rem auto 0;
+            text-align: center;
+        }
+
+        .chat-messages {
+            background: #fff;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            height: 180px;
+            overflow-y: auto;
+            margin: 1.2rem 0;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--black);
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+
+        .chat-input button {
+            font-size: 1.1rem;
+            padding: 1rem 1.5rem;
+        }
+
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -128,9 +231,7 @@
             transition: transform 0.3s ease;
         }
 
-        .book-card:hover {
-            transform: translateY(-6px);
-        }
+        .book-card:hover { transform: translateY(-6px); }
 
         .book-cover-frame {
             width: 220px;
@@ -153,72 +254,9 @@
         }
 
         .book-title {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 3.5vw, 1.15rem);
             font-weight: 500;
             line-height: 1.35;
-        }
-
-        .btn, .spin-button, .chat-input button {
-            display: inline-block;
-            padding: 0.9rem 1.6rem;
-            background: var(--black);
-            color: var(--yellow);
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 160px;
-        }
-
-        .btn:hover, .spin-button:hover, .chat-input button:hover {
-            background: var(--dark-black);
-            transform: translateY(-3px);
-        }
-
-        .poster-preview {
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-
-        .poster-preview img {
-            max-width: 100%;
-            max-height: 400px;
-            border: 4px solid var(--black);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-
-        .chat-section {
-            background: rgba(0,0,0,0.05);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            margin: 4rem auto 0;
-            text-align: center;
-        }
-
-        .chat-messages {
-            background: #fff;
-            border: 2px solid var(--black);
-            border-radius: 8px;
-            padding: 1rem;
-            height: 300px;
-            overflow-y: auto;
-            margin: 1.5rem 0;
-        }
-
-        .chat-input {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 0.9rem;
-            border: 2px solid var(--black);
-            border-radius: 6px;
         }
 
         .bardot-container {
@@ -244,9 +282,7 @@
             transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
-        #bardotSpinner:hover img {
-            transform: scale(1.08);
-        }
+        #bardotSpinner:hover img { transform: scale(1.08); }
 
         .winkAnimation {
             animation: wink 0.6s ease-in-out 2;
@@ -271,40 +307,32 @@
             margin-right: auto;
         }
 
-        .postcards {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem 1.8rem;
+            justify-items: center;
             margin-top: 2.5rem;
-            flex-wrap: wrap;
         }
 
-        .postcard {
-            max-width: 240px;
-            width: 100%;
+        .radio-card {
             text-align: center;
-            transition: transform 0.4s ease;
+            max-width: 320px;
         }
 
-        .postcard:hover {
-            transform: rotate(2deg) scale(1.05);
+        .radio-card img {
+            max-width: 180px;
+            margin-bottom: 1rem;
         }
 
-        .postcard img {
-            width: 100%;
-            max-width: 240px;
-            height: auto;
-            border: 10px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            background: white;
-            transform: rotate(-1deg);
-            border-radius: 4px;
+        .radio-card .btn {
+            margin: 0.6rem 0.4rem;
         }
 
-        .postcard-caption {
-            margin-top: 1rem;
-            font-size: 1rem;
-            font-style: italic;
+        .support-text {
+            text-align: center;
+            font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+            margin-bottom: 2rem;
         }
 
         footer {
@@ -314,37 +342,58 @@
             border-top: 4px solid var(--black);
         }
 
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .signature {
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 5vw, 1.5rem);
             font-style: italic;
             margin: 1.5rem 0;
         }
 
+        .footer-insta {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-insta .follow-link {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-insta .follow-link:hover {
+            color: var(--dark-black);
+        }
+
+        .insta-embed {
+            width: 100%;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
         @media (max-width: 768px) {
-            .books-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            .section { padding: 2rem 1.2rem; margin-bottom: 4rem; }
+            .chat-messages { height: 160px; }
+            .poster-preview img { max-height: 320px; }
+            .books-grid, .radio-grid { grid-template-columns: 1fr; }
+            .postcard img { max-width: 220px; border-width: 8px; }
+            #bardotSpinner { width: 200px; }
+            .insta-embed { max-width: 100%; }
+            .btn, .spin-button { min-width: 180px; }
+            h1 {
+                font-size: clamp(2.5rem, 9vw, 4.5rem); /* Adjusted for better mobile scaling if needed */
             }
-
-            .book-cover-frame {
-                width: 180px;
-                height: 270px;
-            }
-
-            #bardotSpinner {
-                width: 200px;
-            }
-
-            .postcard {
-                max-width: 220px;
-            }
-
-            .postcard img {
-                max-width: 220px;
-                border-width: 8px;
-            }
-
-            .poster-preview img {
-                max-height: 300px;
+            body {
+                font-size: clamp(1.05rem, 4vw, 1.2rem); /* Slightly boosted base font on mobile */
             }
         }
     </style>
@@ -353,7 +402,6 @@
 
     <header>
         <h1>Book & Shores</h1>
-
         <nav>
             <a href="#reads">Weekly Reads</a>
             <a href="#penpal">Send a Postcard</a>
@@ -363,101 +411,69 @@
     </header>
 
     <main>
-        <div style="text-align:center; background:var(--yellow); padding:1.5rem; border:3px solid var(--black); margin:2rem auto; max-width:900px; border-radius:8px;">
-            <h3 style="margin:0 0 0.5rem; color:var(--black);">Opening March 1st 2026</h3>
-            <p style="margin:0 0 1rem; color:var(--black);">Limited edition Book & Shores posters now available!</p>
-            <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn" style="font-size:1.1rem; padding:1rem 2rem;">
-                Buy Book & Shores
-            </a>
-
+        <div class="greeting-box">
+            <h3 style="margin:0 0 0.8rem;">GREETINGS!</h3>
+            <p style="margin:0 0 1.2rem;">Limited edition Book & Shores posters now available!</p>
             <div class="poster-preview">
-                <img src="BSGIRL.jpg" alt="Book & Shores Poster Preview 2026">
+                <img src="BSGIRL.jpg" alt="Book & Shores Poster Preview">
             </div>
+            <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn">SHOP THE STORE</a>
         </div>
 
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid">
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="practicedying.jpg" alt="Practicing Dying">
-                    </div>
+                    <div class="book-cover-frame"><img src="practicedying.jpg" alt="Practicing Dying"></div>
                     <div class="book-title">Practicing Dying — Charlotte Northall</div>
                 </div>
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga">
-                    </div>
+                    <div class="book-cover-frame"><img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga"></div>
                     <div class="book-title">Finding the Raga — Amit Chaudhuri</div>
                 </div>
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
-                    </div>
+                    <div class="book-cover-frame"><img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension"></div>
                     <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
                 </div>
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/61a7pBptqCL._AC_SL1500_.jpg" alt="Autobiography of a Yogi">
-                    </div>
+                    <div class="book-cover-frame"><img src="https://m.media-amazon.com/images/I/61a7pBptqCL._AC_SL1500_.jpg" alt="Autobiography of a Yogi"></div>
                     <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
                 </div>
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake">
-                    </div>
+                    <div class="book-cover-frame"><img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake"></div>
                     <div class="book-title">Creation Lake — Rachel Kushner</div>
                 </div>
-
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="Shadows.jpg" alt="Women in the Shadows">
-                    </div>
+                    <div class="book-cover-frame"><img src="Shadows.jpg" alt="Women in the Shadows"></div>
                     <div class="book-title">Women in the Shadows Book by Ann Bannon</div>
                 </div>
-
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="Simpsons.jpg" alt="Compendium of Print Ads from The Simpsons">
-                    </div>
+                    <div class="book-cover-frame"><img src="Simpsons.jpg" alt="Compendium of Print Ads from The Simpsons"></div>
                     <div class="book-title">Compendium of Print Ads from The Simpsons</div>
                 </div>
-
                 <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="Tom of Finland.jpg" alt="Tom of Finland: The Complete Kake Comics">
-                    </div>
+                    <div class="book-cover-frame"><img src="Tom of Finland.jpg" alt="Tom of Finland: The Complete Kake Comics"></div>
                     <div class="book-title">Tom Of Finland: The Complete Kake Comics By Dian Hanson</div>
                 </div>
             </div>
         </section>
 
-        <section id="penpal" class="section">
+        <section id="penpal" class="section postcard-section">
             <h2>Send a Postcard</h2>
-            <p>Let pen and ink be your guide.</p>
-            <p>Send a postcard — I will always write you back (postcards only)</p>
-            <p><strong>1968 S. Coastal Hwy #4182<br>Laguna Beach, CA 92651</strong></p>
-
-            <div class="postcards">
-                <div class="postcard">
-                    <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" 
-                         alt="Jim Jarmusch" style="max-width: 240px; height: auto;">
-                    <div class="postcard-caption">Postmark your thoughts</div>
-                </div>
+            <div class="postcard">
+                <img src="https://image.invaluable.com/housePhotos/Auctionata/48/588548/H4580-L95413294.jpg" alt="Jim Jarmusch">
+                <p>Let pen and ink be your guide.</p>
+                <p>Send a postcard — I will always write you back (postcards only)</p>
+                <p><strong>1968 S. Coastal Hwy #4182<br>Laguna Beach, CA 92651</strong></p>
             </div>
 
-            <div class="chat-section" style="margin-top: 4rem; text-align: center;">
-                <img src="Chinese.jpg" 
-                     alt="Chinese Takeout Box" 
-                     style="max-width: 220px; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
-                
+            <div class="chat-section">
+                <img src="Chinese.jpg" alt="Chinese Takeout Box" style="max-width: 200px; margin-bottom: 1.2rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
                 <h3>Waves Back – Write & Receive a Fortune Cookie</h3>
-                <p style="color: var(--gray); margin-bottom: 1.5rem;">
+                <p style="color: var(--gray); margin-bottom: 1.2rem;">
                     Share a thought, feeling, or question. The waves will return a fortune cookie message just for you.
                 </p>
-
                 <div class="chat-messages" id="chatMessages"></div>
-
                 <div class="chat-input">
                     <input type="text" id="chatInput" placeholder="Write your message...">
                     <button onclick="sendMessage()">Send</button>
@@ -470,78 +486,52 @@
             <div id="bardotSpinner">
                 <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
             </div>
-
             <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
-
             <div id="revealMessage"></div>
         </div>
 
         <section id="support" class="section">
             <h2>Support Local Radio</h2>
-            <p>Independent voices need your support — keep the airwaves alive.</p>
-
-            <div class="books-grid" style="margin-top:3rem;">
-                <div class="radio-card" style="text-align:center;">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/92/Black_KCRW_Logo_Wordmark%2C_2022.png" alt="KCRW" style="max-width:180px; margin-bottom:1rem;">
+            <p class="support-text">Independent radio needs your support — keep the airwaves alive.</p>
+            <div class="radio-grid">
+                <div class="radio-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/92/Black_KCRW_Logo_Wordmark%2C_2022.png" alt="KCRW">
                     <h3>Eclectic24 – KCRW</h3>
                     <a href="https://www.kcrw.com/music/shows/eclectic24" target="_blank" class="btn">Listen Live</a>
-                    <a href="https://join.kcrw.com/" target="_blank" class="btn" style="margin-left:1rem;">Support KCRW</a>
+                    <a href="https://join.kcrw.com/" target="_blank" class="btn">Support KCRW</a>
                 </div>
-
-                <div class="radio-card" style="text-align:center;">
-                    <img src="https://m.media-amazon.com/images/I/31pzE4n5SbL.jpg" alt="Brigitte Bardot vibe" style="width:180px; margin-bottom:1rem; border-radius:8px;">
+                <div class="radio-card">
+                    <img src="https://m.media-amazon.com/images/I/31pzE4n5SbL.jpg" alt="Brigitte Bardot vibe" style="border-radius:8px;">
                     <h3>WFUV NYC</h3>
-                    <a href="https://wfuv.org/support" target="_blank" class="btn">Support WFUV (Donate)</a>
+                    <a href="https://wfuv.org/support" target="_blank" class="btn">Support WFUV</a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <h2>Thanks for Visiting</h2>
-        <p class="signature">I will always write you back — A.E</p>
-        <p>© 2025 Book & Shores</p>
+        <div class="footer-content">
+            <h2>Thanks for Visiting</h2>
+            <p class="signature">I will always write you back — A.E</p>
+            <p>© 2025 Book & Shores</p>
 
-        <div class="footer-insta">
-            <a href="https://www.instagram.com/westwaveslaguna/" target="_blank">Follow the feed @westwaveslaguna</a>
-            <div class="insta-embed">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/?hl=en" data-instgrm-version="14" style="max-width:400px; width:100%;"></blockquote>
+            <div class="footer-insta">
+                <a href="https://www.instagram.com/westwaveslaguna/" target="_blank" class="follow-link">Follow the feed @westwaveslaguna</a>
+                
+                <div class="insta-embed">
+                    <blockquote class="instagram-media" 
+                               data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/"
+                               data-instgrm-version="14" 
+                               style="max-width:540px; width:100%; margin: 1rem auto; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);">
+                    </blockquote>
+                </div>
             </div>
         </div>
     </footer>
 
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Debug loading of your GitHub files
-        window.addEventListener('load', () => {
-            console.log("Checking your uploaded files...");
-            const files = [
-                { src: 'BB.jpg', desc: 'Brigitte Bardot spinner' },
-                { src: 'Chinese.jpg', desc: 'Chinese takeout box' },
-                { src: 'practicedying.jpg', desc: 'Charlotte Northall book cover' },
-                { src: 'BSGIRL.jpg', desc: 'Book & Shores poster preview' },
-                { src: 'Shadows.jpg', desc: 'Women in the Shadows' },
-                { src: 'Simpsons.jpg', desc: 'Simpsons Compendium' },
-                { src: 'Tom of Finland.jpg', desc: 'Tom of Finland Kake Comics' }
-            ];
-
-            files.forEach(file => {
-                const img = new Image();
-                img.src = file.src;
-                img.onload = () => console.log(file.desc + ' (' + file.src + ') → LOADED successfully');
-                img.onerror = () => console.error(file.desc + ' (' + file.src + ') → FAILED (404, wrong name/case, or not in root)');
-            });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Fortune Cookie
+        // Fortune Cookie messages
         const fortuneCookies = [
             "The tide brings what the heart quietly calls for — trust the pull.",
             "A wave never apologizes for arriving — neither should your truth.",
@@ -601,7 +591,7 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        // Spin Brigitte – restored functionality
+        // Spin Brigitte
         const brigitteQuotes = [
             "Darling, life is too short for bad wine... or bad waves!",
             "If the tide doesn't come to you... steal its flip-flops!",
@@ -633,6 +623,14 @@
                 reveal.style.display = 'block';
             }, 6000);
         }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
 </html>
