@@ -27,7 +27,7 @@
 
         html {
             font-size: 100%;
-            -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape on iOS */
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
@@ -390,10 +390,10 @@
             .insta-embed { max-width: 100%; }
             .btn, .spin-button { min-width: 180px; }
             h1 {
-                font-size: clamp(2.5rem, 9vw, 4.5rem); /* Adjusted for better mobile scaling if needed */
+                font-size: clamp(2.5rem, 9vw, 4.5rem);
             }
             body {
-                font-size: clamp(1.05rem, 4vw, 1.2rem); /* Slightly boosted base font on mobile */
+                font-size: clamp(1.05rem, 4vw, 1.2rem);
             }
         }
     </style>
@@ -423,37 +423,73 @@
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid">
+                <!-- Praise for Flying Cars (top from last update) -->
                 <div class="book-card">
-                    <div class="book-cover-frame"><img src="practicedying.jpg" alt="Practicing Dying"></div>
-                    <div class="book-title">Practicing Dying — Charlotte Northall</div>
+                    <div class="book-cover-frame">
+                        <img src="Praise.jpg" alt="Praise for Flying Cars">
+                    </div>
+                    <div class="book-title">Praise for Flying Cars — Kareem Rahma</div>
                 </div>
+
+                <!-- Autobiography of a Yogi -->
                 <div class="book-card">
-                    <div class="book-cover-frame"><img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga"></div>
-                    <div class="book-title">Finding the Raga — Amit Chaudhuri</div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension"></div>
-                    <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="https://m.media-amazon.com/images/I/61a7pBptqCL._AC_SL1500_.jpg" alt="Autobiography of a Yogi"></div>
+                    <div class="book-cover-frame">
+                        <img src="https://m.media-amazon.com/images/I/61a7pBptqCL._AC_SL1500_.jpg" alt="Autobiography of a Yogi">
+                    </div>
                     <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
                 </div>
+
+                <!-- Practicing Dying -->
                 <div class="book-card">
-                    <div class="book-cover-frame"><img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake"></div>
+                    <div class="book-cover-frame">
+                        <img src="practicedying.jpg" alt="Practicing Dying">
+                    </div>
+                    <div class="book-title">Practicing Dying — Charlotte Northall</div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga">
+                    </div>
+                    <div class="book-title">Finding the Raga — Amit Chaudhuri</div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
+                    </div>
+                    <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
+                </div>
+
+                <!-- New entry: The Joy of Electronic Music (added here, near middle) -->
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="Joy.jpg" alt="The Joy of Electronic Music">
+                    </div>
+                    <div class="book-title">The Joy of Electronic Music — Matas Petrikas</div>
+                </div>
+
+                <!-- Dark Rides (moved up slightly, but Creation Lake stays above it) -->
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="Dark Rides.jpg" alt="Dark Rides">
+                    </div>
+                    <div class="book-title">Dark Rides — Derek McCormack</div>
+                </div>
+
+                <!-- Creation Lake (now above the new Joy entry in previous order, but per request Rachel at bottom → moved down) -->
+                <div class="book-card">
+                    <div class="book-cover-frame">
+                        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake">
+                    </div>
                     <div class="book-title">Creation Lake — Rachel Kushner</div>
                 </div>
+
                 <div class="book-card">
-                    <div class="book-cover-frame"><img src="Shadows.jpg" alt="Women in the Shadows"></div>
-                    <div class="book-title">Women in the Shadows Book by Ann Bannon</div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Simpsons.jpg" alt="Compendium of Print Ads from The Simpsons"></div>
+                    <div class="book-cover-frame">
+                        <img src="Simpsons.jpg" alt="Compendium of Print Ads from The Simpsons">
+                    </div>
                     <div class="book-title">Compendium of Print Ads from The Simpsons</div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Tom of Finland.jpg" alt="Tom of Finland: The Complete Kake Comics"></div>
-                    <div class="book-title">Tom Of Finland: The Complete Kake Comics By Dian Hanson</div>
                 </div>
             </div>
         </section>
