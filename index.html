@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-
     <title>Book & Shores</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --yellow: #fcc028;
@@ -22,14 +18,11 @@
             --dark-black: #111;
             --gray: #444;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html {
             font-size: 100%;
             -webkit-text-size-adjust: 100%;
         }
-
         body {
             background: var(--yellow);
             color: var(--black);
@@ -41,13 +34,11 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
-
         header {
             padding: 3rem 1rem 2rem;
             text-align: center;
             border-bottom: 4px solid var(--black);
         }
-
         h1 {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(3rem, 9vw, 6.5rem);
@@ -57,7 +48,6 @@
             margin-bottom: 0.4rem;
             text-transform: uppercase;
         }
-
         nav {
             margin: 2rem 0 1rem;
             display: flex;
@@ -65,7 +55,6 @@
             gap: 1.8rem;
             flex-wrap: wrap;
         }
-
         nav a {
             color: var(--black);
             text-decoration: none;
@@ -74,15 +63,12 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
-
         nav a:hover { color: var(--dark-black); }
-
         main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 1.5rem 1rem;
         }
-
         .section {
             margin: 0 auto 5rem;
             max-width: 1000px;
@@ -92,16 +78,13 @@
             border-radius: 12px;
             box-shadow: 0 10px 35px rgba(0,0,0,0.12);
         }
-
         h2, h3 {
             font-family: 'Oswald', sans-serif;
             margin-bottom: 1.5rem;
             text-align: center;
         }
-
         h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
         h3 { font-size: clamp(1.6rem, 4vw, 2rem); }
-
         .greeting-box {
             text-align: center;
             background: var(--yellow);
@@ -111,19 +94,16 @@
             max-width: 900px;
             border-radius: 12px;
         }
-
         .greeting-box .btn {
             margin-top: 1.2rem;
             font-size: clamp(1rem, 4vw, 1.2rem);
             padding: 1rem 2.2rem;
         }
-
         .poster-preview {
             margin: 0 auto 1.5rem;
             text-align: center;
             max-width: 100%;
         }
-
         .poster-preview img {
             max-width: 100%;
             max-height: 420px;
@@ -131,7 +111,6 @@
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
-
         .btn, .spin-button, .chat-input button {
             display: inline-block;
             padding: 0.9rem 1.6rem;
@@ -146,21 +125,16 @@
             text-decoration: none;
             font-size: clamp(1rem, 4vw, 1.15rem);
         }
-
         .btn:hover, .spin-button:hover, .chat-input button:hover {
             background: var(--dark-black);
             transform: translateY(-3px);
         }
-
         a.btn, .radio-card a { text-decoration: none !important; }
-
         .postcard-section { text-align: center; }
-
         .postcard {
             max-width: 280px;
             margin: 2rem auto;
         }
-
         .postcard img {
             width: 100%;
             max-width: 240px;
@@ -170,16 +144,13 @@
             background: white;
             border-radius: 4px;
         }
-
         .postcard p {
             margin: 1.2rem 0;
             font-size: clamp(1.1rem, 4.5vw, 1.3rem);
         }
-
         .postcard strong {
             font-size: clamp(1.15rem, 4.8vw, 1.35rem);
         }
-
         .chat-section {
             background: rgba(0,0,0,0.05);
             border-radius: 12px;
@@ -188,7 +159,6 @@
             margin: 3rem auto 0;
             text-align: center;
         }
-
         .chat-messages {
             background: #fff;
             border: 2px solid var(--black);
@@ -198,13 +168,11 @@
             overflow-y: auto;
             margin: 1.2rem 0;
         }
-
         .chat-input {
             display: flex;
             gap: 0.5rem;
             margin-top: 1rem;
         }
-
         .chat-input input {
             flex: 1;
             padding: 1rem;
@@ -212,27 +180,22 @@
             border-radius: 6px;
             font-size: 1.1rem;
         }
-
         .chat-input button {
             font-size: 1.1rem;
             padding: 1rem 1.5rem;
         }
-
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2.5rem 2rem;
             justify-items: center;
         }
-
         .book-card {
             width: 260px;
             text-align: center;
             transition: transform 0.3s ease;
         }
-
         .book-card:hover { transform: translateY(-6px); }
-
         .book-cover-frame {
             width: 220px;
             height: 330px;
@@ -246,19 +209,16 @@
             align-items: center;
             justify-content: center;
         }
-
         .book-cover-frame img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
-
         .book-title {
             font-size: clamp(1rem, 3.5vw, 1.15rem);
             font-weight: 500;
             line-height: 1.35;
         }
-
         .bardot-container {
             text-align: center;
             margin: 2rem 0 4rem;
@@ -267,13 +227,11 @@
             border-radius: 16px;
             background: rgba(0,0,0,0.04);
         }
-
         #bardotSpinner {
             width: 240px;
             margin: 0 auto 1.8rem;
             cursor: pointer;
         }
-
         #bardotSpinner img {
             width: 100%;
             border-radius: 50%;
@@ -281,18 +239,14 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
-
         #bardotSpinner:hover img { transform: scale(1.08); }
-
         .winkAnimation {
             animation: wink 0.6s ease-in-out 2;
         }
-
         @keyframes wink {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.15); }
         }
-
         #revealMessage {
             display: none;
             margin-top: 1.8rem;
@@ -306,7 +260,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .radio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -314,52 +267,43 @@
             justify-items: center;
             margin-top: 2.5rem;
         }
-
         .radio-card {
             text-align: center;
             max-width: 320px;
         }
-
         .radio-card img {
             max-width: 180px;
             margin-bottom: 1rem;
         }
-
         .radio-card .btn {
             margin: 0.6rem 0.4rem;
         }
-
         .support-text {
             text-align: center;
             font-size: clamp(1.1rem, 4.5vw, 1.3rem);
             margin-bottom: 2rem;
         }
-
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
             background: rgba(0,0,0,0.03);
             border-top: 4px solid var(--black);
         }
-
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
         }
-
         .signature {
             font-size: clamp(1.3rem, 5vw, 1.5rem);
             font-style: italic;
             margin: 1.5rem 0;
         }
-
         .footer-insta {
             margin-top: 2.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .footer-insta .follow-link {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(1.6rem, 4vw, 2rem);
@@ -369,17 +313,14 @@
             text-decoration: none;
             letter-spacing: 0.02em;
         }
-
         .footer-insta .follow-link:hover {
             color: var(--dark-black);
         }
-
         .insta-embed {
             width: 100%;
             max-width: 540px;
             margin: 0 auto;
         }
-
         @media (max-width: 768px) {
             .section { padding: 2rem 1.2rem; margin-bottom: 4rem; }
             .chat-messages { height: 160px; }
@@ -399,7 +340,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <h1>Book & Shores</h1>
         <nav>
@@ -409,7 +349,6 @@
             <a href="https://ko-fi.com/bookandshores/shop" target="_blank">Shop the Store</a>
         </nav>
     </header>
-
     <main>
         <div class="greeting-box">
             <h3 style="margin:0 0 0.8rem;">GREETINGS!</h3>
@@ -419,94 +358,61 @@
             </div>
             <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn">SHOP THE STORE</a>
         </div>
-
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid">
-                <!-- Terence McKenna book added at top -->
+                <!-- The Great Eastern at top -->
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="Terence.jpg" alt="Strange Attractor">
-                    </div>
-                    <div class="book-title">Strange Attractor: The Hallucinatory Life of Terence McKenna — Graham St John</div>
-                </div>
-
-                <!-- The Great Eastern -->
-                <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="cover-new.jpg" alt="The Great Eastern">
+                        <img src="GREATEASTERN.jpg" alt="The Great Eastern">
                     </div>
                     <div class="book-title">The Great Eastern — Howard A. Rodman</div>
                 </div>
-
-                <!-- Praise for Flying Cars -->
+                
+                <!-- New additions from provided covers -->
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="Praise.jpg" alt="Praise for Flying Cars">
+                        <img src="GOTHAM.png" alt="Going Down in Gotham">
                     </div>
-                    <div class="book-title">Praise for Flying Cars — Kareem Rahma</div>
+                    <div class="book-title">Going Down in Gotham — Zoe Hansen</div>
                 </div>
-
-                <!-- Autobiography of a Yogi -->
+                
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/61a7pBptqCL._AC_SL1500_.jpg" alt="Autobiography of a Yogi">
+                        <img src="UNISEX.png" alt="Unisex Me Here">
                     </div>
-                    <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
+                    <div class="book-title">Unisex Me Here — Aurora Mattia</div>
                 </div>
-
-                <!-- Practicing Dying -->
+                
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="practicedying.jpg" alt="Practicing Dying">
+                        <img src="COVERING.png" alt="Covering Islam">
                     </div>
-                    <div class="book-title">Practicing Dying — Charlotte Northall</div>
+                    <div class="book-title">Covering Islam — Edward W. Said</div>
                 </div>
-
+                
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="https://images.penguinrandomhouse.com/cover/9781681374789" alt="Finding the Raga">
+                        <img src="THENEAR.png" alt="The Near and Distant World">
                     </div>
-                    <div class="book-title">Finding the Raga — Amit Chaudhuri</div>
+                    <div class="book-title">The Near and Distant World — Bianca Stone</div>
                 </div>
-
+                
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="https://m.media-amazon.com/images/I/81XZ3QrfpZL.jpg" alt="A Different Kind of Tension">
+                        <img src="LETHEM.jpg" alt="A Different Kind of Tension">
                     </div>
                     <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
                 </div>
-
+                
                 <div class="book-card">
                     <div class="book-cover-frame">
-                        <img src="Joy.jpg" alt="The Joy of Electronic Music">
+                        <img src="BLACK.png" alt="Black Dahlia">
                     </div>
-                    <div class="book-title">The Joy of Electronic Music — Matas Petrikas</div>
-                </div>
-
-                <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="Dark Rides.jpg" alt="Dark Rides">
-                    </div>
-                    <div class="book-title">Dark Rides — Derek McCormack</div>
-                </div>
-
-                <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982116538/creation-lake-9781982116538_hr.jpg" alt="Creation Lake">
-                    </div>
-                    <div class="book-title">Creation Lake — Rachel Kushner</div>
-                </div>
-
-                <div class="book-card">
-                    <div class="book-cover-frame">
-                        <img src="Simpsons.jpg" alt="Compendium of Print Ads from The Simpsons">
-                    </div>
-                    <div class="book-title">Compendium of Print Ads from The Simpsons</div>
+                    <div class="book-title">Black Dahlia — William J. Mann</div>
                 </div>
             </div>
         </section>
-
         <section id="penpal" class="section postcard-section">
             <h2>Send a Postcard</h2>
             <div class="postcard">
@@ -515,7 +421,6 @@
                 <p>Send a postcard — I will always write you back (postcards only)</p>
                 <p><strong>1968 S. Coastal Hwy #4182<br>Laguna Beach, CA 92651</strong></p>
             </div>
-
             <div class="chat-section">
                 <img src="Chinese.jpg" alt="Chinese Takeout Box" style="max-width: 200px; margin-bottom: 1.2rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
                 <h3>Waves Back – Write & Receive a Fortune Cookie</h3>
@@ -529,7 +434,6 @@
                 </div>
             </div>
         </section>
-
         <div class="bardot-container">
             <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
             <div id="bardotSpinner">
@@ -538,7 +442,6 @@
             <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
             <div id="revealMessage"></div>
         </div>
-
         <section id="support" class="section">
             <h2>Support Local Radio</h2>
             <p class="support-text">Independent radio needs your support — keep the airwaves alive.</p>
@@ -557,27 +460,24 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div class="footer-content">
             <h2>Thanks for Visiting</h2>
             <p class="signature">I will always write you back — A.E</p>
             <p>© 2025 Book & Shores</p>
-
             <div class="footer-insta">
                 <a href="https://www.instagram.com/westwaveslaguna/" target="_blank" class="follow-link">Follow the feed @westwaveslaguna</a>
-                
+               
                 <div class="insta-embed">
-                    <blockquote class="instagram-media" 
+                    <blockquote class="instagram-media"
                                data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/"
-                               data-instgrm-version="14" 
+                               data-instgrm-version="14"
                                style="max-width:540px; width:100%; margin: 1rem auto; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);">
                     </blockquote>
                 </div>
             </div>
         </div>
     </footer>
-
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
         // Fortune Cookie messages (unchanged)
@@ -608,11 +508,9 @@
             "The sea keeps no secrets from those who listen.",
             "Every shell you find was once a home — so is your current moment."
         ];
-
         function getFortuneCookie() {
             return fortuneCookies[Math.floor(Math.random() * fortuneCookies.length)];
         }
-
         function addMessage(text, isUser = false) {
             const messagesDiv = document.getElementById('chatMessages');
             const msg = document.createElement('div');
@@ -621,26 +519,22 @@
             messagesDiv.appendChild(msg);
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
-
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
             if (!text) return;
-
             addMessage(text, true);
             input.value = '';
-
             setTimeout(() => {
                 const reply = getFortuneCookie();
                 addMessage(reply);
             }, 800);
         }
-
         document.getElementById('chatInput').addEventListener('keypress', e => {
             if (e.key === 'Enter') sendMessage();
         });
-
-        // Spin Brigitte – 25 intellectual quotes with attributions
+        // Updated Spin Brigitte quotes – 25 intellectual options with attribution
+        // No ocean theme, more philosophical, artistic, musical, spiritual depth
         const brigitteQuotes = [
             "I never thought about what I wanted to be. I became what I needed to be. — Iggy Pop",
             "Art is the only way to run away without leaving home. — Patti Smith",
@@ -668,28 +562,22 @@
             "Everything in the universe is within you. Ask all from yourself. — Rumi",
             "You were born with wings, why prefer to crawl through life? — Rumi"
         ];
-
         function spinBardot() {
             const spinner = document.getElementById('bardotSpinner');
             const reveal = document.getElementById('revealMessage');
-
             const degrees = Math.floor(Math.random() * 1440) + 1080;
             spinner.style.transition = 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)';
             spinner.style.transform = `rotate(${degrees}deg)`;
-
             setTimeout(() => {
                 spinner.style.transition = 'none';
                 spinner.style.transform = 'rotate(0deg)';
-
                 spinner.classList.add('winkAnimation');
                 setTimeout(() => spinner.classList.remove('winkAnimation'), 1500);
-
                 const quote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
                 reveal.textContent = quote;
                 reveal.style.display = 'block';
             }, 6000);
         }
-
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
