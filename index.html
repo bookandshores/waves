@@ -151,39 +151,6 @@
         .postcard strong {
             font-size: clamp(1.15rem, 4.8vw, 1.35rem);
         }
-        .chat-section {
-            background: rgba(0,0,0,0.05);
-            border-radius: 12px;
-            padding: 1.8rem;
-            max-width: 480px;
-            margin: 3rem auto 0;
-            text-align: center;
-        }
-        .chat-messages {
-            background: #fff;
-            border: 2px solid var(--black);
-            border-radius: 8px;
-            padding: 1rem;
-            height: 180px;
-            overflow-y: auto;
-            margin: 1.2rem 0;
-        }
-        .chat-input {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .chat-input input {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid var(--black);
-            border-radius: 6px;
-            font-size: 1.1rem;
-        }
-        .chat-input button {
-            font-size: 1.1rem;
-            padding: 1rem 1.5rem;
-        }
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -362,7 +329,6 @@
         }
         @media (max-width: 768px) {
             .section { padding: 2rem 1.2rem; margin-bottom: 4rem; }
-            .chat-messages { height: 160px; }
             .poster-preview img { max-height: 320px; }
             .books-grid, .radio-grid { grid-template-columns: 1fr; }
             .postcard img { max-width: 220px; border-width: 8px; }
@@ -389,7 +355,7 @@
             <h3 style="margin:0 0 0.8rem;">GREETINGS!</h3>
             <p style="margin:0 0 1.2rem;">Limited edition Book & Shores posters now available!</p>
             <div class="poster-preview">
-                <img src="BSGIRL.jpg" alt="Book & Shores Poster Preview">
+                <img src="Greetings.png" alt="Book & Shores Poster Preview">
             </div>
             <a href="https://ko-fi.com/bookandshores/shop" target="_blank" class="btn">SHOP THE POSTERS</a>
         </div>
@@ -517,17 +483,8 @@
                 <p>Send a postcard — I will always write you back (postcards only)</p>
                 <p><strong>1968 S. Coastal Hwy #4182<br>Laguna Beach, CA 92651</strong></p>
             </div>
-            <div class="chat-section">
-                <img src="Chinese.jpg" alt="Chinese Takeout Box" style="max-width: 200px; margin-bottom: 1.2rem; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
-                <h3>Waves Back – Write & Receive a Fortune Cookie</h3>
-                <p style="color: var(--gray); margin-bottom: 1.2rem;">
-                    Share a thought, feeling, or question. The waves will return a fortune cookie message just for you.
-                </p>
-                <div class="chat-messages" id="chatMessages"></div>
-                <div class="chat-input">
-                    <input type="text" id="chatInput" placeholder="Write your message...">
-                    <button onclick="sendMessage()">Send</button>
-                </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <img src="Chinese.jpg" alt="Chinese Takeout Box" style="max-width: 200px; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); border: 3px solid var(--black);">
             </div>
         </section>
         <div class="bardot-container">
@@ -575,18 +532,67 @@
     </footer>
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
-        // Fortune Cookie messages (unchanged)
-        const fortuneCookies = [ /* same as before */ ];
-        function getFortuneCookie() { return fortuneCookies[Math.floor(Math.random() * fortuneCookies.length)]; }
-        function addMessage(text, isUser = false) { /* unchanged */ }
-        function sendMessage() { /* unchanged */ }
-        document.getElementById('chatInput').addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
-        const brigitteQuotes = [ /* unchanged */ ];
-        function spinBardot() { /* unchanged */ }
+        // Brigitte Bardot quotes - Updated with requested authors
+        const brigitteQuotes = [
+            "Stories are the way we make sense of the world. — Howard Rodman",
+            "Writing is an act of defiance against forgetting. — Howard Rodman",
+            "Insomnia is a variant of Tourette's — the waking brain races, sampling the world. — Jonathan Lethem",
+            "The past is still visible. Memory is very available to me. — Jonathan Lethem",
+            "People who are harder to love pose a challenge, and the challenge makes them easier to love. — Rachel Kushner",
+            "The first and most important thing an individual can do is to become an individual again. — William S. Burroughs",
+            "Language is a virus from outer space. — William S. Burroughs",
+            "Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it. — Rumi",
+            "Out beyond ideas of wrongdoing and rightdoing there is a field. I'll meet you there. — Rumi",
+            "We tell ourselves stories in order to live. — Joan Didion",
+            "Life changes in the instant. The ordinary instant. — Joan Didion",
+            "Reality is the leading cause of stress for those in touch with it. — Jane Wagner",
+            "Be the change that you wish to see in the world. — Mahatma Gandhi",
+            "Live as if you were to die tomorrow. Learn as if you were to live forever. — Mahatma Gandhi",
+            "Music is a language that doesn't speak in particular words. It speaks in emotions. — Keith Richards",
+            "Language is courage: the ability to conceive a thought, to speak it, and by doing so to make it true. — Salman Rushdie",
+            "If you care about something you have to protect it. — John Irving",
+            "You've got to get obsessed and stay obsessed. — John Irving",
+            "Do or do not. There is no try. — Yoda",
+            "Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering. — Yoda"
+        ];
+
+        function spinBardot() {
+            const img = document.getElementById('brigitteImg');
+            const reveal = document.getElementById('revealMessage');
+            
+            // Reset
+            reveal.style.display = 'none';
+            img.classList.remove('winkAnimation');
+            
+            // Spin animation
+            img.style.transition = 'transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            img.style.transform = 'rotate(3600deg)';
+            
+            setTimeout(() => {
+                // Reset rotation but keep visual spin effect
+                img.style.transition = 'transform 0.6s ease';
+                img.style.transform = 'rotate(0deg)';
+                
+                // Show random quote
+                const randomQuote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
+                reveal.textContent = `"${randomQuote}"`;
+                reveal.style.display = 'block';
+                
+                // Add wink animation
+                setTimeout(() => {
+                    img.classList.add('winkAnimation');
+                }, 300);
+            }, 4200);
+        }
+
+        // Smooth scrolling for nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
                 e.preventDefault();
-                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     </script>
