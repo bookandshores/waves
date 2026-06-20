@@ -193,7 +193,7 @@
         .book-cover-frame img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
         .book-title {
             font-size: clamp(1rem, 3.5vw, 1.15rem);
@@ -455,9 +455,9 @@
                         <a href="https://www.ebay.com/itm/398079602310" target="_blank" class="payment-btn">BUY HERE</a>
                     </div>
                 </div>
-                <!-- Elton John AIDS Foundation -->
+                <!-- Elton John AIDS Foundation - Updated Image -->
                 <div class="book-card">
-                    <div class="book-cover-frame"><img src="Elton.png" alt="Elton John AIDS Foundation"></div>
+                    <div class="book-cover-frame"><img src="AIDS.png" alt="Elton John AIDS Foundation"></div>
                     <div class="book-title"><a href="https://www.eltonjohnaidsfoundation.org/our-focus/lgbtq/to" target="_blank">Elton John AIDS Foundation</a></div>
                     <div class="payment-buttons">
                         <a href="https://www.eltonjohnaidsfoundation.org/our-focus/lgbtq/to" target="_blank" class="payment-btn">LEARN MORE / DONATE</a>
@@ -561,4 +561,26 @@
             img.style.transform = 'rotate(3600deg)';
             
             setTimeout(() => {
-                img.style.transition = 'transform
+                img.style.transition = 'transform 0.6s ease';
+                img.style.transform = 'rotate(0deg)';
+                
+                const randomQuote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
+                reveal.textContent = `"${randomQuote}"`;
+                reveal.style.display = 'block';
+                
+                setTimeout(() => {
+                    img.classList.add('winkAnimation');
+                }, 300);
+            }, 4200);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
