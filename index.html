@@ -7,10 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    
     <title>Book & Shores | Books & Oddity Illustrations | 2026</title>
     <meta name="description" content="Curated books, magazines, and limited edition posters.">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,7 +19,11 @@
             --dark-black: #111;
             --gray: #444;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         html {
             font-size: 100%;
             -webkit-text-size-adjust: 100%;
@@ -66,7 +68,9 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
-        nav a:hover { color: var(--dark-black); }
+        nav a:hover {
+            color: var(--dark-black);
+        }
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -86,8 +90,12 @@
             margin-bottom: 1.5rem;
             text-align: center;
         }
-        h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
-        h3 { font-size: clamp(1.6rem, 4vw, 2rem); }
+        h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+        }
+        h3 {
+            font-size: clamp(1.6rem, 4vw, 2rem);
+        }
         .greeting-box {
             text-align: center;
             background: var(--yellow);
@@ -132,8 +140,12 @@
             background: var(--dark-black);
             transform: translateY(-3px);
         }
-        a.btn, .radio-card a { text-decoration: none !important; }
-        .postcard-section { text-align: center; }
+        a.btn, .radio-card a {
+            text-decoration: none !important;
+        }
+        .postcard-section {
+            text-align: center;
+        }
         .postcard {
             max-width: 280px;
             margin: 2rem auto;
@@ -172,7 +184,9 @@
         .book-card.weekly-card {
             width: 180px;
         }
-        .book-card:hover { transform: translateY(-6px); }
+        .book-card:hover {
+            transform: translateY(-6px);
+        }
         .book-cover-frame {
             width: 220px;
             height: 330px;
@@ -248,7 +262,9 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
-        #bardotSpinner:hover img { transform: scale(1.08); }
+        #bardotSpinner:hover img {
+            transform: scale(1.08);
+        }
         .winkAnimation {
             animation: wink 0.6s ease-in-out 2;
         }
@@ -331,15 +347,35 @@
             margin: 0 auto;
         }
         @media (max-width: 768px) {
-            .section { padding: 2rem 1.2rem; margin-bottom: 4rem; }
-            .poster-preview img { max-height: 320px; }
-            .books-grid, .radio-grid { grid-template-columns: 1fr; }
-            .postcard img { max-width: 220px; border-width: 8px; }
-            #bardotSpinner { width: 200px; }
-            .insta-embed { max-width: 100%; }
-            .btn, .spin-button { min-width: 180px; }
-            h1 { font-size: clamp(2.5rem, 9vw, 4.5rem); }
-            body { font-size: clamp(1.05rem, 4vw, 1.2rem); }
+            .section {
+                padding: 2rem 1.2rem;
+                margin-bottom: 4rem;
+            }
+            .poster-preview img {
+                max-height: 320px;
+            }
+            .books-grid, .radio-grid {
+                grid-template-columns: 1fr;
+            }
+            .postcard img {
+                max-width: 220px;
+                border-width: 8px;
+            }
+            #bardotSpinner {
+                width: 200px;
+            }
+            .insta-embed {
+                max-width: 100%;
+            }
+            .btn, .spin-button {
+                min-width: 180px;
+            }
+            h1 {
+                font-size: clamp(2.5rem, 9vw, 4.5rem);
+            }
+            body {
+                font-size: clamp(1.05rem, 4vw, 1.2rem);
+            }
         }
     </style>
 </head>
@@ -362,6 +398,7 @@
             </div>
             <a href="#" class="btn">SHOP THE POSTERS (coming soon)</a>
         </div>
+
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid" id="weekly-grid">
@@ -378,18 +415,15 @@
                     <div class="book-title">The Land and Its People — David Sedaris</div>
                 </div>
                 <div class="book-card weekly-card">
-                    <div class="book-cover-frame"><img src="/home/workdir/attachments/Top Dog.png" alt="Snoopy, Top Dog"></div>
-                    <div class="book-title">Snoopy, Top Dog — Charles M. Schulz</div>
+                    <div class="book-cover-frame"><img src="/home/workdir/attachments/Snoopy.png" alt="Love and Kisses, Snoopy"></div>
+                    <div class="book-title">Love and Kisses, Snoopy — Charles M. Schulz</div>
                 </div>
             </div>
         </section>
 
         <section id="bookstore" class="section">
             <h2>Bookstore — Used &amp; Curated</h2>
-            <p style="text-align:center; margin-bottom:1.5rem; max-width:700px; margin-left:auto; margin-right:auto;">
-                Carefully selected new and used books. All books ship free within the US.
-            </p>
-            
+            <p style="text-align:center; margin-bottom:1.5rem; max-width:700px; margin-left:auto; margin-right:auto;"> Carefully selected new and used books. All books ship free within the US. </p>
             <div class="books-grid">
                 <!-- Item 2 -->
                 <div class="book-card">
@@ -459,11 +493,7 @@
             <div class="footer-insta">
                 <a href="https://www.instagram.com/westwaveslaguna/" target="_blank" class="follow-link">Follow the feed @westwaveslaguna</a>
                 <div class="insta-embed">
-                    <blockquote class="instagram-media"
-                               data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/"
-                               data-instgrm-version="14"
-                               style="max-width:540px; width:100%; margin: 1rem auto; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);">
-                    </blockquote>
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/" data-instgrm-version="14" style="max-width:540px; width:100%; margin: 1rem auto; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);"></blockquote>
                 </div>
             </div>
         </div>
@@ -497,21 +527,16 @@
         function spinBardot() {
             const img = document.getElementById('brigitteImg');
             const reveal = document.getElementById('revealMessage');
-            
             reveal.style.display = 'none';
             img.classList.remove('winkAnimation');
-            
             img.style.transition = 'transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)';
             img.style.transform = 'rotate(3600deg)';
-            
             setTimeout(() => {
                 img.style.transition = 'transform 0.6s ease';
                 img.style.transform = 'rotate(0deg)';
-                
                 const randomQuote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
                 reveal.textContent = `"${randomQuote}"`;
                 reveal.style.display = 'block';
-                
                 setTimeout(() => {
                     img.classList.add('winkAnimation');
                 }, 300);
