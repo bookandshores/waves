@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Shop Posters — Book & Shores Oddity Illustrations</title>
+  
+    <meta name="description" content="Limited edition signed 16x20 Oddity Illustrations by Book & Shores. Archival prints on Belgian linen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --yellow: #f6bd28;
+            --black: #000;
+            --skyblue: #4a9eff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.6;
+            font-size: clamp(1rem, 3.5vw, 1.125rem);
+        }
+        header {
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--black);
+        }
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.92;
+            text-transform: uppercase;
+        }
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            font-size: clamp(1rem, 3.5vw, 1.15rem);
+        }
+        .posters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem 2rem;
+            justify-items: center;
+        }
+        .poster-card {
+            width: 260px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .poster-card:hover {
+            transform: translateY(-6px);
+        }
+        .poster-frame {
+            width: 220px;
+            height: 330px;
+            margin: 0 auto 1rem;
+            background: white;
+            border: 4px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+            overflow: hidden;
+        }
+        .poster-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .poster-title {
+            font-size: clamp(1rem, 3.5vw, 1.15rem);
+            font-weight: 500;
+            line-height: 1.35;
+            margin-bottom: 0.4rem;
+        }
+        .poster-price {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .buy-btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            background: var(--skyblue);
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            width: 100%;
+        }
+        .buy-btn:hover {
+            background: #3a8ae8;
+        }
+        .select-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            border: 2px solid var(--black);
+            padding: 4px;
+        }
+        .artist-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+            flex-wrap: wrap;
+        }
+        .artist-photo {
+            width: 140px;
+            height: 210px;
+            border: 3px solid var(--black);
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        .artist-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .artist-bio {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 1rem 1.3rem;
+            border-radius: 50px;
+            max-width: 280px;
+            font-size: 0.9rem;
+            border: 3px solid var(--black);
+            text-align: center;
+            line-height: 1.35;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            background: white;
+            padding: 2rem;
+            border: 6px solid var(--black);
+            text-align: center;
+            position: relative;
+        }
+        .modal-content img {
+            max-width: 100%;
+            max-height: 65vh;
+            border: 4px solid var(--black);
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--black);
+            font-size: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book & Shores</h1>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Oddity Illustrations</h2>
+            <p class="subtitle">
+                Each 16×20 illustration is printed in Brooklyn, New York using archival digital pigments on Belgian linen by our Certified Canson Print Lab and Ilford Certified Printer Partner. 
+                Each print is unframed, numbered &amp; signed with Hahnemühle Certified hologram serialized watermark for authenticity. Illustrations created by A.E Goodson for Book and Shores.
+            </p>
+
+            <div class="posters-grid" id="posters-grid">
+                <!-- Poster I -->
+                <div class="poster-card" onclick="openModal(this)">
+                    <div class="poster-frame"><img src="117.png" alt="Oddity Illustration I"></div>
+                    <div class="poster-title">Oddity Illustration I — A.E. Goodson</div>
+                    <div class="poster-price">$750</div>
+                    <div>
+                        <style>.pp-ZC9AU2TSD9XUG{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+                        <form action="https://www.paypal.com/ncp/payment/ZC9AU2TSD9XUG" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                            <input class="pp-ZC9AU2TSD9XUG" type="submit" value="Buy Now" />
+                            <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+                            <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+                        </form>
+                    </div>
+                    <small style="display:block; margin-top:0.5rem; font-size:0.85rem;">Edition 1/3 • Signed • Hahnemühle Holographic COA • Free Domestic and International Shipping</small>
+                </div>
+
+                <!-- Poster II -->
+                <div class="poster-card" onclick="openModal(this)">
+                    <div class="poster-frame"><img src="129.png" alt="Oddity Illustration II"></div>
+                    <div class="poster-title">Oddity Illustration II — A.E. Goodson</div>
+                    <div class="poster-price">$750</div>
+                    <div>
+                        <style>.pp-JWT5CV7Z8YV5Q{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+                        <form action="https://www.paypal.com/ncp/payment/JWT5CV7Z8YV5Q" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                            <input class="pp-JWT5CV7Z8YV5Q" type="submit" value="Buy Now" />
+                            <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+                            <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+                        </form>
+                    </div>
+                    <small style="display:block; margin-top:0.5rem; font-size:0.85rem;">Edition 1/3 • Signed • Hahnemühle Holographic COA • Free Domestic and International Shipping</small>
+                </div>
+
+                <!-- Poster III -->
+                <div class="poster-card" onclick="openModal(this)">
+                    <div class="poster-frame"><img src="2.png" alt="Oddity Illustration III"></div>
+                    <div class="poster-title">Oddity Illustration III — A.E. Goodson</div>
+                    <div class="poster-price">$750</div>
+                    <div>
+                        <style>.pp-VXCPYU3YUX2JE{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+                        <form action="https://www.paypal.com/ncp/payment/VXCPYU3YUX2JE" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                            <input class="pp-VXCPYU3YUX2JE" type="submit" value="Buy Now" />
+                            <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+                            <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+                        </form>
+                    </div>
+                    <small style="display:block; margin-top:0.5rem; font-size:0.85rem;">Edition 1/3 • Signed • Hahnemühle Holographic COA • Free Domestic and International Shipping</small>
+                </div>
+
+                <!-- Poster IV -->
+                <div class="poster-card" onclick="openModal(this)">
+                    <div class="poster-frame"><img src="26.png" alt="Oddity Illustration IV"></div>
+                    <div class="poster-title">Oddity Illustration IV — A.E. Goodson</div>
+                    <div class="poster-price">$750</div>
+                    <div>
+                        <style>.pp-UPA74J6RFKNW4{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+                        <form action="https://www.paypal.com/ncp/payment/UPA74J6RFKNW4" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                            <input class="pp-UPA74J6RFKNW4" type="submit" value="Buy Now" />
+                            <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+                            <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+                        </form>
+                    </div>
+                    <small style="display:block; margin-top:0.5rem; font-size:0.85rem;">Edition 1/3 • Signed • Hahnemühle Holographic COA • Free Domestic and International Shipping</small>
+                </div>
+            </div>
+
+            <div class="artist-section">
+                <div class="artist-photo">
+                    <img src="goodson.jpg" alt="A.E. Goodson">
+                </div>
+                <div class="artist-bio">
+                    <strong>Book and Shores Illustrator</strong><br>
+                    A.E. Goodson invites collectors into a world of quiet rebellion.
+                </div>
+            </div>
+
+            <p style="text-align:center; margin-top:2rem; font-size:1.1rem;">
+                Book and Shores optimizes best practice methods for archival packing and protection to ensure your prints arrive to your destination safely. Shipping included on all prints.
+            </p>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="if(event.target === this) closeModal()">
+        <span class="close" onclick="closeModal()">×</span>
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <script>
+        function openModal(card) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            const imgSrc = card.querySelector('img').src;
+            const title = card.querySelector('.poster-title').innerHTML;
+            
+            content.innerHTML = `
+                <img src="${imgSrc}" alt="${title}">
+                <h3 style="margin:1.5rem 0 0.5rem;">${title}</h3>
+                <p style="font-size:1.5rem; font-weight:600;">$750</p>
+                <p style="margin:0.5rem 0;">Artwork 12 x 12 Printed on 16 x 20</p>
+                <p style="margin:0.5rem 0;">Edition 1/3 • Signed • Hahnemühle Holographic COA</p>
+            `;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
