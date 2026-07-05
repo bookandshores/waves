@@ -189,19 +189,16 @@
             gap: 1.8rem 1.2rem;
         }
         .book-card {
-            width: 260px;
+            width: 180px; /* Smaller size like original Dummy cards */
             text-align: center;
             transition: transform 0.3s ease;
-        }
-        .book-card.weekly-card {
-            width: 260px; /* Same size as other cards */
         }
         .book-card:hover {
             transform: translateY(-6px);
         }
         .book-cover-frame {
-            width: 220px;
-            height: 330px;
+            width: 160px;
+            height: 240px;
             margin: 0 auto 1rem;
             background: white;
             border: 4px solid var(--black);
@@ -211,10 +208,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .book-card.weekly-card .book-cover-frame {
-            width: 220px;
-            height: 330px;
         }
         .book-cover-frame img {
             width: 100%;
@@ -466,7 +459,7 @@
                     </div>
                 </div>
 
-                <!-- All other book cards (same size) -->
+                <!-- All other book cards (same smaller size) -->
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="STANLEY2.jpg" alt=""></div>
                     <div class="book-title">The Art of Stanley Mouse — California Dreams</div>
@@ -709,7 +702,7 @@
             <p class="signature">I will always write you back — A.E</p>
             <p>© 2025 Book & Shores</p>
 
-            <!-- PayPal Donation Button (larger black) -->
+            <!-- PayPal Donation -->
             <div style="margin: 3rem 0; text-align: center;">
                 <p style="margin-bottom: 1rem; font-weight: 500;">Support Book and Shores — Keep the waves alive</p>
                 <div id="donate-button-container">
