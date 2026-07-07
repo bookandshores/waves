@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bookandshores.com/sitemap.xml
+
+# Disallow admin or sensitive paths (if any in the future)
+Disallow: /admin/
+Disallow: /private/
