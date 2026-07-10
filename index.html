@@ -97,16 +97,11 @@
             border-radius: 12px;
             box-shadow: 0 10px 35px rgba(0,0,0,0.12);
         }
-        h2, h3 {
+        h2 {
             font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             margin-bottom: 1.5rem;
             text-align: center;
-        }
-        h2 {
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
-        }
-        h3 {
-            font-size: clamp(1.6rem, 4vw, 2rem);
         }
         .greeting-box {
             text-align: center;
@@ -134,7 +129,7 @@
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
-        .btn, .spin-button, .chat-input button {
+        .btn, .spin-button {
             display: inline-block;
             padding: 0.9rem 1.6rem;
             background: var(--black);
@@ -148,45 +143,15 @@
             text-decoration: none;
             font-size: clamp(1rem, 4vw, 1.15rem);
         }
-        .btn:hover, .spin-button:hover, .chat-input button:hover {
+        .btn:hover, .spin-button:hover {
             background: var(--dark-black);
             transform: translateY(-3px);
-        }
-        a.btn, .radio-card a {
-            text-decoration: none !important;
-        }
-        .postcard-section {
-            text-align: center;
-        }
-        .postcard {
-            max-width: 280px;
-            margin: 2rem auto;
-        }
-        .postcard img {
-            width: 100%;
-            max-width: 240px;
-            height: auto;
-            border: 10px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            background: white;
-            border-radius: 4px;
-        }
-        .postcard p {
-            margin: 1.2rem 0;
-            font-size: clamp(1.1rem, 4.5vw, 1.3rem);
-        }
-        .postcard strong {
-            font-size: clamp(1.15rem, 4.8vw, 1.35rem);
         }
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2.5rem 2rem;
             justify-items: center;
-        }
-        .books-grid#weekly-grid {
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.8rem 1.2rem;
         }
         .book-card {
             width: 180px;
@@ -219,33 +184,36 @@
             font-weight: 500;
             line-height: 1.35;
         }
-        .book-title a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .book-title a:hover {
-            text-decoration: underline;
-        }
         .payment-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
             margin-top: 0.8rem;
         }
         .payment-btn {
-            font-size: 0.95rem;
+            display: inline-block;
             padding: 0.65rem 1.2rem;
             background: var(--black);
             color: var(--yellow);
+            font-weight: 600;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
             width: 100%;
         }
         .payment-btn:hover {
             background: var(--dark-black);
+        }
+        .postcard-section {
+            text-align: center;
+        }
+        .support-text {
+            text-align: center;
+            font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+            margin-bottom: 2rem;
+        }
+        .teaser {
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 700px;
         }
         .bardot-container {
             text-align: center;
@@ -308,11 +276,6 @@
         .radio-card .btn {
             margin: 0.6rem 0.4rem;
         }
-        .support-text {
-            text-align: center;
-            font-size: clamp(1.1rem, 4.5vw, 1.3rem);
-            margin-bottom: 2rem;
-        }
         footer {
             text-align: center;
             padding: 6rem 2rem 4rem;
@@ -322,11 +285,6 @@
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
-        }
-        .signature {
-            font-size: clamp(1.3rem, 5vw, 1.5rem);
-            font-style: italic;
-            margin: 1.5rem 0;
         }
         .footer-insta {
             margin-top: 2.5rem;
@@ -343,9 +301,6 @@
             text-decoration: none;
             letter-spacing: 0.02em;
         }
-        .footer-insta .follow-link:hover {
-            color: var(--dark-black);
-        }
         .insta-embed {
             width: 100%;
             max-width: 540px;
@@ -359,28 +314,6 @@
             .poster-preview img {
                 max-height: 420px;
             }
-            .books-grid, .radio-grid {
-                grid-template-columns: 1fr;
-            }
-            .postcard img {
-                max-width: 220px;
-                border-width: 8px;
-            }
-            #bardotSpinner {
-                width: 200px;
-            }
-            .insta-embed {
-                max-width: 100%;
-            }
-            .btn, .spin-button {
-                min-width: 180px;
-            }
-            h1 {
-                font-size: clamp(2.5rem, 9vw, 4.5rem);
-            }
-            body {
-                font-size: clamp(1.05rem, 4vw, 1.2rem);
-            }
         }
     </style>
 </head>
@@ -388,7 +321,7 @@
     <header>
         <h1>Book & Shores</h1>
         <nav>
-            <a href="#bookstore">Buy Books</a>
+            <a href="bookstore.html">Buy Books</a>
             <a href="shop-posters.html">Shop the Prints</a>
             <a href="#reads">Weekly Reads</a>
             <a href="#penpal">Send a Postcard</a>
@@ -403,6 +336,7 @@
             </div>
             <a href="shop-posters.html" class="btn">SHOP THE PRINTS</a>
         </div>
+
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
             <div class="books-grid" id="weekly-grid">
@@ -426,19 +360,16 @@
                     <div class="book-title">pleasure is a miracle — Bianca Rae Messinger</div>
                     <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622415" class="payment-btn" target="_blank">Buy Now</a></div>
                 </div>
-                <!-- New: After the Flood -->
                 <div class="book-card weekly-card">
                     <div class="book-cover-frame"><img src="Dylan.png" alt="After the Flood"></div>
                     <div class="book-title">After the Flood — Robert Polito</div>
                     <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780871402936" class="payment-btn" target="_blank">Buy Now</a></div>
                 </div>
-                <!-- New: The Great Eastern -->
                 <div class="book-card weekly-card">
                     <div class="book-cover-frame"><img src="GREATEASTERN.jpg" alt="The Great Eastern"></div>
                     <div class="book-title">The Great Eastern — Howard A. Rodman</div>
                     <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781644285541" class="payment-btn" target="_blank">Buy Now</a></div>
                 </div>
-                <!-- New: Turning Away -->
                 <div class="book-card weekly-card">
                     <div class="book-cover-frame"><img src="TURNING.jpg" alt="Turning Away"></div>
                     <div class="book-title">Turning Away — Benjamin A. Saltzman</div>
@@ -446,255 +377,13 @@
                 </div>
             </div>
         </section>
-        <section id="bookstore" class="section">
-            <h2>Bookstore — New &amp; Curated</h2>
-            <p style="text-align:center; margin-bottom:1.5rem; max-width:700px; margin-left:auto; margin-right:auto;">Carefully selected new books. All books shipped with love!</p>
-            <div class="books-grid" id="bookstore-grid">
-                <!-- Dummy #1 -->
-                <div class="book-card weekly-card">
-                    <div class="book-cover-frame"><img src="PEEWEE.png" alt="Pee-wee's Playhouse"></div>
-                    <div class="book-title">Dummy #1 - The Art of Pee-wee's Playhouse</div>
-                    <div class="payment-buttons">
-                        <div>
-                            <style>.pp-BA395PASJBQ3C{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#000000;color:#f6bd28;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-                            <form action="https://www.paypal.com/ncp/payment/BA395PASJBQ3C" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-                                <input class="pp-BA395PASJBQ3C" type="submit" value="Buy Now" />
-                                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-                                <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- Dummy #2 -->
-                <div class="book-card weekly-card">
-                    <div class="book-cover-frame"><img src="Dummy.png" alt="Dummy Magazine #2"></div>
-                    <div class="book-title">Dummy Magazine #2 - Air Pirates & Mouse Mayhem</div>
-                    <div class="payment-buttons">
-                        <div>
-                            <style>.pp-LR5ME6U8L4VE8{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#000000;color:#f6bd28;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-                            <form action="https://www.paypal.com/ncp/payment/LR5ME6U8L4VE8" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-                                <input class="pp-LR5ME6U8L4VE8" type="submit" value="Buy Now" />
-                                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-                                <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- Bookstore cards -->
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="STANLEY2.jpg" alt=""></div>
-                    <div class="book-title">The Art of Stanley Mouse — California Dreams</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781593765460" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="GREATEASTERN.jpg" alt=""></div>
-                    <div class="book-title">The Great Eastern — Howard A. Rodman</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781644285541" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="AQUA.png" alt=""></div>
-                    <div class="book-title">Aqua — Chiara Barzini</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781961884908" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="David.png" alt=""></div>
-                    <div class="book-title">Sleeping Beauties — David Byrne</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593655276" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="SimpsonsTreehouse.png" alt=""></div>
-                    <div class="book-title">The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781419793967" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Practice.png" alt=""></div>
-                    <div class="book-title">Practicing Dying — Charlotte Northall</div>
-                    <div class="payment-buttons"><a href="https://publicknowledgebooks.com/products/charlotte-northall-practicing-dying" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Javier.png" alt=""></div>
-                    <div class="book-title">Desde que te vi morir — Javier Marías</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9788420477695" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="THENEAR.png" alt=""></div>
-                    <div class="book-title">The Near and Distant World — Bianca Stone</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781963108651" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Housewives.png" alt=""></div>
-                    <div class="book-title">The Housewives Underground — Kaitlyn Tiffany</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593728628" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Wild.png" alt=""></div>
-                    <div class="book-title">The Wild Party — Joseph Moncure March</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780375706431" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="BITCHES.png" alt=""></div>
-                    <div class="book-title">Reservoir Bitches — Dahlia de la Cerda</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781558613119" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Winter.png" alt=""></div>
-                    <div class="book-title">The Land in Winter — Andrew Miller</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798889661566" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="CHANG.png" alt=""></div>
-                    <div class="book-title">Dear Memory — Victoria Chang</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781571311887" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Megan.png" alt=""></div>
-                    <div class="book-title">How It Feels to Be Alive — Megan O'Grady</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780374613327" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Bianca.png" alt=""></div>
-                    <div class="book-title">pleasure is a miracle — Bianca Rae Messinger</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622415" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Audition.png" alt=""></div>
-                    <div class="book-title">Audition — Katie Kitamura</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593852323" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="HEAP.png" alt=""></div>
-                    <div class="book-title">Heap Earth Upon It — Chloe Michelle Howarth</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781685892531" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Terence.jpg" alt=""></div>
-                    <div class="book-title">Strange Attractor (Terence McKenna bio)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262049573" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="GriefSnoopy.png" alt=""></div>
-                    <div class="book-title">The Comics of Charles Schulz: The Good Grief of Modern Life — Gardner & Gordon</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781496812896" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="RedSnoopy.png" alt=""></div>
-                    <div class="book-title">Snoopy and the Red Baron — Charles M. Schulz</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781787742727" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Moose.png" alt=""></div>
-                    <div class="book-title">Moosewood Cookbook — Mollie Katzen</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781607747390" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Chain.png" alt=""></div>
-                    <div class="book-title">Chain of Ideas — Ibram X. Kendi</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593978023" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Cocaine.png" alt=""></div>
-                    <div class="book-title">Cocaine + Surfing — Chas Smith</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780062202536" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="COVERING.png" alt=""></div>
-                    <div class="book-title">Covering Islam — Edward W. Said</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780679758907" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="DarkRides.jpg" alt=""></div>
-                    <div class="book-title">Dark Rides — Derek McCormack</div>
-                    <div class="payment-buttons"><a href="#" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Joy.jpg" alt=""></div>
-                    <div class="book-title">The Joy of Electronic Music — Matas Petrikas</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798634663593" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="LETHEM.jpg" alt=""></div>
-                    <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063388840" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Sedaris.jpg" alt=""></div>
-                    <div class="book-title">The Land and Its People — David Sedaris</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780316264839" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Friday.png" alt=""></div>
-                    <div class="book-title">The Friday Afternoon Club — Griffin Dunne</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593652848" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="GOTHAM.png" alt=""></div>
-                    <div class="book-title">Going Down in Gotham — Zoe Hansen</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798994335628" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Nova.png" alt=""></div>
-                    <div class="book-title">Nova Scotia House — Charlie Porter</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622002" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Odyssey.png" alt=""></div>
-                    <div class="book-title">The Odyssey — Homer (trans. Robert Fagles)</div>
-                    <div class="payment-buttons"><a href="#" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Plunge.png" alt=""></div>
-                    <div class="book-title">The Plunge — Lila Raicek</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780778310600" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Psychedelic.png" alt=""></div>
-                    <div class="book-title">Psychedelic Therapy — Will Van Derveer & Keith Kurlander</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781645476047" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="UNISEX.png" alt=""></div>
-                    <div class="book-title">Unisex Me Here — Aurora Mattia</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622705" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Birds.png" alt=""></div>
-                    <div class="book-title">Birds of America — Chera Hammons</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593980033" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="BLACK.png" alt=""></div>
-                    <div class="book-title">Black Dahlia — William J. Mann</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668075906" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Yogi.png" alt=""></div>
-                    <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780876120835" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <!-- New: Turning Away -->
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="TURNING.jpg" alt="Turning Away"></div>
-                    <div class="book-title">Turning Away — Benjamin A. Saltzman</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780226847221" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <!-- New Additions -->
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Small Rain.png" alt="Small Rain"></div>
-                    <div class="book-title">Small Rain — Garth Greenwell</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781250397508" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="WE JAZZ.png" alt="We Jazz"></div>
-                    <div class="book-title">We Jazz Issue 19 — Milestones</div>
-                    <div class="payment-buttons"><a href="https://publicknowledgebooks.com/products/we-jazz-issue-19-milestones-1" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-                <div class="book-card">
-                    <div class="book-cover-frame"><img src="Angel.png" alt="Angel Down"></div>
-                    <div class="book-title">Angel Down — Daniel Kraus</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668068519" class="payment-btn" target="_blank">Buy Now</a></div>
-                </div>
-            </div>
-        </section>
+
+        <!-- Updated Teaser -->
+        <div class="teaser">
+            <a href="bookstore.html" class="btn" style="font-size: 1.4rem; padding: 1.1rem 3rem;">See Full Bookstore</a>
+            <p style="margin-top: 1.2rem; color: var(--gray);">We welcome you to the Magic Room</p>
+        </div>
+
         <section id="penpal" class="section postcard-section">
             <h2>Send a Postcard</h2>
             <div style="text-align: center; max-width: 520px; margin: 1.5rem auto;">
@@ -709,6 +398,7 @@
                 <img src="Chinese.jpg" alt="Chinese Takeout Box" style="max-width: 180px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); border: 4px solid var(--black);">
             </div>
         </section>
+
         <div class="bardot-container">
             <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
             <div id="bardotSpinner">
@@ -717,6 +407,7 @@
             <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
             <div id="revealMessage"></div>
         </div>
+
         <section id="support" class="section">
             <h2>Support Radio</h2>
             <p class="support-text">Keep the waves alive!</p>
@@ -733,6 +424,7 @@
             </div>
         </section>
     </main>
+
     <footer>
         <div class="footer-content">
             <h2>Thanks for Visiting</h2>
@@ -742,9 +434,12 @@
                     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/" data-instgrm-version="14" style="max-width:540px; width:100%; margin: 1rem auto; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);"></blockquote>
                 </div>
             </div>
+            <p style="margin-top: 2rem; font-size: clamp(0.95rem, 3.5vw, 1.1rem);">
+                © 2025 Book & Shores • Contact: <a href="mailto:bookandshores@gmail.com" style="color: var(--black);">bookandshores@gmail.com</a>
+            </p>
         </div>
     </footer>
-    <p style="text-align: center; padding: 2rem 1rem 3rem; background: rgba(0,0,0,0.03); margin: 0; border-top: 4px solid var(--black); font-size: clamp(0.95rem, 3.5vw, 1.1rem);">© 2025 Book & Shores</p>
+
     <script async src="//www.instagram.com/embed.js"></script>
     <script>
         const brigitteQuotes = [
@@ -769,6 +464,7 @@
             "Do or do not. There is no try. — Yoda",
             "Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering. — Yoda"
         ];
+
         function spinBardot() {
             const img = document.getElementById('brigitteImg');
             const reveal = document.getElementById('revealMessage');
@@ -787,6 +483,7 @@
                 }, 300);
             }, 4200);
         }
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
                 e.preventDefault();

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Bookstore — Book & Shores</title>
+    <meta name="description" content="Curated new and notable books from Book & Shores.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #f6bd28;
+            --black: #000;
+            --dark-black: #111;
+            --gray: #444;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: clamp(1rem, 3.5vw, 1.125rem);
+        }
+        header {
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--black);
+        }
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.92;
+        }
+        nav {
+            margin: 2rem 0 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+        .section {
+            margin: 0 auto 5rem;
+            max-width: 1000px;
+            padding: 2.5rem 1.8rem;
+            border: 3px solid var(--black);
+            background: rgba(255,255,255,0.07);
+            border-radius: 12px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .intro-text {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1rem, 3.8vw, 1.15rem);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem 2rem;
+            justify-items: center;
+        }
+        .book-card {
+            width: 180px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-6px);
+        }
+        .book-cover-frame {
+            width: 160px;
+            height: 240px;
+            margin: 0 auto 1rem;
+            background: white;
+            border: 4px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .book-cover-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .book-title {
+            font-size: clamp(1rem, 3.5vw, 1.15rem);
+            font-weight: 500;
+            line-height: 1.35;
+        }
+        .payment-buttons {
+            margin-top: 0.8rem;
+        }
+        .btn, .payment-btn {
+            display: inline-block;
+            padding: 0.65rem 1.2rem;
+            background: var(--black);
+            color: var(--yellow);
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            width: 100%;
+            font-size: 0.95rem;
+        }
+        .btn:hover, .payment-btn:hover {
+            background: var(--dark-black);
+        }
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            background: rgba(0,0,0,0.03);
+            border-top: 4px solid var(--black);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book & Shores</h1>
+        <nav>
+            <a href="index.html">← Home</a>
+            <a href="shop-posters.html">Shop the Prints</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Bookstore — New &amp; Curated</h2>
+            
+            <div class="intro-text">
+                Click Buy Now for full descriptions, reviews, and prices.<br>
+                Titles listed A–Z. Every book is personally curated by Book & Shores. Enjoy!
+            </div>
+
+            <div class="books-grid">
+                <!-- Alphabetically sorted -->
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="AQUA.png" alt=""></div>
+                    <div class="book-title">Aqua — Chiara Barzini</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781961884908" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Angel.png" alt=""></div>
+                    <div class="book-title">Angel Down — Daniel Kraus</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668068519" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Audition.png" alt=""></div>
+                    <div class="book-title">Audition — Katie Kitamura</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593852323" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Birds.png" alt=""></div>
+                    <div class="book-title">Birds of America — Chera Hammons</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593980033" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="BLACK.png" alt=""></div>
+                    <div class="book-title">Black Dahlia — William J. Mann</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668075906" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Chain.png" alt=""></div>
+                    <div class="book-title">Chain of Ideas — Ibram X. Kendi</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593978023" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Cocaine.png" alt=""></div>
+                    <div class="book-title">Cocaine + Surfing — Chas Smith</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780062202536" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="COVERING.png" alt=""></div>
+                    <div class="book-title">Covering Islam — Edward W. Said</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780679758907" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="DarkRides.jpg" alt=""></div>
+                    <div class="book-title">Dark Rides — Derek McCormack</div>
+                    <div class="payment-buttons"><a href="#" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Friday.png" alt=""></div>
+                    <div class="book-title">The Friday Afternoon Club — Griffin Dunne</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593652848" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="GOTHAM.png" alt=""></div>
+                    <div class="book-title">Going Down in Gotham — Zoe Hansen</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798994335628" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="GREATEASTERN.jpg" alt=""></div>
+                    <div class="book-title">The Great Eastern — Howard A. Rodman</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781644285541" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="HEAP.png" alt=""></div>
+                    <div class="book-title">Heap Earth Upon It — Chloe Michelle Howarth</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781685892531" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Housewives.png" alt=""></div>
+                    <div class="book-title">The Housewives Underground — Kaitlyn Tiffany</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593728628" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Javier.png" alt=""></div>
+                    <div class="book-title">Desde que te vi morir — Javier Marías</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9788420477695" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Joy.jpg" alt=""></div>
+                    <div class="book-title">The Joy of Electronic Music — Matas Petrikas</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798634663593" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="LETHEM.jpg" alt=""></div>
+                    <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063388840" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Megan.png" alt=""></div>
+                    <div class="book-title">How It Feels to Be Alive — Megan O'Grady</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780374613327" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Moose.png" alt=""></div>
+                    <div class="book-title">Moosewood Cookbook — Mollie Katzen</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781607747390" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Nova.png" alt=""></div>
+                    <div class="book-title">Nova Scotia House — Charlie Porter</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622002" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Odyssey.png" alt=""></div>
+                    <div class="book-title">The Odyssey — Homer (trans. Robert Fagles)</div>
+                    <div class="payment-buttons"><a href="#" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Plunge.png" alt=""></div>
+                    <div class="book-title">The Plunge — Lila Raicek</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780778310600" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Practice.png" alt=""></div>
+                    <div class="book-title">Practicing Dying — Charlotte Northall</div>
+                    <div class="payment-buttons"><a href="https://publicknowledgebooks.com/products/charlotte-northall-practicing-dying" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Psychedelic.png" alt=""></div>
+                    <div class="book-title">Psychedelic Therapy — Will Van Derveer & Keith Kurlander</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781645476047" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="RedSnoopy.png" alt=""></div>
+                    <div class="book-title">Snoopy and the Red Baron — Charles M. Schulz</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781787742727" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Sedaris.jpg" alt=""></div>
+                    <div class="book-title">The Land and Its People — David Sedaris</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780316264839" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="SimpsonsTreehouse.png" alt=""></div>
+                    <div class="book-title">The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781419793967" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Small Rain.png" alt=""></div>
+                    <div class="book-title">Small Rain — Garth Greenwell</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781250397508" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="STANLEY2.jpg" alt=""></div>
+                    <div class="book-title">The Art of Stanley Mouse — California Dreams</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781593765460" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Terence.jpg" alt=""></div>
+                    <div class="book-title">Strange Attractor (Terence McKenna bio)</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262049573" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="THENEAR.png" alt=""></div>
+                    <div class="book-title">The Near and Distant World — Bianca Stone</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781963108651" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="TURNING.jpg" alt=""></div>
+                    <div class="book-title">Turning Away — Benjamin A. Saltzman</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780226847221" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="UNISEX.png" alt=""></div>
+                    <div class="book-title">Unisex Me Here — Aurora Mattia</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622705" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="WE JAZZ.png" alt=""></div>
+                    <div class="book-title">We Jazz Issue 19 — Milestones</div>
+                    <div class="payment-buttons"><a href="https://publicknowledgebooks.com/products/we-jazz-issue-19-milestones-1" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Wild.png" alt=""></div>
+                    <div class="book-title">The Wild Party — Joseph Moncure March</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780375706431" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Winter.png" alt=""></div>
+                    <div class="book-title">The Land in Winter — Andrew Miller</div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798889661566" class="payment-btn" target="_blank">Buy Now</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Book & Shores</p>
+    </footer>
+</body>
+</html>
