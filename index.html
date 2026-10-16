@@ -339,6 +339,11 @@
                 max-height: 640px;
             }
         }
+        /* B&S: Spin result quote, same look as #revealMessage */
+        .spin-quote { margin: 1rem auto 1.2rem; font-style: italic; color: var(--gray); font-size: 1.2rem; padding: 1.2rem; background: rgba(255,255,255,0.12); border-radius: 10px; max-width: 500px; }
+        .spin-quote cite { display:block; margin-top:0.6rem; font-style:normal; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.04em; }
+        .spin-quote.curator { font-style: normal; }
+        .spin-quote .curator-label { font-family:'IBM Plex Mono',monospace; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:0.85rem; display:block; margin-bottom:0.4rem; }
         /* B&S: Tip the Booktender button */
         .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
@@ -404,6 +409,17 @@
             <a href="bookstore.html" class="btn" style="font-size: 1.4rem; padding: 1.1rem 3rem;">See Full Bookstore</a>
             <p style="margin-top: 1.2rem; color: var(--gray);">Welcome to the waves babe</p>
         </div>
+        <!-- B&S: Spin Brigitte moved above Send a Postcard -->
+        <div class="bardot-container">
+            <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
+            <div id="bardotSpinner">
+                <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
+            </div>
+            <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
+            <div id="revealMessage"></div>
+            <!-- B&S: Spin Brigitte book pick -->
+            <div id="bookPick" style="display:none; margin-top:1.2rem; text-align:center;"></div>
+        </div>
         <section id="penpal" class="section postcard-section">
             <h2>Send a Postcard</h2>
             <div style="text-align: center; max-width: 520px; margin: 1.5rem auto;">
@@ -418,16 +434,6 @@
                 <img src="Chinese.jpg" alt="Chinese Takeout Box" style="max-width: 180px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); border: 4px solid var(--black);">
             </div>
         </section>
-        <div class="bardot-container">
-            <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
-            <div id="bardotSpinner">
-                <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
-            </div>
-            <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
-            <div id="revealMessage"></div>
-            <!-- B&S: Spin Brigitte book pick -->
-            <div id="bookPick" style="display:none; margin-top:1.2rem; text-align:center;"></div>
-        </div>
         <section id="support" class="section">
             <h2 style="margin:0 0 0.8rem;">WE LOVE YOU</h2>
             <p class="support-text">Keep the waves alive!</p>
@@ -461,45 +467,28 @@
         </div>
     </footer>
     <script async src="//www.instagram.com/embed.js"></script>
+    <script src="books.js"></script> <!-- B&S: Spin catalog + verified quotes -->
     <script>
-        const brigitteQuotes = [
-            "Stories are the way we make sense of the world. — Howard Rodman",
-            "Writing is an act of defiance against forgetting. — Howard Rodman",
-            "Insomnia is a variant of Tourette's — the waking brain races, sampling the world. — Jonathan Lethem",
-            "The past is still visible. Memory is very available to me. — Jonathan Lethem",
-            "People who are harder to love pose a challenge, and the challenge makes them easier to love. — Rachel Kushner",
-            "The first and most important thing an individual can do is to become an individual again. — William S. Burroughs",
-            "Language is a virus from outer space. — William S. Burroughs",
-            "Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it. — Rumi",
-            "Out beyond ideas of wrongdoing and rightdoing there is a field. I'll meet you there. — Rumi",
-            "We tell ourselves stories in order to live. — Joan Didion",
-            "Life changes in the instant. The ordinary instant. — Joan Didion",
-            "Reality is the leading cause of stress for those in touch with it. — Jane Wagner",
-            "Be the change that you wish to see in the world. — Mahatma Gandhi",
-            "Live as if you were to die tomorrow. Learn as if you were to live forever. — Mahatma Gandhi",
-            "Music is a language that doesn't speak in particular words. It speaks in emotions. — Keith Richards",
-            "Language is courage: the ability to conceive a thought, to speak it, and by doing so to make it true. — Salman Rushdie",
-            "If you care about something you have to protect it. — John Irving",
-            "You've got to get obsessed and stay obsessed. — John Irving",
-            "Do or do not. There is no try. — Yoda",
-            "Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering. — Yoda"
-        ];
-        // B&S: Spin Brigitte book pick. Catalog = every bookstore.html card with a bookshop.org/a/125864 link (78 books, generated 2026-10-16).
-        const bsBooks = [{"t": "1984 (75th Anniversary Edition) – George Orwell", "c": "n-4.jpg", "u": "https://bookshop.org/a/125864/9780451524935"}, {"t": "Air – Christian Kracht (translated by Daniel Bowles)", "c": "IMG_2773.jpg", "u": "https://bookshop.org/a/125864/9781324094586"}, {"t": "All Them Dogs — Djamel White", "c": "ALLTHEMDOGS.png", "u": "https://bookshop.org/a/125864/9798217046676"}, {"t": "Ambivalence: An Education — Brian Dillon", "c": "AMBIVALENCE.png", "u": "https://bookshop.org/a/125864/9798896231103"}, {"t": "Animal Farm (75th Anniversary Edition) – George Orwell", "c": "n-5.jpg", "u": "https://bookshop.org/a/125864/9780451526342"}, {"t": "Aqua — Chiara Barzini", "c": "AQUA.png", "u": "https://bookshop.org/a/125864/9781961884908"}, {"t": "Archives of the Anthropocene: Visual Grammars of Deep Time – Yuriko Furuhata", "c": "IMG_2856.jpg", "u": "https://bookshop.org/a/125864/9781478038948"}, {"t": "Audition — Katie Kitamura", "c": "Audition.png", "u": "https://bookshop.org/a/125864/9780593852323"}, {"t": "Autobiography of a Yogi — Paramahansa Yogananda", "c": "9780876120835.jpg", "u": "https://bookshop.org/a/125864/9780876120835"}, {"t": "Beautiful Particulars — David Weinberger", "c": "PARTICULARS.png", "u": "https://bookshop.org/a/125864/9780262054867"}, {"t": "The Best American Essays 2026 – Edited by M. Gessen", "c": "n-1.jpg", "u": "https://bookshop.org/a/125864/9780063454446"}, {"t": "Better Tech — Francine Berman", "c": "BETTERTECH.png", "u": "https://bookshop.org/a/125864/9780262054881"}, {"t": "Birds of America — Chera Hammons", "c": "Birds.png", "u": "https://bookshop.org/a/125864/9780593980033"}, {"t": "Black Dahlia — William J. Mann", "c": "BLACK.png", "u": "https://bookshop.org/a/125864/9781668075906"}, {"t": "Blood Is Dripping onto the Courtyard — Elvira Navarro", "c": "BLOOD.png", "u": "https://bookshop.org/a/125864/9781966192077"}, {"t": "The Carbon Wave: A Story of Democracy, Parenthood, and the Race to Protect Our Planet – Leah C. Stokes", "c": "CARBON.png", "u": "https://bookshop.org/a/125864/9780262054775"}, {"t": "Chain of Ideas — Ibram X. Kendi", "c": "Chain.png", "u": "https://bookshop.org/a/125864/9780593978023"}, {"t": "Cloud Six — Amy Fusselman", "c": "CLOUDSIX.png", "u": "https://bookshop.org/a/125864/9781646223480"}, {"t": "Cocaine + Surfing — Chas Smith", "c": "Cocaine.png", "u": "https://bookshop.org/a/125864/9780062202536"}, {"t": "Cool Machine – Colson Whitehead", "c": "CoolMachine.png", "u": "https://bookshop.org/a/125864/9780385550505"}, {"t": "Covering Islam — Edward W. Said", "c": "COVERING.png", "u": "https://bookshop.org/a/125864/9780679758907"}, {"t": "Daylight Come: Harry Belafonte and the World He Made – Joshua Jelly-Schapiro", "c": "IMG_2776.jpg", "u": "https://bookshop.org/a/125864/9780593652701"}, {"t": "Demon Copperhead – Barbara Kingsolver", "c": "n-2.jpg", "u": "https://bookshop.org/a/125864/9780063251984"}, {"t": "Design for Entropy: Active Inference and Technology – Luca M. Possati", "c": "DESIGN.png", "u": "https://bookshop.org/a/125864/9780262056267"}, {"t": "The Disappearers – Marlon James", "c": "IMG_2779.jpg", "u": "https://bookshop.org/a/125864/9780593717202"}, {"t": "The Edges of Cinema — Erika Balsom", "c": "EDGES.png", "u": "https://bookshop.org/a/125864/9780231221337"}, {"t": "The Ego Trip: Psychedelic Toads, a Trail of Deaths, and the Guru Who Peddled Transcendence – Kimon de Greef", "c": "IMG_2778.jpg", "u": "https://bookshop.org/a/125864/9780385550246"}, {"t": "The Friday Afternoon Club — Griffin Dunne", "c": "Friday.png", "u": "https://bookshop.org/a/125864/9780593652848"}, {"t": "Future Shock — Alvin Toffler", "c": "FUTURESHOCK.png", "u": "https://bookshop.org/a/125864/9780553277371"}, {"t": "Going Down in Gotham — Zoe Hansen", "c": "GOTHAM.png", "u": "https://bookshop.org/a/125864/9798994335628"}, {"t": "The Great Eastern — Howard A. Rodman", "c": "GREATEASTERN.jpg", "u": "https://bookshop.org/a/125864/9781644285541"}, {"t": "Heap Earth Upon It — Chloe Michelle Howarth", "c": "HEAP.png", "u": "https://bookshop.org/a/125864/9781685892531"}, {"t": "Helen of Nowhere — Makenna Goodman", "c": "HELEN.png", "u": "https://bookshop.org/a/125864/9781566897358"}, {"t": "Hiroshima, 8:15: The Lost Memoir – Kiyoshi Tanimoto", "c": "IMG_2777.jpg", "u": "https://bookshop.org/a/125864/9798217197972"}, {"t": "The Housewives Underground — Kaitlyn Tiffany", "c": "Housewives.png", "u": "https://bookshop.org/a/125864/9780593728628"}, {"t": "I Made You Up Inside My Head – Marta Pérez-Carbonell (translated by Rosalind Harvey)", "c": "IMG_2775.jpg", "u": "https://bookshop.org/a/125864/9780593854105"}, {"t": "Desde que te vi morir — Javier Marías", "c": "Javier.png", "u": "https://bookshop.org/a/125864/9788420477695"}, {"t": "The Joy of Electronic Music — Matas Petrikas", "c": "Joy.jpg", "u": "https://bookshop.org/a/125864/9798634663593"}, {"t": "A Different Kind of Tension — Jonathan Lethem", "c": "LETHEM.jpg", "u": "https://bookshop.org/a/125864/9780063388840"}, {"t": "Liberation Summer: The Moment That Changed the Women’s Movement and the Future of American Politics – Micki McElya", "c": "IMG_2774.jpg", "u": "https://bookshop.org/a/125864/9781982166762"}, {"t": "Life’s Chemical Secret — Addy Pross", "c": "CHEMICAL.png", "u": "https://bookshop.org/a/125864/9780262054836"}, {"t": "Live Dead: The Grateful Dead, Live Recordings, and the Ideology of Liveness — John Brackett", "c": "LIVEDEAD.png", "u": "https://bookshop.org/a/125864/9781478025481"}, {"t": "Madame Composer: The Virtuosic Genius of Clara Schumann – Sarah Fritz", "c": "IMG_2782.jpg", "u": "https://bookshop.org/a/125864/9798897101887"}, {"t": "How It Feels to Be Alive — Megan O'Grady", "c": "Megan.png", "u": "https://bookshop.org/a/125864/9780374613327"}, {"t": "Moosewood Cookbook — Mollie Katzen", "c": "Moose.png", "u": "https://bookshop.org/a/125864/9781607747390"}, {"t": "Music Sets You Free – Ryuichi Sakamoto (translated by Sam Bett)", "c": "IMG_2781.jpg", "u": "https://bookshop.org/a/125864/9780063416505"}, {"t": "Nary a Horse Left Standing — Lee Alan Dugatkin", "c": "NARY.png", "u": "https://bookshop.org/a/125864/9780262054546"}, {"t": "The Nerd Reich: Silicon Valley Fascism and the War on Democracy – Gil Durán", "c": "n-3.jpg", "u": "https://bookshop.org/a/125864/9781668221402"}, {"t": "Nova Scotia House — Charlie Porter", "c": "Nova.png", "u": "https://bookshop.org/a/125864/9781643622002"}, {"t": "The Palm House – Gwendoline Riley", "c": "n-6.jpg", "u": "https://bookshop.org/a/125864/9798896230526"}, {"t": "The Player and the Played — Max Haiven", "c": "PLAYER.png", "u": "https://bookshop.org/a/125864/9780262056045"}, {"t": "The Plunge — Lila Raicek", "c": "Plunge.png", "u": "https://bookshop.org/a/125864/9780778310600"}, {"t": "Powershift — Alvin Toffler", "c": "POWERSHIFT.png", "u": "https://bookshop.org/a/125864/9780553292152"}, {"t": "Psychedelic Therapy — Will Van Derveer & Keith Kurlander", "c": "Psychedelic.png", "u": "https://bookshop.org/a/125864/9781645476047"}, {"t": "Pure Ox — Mateo Askaripour", "c": "PUREOX.png", "u": "https://bookshop.org/a/125864/9798217178995"}, {"t": "Push the Wall: My Life, Writing, Drawing, and the Art of Storytelling – Frank Miller", "c": "IMG_2771.jpg", "u": "https://bookshop.org/a/125864/9781668065297"}, {"t": "A Quiet Place – Seichō Matsumoto (translated by Louise Heal Kawai)", "c": "IMG_2772.jpg", "u": "https://bookshop.org/a/125864/9780593979082"}, {"t": "Snoopy and the Red Baron — Charles M. Schulz", "c": "RedSnoopy.png", "u": "https://bookshop.org/a/125864/9781787742727"}, {"t": "The Land and Its People — David Sedaris", "c": "Sedaris.jpg", "u": "https://bookshop.org/a/125864/9780316264839"}, {"t": "The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)", "c": "SimpsonsTreehouse.png", "u": "https://bookshop.org/a/125864/9781419793967"}, {"t": "Small Rain — Garth Greenwell", "c": "Small Rain.png", "u": "https://bookshop.org/a/125864/9781250397508"}, {"t": "The Art of Stanley Mouse — California Dreams", "c": "STANLEY2.jpg", "u": "https://bookshop.org/a/125864/9781593765460"}, {"t": "A Sudden Flicker of Light: A Revisionist History of Movies – David Thomson", "c": "IMG_2770.jpg", "u": "https://bookshop.org/a/125864/9781668205730"}, {"t": "Switzy — Emma Cline", "c": "SWITZY.png", "u": "https://bookshop.org/a/125864/9780593595244"}, {"t": "The Aesthetics of Machine Vision: Critical Terms and Ideas – Edited by Kathrin Maurer, Rikke Munck Petersen, Dominique Routhier, Kassandra Wellendorf, and Kristin Veel", "c": "Vision.png", "u": "https://bookshop.org/a/125864/9780262054171"}, {"t": "The Contessa – Benedetta Craveri", "c": "IMG_2780.jpg", "u": "https://bookshop.org/a/125864/9798896230465"}, {"t": "The Things We Never Say – Elizabeth Strout", "c": "n.jpg", "u": "https://bookshop.org/a/125864/9798217154746"}, {"t": "The Third Wave — Alvin Toffler", "c": "THIRDWAV.png", "u": "https://bookshop.org/a/125864/9780553246988"}, {"t": "Tin Can Coast — Joseph Ogilvy", "c": "TIN.png", "u": "https://bookshop.org/a/125864/9781419775260"}, {"t": "Touch of Grey, or How the Grateful Dead Became Pop Stars — John Brackett", "c": "TOUCHGREY.png", "u": "https://bookshop.org/a/125864/9781478038894"}, {"t": "Strange Attractor (Terence McKenna bio)", "c": "Terence.jpg", "u": "https://bookshop.org/a/125864/9780262049573"}, {"t": "The Near and Distant World — Bianca Stone", "c": "THENEAR.png", "u": "https://bookshop.org/a/125864/9781963108651"}, {"t": "Turning Away — Benjamin A. Saltzman", "c": "TURNING.jpg", "u": "https://bookshop.org/a/125864/9780226847221"}, {"t": "Unisex Me Here — Aurora Mattia", "c": "UNISEX.png", "u": "https://bookshop.org/a/125864/9781643622705"}, {"t": "US v. THEM — Ronen Givony", "c": "USV.png", "u": "https://bookshop.org/a/125864/9781639736812"}, {"t": "The Wild Party — Joseph Moncure March", "c": "Wild.png", "u": "https://bookshop.org/a/125864/9780375706431"}, {"t": "Worlds Beyond Bios — Sophie Chao, Christine J. Winter & David Schlosberg", "c": "WORLDS.png", "u": "https://bookshop.org/a/125864/9781478038870"}, {"t": "The Land in Winter — Andrew Miller", "c": "Winter.png", "u": "https://bookshop.org/a/125864/9798889661566"}];
+        // B&S: Spin picks a book first, then shows a line from THAT book or its author (catalog + sources in books.js)
         function bsEsc(x) { return String(x).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch])); }
-        function pickBook(quote) {
-            const author = (quote.split('—').pop() || '').trim().split(' ').pop().toLowerCase();
-            const match = author ? bsBooks.filter(b => new RegExp('\\b' + author.replace(/[^a-z]/g, '') + '\\b', 'i').test(b.t.split(/[—–]/).slice(1).join(' '))) : [];
-            const pool = match.length ? match : bsBooks;
-            return pool[Math.floor(Math.random() * pool.length)];
+        let bsLast = -1;
+        function pickBook() {
+            let i;
+            do { i = Math.floor(Math.random() * bsBooks.length); } while (bsBooks.length > 1 && i === bsLast);
+            bsLast = i;
+            return bsBooks[i];
         }
-        function showBook(quote) {
-            const b = pickBook(quote);
+        function showBook(b) {
             const box = document.getElementById('bookPick');
+            const name = bsEsc(b.title) + (b.author ? ' &mdash; ' + bsEsc(b.author) : '');
+            const line = b.type === 'quote'
+                ? '<div class="spin-quote">&ldquo;' + bsEsc(b.quote) + '&rdquo;<cite>&mdash; ' + bsEsc(b.quoteSource) + '</cite></div>'
+                : '<div class="spin-quote curator"><span class="curator-label">Brigitte says:</span>' + bsEsc(b.quote) + '</div>';
             box.innerHTML = '<p style="font-family:\'IBM Plex Mono\',monospace; margin:0 0 0.6rem;">Brigitte says your next read is&hellip;</p>' +
-                '<img src="' + bsEsc(b.c) + '" alt="' + bsEsc(b.t) + '" style="max-width:140px; border:3px solid var(--black); border-radius:6px;">' +
-                '<p style="font-weight:700; margin:0.6rem 0;">' + bsEsc(b.t) + '</p>' +
-                '<a href="' + bsEsc(b.u) + '" target="_blank" rel="noopener" class="btn">Buy Now</a>' +
+                '<img src="' + bsEsc(b.cover) + '" alt="' + name + '" style="max-width:140px; border:3px solid var(--black); border-radius:6px;">' +
+                '<p style="font-weight:700; margin:0.6rem 0;">' + name + '</p>' +
+                line +
+                '<a href="' + bsEsc(b.buyUrl) + '" target="_blank" rel="noopener" class="btn">Buy Now</a>' +
                 '<br><a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" class="tip-btn">Tip the Booktender</a>';
             box.style.display = 'block';
         }
@@ -514,10 +503,7 @@
             setTimeout(() => {
                 img.style.transition = 'transform 0.6s ease';
                 img.style.transform = 'rotate(0deg)';
-                const randomQuote = brigitteQuotes[Math.floor(Math.random() * brigitteQuotes.length)];
-                reveal.textContent = `"${randomQuote}"`;
-                reveal.style.display = 'block';
-                showBook(randomQuote); // B&S
+                showBook(pickBook()); // B&S: book first, then its matching quote
                 setTimeout(() => {
                     img.classList.add('winkAnimation');
                 }, 300);
