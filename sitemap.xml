@@ -53,6 +53,12 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://bookandshores.com/booker-2026-shortlist.html</loc>
+        <lastmod>2026-10-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
     
     <!-- B&S: classics ebook store (download pages intentionally excluded) -->
     <url>
