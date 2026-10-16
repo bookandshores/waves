@@ -209,7 +209,10 @@
         .dl-list li { display:flex; justify-content:space-between; align-items:center; gap:1rem; border:3px solid var(--black); border-radius:12px; padding:0.8rem 1rem; margin-bottom:1rem; }
         .dl-list li > span { text-align:left; }
         .dl-list .payment-btn { width:auto; white-space:nowrap; }
-        a[href^="#STRIPE_LINK_"].coming-soon { opacity:0.6; cursor:default; }
+        /* B&S: post-checkout download fallback (revealed after Buy click; Stripe after-payment redirect unavailable) */
+        .post-pay-dl { margin-top:0.6rem; font-size:0.85rem; line-height:1.4; }
+        .post-pay-dl[hidden] { display:none !important; }
+        .post-pay-dl a { color:var(--black); font-weight:500; }
     </style>
 </head>
 <body>
@@ -222,7 +225,7 @@
         </nav>
     </header>
     <main>
-        <!-- B&S: classics store (Stripe Payment Links: swap each #STRIPE_LINK_<slug> for the real buy.stripe.com link) -->
+        <!-- B&S: classics store — live Stripe Payment Links; Buy opens Stripe in a new tab; download fallback revealed on click -->
         <section class="section" id="bundle">
             <h2>SHORELINE CLASSICS</h2>
             <div class="intro-text">Five books from the water's edge, in Book &amp; Shores editions. Each one comes with a note from the Booktender and a B&amp;S cover.</div>
@@ -239,8 +242,11 @@
                         <li><em>The Sea-Wolf</em> — Jack London (1904)</li>
                     </ul>
                     <p class="price">$9.99 <span class="book-sub">(5 books, $19.95 if bought separately)</span></p>
-                    <a href="#STRIPE_LINK_shoreline-classics-bundle" class="buy-btn">Buy the Bundle</a>
-                    <p class="pay-note">Pay by card, Apple Pay, Google Pay, or USDC. Your download page opens right after checkout. Lost it? Email us your receipt and we'll send it again.</p>
+                    <!-- B&S: live Stripe link; opens in new tab (no after-payment redirect configured) -->
+                    <a href="https://buy.stripe.com/bJe00k7IXg3B1Gh9W43Ru00" class="buy-btn" target="_blank" rel="noopener" data-reveal-dl>Buy the Bundle</a>
+                    <!-- B&S: post-checkout download fallback -->
+                    <p class="post-pay-dl" hidden><a href="dl-shoreline-dd8a.html">Paid? Your download is here →</a></p>
+                    <p class="pay-note">Pay by card, Apple Pay, Google Pay, or USDC. After checkout, come back to this tab for your download. Trouble? <a href="mailto:readme@bookandshores.com" style="color: var(--black);">Email us</a>.</p>
                 </div>
             </div>
         </section>
@@ -253,7 +259,7 @@
                     <div class="book-title">Moby-Dick — Herman Melville</div>
                     <div class="book-sub">First published 1851 • EPUB</div>
                     <div class="price">$3.99</div>
-                    <div class="payment-buttons"><a href="#STRIPE_LINK_moby-dick" class="payment-btn">Buy Now</a></div>
+                    <div class="payment-buttons"><!-- B&S: live Stripe link for Moby-Dick; opens in new tab --><a href="https://buy.stripe.com/cNiaEYfbp4kTfx72tC3Ru02" class="payment-btn" target="_blank" rel="noopener" data-reveal-dl>Buy Now</a><!-- B&S: post-checkout download fallback --><p class="post-pay-dl" hidden><a href="dl-moby-dick-609c.html">Paid? Your download is here →</a></p></div>
                 </div>
                 <!-- B&S: classic edition, The Awakening -->
                 <div class="book-card" id="the-awakening">
@@ -261,7 +267,7 @@
                     <div class="book-title">The Awakening — Kate Chopin</div>
                     <div class="book-sub">First published 1899 • EPUB</div>
                     <div class="price">$3.99</div>
-                    <div class="payment-buttons"><a href="#STRIPE_LINK_the-awakening" class="payment-btn">Buy Now</a></div>
+                    <div class="payment-buttons"><!-- B&S: live Stripe link for The Awakening; opens in new tab --><a href="https://buy.stripe.com/4gM14oe7ldVtdoZ7NW3Ru03" class="payment-btn" target="_blank" rel="noopener" data-reveal-dl>Buy Now</a><!-- B&S: post-checkout download fallback --><p class="post-pay-dl" hidden><a href="dl-the-awakening-4716.html">Paid? Your download is here →</a></p></div>
                 </div>
                 <!-- B&S: classic edition, Heart of Darkness -->
                 <div class="book-card" id="heart-of-darkness">
@@ -269,7 +275,7 @@
                     <div class="book-title">Heart of Darkness — Joseph Conrad</div>
                     <div class="book-sub">First published 1899 • EPUB</div>
                     <div class="price">$3.99</div>
-                    <div class="payment-buttons"><a href="#STRIPE_LINK_heart-of-darkness" class="payment-btn">Buy Now</a></div>
+                    <div class="payment-buttons"><!-- B&S: live Stripe link for Heart of Darkness; opens in new tab --><a href="https://buy.stripe.com/4gM9AU8N1g3B84F0lu3Ru04" class="payment-btn" target="_blank" rel="noopener" data-reveal-dl>Buy Now</a><!-- B&S: post-checkout download fallback --><p class="post-pay-dl" hidden><a href="dl-heart-of-darkness-4cf8.html">Paid? Your download is here →</a></p></div>
                 </div>
                 <!-- B&S: classic edition, To the Lighthouse -->
                 <div class="book-card" id="to-the-lighthouse">
@@ -277,7 +283,7 @@
                     <div class="book-title">To the Lighthouse — Virginia Woolf</div>
                     <div class="book-sub">First published 1927 • EPUB</div>
                     <div class="price">$3.99</div>
-                    <div class="payment-buttons"><a href="#STRIPE_LINK_to-the-lighthouse" class="payment-btn">Buy Now</a></div>
+                    <div class="payment-buttons"><!-- B&S: live Stripe link for To the Lighthouse; opens in new tab --><a href="https://buy.stripe.com/dRmfZi3sHdVt84F9W43Ru05" class="payment-btn" target="_blank" rel="noopener" data-reveal-dl>Buy Now</a><!-- B&S: post-checkout download fallback --><p class="post-pay-dl" hidden><a href="dl-to-the-lighthouse-70d9.html">Paid? Your download is here →</a></p></div>
                 </div>
                 <!-- B&S: classic edition, The Sea-Wolf -->
                 <div class="book-card" id="the-sea-wolf">
@@ -285,7 +291,7 @@
                     <div class="book-title">The Sea-Wolf — Jack London</div>
                     <div class="book-sub">First published 1904 • EPUB</div>
                     <div class="price">$3.99</div>
-                    <div class="payment-buttons"><a href="#STRIPE_LINK_the-sea-wolf" class="payment-btn">Buy Now</a></div>
+                    <div class="payment-buttons"><!-- B&S: live Stripe link for The Sea-Wolf; opens in new tab --><a href="https://buy.stripe.com/eVq3cwbZd4kT4St2tC3Ru06" class="payment-btn" target="_blank" rel="noopener" data-reveal-dl>Buy Now</a><!-- B&S: post-checkout download fallback --><p class="post-pay-dl" hidden><a href="dl-the-sea-wolf-c8e7.html">Paid? Your download is here →</a></p></div>
                 </div>
             </div>
         </section>
@@ -305,12 +311,16 @@
             <p><a href="bookstore.html" class="buy-btn">See Full Bookstore</a></p>
         </section>
     </main>
-    <!-- B&S: until a real Stripe link replaces a placeholder, show "Coming soon" instead of a dead jump -->
+    <!-- B&S: after Buy click, reveal this item's download link (Stripe after-payment redirect unavailable) -->
     <script>
-        document.querySelectorAll('a[href^="#STRIPE_LINK_"]').forEach(function (a) {
-            a.classList.add('coming-soon');
-            a.textContent = 'Coming Soon';
-            a.addEventListener('click', function (e) { e.preventDefault(); });
+        document.querySelectorAll('a[data-reveal-dl]').forEach(function (a) {
+            a.addEventListener('click', function () {
+                var hint = a.nextElementSibling;
+                while (hint && !(hint.classList && hint.classList.contains('post-pay-dl'))) {
+                    hint = hint.nextElementSibling;
+                }
+                if (hint) hint.hidden = false;
+            });
         });
     </script>
     <footer>
