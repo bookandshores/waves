@@ -54,5 +54,13 @@
         <priority>0.8</priority>
     </url>
     
+    <!-- B&S: classics ebook store (download pages intentionally excluded) -->
+    <url>
+        <loc>https://bookandshores.com/classics.html</loc>
+        <lastmod>2026-10-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
     <!-- Add more pages here as you create them -->
 </urlset>
