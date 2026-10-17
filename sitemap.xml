@@ -73,7 +73,7 @@
     </url>
     <url>
         <loc>https://bookandshores.com/booker-2026-shortlist.html</loc>
-        <lastmod>2026-10-16</lastmod>
+        <lastmod>2026-10-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -84,6 +84,36 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+    <url>
+        <loc>https://bookandshores.com/book-the-disappearers.html</loc>
+        <lastmod>2026-10-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bookandshores.com/book-black-bag.html</loc>
+        <lastmod>2026-10-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bookandshores.com/book-may-we-feed-the-king.html</loc>
+        <lastmod>2026-10-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bookandshores.com/book-the-things-we-never-say.html</loc>
+        <lastmod>2026-10-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bookandshores.com/book-john-of-john.html</loc>
+        <lastmod>2026-10-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
 <!-- Add more pages here as you create them -->
 </urlset>
