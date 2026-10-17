@@ -95,6 +95,10 @@
         nav a:hover {
             color: var(--dark-black);
         }
+        /* B&S: small "Announced Nov 9th" tag under the Booker Shortlist menu link */
+        .nav-booker { position: relative; display: inline-block; }
+        nav a.nav-tag { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--black); color: #f6bd28; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 999px; line-height: 1.3; }
+        nav a.nav-tag:hover { color: #fff; }
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -366,7 +370,7 @@
         <h1>Book & Shores</h1>
         <nav>
             <a href="bookstore.html">Buy Books</a>
-            <a href="booker-2026-shortlist.html">Booker Shortlist</a>
+            <span class="nav-booker"><a href="booker-2026-shortlist.html">Booker Shortlist</a><a href="booker-2026-shortlist.html" class="nav-tag">Announced Nov 9th</a></span>
             <a href="#reads">Weekly Reads</a>
             <a href="#spin">Spin Brigitte</a>
             <a href="#penpal">Send a Postcard</a>
