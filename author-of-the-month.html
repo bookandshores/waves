@@ -218,6 +218,17 @@
         .listen-card .src { font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray); margin-bottom:0.7rem; }
         .listen-card p { font-size:0.95rem; line-height:1.45; margin-bottom:1rem; }
         .listen-card .btn { width:auto; }
+        .author-photo { margin: -0.4rem auto 2rem; text-align:center; }
+        .author-photo img { display:block; width:120px; height:120px; object-fit:cover; border:4px solid var(--black); border-radius:50%; box-shadow:0 8px 24px rgba(0,0,0,0.22); margin:0 auto; }
+        .author-photo figcaption { margin-top:0.5rem; font-size:0.7rem; letter-spacing:0.05em; color:var(--gray); white-space:nowrap; }
+        .author-photo figcaption a { color: var(--gray); }
+        .ufo { position:relative; width:260px; height:214px; margin:0 auto; transform:rotate(-7deg); }
+        .ufo.ufo-beam { height:300px; }
+        .ufo svg { position:absolute; left:0; top:0; width:100%; height:100%; overflow:visible; }
+        .ufo .ufo-back { filter: drop-shadow(0 0 10px rgba(255,242,0,0.9)); }
+        .ufo .ufo-front { z-index:2; filter: drop-shadow(0 0 4px #fff200) drop-shadow(0 0 12px rgba(255,242,0,0.9)); }
+        .ufo img { position:absolute; left:70px; top:24px; z-index:1; width:120px; height:120px; object-fit:cover; border:4px solid var(--black); border-radius:50%; box-sizing:border-box; }
+        .ufo + figcaption { margin-top:0.9rem; }
     </style>
 </head>
 <body>
@@ -240,6 +251,14 @@
                 <p>&ldquo;We live in a continuing great era of rediscovered books.&rdquo;</p>
                 <cite>Jonathan Lethem, <a href="https://www.nybooks.com/articles/2026/10/22/second-chances-office-politics-wilfrid-sheed/" target="_blank" rel="noopener">&ldquo;Second Chances,&rdquo;</a> NYRB, October 22, 2026 issue</cite>
             </div>
+            <figure class="author-photo">
+                <div class="ufo ufo-beam">
+                    <svg class="ufo-back" viewBox="0 0 260 300" aria-hidden="true" focusable="false"><defs><linearGradient id="ufo-beam-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff200" stop-opacity="0.95"/><stop offset="1" stop-color="#fff200" stop-opacity="0"/></linearGradient></defs><path d="M92,202 L168,202 L240,300 L20,300 Z" fill="url(#ufo-beam-g)"/><path d="M92,202 L20,300 M168,202 L240,300" stroke="#000" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round" opacity="0.55"/><path d="M48,148 C48,-30 212,-30 212,148 Z" fill="rgba(255,255,255,0.28)"/></svg>
+                    <img src="aotm-lethem-photo.jpg" alt="Jonathan Lethem at the 2023 Texas Book Festival" width="120" height="120">
+                    <svg class="ufo-front" viewBox="0 0 260 300" aria-hidden="true" focusable="false"><path d="M62,120 C60,70 80,42 104,30" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.85"/><path d="M48,148 C48,-30 212,-30 212,148" fill="none" stroke="#000" stroke-width="5"/><ellipse cx="130" cy="196" rx="50" ry="11" fill="#000"/><ellipse cx="130" cy="193" rx="34" ry="5" fill="#fff200" opacity="0.9"/><ellipse cx="130" cy="164" rx="126" ry="30" fill="#fff200" stroke="#000" stroke-width="5"/><path d="M10,160 Q130,190 250,160" fill="none" stroke="#000" stroke-width="2.5"/><ellipse cx="130" cy="148" rx="88" ry="12" fill="#fff200" stroke="#000" stroke-width="4"/><circle cx="34" cy="174.4" r="5" fill="#fff" stroke="#000" stroke-width="2"/><circle cx="62" cy="179.2" r="5" fill="#000" stroke="#000" stroke-width="2"/><circle cx="95" cy="182.7" r="5" fill="#fff" stroke="#000" stroke-width="2"/><circle cx="130" cy="184.0" r="5" fill="#000" stroke="#000" stroke-width="2"/><circle cx="165" cy="182.7" r="5" fill="#fff" stroke="#000" stroke-width="2"/><circle cx="198" cy="179.2" r="5" fill="#000" stroke="#000" stroke-width="2"/><circle cx="226" cy="174.4" r="5" fill="#fff" stroke="#000" stroke-width="2"/></svg>
+                </div>
+                <figcaption>Photo: <a href="https://commons.wikimedia.org/wiki/File:Jonathan_Letham_2023_Texas_Book_Festival.jpg" target="_blank" rel="noopener">Larry D. Moore</a> / <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></figcaption>
+            </figure>
             <p class="intro-text">He even compares reissue presses to &ldquo;a sea turtle laying a thousand eggs.&rdquo; Some hatch, some don&#x27;t. Our kind of metaphor.</p>
             <div class="link-row">
                 <a href="https://www.nybooks.com/articles/2026/10/22/second-chances-office-politics-wilfrid-sheed/" class="btn" target="_blank" rel="noopener">Read the Essay</a>
