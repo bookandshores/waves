@@ -365,6 +365,7 @@
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
         /* B&S: old-school square ad spot. Swap .ad-empty for an advertiser's <a><img></a> when sold. */
         .ad-slot { margin: 0 auto 5rem; text-align: center; }
+        .ad-slot.in-section { margin: 3rem auto 0; }
         .ad-label { display:block; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.32em; text-transform:uppercase; margin:0 0 0.45rem; }
         .ad-box { display:flex; width:min(300px, 82vw); aspect-ratio:1 / 1; margin:0 auto; background:#fbf3dc; border:3px solid #000; outline:1px solid #000; outline-offset:-9px; padding:18px; color:#000; text-decoration:none; box-shadow:6px 6px 0 #000; transition:transform 0.2s ease, box-shadow 0.2s ease; }
         .ad-box:hover { transform:translate(-2px,-2px); box-shadow:8px 8px 0 #000; }
@@ -436,19 +437,6 @@
             <a href="bookstore.html" class="btn" style="font-size: 1.4rem; padding: 1.1rem 3rem;">See Full Bookstore</a>
             <p style="margin-top: 1.2rem; color: var(--gray);">Welcome to the waves babe</p>
         </div>
-        <!-- B&S: old-school "This Space for Rent" ad spot; whole box emails readme@ -->
-        <aside class="ad-slot" aria-label="Advertisement">
-            <span class="ad-label">Advertisement</span>
-            <a class="ad-box" href="mailto:readme@bookandshores.com?subject=Advertising%20on%20Book%20%26%20Shores">
-                <div class="ad-empty">
-                    <span class="ad-kicker"><span class="ad-star">&#9733;</span> Prime Real Estate <span class="ad-star">&#9733;</span></span>
-                    <span class="ad-head">This Space<br>For Rent</span>
-                    <hr class="ad-rule">
-                    <span class="ad-sub">Your book. Your shop.<br>Your sunscreen.</span>
-                    <span class="ad-contact">Serious inquiries only:<br><strong>readme@bookandshores.com</strong></span>
-                </div>
-            </a>
-        </aside>
         <!-- B&S: Spin Brigitte moved above Send a Postcard -->
         <div class="bardot-container" id="spin">
             <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
@@ -520,6 +508,19 @@
                     <p><strong>Book and Shores<br>1968 S. Coastal Hwy #4182<br>Laguna Beach, CA 92651</strong></p>
                 </div>
             </div>
+            <!-- B&S: old-school "This Space for Rent" ad spot in WE LOVE YOU; whole box emails readme@ -->
+            <aside class="ad-slot in-section" aria-label="Advertisement">
+                <span class="ad-label">Advertisement</span>
+                <a class="ad-box" href="mailto:readme@bookandshores.com?subject=Advertising%20on%20Book%20%26%20Shores">
+                    <div class="ad-empty">
+                        <span class="ad-kicker"><span class="ad-star">&#9733;</span> Prime Real Estate <span class="ad-star">&#9733;</span></span>
+                        <span class="ad-head">This Space<br>For Rent</span>
+                        <hr class="ad-rule">
+                        <span class="ad-sub">Your book. Your shop.<br>Your sunscreen.</span>
+                        <span class="ad-contact">Serious inquiries only:<br><strong>readme@bookandshores.com</strong></span>
+                    </div>
+                </a>
+            </aside>
         </section>
     </main>
     <footer>
