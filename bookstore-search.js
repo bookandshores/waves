@@ -3,7 +3,7 @@
 (function () {
     "use strict";
     var AFF = "https://bookshop.org/a/125864/";
-    var OL = "https://openlibrary.org/search.json?fields=title,author_name,isbn,cover_i&limit=10&q=";
+    var OL = "https://openlibrary.org/search.json?fields=title,author_name,isbn,cover_i,language&limit=20&q=";
     var MAX_OURS = 8, MAX_OL = 8, DEBOUNCE = 300;
 
     var input = document.getElementById("bs-search-input");
@@ -31,16 +31,31 @@
         for (var i = 0; i < 12; i++) sum += (+b[i]) * (i % 2 ? 3 : 1);
         return b + ((10 - sum % 10) % 10);
     }
-    // Pick one ISBN-13: English-language prefixes first (978-0, 978-1, 979-8), since Bookshop carries those.
+    // US editions only, so Bookshop (US) can find the book.
+    // Known UK/Australian publisher ranges inside 978-0 and 978-1 (HarperCollins UK, Faber, Bloomsbury UK,
+    // Penguin Random House UK, Hodder, Orion, Pan Macmillan, Little, Brown UK, and the 978-1-78/80/83/84-87/90/91 blocks).
+    var NOT_US = /^(978000|978009|9780207|9780224|9780241|9780261|9780297|9780330|9780333|9780340|9780349|9780356|9780413|9780416|9780434|9780436|9780450|9780552|9780563|9780571|9780575|9780586|9780701|9780704|9780715|9780718|9780719|9780722|9780732|9780747|97807472|97807515|97807528|97807538|97807553|978178|978180|978183|978184|978185|978186|978187|978190|978191|9781035|9781398|9781399|9781405|9781408|9781409|9781447|9781471|9781472|9781473|9781474|9781509|9781526|9781529)/;
+    // Big US houses and US university presses: picked first when a book has several editions.
+    var US_HOUSE = /^(9780060|9780061|9780062|9780063|9780064|9780226|9780231|9780252|9780262|9780300|9780307|9780312|9780316|9780345|9780374|9780375|9780385|9780393|9780394|9780399|9780446|9780451|9780520|9780525|9780553|9780593|9780671|9780679|9780684|9780691|9780743|9780802|9780804|9780805|9780811|9780812|9780822|9781250|9781416|9781439|9781451|9781476|9781478|9781501|9781538|9781578|9781590|9781681|9781982|9781984|9780143)/;
+    function usRank(s) {
+        if (!/^978[01]|^9798/.test(s) || NOT_US.test(s)) return -1; // not a likely US edition
+        return US_HOUSE.test(s) ? 0 : 1;
+    }
+    // Pick one likely-US ISBN-13; null if the book has none (the result is then dropped).
     function pickIsbn(arr) {
         var c = [];
         (arr || []).forEach(function (raw) {
             var s = String(raw).replace(/[^0-9X]/gi, "");
             if (s.length === 10) s = from10(s) || "";
-            if (isbn13ok(s) && c.indexOf(s) < 0) c.push(s);
+            if (isbn13ok(s) && usRank(s) >= 0 && c.indexOf(s) < 0) c.push(s);
         });
-        var rank = function (s) { return /^978[01]|^9798/.test(s) ? 0 : 1; };
-        c.sort(function (a, b) { return rank(a) - rank(b); });
+        // US houses first; then the publisher with the most editions (usually the current one);
+        // then the higher number, which is usually the newer edition.
+        var pubs = {};
+        c.forEach(function (s) { pubs[s.slice(0, 7)] = (pubs[s.slice(0, 7)] || 0) + 1; });
+        c.sort(function (a, b) {
+            return usRank(a) - usRank(b) || pubs[b.slice(0, 7)] - pubs[a.slice(0, 7)] || (a < b ? 1 : a > b ? -1 : 0);
+        });
         return c[0] || null;
     }
 
@@ -135,6 +150,7 @@
                 var more = [];
                 (data.docs || []).forEach(function (d) {
                     if (more.length >= MAX_OL || !d.title) return;
+                    if (d.language && d.language.length && d.language.indexOf("eng") < 0) return; // English only
                     var isbn = pickIsbn(d.isbn);
                     var key = norm(d.title).slice(0, 24) + "|" + norm((d.author_name || [])[0]);
                     if (!isbn || seenIsbn[isbn] || seenKey[key] || seenKey[norm(d.title).slice(0, 24)] && matched.length) return;
@@ -148,9 +164,6 @@
                         aff: true
                     });
                 });
-                // English-language editions first: those are the ones Bookshop (US) usually carries.
-                more = more.filter(function (b) { return /^978[01]|^9798/.test(b.isbn); })
-                    .concat(more.filter(function (b) { return !/^978[01]|^9798/.test(b.isbn); }));
                 list.removeChild(loading);
                 if (more.length && ours.length) list.appendChild(note("More from every bookstore", "bs-divider"));
                 more.forEach(function (b) { list.appendChild(row(b, false)); });
