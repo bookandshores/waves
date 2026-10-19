@@ -1,8 +1,12 @@
 // B&S: bookstore search. Our picks first (bookstore-search-index.js), then any book via the
 // free Open Library search API. Every Bookshop link carries our affiliate ID (125864).
+// Our picks link straight to the book (/a/125864/ISBN). Open Library results link to Bookshop's own
+// affiliate search (the URL its official search widget, /widgets/search/125864, submits to), because
+// Open Library ISBNs are often old or out-of-print editions that 404 on Bookshop.
 (function () {
     "use strict";
     var AFF = "https://bookshop.org/a/125864/";
+    var AFF_SEARCH = "https://bookshop.org/search?affiliate=125864&keywords=";
     var OL = "https://openlibrary.org/search.json?fields=title,author_name,isbn,cover_i,language&limit=20&q=";
     var MAX_OURS = 8, MAX_OL = 8, DEBOUNCE = 300;
 
@@ -36,7 +40,7 @@
     // Penguin Random House UK, Hodder, Orion, Pan Macmillan, Little, Brown UK, and the 978-1-78/80/83/84-87/90/91 blocks).
     var NOT_US = /^(978000|978009|9780207|9780224|9780241|9780261|9780297|9780330|9780333|9780340|9780349|9780356|9780413|9780416|9780434|9780436|9780450|9780552|9780563|9780571|9780575|9780586|9780701|9780704|9780715|9780718|9780719|9780722|9780732|9780747|97807472|97807515|97807528|97807538|97807553|978178|978180|978183|978184|978185|978186|978187|978190|978191|9781035|9781398|9781399|9781405|9781408|9781409|9781447|9781471|9781472|9781473|9781474|9781509|9781526|9781529)/;
     // Big US houses and US university presses: picked first when a book has several editions.
-    var US_HOUSE = /^(9780060|9780061|9780062|9780063|9780064|9780226|9780231|9780252|9780262|9780300|9780307|9780312|9780316|9780345|9780374|9780375|9780385|9780393|9780394|9780399|9780446|9780451|9780520|9780525|9780553|9780593|9780671|9780679|9780684|9780691|9780743|9780802|9780804|9780805|9780811|9780812|9780822|9781250|9781416|9781439|9781451|9781476|9781478|9781501|9781538|9781578|9781590|9781681|9781982|9781984|9780143)/;
+    var US_HOUSE = /^(9780060|9780061|9780062|9780063|9780064|9780226|9780231|9780252|9780262|9780300|9780307|9780312|9780316|9780345|9780374|9780375|9780385|9780393|9780394|9780399|9780446|9780451|9780520|9780525|9780553|9780593|9780671|9780679|9780684|9780691|9780743|9780802|9780804|9780805|9780811|9780812|9780822|9781250|9781416|9781439|9781451|9781476|9781478|9781501|9781538|9781578|9781590|9781681|9781982|97819848|9780143)/;
     function usRank(s) {
         if (!/^978[01]|^9798/.test(s) || NOT_US.test(s)) return -1; // not a likely US edition
         return US_HOUSE.test(s) ? 0 : 1;
@@ -49,16 +53,17 @@
             if (s.length === 10) s = from10(s) || "";
             if (isbn13ok(s) && usRank(s) >= 0 && c.indexOf(s) < 0) c.push(s);
         });
-        // US houses first; then the publisher with the most editions (usually the current one);
-        // then the higher number, which is usually the newer edition.
-        var pubs = {};
-        c.forEach(function (s) { pubs[s.slice(0, 7)] = (pubs[s.slice(0, 7)] || 0) + 1; });
-        c.sort(function (a, b) {
-            return usRank(a) - usRank(b) || pubs[b.slice(0, 7)] - pubs[a.slice(0, 7)] || (a < b ? 1 : a > b ? -1 : 0);
-        });
+        // US houses first, then the higher number, which is usually the newer edition
+        // (e.g. Scribner 2011 9781451635621 beats Warner 1993 9780446781817).
+        c.sort(function (a, b) { return usRank(a) - usRank(b) || (a < b ? 1 : a > b ? -1 : 0); });
         return c[0] || null;
     }
 
+    // Keywords for Bookshop search: title without series tags like "(Ripley #3)", plus the first author.
+    function searchTerms(title, author) {
+        var t = String(title).replace(/\s*[\(\[][^\)\]]*[\)\]]/g, "").trim() || String(title);
+        return (t + (author ? " " + author : "")).replace(/\s+/g, " ");
+    }
     function authors(arr) {
         var out = [], last = {};
         (arr || []).forEach(function (a) {
@@ -154,13 +159,15 @@
                     var isbn = pickIsbn(d.isbn);
                     var key = norm(d.title).slice(0, 24) + "|" + norm((d.author_name || [])[0]);
                     if (!isbn || seenIsbn[isbn] || seenKey[key] || seenKey[norm(d.title).slice(0, 24)] && matched.length) return;
-                    seenIsbn[isbn] = seenKey[key] = 1;
+                    var buy = AFF_SEARCH + encodeURIComponent(searchTerms(d.title, (d.author_name || [])[0]));
+                    if (seenKey[buy.toLowerCase()]) return; // e.g. "Gone with the Wind [2/2]" would repeat the same search
+                    seenIsbn[isbn] = seenKey[key] = seenKey[buy.toLowerCase()] = 1;
                     more.push({
                         title: d.title,
                         author: authors(d.author_name),
                         isbn: isbn,
                         cover: d.cover_i ? "https://covers.openlibrary.org/b/id/" + d.cover_i + "-S.jpg" : "",
-                        buy: AFF + isbn,
+                        buy: buy,
                         aff: true
                     });
                 });
