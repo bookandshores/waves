@@ -1,0 +1,31 @@
+# Book & Shores
+
+> Book & Shores (bookandshores.com) is an independent book-recommendation site. We hand-pick new and notable books (Booker Prize 2026 titles, surf and sea reads, art books, classics and small-press finds) and link to buy each one from independent bookstores through Bookshop.org.
+
+Affiliate disclosure: Book & Shores earns a small commission from Bookshop.org purchases, which supports independent bookstores. Buy links use our Bookshop.org affiliate storefront (https://bookshop.org/a/125864/<ISBN>). Readers can also tip the site directly on PayPal ("Tip the Booktender"). Contact: readme@bookandshores.com
+
+## Weekly Reads and book pages
+
+- [The Talented Mr. Ripley by Patricia Highsmith](https://bookandshores.com/book-talented-mr-ripley.html): Weekly Read. The classic noir that inspired the new film A Talent for Murder (in theaters October 23, 2026). W. W. Norton paperback, ISBN 9780393332148.
+- [Carol by Patricia Highsmith](https://bookandshores.com/book-carol.html): Bonus Weekly Read alongside Ripley. First published in 1952 as The Price of Salt. W. W. Norton paperback, ISBN 9780393325997.
+- [The End of Everything by M. John Harrison](https://bookandshores.com/book-the-end-of-everything.html): Shortlisted for the 2026 Booker Prize. Riverhead Books hardcover, October 13, 2026, ISBN 9798217438655.
+- [Switzy by Emma Cline](https://bookandshores.com/book-switzy.html): Longlisted for the 2026 Booker Prize. Random House, 2026, ISBN 9780593595244.
+- [Helen of Nowhere by Makenna Goodman](https://bookandshores.com/book-helen-of-nowhere.html): Longlisted for the 2026 Booker Prize. Coffee House Press, ISBN 9781566897358.
+- [All Them Dogs by Djamel White](https://bookandshores.com/book-all-them-dogs.html): Longlisted for the 2026 Booker Prize; a debut set in West Dublin gangland. Riverhead, 2026, ISBN 9798217046676.
+- [Ambivalence: An Education by Brian Dillon](https://bookandshores.com/book-ambivalence.html): Memoir of growing up in 1980s and 90s Dublin through books and ideas. New York Review Books, 2026, ISBN 9798896231103.
+
+## Lists
+
+- [Bookstore](https://bookandshores.com/bookstore.html): The full A–Z shelf of Book & Shores picks, with a search bar for any book. Every pick links to Bookshop.org.
+- [Booker Prize 2026 shortlist](https://bookandshores.com/booker-2026-shortlist.html): All six shortlisted novels, a sentence each. The winner is announced November 9, 2026.
+- [Booker Prize 2026 longlist picks](https://bookandshores.com/booker-2026-longlist.html): Three longlisted novels hand-picked by Book & Shores: Switzy, Helen of Nowhere and All Them Dogs.
+- [Author of the Month: Jonathan Lethem](https://bookandshores.com/author-of-the-month.html): Where to start, six of his best books, and Office Politics, the lost novel in his new NYRB essay.
+
+## Site
+
+- [Home](https://bookandshores.com/): Weekly Reads, the Booker 2026 shortlist, Spin Brigitte (a random pick from our shelves), and radio.
+- [Sitemap](https://bookandshores.com/sitemap.xml)
+
+## Optional
+
+- [Prints](https://bookandshores.com/shop-posters.html): Limited-edition signed 16x20 READ ME prints by A.E. Goodson.
