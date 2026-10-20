@@ -403,25 +403,25 @@
                     <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
                     <div class="book-cover-frame"><a href="book-the-midnight-special.html" style="display:block; width:100%; height:100%;"><img src="weekly-midnight-special.jpg" alt="The Midnight Special by Colin Asher"></a></div>
                     <div class="book-title"><a href="book-the-midnight-special.html" style="color: var(--black); text-decoration: none;">The Midnight Special — Colin Asher</a></div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781324051398" class="payment-btn" target="_blank" rel="noopener">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781324051398" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The Midnight Special by Colin Asher on Bookshop.org (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card weekly-card">
                     <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
                     <div class="book-cover-frame"><a href="book-centroeuropa.html" style="display:block; width:100%; height:100%;"><img src="weekly-centroeuropa.jpg" alt="Centroeuropa by Vicente Luis Mora"></a></div>
                     <div class="book-title"><a href="book-centroeuropa.html" style="color: var(--black); text-decoration: none;">Centroeuropa — Vicente Luis Mora</a></div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781954276529" class="payment-btn" target="_blank" rel="noopener">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781954276529" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Centroeuropa by Vicente Luis Mora on Bookshop.org (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card weekly-card">
                     <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
                     <div class="book-cover-frame"><a href="book-night-of-a-thousand-hells.html" style="display:block; width:100%; height:100%;"><img src="weekly-night-of-a-thousand-hells.jpg" alt="Night of a Thousand Hells by Intan Paramaditha"></a></div>
                     <div class="book-title"><a href="book-night-of-a-thousand-hells.html" style="color: var(--black); text-decoration: none;">Night of a Thousand Hells — Intan Paramaditha</a></div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798889662129" class="payment-btn" target="_blank" rel="noopener">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798889662129" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Night of a Thousand Hells by Intan Paramaditha on Bookshop.org (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card weekly-card">
                     <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
                     <div class="book-cover-frame"><a href="book-the-school-of-night.html" style="display:block; width:100%; height:100%;"><img src="weekly-school-of-night.jpg" alt="The School of Night by Karl Ove Knausgaard"></a></div>
                     <div class="book-title"><a href="book-the-school-of-night.html" style="color: var(--black); text-decoration: none;">The School of Night — Karl Ove Knausgaard</a></div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593832820" class="payment-btn" target="_blank" rel="noopener">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593832820" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The School of Night by Karl Ove Knausgaard on Bookshop.org (opens in a new tab)">Buy Now</a></div>
                 </div>
             </div>
             <!-- B&S: last week's Highsmith picks stay on the shelf; ticket card kept while A Talent for Murder is in theaters -->
@@ -456,12 +456,12 @@
         <div class="bardot-container" id="spin">
             <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
             <div id="bardotSpinner">
-                <img src="BB.jpg" alt="Brigitte Bardot" id="brigitteImg">
+                <img src="BB.jpg" alt="Brigitte Bardot, the spinner for the random book pick" id="brigitteImg">
             </div>
-            <button class="spin-button" onclick="spinBardot()">Spin Brigitte</button>
+            <button type="button" class="spin-button" onclick="spinBardot()" aria-controls="bookPick" aria-label="Spin Brigitte for a random book pick and a line from it">Spin Brigitte</button>
             <div id="revealMessage"></div>
             <!-- B&S: Spin Brigitte book pick -->
-            <div id="bookPick" style="display:none; margin-top:1.2rem; text-align:center;"></div>
+            <div id="bookPick" aria-live="polite" style="display:none; margin-top:1.2rem; text-align:center;"></div>
         </div>
         <!-- B&S: Booker 2026 shortlist teaser, styled like Send a Postcard; whole block links to the shortlist page -->
         <section id="booker" class="section postcard-section">
@@ -501,19 +501,19 @@
                 <div class="radio-card">
                     <img src="montez-pink.jpg" alt="Montez Press Radio" style="max-width: 220px; border: 3px solid var(--black); border-radius: 8px;">
                     <h3>Montez Press Radio</h3>
-                    <a href="https://radio.montezpress.com/#/stream/music" target="_blank" class="btn">Listen Live</a>
+                    <a href="https://radio.montezpress.com/#/stream/music" target="_blank" class="btn" rel="noopener">Listen Live</a>
                 </div>
                 <!-- B&S: KCRW Eclectic24 live stream in WE LOVE YOU -->
                 <div class="radio-card">
                     <h3>KCRW Eclectic24</h3>
                     <p style="margin: 0.4rem 0 0.8rem;">24/7 eclectic music from Santa Monica.</p>
-                    <audio controls preload="none" src="https://streams.kcrw.com/e24_mp3" style="width:100%; max-width:260px; margin: 0.4rem 0 0.8rem;"></audio>
+                    <audio controls preload="none" aria-label="KCRW Eclectic24 live stream player" src="https://streams.kcrw.com/e24_mp3" style="width:100%; max-width:260px; margin: 0.4rem 0 0.8rem;"></audio>
                     <a href="https://www.kcrw.com/music/shows/eclectic24" target="_blank" rel="noopener" class="btn">Listen on KCRW</a>
                 </div>
                 <div class="radio-card">
                     <img src="bookandshores-x.jpg" alt="Tip the Booktender at Book &amp; Shores" style="max-width: 220px; border: 3px solid var(--black); border-radius: 8px;">
                     <!-- B&S: tip tile uses X profile image; same PayPal link -->
-                    <a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" class="btn">TIP THE BOOKTENDER</a>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" class="btn" aria-label="Tip the Booktender on PayPal (opens in a new tab)" rel="noopener">TIP THE BOOKTENDER</a>
                 </div>
                 <!-- B&S: Send a Postcard moved into WE LOVE YOU -->
                 <div class="radio-card" id="penpal">
@@ -529,7 +529,7 @@
         <div class="footer-content">
             <h2>Thanks for Visiting</h2>
             <div class="footer-insta">
-                <a href="https://www.instagram.com/westwaveslaguna/" target="_blank" class="follow-link">Follow the feed @westwaveslaguna</a>
+                <a href="https://www.instagram.com/westwaveslaguna/" target="_blank" class="follow-link" rel="noopener">Follow the feed @westwaveslaguna</a>
                 <div class="insta-embed">
                     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/westwaveslaguna/" data-instgrm-version="14" style="max-width:540px; width:100%; margin: 1rem auto; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);"></blockquote>
                 </div>
@@ -559,11 +559,11 @@
                 ? '<div class="spin-quote">&ldquo;' + bsEsc(b.quote) + '&rdquo;<cite>&mdash; ' + bsEsc(b.quoteSource) + '</cite></div>'
                 : '<div class="spin-quote curator"><span class="curator-label">Brigitte says:</span>' + bsEsc(b.quote) + '</div>';
             box.innerHTML = '<p style="font-family:\'IBM Plex Mono\',monospace; margin:0 0 0.6rem;">Brigitte says your next read is&hellip;</p>' +
-                '<img src="' + bsEsc(b.cover) + '" alt="' + name + '" style="max-width:140px; border:3px solid var(--black); border-radius:6px;">' +
+                '<img src="' + bsEsc(b.cover) + '" alt="Cover of ' + bsEsc(b.title) + (b.author ? ' by ' + bsEsc(b.author) : '') + '" style="max-width:140px; border:3px solid var(--black); border-radius:6px;">' +
                 '<p style="font-weight:700; margin:0.6rem 0;">' + name + '</p>' +
                 line +
-                '<a href="' + bsEsc(b.buyUrl) + '" target="_blank" rel="noopener" class="btn">Buy Now</a>' +
-                '<br><a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" class="tip-btn">Tip the Booktender</a>';
+                '<a href="' + bsEsc(b.buyUrl) + '" target="_blank" rel="noopener sponsored" class="btn" aria-label="Buy ' + bsEsc(b.title) + ' on Bookshop.org (opens in a new tab)">Buy Now</a>' +
+                '<br><a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" class="tip-btn" aria-label="Tip the Booktender on PayPal (opens in a new tab)">Tip the Booktender</a>';
             box.style.display = 'block';
         }
         function spinBardot() {
