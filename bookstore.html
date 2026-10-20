@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="max-image-preview:large">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1381,6 +1382,121 @@
             background: rgba(0,0,0,0.03);
             border-top: 4px solid var(--black);
         }
+        /* B&S: bookstore search */
+        .bs-search {
+            position: relative;
+            max-width: 640px;
+            margin: 0 auto 2rem;
+        }
+        .bs-search label {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .bs-search input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            color: var(--black);
+            background: #fff;
+            border: 3px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .bs-search input::placeholder { color: var(--gray); }
+        .bs-search input:focus { outline: 2px solid var(--black); outline-offset: 3px; }
+        .bs-search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+        .bs-search-results {
+            position: absolute;
+            z-index: 20;
+            left: 0;
+            right: 0;
+            top: 100%;
+            margin-top: 0.4rem;
+            list-style: none;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: #fff;
+            border: 3px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.22);
+            text-align: left;
+        }
+        .bs-result { display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.15); }
+        .bs-result:last-child { border-bottom: none; }
+        .bs-result-link {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.6rem 0.8rem;
+            color: var(--black);
+            text-decoration: none;
+            min-width: 0;
+        }
+        .bs-result-link:hover, .bs-result-link:focus { background: var(--yellow); outline: none; }
+        .bs-thumb {
+            flex: none;
+            width: 40px;
+            height: 60px;
+            background: #fff;
+            border: 2px solid var(--black);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .bs-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .bs-text { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+        .bs-title { font-weight: 500; font-size: 0.95rem; }
+        .bs-author { font-size: 0.85rem; color: var(--gray); }
+        .bs-badge {
+            align-self: flex-start;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--black);
+            color: var(--yellow);
+            padding: 0.05rem 0.45rem;
+            border-radius: 4px;
+            margin-bottom: 0.2rem;
+        }
+        .bs-go {
+            flex: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: var(--black);
+            color: var(--yellow);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+        }
+        .bs-take {
+            flex: none;
+            font-size: 0.8rem;
+            color: var(--black);
+            padding: 0.6rem 0.8rem 0.6rem 0;
+        }
+        .bs-note { padding: 0.7rem 0.9rem; font-size: 0.85rem; color: var(--gray); }
+        .bs-divider {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: rgba(246,189,40,0.25);
+            padding: 0.35rem 0.9rem;
+            border-bottom: 1px solid rgba(0,0,0,0.15);
+        }
+        .bs-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        @media (max-width: 480px) {
+            .bs-take { display: none; }
+            .bs-go { padding: 0.3rem 0.45rem; }
+        }
     </style>
 </head>
 <body>
@@ -1399,6 +1515,12 @@
                 Click Buy Now for full descriptions, reviews, and prices. Titles curated A–Z. Enjoy!<br>
                 <a href="booker-2026-shortlist.html" style="color: var(--black); font-weight: 500;">New: the 2026 Booker shortlist, all six →</a>
             </div>
+            <form class="bs-search" id="bs-search-form" role="search" aria-label="Search any book" autocomplete="off">
+                <label for="bs-search-input">Search any book</label>
+                <input id="bs-search-input" type="search" placeholder="Title or author" aria-describedby="bs-search-status" aria-controls="bs-search-results" aria-expanded="false" aria-autocomplete="list" spellcheck="false">
+                <ul class="bs-search-results" id="bs-search-results" hidden></ul>
+                <p class="bs-sr" id="bs-search-status" role="status" aria-live="polite"></p>
+            </form>
             <div class="social-links">
                 <a href="https://www.instagram.com/westwaveslaguna/" target="_blank" rel="noopener" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -1412,37 +1534,37 @@
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="n-4.jpg" alt="1984"></div>
                     <div class="book-title">1984 (75th Anniversary Edition) – George Orwell</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780451524935" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780451524935" class="payment-btn" target="_blank" aria-label="Buy 1984 (75th Anniversary Edition) by George Orwell on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2773.jpg" alt="Air cover"></div>
                     <div class="book-title">Air – Christian Kracht (translated by Daniel Bowles)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781324094586" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781324094586" class="payment-btn" target="_blank" aria-label="Buy Air – Christian Kracht (translated by Daniel Bowles) on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="ALLTHEMDOGS.png" alt="All Them Dogs"></div>
                     <div class="book-title">All Them Dogs — Djamel White</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217046676" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217046676" class="payment-btn" target="_blank" aria-label="Buy All Them Dogs by Djamel White on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="AMBIVALENCE.png" alt="Ambivalence: An Education"></div>
                     <div class="book-title">Ambivalence: An Education — Brian Dillon</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798896231103" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798896231103" class="payment-btn" target="_blank" aria-label="Buy Ambivalence: An Education by Brian Dillon on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="n-5.jpg" alt="Animal Farm"></div>
                     <div class="book-title">Animal Farm (75th Anniversary Edition) – George Orwell</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780451526342" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780451526342" class="payment-btn" target="_blank" aria-label="Buy Animal Farm (75th Anniversary Edition) by George Orwell on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="AQUA.png" alt="Aqua cover"></div>
                     <div class="book-title">Aqua — Chiara Barzini</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781961884908" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781961884908" class="payment-btn" target="_blank" aria-label="Buy Aqua by Chiara Barzini on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2856.jpg" alt="Archives of the Anthropocene"></div>
                     <div class="book-title">Archives of the Anthropocene: Visual Grammars of Deep Time – Yuriko Furuhata</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478038948" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478038948" class="payment-btn" target="_blank" aria-label="Buy Archives of the Anthropocene: Visual Grammars of Deep Time by Yuriko Furuhata on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Dumy1.png" alt="Dummy #1"></div>
@@ -1461,97 +1583,97 @@
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Audition.png" alt="Audition cover"></div>
                     <div class="book-title">Audition — Katie Kitamura</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593852323" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593852323" class="payment-btn" target="_blank" aria-label="Buy Audition by Katie Kitamura on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="9780876120835.jpg" alt="Autobiography of a Yogi cover"></div>
                     <div class="book-title">Autobiography of a Yogi — Paramahansa Yogananda</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780876120835" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780876120835" class="payment-btn" target="_blank" aria-label="Buy Autobiography of a Yogi by Paramahansa Yogananda on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="PARTICULARS.png" alt="Beautiful Particulars"></div>
                     <div class="book-title">Beautiful Particulars — David Weinberger</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054867" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054867" class="payment-btn" target="_blank" aria-label="Buy Beautiful Particulars by David Weinberger on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="n-1.jpg" alt="The Best American Essays 2026"></div>
                     <div class="book-title">The Best American Essays 2026 – Edited by M. Gessen</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063454446" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063454446" class="payment-btn" target="_blank" aria-label="Buy The Best American Essays 2026 – Edited by M. Gessen on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="BETTERTECH.png" alt="Better Tech"></div>
                     <div class="book-title">Better Tech — Francine Berman</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054881" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054881" class="payment-btn" target="_blank" aria-label="Buy Better Tech by Francine Berman on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Birds.png" alt="Birds of America cover"></div>
                     <div class="book-title">Birds of America — Chera Hammons</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593980033" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593980033" class="payment-btn" target="_blank" aria-label="Buy Birds of America by Chera Hammons on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="BLACK.png" alt="Black Dahlia cover"></div>
                     <div class="book-title">Black Dahlia — William J. Mann</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668075906" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668075906" class="payment-btn" target="_blank" aria-label="Buy Black Dahlia by William J. Mann on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="BLOOD.png" alt="Blood Is Dripping onto the Courtyard"></div>
                     <div class="book-title">Blood Is Dripping onto the Courtyard — Elvira Navarro</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781966192077" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781966192077" class="payment-btn" target="_blank" aria-label="Buy Blood Is Dripping onto the Courtyard by Elvira Navarro on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="CARBON.png" alt="The Carbon Wave"></div>
                     <div class="book-title">The Carbon Wave: A Story of Democracy, Parenthood, and the Race to Protect Our Planet – Leah C. Stokes</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054775" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054775" class="payment-btn" target="_blank" aria-label="Buy The Carbon Wave: A Story of Democracy, Parenthood, and the Race to Protect Our Planet by Leah C. Stokes on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Chain.png" alt="Chain of Ideas cover"></div>
                     <div class="book-title">Chain of Ideas — Ibram X. Kendi</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593978023" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593978023" class="payment-btn" target="_blank" aria-label="Buy Chain of Ideas by Ibram X. Kendi on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="CLOUDSIX.png" alt="Cloud Six"></div>
                     <div class="book-title">Cloud Six — Amy Fusselman</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781646223480" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781646223480" class="payment-btn" target="_blank" aria-label="Buy Cloud Six by Amy Fusselman on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Cocaine.png" alt="Cocaine + Surfing cover"></div>
                     <div class="book-title">Cocaine + Surfing — Chas Smith</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781945572814" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781945572814" class="payment-btn" target="_blank" aria-label="Buy Cocaine + Surfing by Chas Smith on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="CoolMachine.png" alt="Cool Machine cover"></div>
                     <div class="book-title">Cool Machine – Colson Whitehead</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780385550505" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780385550505" class="payment-btn" target="_blank" aria-label="Buy Cool Machine by Colson Whitehead on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="COVERING.png" alt="Covering Islam cover"></div>
                     <div class="book-title">Covering Islam — Edward W. Said</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780679758907" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780679758907" class="payment-btn" target="_blank" aria-label="Buy Covering Islam by Edward W. Said on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="DarkRides.jpg" alt="Dark Rides cover"></div>
                     <div class="book-title">Dark Rides — Derek McCormack</div>
-                    <div class="payment-buttons"><a href="https://www.pilotpress.co.uk/catalogue" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://www.pilotpress.co.uk/catalogue" class="payment-btn" target="_blank" rel="noopener" aria-label="Buy Dark Rides by Derek McCormack from pilotpress.co.uk (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2776.jpg" alt="Daylight Come cover"></div>
                     <div class="book-title">Daylight Come: Harry Belafonte and the World He Made – Joshua Jelly-Schapiro</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593652701" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593652701" class="payment-btn" target="_blank" aria-label="Buy Daylight Come: Harry Belafonte and the World He Made by Joshua Jelly-Schapiro on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="n-2.jpg" alt="Demon Copperhead"></div>
                     <div class="book-title">Demon Copperhead – Barbara Kingsolver</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063251984" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063251984" class="payment-btn" target="_blank" aria-label="Buy Demon Copperhead by Barbara Kingsolver on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="DESIGN.png" alt="Design for Entropy"></div>
                     <div class="book-title">Design for Entropy: Active Inference and Technology – Luca M. Possati</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262056267" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262056267" class="payment-btn" target="_blank" aria-label="Buy Design for Entropy: Active Inference and Technology by Luca M. Possati on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2779.jpg" alt="The Disappearers cover"></div>
                     <div class="book-title">The Disappearers – Marlon James</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593717202" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593717202" class="payment-btn" target="_blank" aria-label="Buy The Disappearers by Marlon James on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Dummy2.png" alt="Dummy #2"></div>
@@ -1570,287 +1692,287 @@
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="EDGES.png" alt="The Edges of Cinema"></div>
                     <div class="book-title">The Edges of Cinema — Erika Balsom</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780231221337" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780231221337" class="payment-btn" target="_blank" aria-label="Buy The Edges of Cinema by Erika Balsom on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2778.jpg" alt="The Ego Trip cover"></div>
                     <div class="book-title">The Ego Trip: Psychedelic Toads, a Trail of Deaths, and the Guru Who Peddled Transcendence – Kimon de Greef</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780385550246" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780385550246" class="payment-btn" target="_blank" aria-label="Buy The Ego Trip: Psychedelic Toads, a Trail of Deaths, and the Guru Who Peddled Transcendence by Kimon de Greef on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Friday.png" alt="The Friday Afternoon Club cover"></div>
                     <div class="book-title">The Friday Afternoon Club — Griffin Dunne</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593652848" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593652848" class="payment-btn" target="_blank" aria-label="Buy The Friday Afternoon Club by Griffin Dunne on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="FUTURESHOCK.png" alt="Future Shock"></div>
                     <div class="book-title">Future Shock — Alvin Toffler</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780553277371" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780553277371" class="payment-btn" target="_blank" aria-label="Buy Future Shock by Alvin Toffler on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="GOTHAM.png" alt="Going Down in Gotham cover"></div>
                     <div class="book-title">Going Down in Gotham — Zoe Hansen</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798994335628" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798994335628" class="payment-btn" target="_blank" aria-label="Buy Going Down in Gotham by Zoe Hansen on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="GREATEASTERN.jpg" alt="The Great Eastern cover"></div>
                     <div class="book-title">The Great Eastern — Howard A. Rodman</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781644285541" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781644285541" class="payment-btn" target="_blank" aria-label="Buy The Great Eastern by Howard A. Rodman on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="HEAP.png" alt="Heap Earth Upon It cover"></div>
                     <div class="book-title">Heap Earth Upon It — Chloe Michelle Howarth</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781685892531" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781685892531" class="payment-btn" target="_blank" aria-label="Buy Heap Earth Upon It by Chloe Michelle Howarth on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="HELEN.png" alt="Helen of Nowhere"></div>
                     <div class="book-title">Helen of Nowhere — Makenna Goodman</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781566897358" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781566897358" class="payment-btn" target="_blank" aria-label="Buy Helen of Nowhere by Makenna Goodman on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2777.jpg" alt="Hiroshima, 8:15 cover"></div>
                     <div class="book-title">Hiroshima, 8:15: The Lost Memoir – Kiyoshi Tanimoto</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217197972" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217197972" class="payment-btn" target="_blank" aria-label="Buy Hiroshima, 8:15: The Lost Memoir by Kiyoshi Tanimoto on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Housewives.png" alt="The Housewives Underground cover"></div>
                     <div class="book-title">The Housewives Underground — Kaitlyn Tiffany</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593728628" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593728628" class="payment-btn" target="_blank" aria-label="Buy The Housewives Underground by Kaitlyn Tiffany on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2775.jpg" alt="I Made You Up Inside My Head cover"></div>
                     <div class="book-title">I Made You Up Inside My Head – Marta Pérez-Carbonell (translated by Rosalind Harvey)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593854105" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593854105" class="payment-btn" target="_blank" aria-label="Buy I Made You Up Inside My Head – Marta Pérez-Carbonell (translated by Rosalind Harvey) on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Javier.png" alt="Desde que te vi morir cover"></div>
                     <div class="book-title">Desde que te vi morir — Javier Marías</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9788420477695" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9788420477695" class="payment-btn" target="_blank" aria-label="Buy Desde que te vi morir by Javier Marías on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Joy.jpg" alt="The Joy of Electronic Music cover"></div>
                     <div class="book-title">The Joy of Electronic Music — Matas Petrikas</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798634663593" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798634663593" class="payment-btn" target="_blank" aria-label="Buy The Joy of Electronic Music by Matas Petrikas on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="LETHEM.jpg" alt="A Different Kind of Tension cover"></div>
                     <div class="book-title">A Different Kind of Tension — Jonathan Lethem</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063388840" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063388840" class="payment-btn" target="_blank" aria-label="Buy A Different Kind of Tension by Jonathan Lethem on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2774.jpg" alt="Liberation Summer cover"></div>
                     <div class="book-title">Liberation Summer: The Moment That Changed the Women’s Movement and the Future of American Politics – Micki McElya</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781982166762" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781982166762" class="payment-btn" target="_blank" aria-label="Buy Liberation Summer: The Moment That Changed the Women’s Movement and the Future of American Politics by Micki McElya on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="CHEMICAL.png" alt="Life’s Chemical Secret"></div>
                     <div class="book-title">Life’s Chemical Secret — Addy Pross</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054836" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054836" class="payment-btn" target="_blank" aria-label="Buy Life’s Chemical Secret by Addy Pross on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="LIVEDEAD.png" alt="Live Dead"></div>
                     <div class="book-title">Live Dead: The Grateful Dead, Live Recordings, and the Ideology of Liveness — John Brackett</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478025481" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478025481" class="payment-btn" target="_blank" aria-label="Buy Live Dead: The Grateful Dead, Live Recordings, and the Ideology of Liveness by John Brackett on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2782.jpg" alt="Madame Composer cover"></div>
                     <div class="book-title">Madame Composer: The Virtuosic Genius of Clara Schumann – Sarah Fritz</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798897101887" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798897101887" class="payment-btn" target="_blank" aria-label="Buy Madame Composer: The Virtuosic Genius of Clara Schumann by Sarah Fritz on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Megan.png" alt="How It Feels to Be Alive cover"></div>
                     <div class="book-title">How It Feels to Be Alive — Megan O'Grady</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780374613327" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780374613327" class="payment-btn" target="_blank" aria-label="Buy How It Feels to Be Alive by Megan O&#x27;Grady on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Moose.png" alt="Moosewood Cookbook cover"></div>
                     <div class="book-title">Moosewood Cookbook — Mollie Katzen</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781607747390" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781607747390" class="payment-btn" target="_blank" aria-label="Buy Moosewood Cookbook by Mollie Katzen on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2781.jpg" alt="Music Sets You Free cover"></div>
                     <div class="book-title">Music Sets You Free – Ryuichi Sakamoto (translated by Sam Bett)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063416505" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780063416505" class="payment-btn" target="_blank" aria-label="Buy Music Sets You Free – Ryuichi Sakamoto (translated by Sam Bett) on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="NARY.png" alt="Nary a Horse Left Standing"></div>
                     <div class="book-title">Nary a Horse Left Standing — Lee Alan Dugatkin</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054546" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054546" class="payment-btn" target="_blank" aria-label="Buy Nary a Horse Left Standing by Lee Alan Dugatkin on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="n-3.jpg" alt="The Nerd Reich"></div>
                     <div class="book-title">The Nerd Reich: Silicon Valley Fascism and the War on Democracy – Gil Durán</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668221402" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668221402" class="payment-btn" target="_blank" aria-label="Buy The Nerd Reich: Silicon Valley Fascism and the War on Democracy by Gil Durán on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Nova.png" alt="Nova Scotia House cover"></div>
                     <div class="book-title">Nova Scotia House — Charlie Porter</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622002" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622002" class="payment-btn" target="_blank" aria-label="Buy Nova Scotia House by Charlie Porter on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Odyssey.png" alt="The Odyssey cover"></div>
                     <div class="book-title">The Odyssey — Homer (trans. Robert Fagles)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780140268867" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780140268867" class="payment-btn" target="_blank" aria-label="Buy The Odyssey by Homer (trans. Robert Fagles) on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="n-6.jpg" alt="The Palm House"></div>
                     <div class="book-title">The Palm House – Gwendoline Riley</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798896230526" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798896230526" class="payment-btn" target="_blank" aria-label="Buy The Palm House by Gwendoline Riley on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="PLAYER.png" alt="The Player and the Played"></div>
                     <div class="book-title">The Player and the Played — Max Haiven</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262056045" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262056045" class="payment-btn" target="_blank" aria-label="Buy The Player and the Played by Max Haiven on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Plunge.png" alt="The Plunge cover"></div>
                     <div class="book-title">The Plunge — Lila Raicek</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780778310600" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780778310600" class="payment-btn" target="_blank" aria-label="Buy The Plunge by Lila Raicek on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="POWERSHIFT.png" alt="Powershift"></div>
                     <div class="book-title">Powershift — Alvin Toffler</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780553292152" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780553292152" class="payment-btn" target="_blank" aria-label="Buy Powershift by Alvin Toffler on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Practice.png" alt="Practicing Dying"></div>
                     <div class="book-title">Practicing Dying — Charlotte Northall</div>
-                    <div class="payment-buttons"><a href="https://www.pilotpress.co.uk/catalogue" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://www.pilotpress.co.uk/catalogue" class="payment-btn" target="_blank" rel="noopener" aria-label="Buy Practicing Dying by Charlotte Northall from pilotpress.co.uk (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Psychedelic.png" alt="Psychedelic Therapy cover"></div>
                     <div class="book-title">Psychedelic Therapy — Will Van Derveer & Keith Kurlander</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781645476047" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781645476047" class="payment-btn" target="_blank" aria-label="Buy Psychedelic Therapy by Will Van Derveer &amp; Keith Kurlander on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="PUREOX.png" alt="Pure Ox"></div>
                     <div class="book-title">Pure Ox — Mateo Askaripour</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217178995" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217178995" class="payment-btn" target="_blank" aria-label="Buy Pure Ox by Mateo Askaripour on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2771.jpg" alt="Push the Wall cover"></div>
                     <div class="book-title">Push the Wall: My Life, Writing, Drawing, and the Art of Storytelling – Frank Miller</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668065297" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668065297" class="payment-btn" target="_blank" aria-label="Buy Push the Wall: My Life, Writing, Drawing, and the Art of Storytelling by Frank Miller on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2772.jpg" alt="A Quiet Place cover"></div>
                     <div class="book-title">A Quiet Place – Seichō Matsumoto (translated by Louise Heal Kawai)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593979082" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593979082" class="payment-btn" target="_blank" aria-label="Buy A Quiet Place – Seichō Matsumoto (translated by Louise Heal Kawai) on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="RedSnoopy.png" alt="Snoopy and the Red Baron cover"></div>
                     <div class="book-title">Snoopy and the Red Baron — Charles M. Schulz</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781787742727" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781787742727" class="payment-btn" target="_blank" aria-label="Buy Snoopy and the Red Baron by Charles M. Schulz on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Sedaris.jpg" alt="The Land and Its People cover"></div>
                     <div class="book-title">The Land and Its People — David Sedaris</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780316264839" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780316264839" class="payment-btn" target="_blank" aria-label="Buy The Land and Its People by David Sedaris on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="SimpsonsTreehouse.png" alt="The Simpsons Treehouse of Horror Omnibus cover"></div>
                     <div class="book-title">The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781419793967" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781419793967" class="payment-btn" target="_blank" aria-label="Buy The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order) on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Small Rain.png" alt="Small Rain cover"></div>
                     <div class="book-title">Small Rain — Garth Greenwell</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781250397508" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781250397508" class="payment-btn" target="_blank" aria-label="Buy Small Rain by Garth Greenwell on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="STANLEY2.jpg" alt="The Art of Stanley Mouse: California Dreams cover"></div>
                     <div class="book-title">The Art of Stanley Mouse — California Dreams</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781593765460" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781593765460" class="payment-btn" target="_blank" aria-label="Buy The Art of Stanley Mouse by California Dreams on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2770.jpg" alt="A Sudden Flicker of Light cover"></div>
                     <div class="book-title">A Sudden Flicker of Light: A Revisionist History of Movies – David Thomson</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668205730" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781668205730" class="payment-btn" target="_blank" aria-label="Buy A Sudden Flicker of Light: A Revisionist History of Movies by David Thomson on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="SWITZY.png" alt="Switzy"></div>
                     <div class="book-title">Switzy — Emma Cline</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593595244" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593595244" class="payment-btn" target="_blank" aria-label="Buy Switzy by Emma Cline on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Vision.png" alt="The Aesthetics of Machine Vision"></div>
                     <div class="book-title">The Aesthetics of Machine Vision: Critical Terms and Ideas – Edited by Kathrin Maurer, Rikke Munck Petersen, Dominique Routhier, Kassandra Wellendorf, and Kristin Veel</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054171" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262054171" class="payment-btn" target="_blank" aria-label="Buy The Aesthetics of Machine Vision: Critical Terms and Ideas – Edited by Kathrin Maurer, Rikke Munck Petersen, Dominique Routhier, Kassandra Wellendorf, and Kristin Veel on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="IMG_2780.jpg" alt="The Contessa cover"></div>
                     <div class="book-title">The Contessa – Benedetta Craveri</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798896230465" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798896230465" class="payment-btn" target="_blank" aria-label="Buy The Contessa by Benedetta Craveri on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="n.jpg" alt="The Things We Never Say"></div>
                     <div class="book-title">The Things We Never Say – Elizabeth Strout</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217154746" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217154746" class="payment-btn" target="_blank" aria-label="Buy The Things We Never Say by Elizabeth Strout on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="THIRDWAV.png" alt="The Third Wave"></div>
                     <div class="book-title">The Third Wave — Alvin Toffler</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780553246988" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780553246988" class="payment-btn" target="_blank" aria-label="Buy The Third Wave by Alvin Toffler on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="TIN.png" alt="Tin Can Coast cover"></div>
                     <div class="book-title">Tin Can Coast — Joseph Ogilvy</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781639736812" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781639736812" class="payment-btn" target="_blank" aria-label="Buy Tin Can Coast by Joseph Ogilvy on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="TOUCHGREY.png" alt="Touch of Grey, or How the Grateful Dead Became Pop Stars"></div>
                     <div class="book-title">Touch of Grey, or How the Grateful Dead Became Pop Stars — John Brackett</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478038894" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478038894" class="payment-btn" target="_blank" aria-label="Buy Touch of Grey, or How the Grateful Dead Became Pop Stars by John Brackett on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Terence.jpg" alt="Strange Attractor cover"></div>
                     <div class="book-title">Strange Attractor (Terence McKenna bio)</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262049573" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780262049573" class="payment-btn" target="_blank" aria-label="Buy Strange Attractor (Terence McKenna bio) on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="THENEAR.png" alt="The Near and Distant World cover"></div>
                     <div class="book-title">The Near and Distant World — Bianca Stone</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781963108651" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781963108651" class="payment-btn" target="_blank" aria-label="Buy The Near and Distant World by Bianca Stone on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="TURNING.jpg" alt="Turning Away cover"></div>
                     <div class="book-title">Turning Away — Benjamin A. Saltzman</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780226847221" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780226847221" class="payment-btn" target="_blank" aria-label="Buy Turning Away by Benjamin A. Saltzman on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="UNISEX.png" alt="Unsex Me Here cover"></div>
                     <div class="book-title">Unsex Me Here — Aurora Mattia</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622705" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781643622705" class="payment-btn" target="_blank" aria-label="Buy Unsex Me Here by Aurora Mattia on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="USV.png" alt="US v. THEM cover"></div>
                     <div class="book-title">US v. THEM — Ronen Givony</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781419775260" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781419775260" class="payment-btn" target="_blank" aria-label="Buy US v. THEM by Ronen Givony on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="WE JAZZ.png" alt="We Jazz Issue 19 cover"></div>
                     <div class="book-title">We Jazz Issue 19 — Milestones</div>
-                    <div class="payment-buttons"><a href="https://publicknowledgebooks.com/products/we-jazz-issue-19-milestones-1" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://publicknowledgebooks.com/products/we-jazz-issue-19-milestones-1" class="payment-btn" target="_blank" rel="noopener" aria-label="Buy We Jazz Issue 19: Milestones from publicknowledgebooks.com (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="WHOLE.png" alt="The Whole Routine"></div>
                     <div class="book-title">The Whole Routine — Edward Thomasson</div>
-                    <div class="payment-buttons"><a href="https://www.montezpress.com/catalogue/scores/the-whole-routine/" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://www.montezpress.com/catalogue/scores/the-whole-routine/" class="payment-btn" target="_blank" rel="noopener" aria-label="Buy The Whole Routine by Edward Thomasson from montezpress.com (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Wild.png" alt="The Wild Party cover"></div>
                     <div class="book-title">The Wild Party — Joseph Moncure March</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780375706431" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780375706431" class="payment-btn" target="_blank" aria-label="Buy The Wild Party by Joseph Moncure March on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="WORLDS.png" alt="Worlds Beyond Bios"></div>
                     <div class="book-title">Worlds Beyond Bios — Sophie Chao, Christine J. Winter &amp; David Schlosberg</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478038870" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781478038870" class="payment-btn" target="_blank" aria-label="Buy Worlds Beyond Bios by Sophie Chao, Christine J. Winter &amp; David Schlosberg on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover-frame"><img src="Winter.png" alt="The Land in Winter cover"></div>
                     <div class="book-title">The Land in Winter — Andrew Miller</div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798889661566" class="payment-btn" target="_blank">Buy Now</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798889661566" class="payment-btn" target="_blank" aria-label="Buy The Land in Winter by Andrew Miller on Bookshop.org (opens in a new tab)" rel="noopener sponsored">Buy Now</a></div>
                 </div>
             </div>
         </section>
@@ -1859,6 +1981,9 @@
         <!-- B&S: year updated -->
         <p>© 2026 Book & Shores</p>
     </footer>
+    <!-- B&S: bookstore search (our picks first, then Open Library; affiliate 125864 on every Bookshop link) -->
+    <script src="bookstore-search-index.js"></script>
+    <script src="bookstore-search.js"></script>
     <!-- B&S: GoatCounter visitor counter (free, no cookies) -->
     <script data-goatcounter="https://bookandshores.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
