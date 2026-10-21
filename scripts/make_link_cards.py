@@ -35,6 +35,8 @@ BOOKS = [
          title="The Space Behind the Face", author="Robert Wilson with Keith McDermott"),
     dict(slug="the-sandman", cover="9780525433057.jpg", label="Now Apple TV's Nocturne · Oct 30",
          title="The Sandman", author="Lars Kepler"),
+    dict(slug="susan-sontag-collected-essays", cover="9781598538595.jpg", label="Library of America · Pre-order · Nov 3",
+         title="The Collected Essays", author="Susan Sontag, ed. David Rieff"),
 ]
 
 FONTS = f"""
