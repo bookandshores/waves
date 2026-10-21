@@ -694,6 +694,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "The Sandman",
+"author": "Lars Kepler (translated by Neil Smith)",
+"isbn": "9780525433057",
+"cover": "9780525433057.jpg",
+"buy": "https://bookshop.org/a/125864/9780525433057",
+"page": "book-the-sandman.html",
+"aff": true
+},
+{
 "title": "The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)",
 "isbn": "9781419793967",
 "cover": "SimpsonsTreehouse.png",
