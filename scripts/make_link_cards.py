@@ -33,6 +33,8 @@ BOOKS = [
          title="Sound Within Sound", author="Kate Molleson"),
     dict(slug="space-behind-the-face", cover="9798217061273.jpg", label="Memoir · Pre-order · Nov 3",
          title="The Space Behind the Face", author="Robert Wilson with Keith McDermott"),
+    dict(slug="the-sandman", cover="9780525433057.jpg", label="Now Apple TV's Nocturne · Oct 30",
+         title="The Sandman", author="Lars Kepler"),
 ]
 
 FONTS = f"""
