@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Book &amp; Shores Zoltar | Book &amp; Shores</title>
+    <meta name="description" content="Book &amp; Shores Zoltar, a digital book vending machine with a fortune-teller twist. Insert curiosity. Receive a book.">
+    <link rel="canonical" href="https://bookandshores.com/zoltar.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Book &amp; Shores Zoltar">
+    <meta property="og:description" content="A digital book vending machine with a fortune-teller twist. Insert curiosity. Receive a book.">
+    <meta property="og:url" content="https://bookandshores.com/zoltar.html">
+    <!-- link-preview:start -->
+    <meta property="og:image" content="https://bookandshores.com/og/zoltar.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Book &amp; Shores Zoltar: a yellow and black book vending machine full of real book covers">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bookandshores">
+    <meta name="twitter:image" content="https://bookandshores.com/og/zoltar.png">
+    <meta name="twitter:image:alt" content="Book &amp; Shores Zoltar: a yellow and black book vending machine full of real book covers">
+    <!-- link-preview:end -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #f6bd28;
+            --black: #000;
+            --dark-black: #111;
+            --gray: #444;
+            --cab: #0d0d0e;
+            --glow: 0 0 6px #ffd85a, 0 0 18px rgba(246,189,40,.75), 0 0 38px rgba(246,189,40,.45);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 100%; -webkit-text-size-adjust: 100%; }
+        body {
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: clamp(1rem, 3.5vw, 1.125rem);
+        }
+        header { padding: 3rem 1rem 2rem; text-align: center; border-block-end: 4px solid var(--black); }
+        h1 { font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 9vw, 6.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 0.92; }
+        nav { margin: 2rem 0 1rem; display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap; }
+        nav a { color: var(--black); text-decoration: none; font-size: clamp(1rem, 4vw, 1.2rem); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+        main { max-width: 1100px; margin: 0 auto; padding: 2.2rem 1rem 3rem; }
+
+        /* ===== Intro ===== */
+        .intro { text-align: center; margin-block-end: 1.8rem; }
+        .intro .kicker { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; }
+        .intro h2 { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1; text-transform: uppercase; letter-spacing: -.01em; margin: .3rem 0 .5rem; }
+        .intro p { max-width: 40rem; margin: 0 auto; font-size: .95rem; }
+
+        /* ===== Machine ===== */
+        .machine-wrap { perspective: 1400px; display: flex; justify-content: center; }
+        .machine {
+            position: relative; width: 100%; max-width: 900px;
+            background: linear-gradient(180deg, #1b1b1d 0%, var(--cab) 40%, #050505 100%);
+            border: 6px solid var(--black);
+            border-radius: 46px 46px 22px 22px;
+            padding: 0 22px 26px;
+            box-shadow: 0 30px 0 -12px rgba(0,0,0,.35), 0 40px 60px rgba(0,0,0,.35), inset 0 0 0 3px #2a2a2c;
+            transform-origin: 50% 100%;
+        }
+        .machine::before, .machine::after { /* side trim stripes */
+            content: ""; position: absolute; top: 120px; inset-block-end: 40px; width: 8px;
+            background: repeating-linear-gradient(180deg, var(--yellow) 0 18px, var(--black) 18px 36px);
+            border-radius: 4px; opacity: .9;
+        }
+        .machine::before { left: 6px; } .machine::after { right: 6px; }
+        .machine.shake { animation: shake .9s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            0%,100% { transform: translate3d(0,0,0) rotate(0); }
+            10% { transform: translate3d(-6px,0,0) rotate(-1.2deg); }
+            20% { transform: translate3d(7px,0,0) rotate(1.4deg); }
+            30% { transform: translate3d(-8px,0,0) rotate(-1.4deg); }
+            40% { transform: translate3d(8px,0,0) rotate(1.2deg); }
+            50% { transform: translate3d(-6px,0,0) rotate(-.8deg); }
+            60% { transform: translate3d(5px,0,0) rotate(.6deg); }
+            70% { transform: translate3d(-3px,0,0) rotate(-.3deg); }
+            85% { transform: translate3d(2px,0,0) rotate(.1deg); }
+        }
+
+        /* Marquee */
+        .marquee {
+            position: relative; margin: -6px -28px 20px; padding: 22px 30px 18px;
+            background: var(--black); border: 6px solid var(--black);
+            border-radius: 46px 46px 14px 14px; text-align: center; overflow: hidden;
+        }
+        .marquee-inner {
+            position: relative; border-radius: 30px 30px 8px 8px; padding: 22px 16px 16px;
+            background: radial-gradient(ellipse at 50% 0%, #3a2a00 0%, #140f00 55%, #000 100%);
+            border: 3px solid var(--yellow);
+            box-shadow: inset 0 0 24px rgba(246,189,40,.35), 0 0 22px rgba(246,189,40,.35);
+        }
+        .bulbs { position: absolute; left: 14px; right: 14px; display: flex; justify-content: space-between; pointer-events: none; }
+        .bulbs.top { top: 6px; } .bulbs.btm { inset-block-end: 6px; }
+        .bulbs i { width: 10px; height: 10px; border-radius: 50%; background: #5c4500; box-shadow: none; animation: chase 1.2s infinite steps(1); }
+        .bulbs i:nth-child(3n+2) { animation-delay: .4s; } .bulbs i:nth-child(3n+3) { animation-delay: .8s; }
+        .machine.busy .bulbs i { animation-duration: .36s; }
+        .machine.busy .bulbs i:nth-child(3n+2) { animation-delay: .12s; } .machine.busy .bulbs i:nth-child(3n+3) { animation-delay: .24s; }
+        @keyframes chase { 0% { background: #fff3c4; box-shadow: 0 0 6px #ffe27a, 0 0 14px var(--yellow); } 33% { background: #5c4500; box-shadow: none; } }
+        .marquee .pre { font-family: 'IBM Plex Mono', monospace; font-size: clamp(.62rem, 1.6vw, .82rem); letter-spacing: .5em; color: var(--yellow); text-transform: uppercase; font-weight: 700; opacity: .9; }
+        .marquee .name {
+            display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+            font-size: clamp(2.3rem, 9.5vw, 5.6rem); line-height: .95; letter-spacing: .02em;
+            color: #fff2c2; text-shadow: var(--glow); animation: flicker 6s infinite;
+        }
+        .marquee .name em { font-style: normal; color: var(--yellow); }
+        @keyframes flicker { 0%, 18%, 22%, 62%, 64%, 100% { opacity: 1; } 20%, 63% { opacity: .55; } }
+        .marquee .tag { margin-top: .5rem; display: inline-block; font-size: clamp(.72rem, 2vw, .95rem); color: var(--black); background: var(--yellow); padding: .15rem .8rem; border-radius: 999px; font-weight: 700; letter-spacing: .04em; }
+
+        /* Body: glass + control panel */
+        .body { display: grid; grid-template-columns: 1fr 210px; gap: 18px; }
+        .glass {
+            position: relative; background: linear-gradient(180deg, #e9e6dd, #d7d3c7);
+            border: 10px solid #2b2b2e; border-radius: 14px; padding: 12px 12px 4px;
+            box-shadow: inset 0 0 0 2px #000, inset 0 10px 30px rgba(0,0,0,.25);
+            overflow: hidden;
+        }
+        .glass::after { /* glass reflection */
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(115deg, rgba(255,255,255,.0) 0%, rgba(255,255,255,.0) 38%, rgba(255,255,255,.32) 44%, rgba(255,255,255,.0) 52%, rgba(255,255,255,.0) 70%, rgba(255,255,255,.18) 74%, rgba(255,255,255,0) 79%);
+        }
+        .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 8px 4px 0; position: relative; }
+        .row::after { /* metal shelf */
+            content: ""; position: absolute; left: -12px; right: -12px; inset-block-end: 0; height: 9px;
+            background: linear-gradient(180deg, #9a9a9e, #5b5b60 60%, #3a3a3e); box-shadow: 0 3px 4px rgba(0,0,0,.3);
+        }
+        .slot {
+            position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+            background: none; border: 0; cursor: pointer; padding: 0 0 13px; font: inherit; color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .slot .cover {
+            width: 100%; aspect-ratio: 2 / 3; display: flex; align-items: flex-end; justify-content: center;
+            transition: transform .25s ease, filter .25s ease;
+        }
+        .slot img {
+            max-width: 92%; max-height: 100%; display: block; border-radius: 2px;
+            box-shadow: 3px 4px 0 rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.35);
+        }
+        .slot .coil {
+            width: 100%; height: 12px; margin-top: 3px; border-radius: 6px;
+            background: repeating-linear-gradient(100deg, #f4f4f6 0 2px, #8d8d93 2px 4px, transparent 4px 9px), linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.18));
+            background-size: 9px 100%, 100% 100%;
+        }
+        .slot .code {
+            position: absolute; inset-block-end: -1px; left: 50%; transform: translateX(-50%); z-index: 2;
+            font-family: 'Oswald', sans-serif; font-weight: 700; font-size: .78rem; line-height: 1;
+            background: var(--black); color: var(--yellow); padding: 2px 7px 3px; border-radius: 3px; letter-spacing: .06em;
+        }
+        .slot:hover .cover, .slot:focus-visible .cover { transform: translateY(-4px) rotate(-1deg); }
+        .slot:focus-visible { outline: 3px solid var(--black); outline-offset: 2px; border-radius: 4px; }
+        .slot.lit .cover { filter: drop-shadow(0 0 10px var(--yellow)) brightness(1.12); transform: translateY(-3px) scale(1.04); }
+        .slot::before { content: ""; position: absolute; inset: -8px -6px 4px; border-radius: 8px; background: radial-gradient(ellipse at 50% 60%, rgba(246,189,40,.95), rgba(246,189,40,.35) 60%, transparent 75%); opacity: 0; transition: opacity .12s; }
+        .slot.lit::before { opacity: 1; }
+        .slot.lit img { box-shadow: 0 0 0 3px var(--yellow), 0 0 22px 4px var(--yellow); }
+        .slot > * { position: relative; }
+        .slot .code { position: absolute; }
+        .slot.lit .code { background: var(--yellow); color: var(--black); box-shadow: 0 0 10px var(--yellow); }
+        .slot.pick .coil { animation: spin .5s linear 3; }
+        @keyframes spin { to { background-position: 18px 0, 0 0; } }
+        .slot.pick .cover { animation: drop 1.4s cubic-bezier(.5,0,.75,0) forwards; }
+        @keyframes drop {
+            0% { transform: translateY(0); } 55% { transform: translateY(-2px) translateX(4px) rotate(2deg); }
+            70% { transform: translateY(0) translateX(8px) rotate(6deg); opacity: 1; }
+            100% { transform: translateY(160%) translateX(10px) rotate(24deg); opacity: 0; }
+        }
+        .slot.gone .cover { opacity: 0; }
+
+        /* Control panel */
+        .panel {
+            background: linear-gradient(180deg, #232326, #141416); border: 3px solid #000; border-radius: 14px;
+            padding: 16px 14px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+            box-shadow: inset 0 0 0 2px #2f2f33;
+        }
+        .lcd {
+            width: 100%; background: #041a0e; border: 3px solid #000; border-radius: 6px; padding: 8px 8px 6px;
+            font-family: 'IBM Plex Mono', monospace; color: #6dffb0; text-shadow: 0 0 6px rgba(109,255,176,.7);
+            text-align: center; box-shadow: inset 0 0 12px rgba(0,0,0,.8);
+        }
+        .lcd .l1 { font-size: .62rem; letter-spacing: .18em; opacity: .75; }
+        .lcd .l2 { font-size: 1.35rem; font-weight: 700; letter-spacing: .14em; min-height: 1.6em; line-height: 1.6; }
+        .keypad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; width: 100%; }
+        .key {
+            font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem; line-height: 1;
+            padding: 9px 0; border-radius: 7px; border: 2px solid #000; cursor: pointer;
+            background: linear-gradient(180deg, #f2f2f2, #c9c9cd); color: #111; box-shadow: 0 3px 0 #000;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .key.letter { background: linear-gradient(180deg, #ffd65e, var(--yellow)); }
+        .key.wide { grid-column: span 2; font-size: .85rem; letter-spacing: .08em; }
+        .key:active, .key.press { transform: translateY(3px); box-shadow: 0 0 0 #000; }
+        .key:focus-visible, .ask:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+        .ask {
+            width: 164px; height: 164px; margin-top: 8px; border-radius: 50%; cursor: pointer; border: 6px solid #000;
+            background: radial-gradient(circle at 35% 30%, #fff3c0 0%, #ffd34d 22%, var(--yellow) 48%, #c28a00 100%);
+            box-shadow: 0 8px 0 #000, 0 0 0 6px #2b2b2e, 0 0 34px rgba(246,189,40,.65);
+            font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; color: #000;
+            font-size: 1.55rem; line-height: .95; letter-spacing: .02em;
+            animation: pulse 2.2s ease-in-out infinite; -webkit-tap-highlight-color: transparent;
+        }
+        .ask small { display: block; font-family: 'IBM Plex Mono', monospace; font-size: .6rem; letter-spacing: .2em; margin-top: 6px; }
+        .ask:active { transform: translateY(6px); box-shadow: 0 2px 0 #000, 0 0 0 6px #2b2b2e, 0 0 50px rgba(246,189,40,.9); }
+        .ask:disabled { cursor: wait; filter: saturate(.7); animation: none; }
+        @keyframes pulse { 0%,100% { box-shadow: 0 8px 0 #000, 0 0 0 6px #2b2b2e, 0 0 24px rgba(246,189,40,.45); } 50% { box-shadow: 0 8px 0 #000, 0 0 0 6px #2b2b2e, 0 0 54px rgba(246,189,40,.95); } }
+        .coin { margin-top: auto; width: 100%; display: flex; align-items: center; gap: 10px; color: #bdbdc2; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; }
+        .rules { width: 100%; list-style: none; counter-reset: r; border: 2px dashed rgba(246,189,40,.55); border-radius: 10px; padding: 12px 12px 10px; color: #f3e6bf; font-size: .74rem; line-height: 1.35; }
+        .rules::before { content: "Zoltar's rules"; display: block; font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; margin-block-end: 6px; }
+        .rules li { counter-increment: r; display: flex; gap: 8px; margin: 4px 0; }
+        .rules li::before { content: counter(r); flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--yellow); color: #000; font-weight: 700; font-size: .7rem; display: grid; place-items: center; }
+        .stub { width: 100%; text-align: center; }
+        .stub .slit { height: 10px; background: #000; border-radius: 5px; border: 2px solid #444; }
+        .stub .paper { width: 78%; margin: -3px auto 0; background: var(--yellow); color: #000; border-radius: 0 0 4px 4px; padding: 8px 6px 7px;
+            font-family: 'Oswald', sans-serif; font-weight: 700; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; line-height: 1.15;
+            transform: rotate(-2deg); box-shadow: 0 4px 0 rgba(0,0,0,.4); }
+        .stub .paper small { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: .56rem; letter-spacing: .12em; margin-top: 3px; }
+        .machine.busy .stub .paper { animation: print .5s ease-in-out infinite alternate; }
+        @keyframes print { to { transform: rotate(1deg) translateY(4px); } }
+        .coin span { width: 10px; height: 42px; background: #000; border-radius: 5px; border: 2px solid #444; flex: none; }
+
+        /* Dispense tray */
+        .tray {
+            margin-top: 18px; height: 74px; border-radius: 12px; background: #000; border: 3px solid #2f2f33;
+            display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+            box-shadow: inset 0 12px 20px rgba(255,255,255,.04);
+        }
+        .tray span { font-family: 'Oswald', sans-serif; letter-spacing: .5em; color: #6b6b70; font-size: .95rem; }
+        .tray.flash { animation: trayflash .6s ease 2; }
+        @keyframes trayflash { 50% { background: #3a2c00; box-shadow: inset 0 0 30px var(--yellow); } }
+        .feet { display: flex; justify-content: space-between; padding: 0 60px; }
+        .feet i { width: 60px; height: 14px; background: #000; border-radius: 0 0 6px 6px; }
+
+        .hint { text-align: center; margin-top: 1.4rem; font-size: .9rem; }
+        .hint b { font-family: 'Oswald', sans-serif; letter-spacing: .04em; }
+
+        /* ===== Fortune reveal ===== */
+        .reveal {
+            position: fixed; inset: 0; z-index: 50; display: none; align-items: center; justify-content: center;
+            padding: 18px; background: rgba(0,0,0,.72); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+        }
+        .reveal.open { display: flex; animation: fade .3s ease; }
+        @keyframes fade { from { opacity: 0; } }
+        .ticket {
+            position: relative; width: 100%; max-width: 640px; max-height: calc(100vh - 36px); overflow: auto;
+            background: var(--black); color: #fff; border: 4px solid var(--yellow); border-radius: 18px;
+            padding: 26px 26px 22px; box-shadow: 0 0 0 6px #000, 0 0 60px rgba(246,189,40,.55);
+            animation: rise .7s cubic-bezier(.2,1.3,.4,1);
+        }
+        @keyframes rise { from { transform: translateY(70px) rotate(-3deg) scale(.9); opacity: 0; } }
+        .ticket::before { /* perforated edge */
+            content: ""; position: absolute; left: 14px; right: 14px; top: 10px; height: 2px;
+            background: repeating-linear-gradient(90deg, var(--yellow) 0 8px, transparent 8px 14px); opacity: .6;
+        }
+        .ticket-head { padding-right: 34px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-block-end: 14px; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--yellow); font-weight: 700; }
+        .ticket-head .slotcode { font-family: 'Oswald', sans-serif; font-size: 1.05rem; letter-spacing: .08em; background: var(--yellow); color: #000; padding: 0 10px; border-radius: 4px; }
+        .ticket-body { display: grid; grid-template-columns: 190px 1fr; gap: 24px; align-items: center; }
+        .ticket-cover { position: relative; }
+        .ticket-cover img { width: 100%; display: block; border-radius: 3px; box-shadow: 0 0 0 3px var(--yellow), 8px 10px 0 rgba(246,189,40,.35); transform: rotate(-2.5deg); }
+        .rays { position: absolute; inset: -26px; z-index: -1; border-radius: 50%;
+            background: repeating-conic-gradient(rgba(246,189,40,.35) 0 8deg, transparent 8deg 20deg);
+            animation: rot 14s linear infinite; mask: radial-gradient(circle, #000 35%, transparent 70%); -webkit-mask: radial-gradient(circle, #000 35%, transparent 70%); }
+        .ticket-cover { isolation: isolate; }
+        @keyframes rot { to { transform: rotate(360deg); } }
+        .says { font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: .12em; font-size: .95rem; }
+        .fortune { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: clamp(1.35rem, 4.2vw, 1.9rem); line-height: 1.18; margin: .3rem 0 .9rem; color: #fff7dc; }
+        .fortune::before { content: "\201C"; color: var(--yellow); } .fortune::after { content: "\201D"; color: var(--yellow); }
+        .book-name { font-size: .95rem; line-height: 1.4; color: #e5e5e5; }
+        .book-name b { color: #fff; }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1.1rem; align-items: center; }
+        .buy {
+            display: inline-block; background: var(--yellow); color: #000; text-decoration: none; border: 3px solid var(--yellow);
+            font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: .06em; text-transform: uppercase;
+            padding: .55rem 2rem; border-radius: 10px; box-shadow: 0 5px 0 #8a6500; transition: transform .15s ease;
+        }
+        .buy:hover { transform: translateY(-2px); } .buy:active { transform: translateY(3px); box-shadow: 0 2px 0 #8a6500; }
+        .again {
+            background: transparent; color: var(--yellow); border: 3px solid var(--yellow); border-radius: 10px; cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; padding: .7rem 1.1rem;
+        }
+        .again:hover { background: var(--yellow); color: #000; }
+        .ticket:focus { outline: none; }
+        .close { position: absolute; top: 14px; right: 16px; background: none; border: 0; color: var(--yellow); font-size: 1.8rem; line-height: 1; cursor: pointer; font-family: 'Oswald', sans-serif; }
+        .via { margin-top: .8rem; font-size: .72rem; color: #a9a9a9; }
+
+        /* Tip + footer */
+        .tip-wrap { text-align: center; margin-top: 2.2rem; }
+        .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
+        .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
+        footer { text-align: center; padding: 1rem 1rem 3rem; border-block-start: 4px solid var(--black); }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 760px) {
+            .machine { padding: 0 12px 18px; border-radius: 34px 34px 18px 18px; }
+            .machine::before, .machine::after { display: none; }
+            .marquee { margin: -6px -18px 14px; padding: 16px 16px 14px; border-radius: 34px 34px 12px 12px; }
+            .marquee-inner { padding: 18px 8px 14px; }
+            .body { grid-template-columns: 1fr; }
+            .glass { border-width: 7px; padding: 8px 6px 2px; }
+            .row { gap: 5px; padding: 6px 2px 0; }
+            .row::after { left: -8px; right: -8px; height: 7px; }
+            .slot { padding-block-end: 11px; }
+            .slot .coil { height: 8px; }
+            .slot .code { font-size: .66rem; padding: 1px 5px 2px; }
+            .panel { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "lcd ask" "keys ask"; align-items: center; gap: 10px 14px; padding: 12px; }
+            .lcd { grid-area: lcd; } .keypad { grid-area: keys; gap: 5px; } .ask { grid-area: ask; width: 118px; height: 118px; font-size: 1.25rem; }
+            .key { padding: 8px 0; font-size: .9rem; }
+            .coin, .stub, .rules { display: none; }
+            .tray { height: 54px; margin-top: 14px; }
+            .feet { padding: 0 34px; } .feet i { width: 44px; }
+            .ticket { padding: 22px 18px 18px; }
+            .ticket-body { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+            .ticket-cover { width: 54%; max-width: 200px; margin: 6px auto 0; }
+            .actions { justify-content: center; }
+            .buy { width: 100%; text-align: center; }
+        }
+        @media (max-width: 380px) { .ask { width: 100px; height: 100px; font-size: 1.05rem; } .ask small { display: none; } }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BOOK &amp; SHORES</h1>
+        <nav>
+            <a href="index.html">← Home</a>
+            <a href="bookstore.html">Bookstore</a>
+            <a href="booker-2026-longlist.html">Booker 2026</a>
+        </nav>
+    </header>
+    <main>
+        <!-- B&S: Zoltar, a digital book vending machine -->
+        <section class="intro">
+            <div class="kicker">Step right up</div>
+            <h2>The machine that reads you</h2>
+            <p>Press the big yellow button and Zoltar picks your next read. Know what you want? Punch in a slot code, or tap any cover.</p>
+        </section>
+
+        <div class="machine-wrap">
+            <div class="machine" id="machine">
+                <div class="marquee">
+                    <div class="marquee-inner">
+                        <div class="bulbs top" aria-hidden="true"></div>
+                        <div class="pre">The Great &amp; Literary</div>
+                        <span class="name">Book &amp; Shores <em>Zoltar</em></span>
+                        <span class="tag">Insert curiosity. Receive a book.</span>
+                        <div class="bulbs btm" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <div class="glass" id="glass" aria-label="Books in the machine"></div>
+                    <div class="panel">
+                        <div class="lcd" aria-live="polite">
+                            <div class="l1" id="lcd1">ZOLTAR IS READY</div>
+                            <div class="l2" id="lcd2">ENTER CODE</div>
+                        </div>
+                        <div class="keypad" id="keypad" aria-label="Keypad"></div>
+                        <button class="ask" id="ask" type="button">Ask<br>Zoltar<small>Press here</small></button>
+                        <ol class="rules">
+                            <li>Ask Zoltar.</li>
+                            <li>Accept your fate.</li>
+                            <li>Read it on the beach.</li>
+                        </ol>
+                        <div class="coin" aria-hidden="true"><span></span>Insert curiosity</div>
+                        <div class="stub" aria-hidden="true"><div class="slit"></div><div class="paper">Fortunes<br>printed here<small>1 book each</small></div></div>
+                    </div>
+                </div>
+
+                <div class="tray" id="tray" aria-hidden="true"><span>PUSH</span></div>
+            </div>
+        </div>
+        <div class="feet" aria-hidden="true" style="max-width:900px;margin:0 auto;"><i></i><i></i></div>
+
+        <p class="hint">Every book here is a real Book &amp; Shores pick. <b>30 slots, 30 fortunes.</b> Zoltar is never wrong, only early.</p>
+
+        <div class="tip-wrap">
+            <a href="bookstore.html" class="tip-btn" style="background:var(--black);color:var(--yellow);">See Full Bookstore</a>
+            <!-- B&S: Tip the Booktender --><br><a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" class="tip-btn" target="_blank" rel="noopener" aria-label="Tip the Booktender on PayPal (opens in a new tab)">Tip the Booktender</a>
+        </div>
+    </main>
+
+    <div class="reveal" id="reveal" role="dialog" aria-modal="true" aria-labelledby="fortune">
+        <div class="ticket" id="ticket" tabindex="-1">
+            <button class="close" id="close" type="button" aria-label="Close">×</button>
+            <div class="ticket-head"><span>Your fortune</span><span class="slotcode" id="tCode">A1</span></div>
+            <div class="ticket-body">
+                <div class="ticket-cover"><div class="rays" aria-hidden="true"></div><img id="tImg" src="" alt=""></div>
+                <div>
+                    <div class="says">Zoltar says</div>
+                    <p class="fortune" id="fortune"></p>
+                    <p class="book-name"><b id="tTitle"></b><br><span id="tAuthor"></span></p>
+                    <div class="actions">
+                        <a class="buy" id="buy" href="#" rel="noopener sponsored">Buy Now</a>
+                        <button class="again" id="again" type="button">Try again</button>
+                    </div>
+                    <p class="via" id="via"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p style="margin-top: 2rem;">© 2026 Book &amp; Shores • Contact: <a href="mailto:readme@bookandshores.com" style="color: var(--black);">readme@bookandshores.com</a></p>
+            <p style="font-size:0.85rem; color:var(--gray); margin-top:0.6rem;">Book &amp; Shores earns a small commission from Bookshop.org purchases, which supports independent bookstores.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var BS = 'https://bookshop.org/a/125864/';
+        // [cover, title, author, isbn13, own page or '', fortune]
+        var BOOKS = [
+            ['sandman', 'The Sandman', 'Lars Kepler', '9780525433057', 'book-the-sandman.html', 'Zoltar sees Joona Linna, Saga Bauer and a killer named Jurek Walter. Zoltar also sees you sleeping with the lights on.'],
+            ['ripley', 'The Talented Mr. Ripley', 'Patricia Highsmith', '9780393332148', 'book-talented-mr-ripley.html', 'You will envy a rich stranger\u2019s life in Italy. Do not, under any circumstances, try it on.'],
+            ['carol', 'Carol', 'Patricia Highsmith', '9780393325997', 'book-carol.html', 'A glance across a department store at Christmas will rearrange your whole life. Pack for a road trip.'],
+            ['sontag', 'Susan Sontag: The Collected Essays', 'Edited by David Rieff', '9781598538595', 'book-susan-sontag-collected-essays.html', 'Strong opinions on photography, illness and camp are headed your way. Two volumes of them.'],
+            ['wilson', 'The Space Behind the Face', 'Robert Wilson with Keith McDermott', '9798217061273', 'book-space-behind-the-face.html', 'A twelve-hour silent opera appears in your future. Bring snacks. Bring wonder.'],
+            ['sound', 'Sound Within Sound', 'Kate Molleson', '9781419753565', 'book-sound-within-sound.html', 'You will meet a dozen radical composers the canon tried to skip. Turn it up.'],
+            ['end', 'The End of Everything', 'M. John Harrison', '9798217438655', 'book-the-end-of-everything.html', 'Something strange will wash up at your feet. Zoltar advises you carry it inland.'],
+            ['switzy', 'Switzy', 'Emma Cline', '9780593595244', 'book-switzy.html', 'A last trip across Europe is in the cards: dinner in London, an old friend in France, and the past riding shotgun.'],
+            ['helen', 'Helen of Nowhere', 'Makenna Goodman', '9781566897358', 'book-helen-of-nowhere.html', 'You will tour a country house for sale. Read the fine print. All six acts of it.'],
+            ['dogs', 'All Them Dogs', 'Djamel White', '9798217046676', 'book-all-them-dogs.html', 'You\u2019re going back to West Dublin. Trouble is waiting, and so is a man called Flute.'],
+            ['ambivalence', 'Ambivalence: An Education', 'Brian Dillon', '9798896231103', 'book-ambivalence.html', 'Zoltar senses you are of two minds about everything. Brian Dillon calls that an education.'],
+            ['1984', '1984', 'George Orwell', '9780451524935', '', 'Zoltar is watching you. So is Big Brother. Only one of us sells books.'],
+            ['animal-farm', 'Animal Farm', 'George Orwell', '9780451526342', '', 'All fortunes are equal, but this fortune is more equal than others.'],
+            ['demon', 'Demon Copperhead', 'Barbara Kingsolver', '9780063251984', '', 'Dickens is heading for the Appalachian mountains, and you have a seat on the bus.'],
+            ['odyssey', 'The Odyssey', 'Homer, translated by Robert Fagles', '9780140268867', '', 'A long voyage home lies ahead. Avoid one-eyed giants and anyone singing on the rocks.'],
+            ['yogi', 'Autobiography of a Yogi', 'Paramahansa Yogananda', '9780876120835', '', 'Zoltar foresees deep breaths, a yogi\u2019s own life story, and a calm you didn\u2019t order.'],
+            ['moosewood', 'Moosewood Cookbook', 'Mollie Katzen', '9781607747390', '', 'Zoltar sees vegetables in your future. Lots of vegetables. You will be thrilled.'],
+            ['future-shock', 'Future Shock', 'Alvin Toffler', '9780553277371', '', 'The future is arriving faster than you are. Toffler saw it coming in 1970.'],
+            ['cocaine-surfing', 'Cocaine + Surfing', 'Chas Smith', '9781945572814', '', 'Zoltar sees a perfect wave, and the surf industry\u2019s worst-kept secret paddling out beside you.'],
+            ['red-baron', 'Snoopy and the Red Baron', 'Charles M. Schulz', '9781787742727', '', 'Curse you, Red Baron! A doghouse takes flight in your near future.'],
+            ['covering-islam', 'Covering Islam', 'Edward W. Said', '9780679758907', '', 'You will start reading the news more carefully. Edward Said insists.'],
+            ['wild-party', 'The Wild Party', 'Joseph Moncure March', '9780375706431', '', 'A Jazz Age party is about to get out of hand, and your name is on the guest list.'],
+            ['sakamoto', 'Music Sets You Free', 'Ryuichi Sakamoto, translated by Sam Bett', '9780063416505', '', 'Zoltar hears a piano in the distance. Ryuichi Sakamoto has a life story to tell you.'],
+            ['belafonte', 'Daylight Come', 'Joshua Jelly-Schapiro', '9780593652701', '', 'Day-O! Harry Belafonte will be in your head by morning, and so will the world he made.'],
+            ['clara', 'Madame Composer', 'Sarah Fritz', '9798897101887', '', 'A virtuoso named Clara Schumann is about to take back the spotlight. Front row, please.'],
+            ['touch-of-grey', 'Touch of Grey, or How the Grateful Dead Became Pop Stars', 'John Brackett', '9781478038894', '', 'You will get by. You will survive. And the Grateful Dead will become pop stars.'],
+            ['push-the-wall', 'Push the Wall', 'Frank Miller', '9781668065297', '', 'Zoltar sees ink-stained fingers in your future. Frank Miller is telling his own story.'],
+            ['hiroshima', 'Hiroshima, 8:15: The Lost Memoir', 'Kiyoshi Tanimoto', '9798217197972', '', 'Some fortunes look back. A survivor\u2019s lost memoir of one morning the world must remember.'],
+            ['ego-trip', 'The Ego Trip', 'Kimon de Greef', '9780385550246', '', 'Beware gurus bearing toads. Zoltar has seen how this trip ends.'],
+            ['nerd-reich', 'The Nerd Reich', 'Gil Dur\u00e1n', '9781668221402', '', 'Tech billionaires loom in your future. Read the warning label first.']
+        ];
+        var ROWS = 'ABCDEF', PER = 5;
+        var glass = document.getElementById('glass'), machine = document.getElementById('machine');
+        var lcd1 = document.getElementById('lcd1'), lcd2 = document.getElementById('lcd2');
+        var ask = document.getElementById('ask'), reveal = document.getElementById('reveal'), tray = document.getElementById('tray');
+        var slots = [], busy = false, entry = '', last = -1;
+
+        // Bulbs
+        Array.prototype.forEach.call(document.querySelectorAll('.bulbs'), function (b) {
+            for (var i = 0; i < 18; i++) b.appendChild(document.createElement('i'));
+        });
+
+        // Build rows
+        for (var r = 0; r < ROWS.length; r++) {
+            var row = document.createElement('div'); row.className = 'row';
+            for (var c = 0; c < PER; c++) {
+                var idx = r * PER + c, b = BOOKS[idx]; if (!b) break;
+                var code = ROWS[r] + (c + 1);
+                var s = document.createElement('button');
+                s.type = 'button'; s.className = 'slot'; s.dataset.i = idx;
+                s.setAttribute('aria-label', code + ': ' + b[1] + ' by ' + b[2]);
+                s.innerHTML = '<span class="cover"><img src="zoltar/' + b[0] + '.jpg" alt="" loading="' + (r < 2 ? 'eager' : 'lazy') + '"></span><span class="coil"></span><span class="code">' + code + '</span>';
+                s.addEventListener('click', function () { dispense(+this.dataset.i); });
+                row.appendChild(s); slots.push(s);
+            }
+            glass.appendChild(row);
+        }
+        function codeOf(i) { return ROWS[Math.floor(i / PER)] + (i % PER + 1); }
+
+        // Keypad
+        var keys = ['A','B','C','1','D','E','F','2','3','4','5','CLR'];
+        var kp = document.getElementById('keypad');
+        keys.forEach(function (k) {
+            var el = document.createElement('button'); el.type = 'button'; el.textContent = k;
+            el.className = 'key' + (/[A-F]/.test(k) && k.length === 1 ? ' letter' : '');
+            el.addEventListener('click', function () { press(k); });
+            kp.appendChild(el);
+        });
+        function setLcd(a, b) { lcd1.textContent = a; lcd2.textContent = b; }
+        function press(k) {
+            if (busy) return;
+            if (k === 'CLR') { entry = ''; setLcd('ZOLTAR IS READY', 'ENTER CODE'); return; }
+            if (/[A-F]/.test(k)) entry = k;
+            else if (entry.length === 1) entry += k;
+            else { setLcd('LETTER FIRST', 'A\u2013F'); return; }
+            setLcd(entry.length === 1 ? 'NOW A NUMBER 1\u20135' : 'VENDING', entry + (entry.length === 1 ? '_' : ''));
+            if (entry.length === 2) {
+                var i = ROWS.indexOf(entry[0]) * PER + (+entry[1] - 1);
+                entry = '';
+                if (BOOKS[i]) setTimeout(function () { dispense(i); }, 250);
+            }
+        }
+        document.addEventListener('keydown', function (e) {
+            if (reveal.classList.contains('open')) { if (e.key === 'Escape') closeReveal(); return; }
+            if (e.target.tagName === 'INPUT') return;
+            var k = e.key.toUpperCase();
+            if (/^[A-F1-5]$/.test(k)) press(k);
+            else if (k === 'BACKSPACE' || k === 'ESCAPE') press('CLR');
+        });
+
+        ask.addEventListener('click', function () {
+            if (busy) return;
+            var i; do { i = Math.floor(Math.random() * BOOKS.length); } while (i === last && BOOKS.length > 1);
+            dispense(i, true);
+        });
+
+        function dispense(i, roulette) {
+            if (busy) return; busy = true; last = i; ask.disabled = true;
+            machine.classList.add('busy');
+            machine.classList.remove('shake'); void machine.offsetWidth; machine.classList.add('shake');
+            setLcd('ZOLTAR IS THINKING', '. . .');
+            var steps = roulette ? 11 : 5, n = 0, prev = null;
+            (function spin() {
+                if (prev) prev.classList.remove('lit');
+                if (n < steps) {
+                    var j = Math.floor(Math.random() * slots.length);
+                    prev = slots[j]; prev.classList.add('lit'); n++;
+                    setTimeout(spin, 60 + n * 9);
+                } else {
+                    var s = slots[i]; s.classList.add('lit', 'pick');
+                    setLcd('VENDING', codeOf(i));
+                    setTimeout(function () { tray.classList.remove('flash'); void tray.offsetWidth; tray.classList.add('flash'); }, 1100);
+                    setTimeout(function () { s.classList.add('gone'); show(i); }, 1500);
+                }
+            })();
+        }
+
+        function show(i) {
+            var b = BOOKS[i];
+            document.getElementById('tCode').textContent = codeOf(i);
+            var img = document.getElementById('tImg'); img.src = 'zoltar/' + b[0] + '.jpg'; img.alt = b[1] + ' by ' + b[2] + ', book cover';
+            document.getElementById('fortune').textContent = b[5];
+            document.getElementById('tTitle').textContent = b[1];
+            document.getElementById('tAuthor').textContent = b[2];
+            var buy = document.getElementById('buy');
+            if (b[4]) {
+                buy.href = b[4]; buy.removeAttribute('target');
+                buy.setAttribute('aria-label', 'Buy ' + b[1] + ': see its Book & Shores page');
+                document.getElementById('via').textContent = 'Opens the Book & Shores page for this book.';
+            } else {
+                buy.href = BS + b[3]; buy.target = '_blank';
+                buy.setAttribute('aria-label', 'Buy ' + b[1] + ' by ' + b[2] + ' on Bookshop.org (opens in a new tab)');
+                document.getElementById('via').textContent = 'Ships from Bookshop.org, which supports independent bookstores.';
+            }
+            reveal.classList.add('open');
+            machine.classList.remove('busy');
+            setLcd('ENJOY YOUR BOOK', codeOf(i));
+            setTimeout(function () { document.getElementById('ticket').focus({ preventScroll: true }); }, 50);
+        }
+        function reset() {
+            slots.forEach(function (s) { s.classList.remove('lit', 'pick', 'gone'); });
+            busy = false; ask.disabled = false; machine.classList.remove('busy');
+        }
+        function closeReveal() { reveal.classList.remove('open'); reset(); setLcd('ZOLTAR IS READY', 'ENTER CODE'); }
+        document.getElementById('close').addEventListener('click', closeReveal);
+        reveal.addEventListener('click', function (e) { if (e.target === reveal) closeReveal(); });
+        document.getElementById('again').addEventListener('click', function () {
+            reveal.classList.remove('open'); reset();
+            setTimeout(function () { ask.click(); }, 200);
+        });
+
+        // ?demo=A1 shows a dispensed book straight away (for previews)
+        var demo = (new URLSearchParams(location.search).get('demo') || '').toUpperCase();
+        if (/^[A-F][1-5]$/.test(demo)) {
+            var di = ROWS.indexOf(demo[0]) * PER + (+demo[1] - 1);
+            if (BOOKS[di]) { busy = true; ask.disabled = true; slots[di].classList.add('gone'); last = di; show(di); }
+        }
+    })();
+    </script>
+</body>
+</html>
