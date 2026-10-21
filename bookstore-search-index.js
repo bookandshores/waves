@@ -726,7 +726,7 @@ window.bsSearchIndex = [
 "isbn": "9781419753565",
 "cover": "9781419753565.jpg",
 "buy": "https://bookshop.org/a/125864/9781419753565",
-"page": "bookstore.html",
+"page": "book-sound-within-sound.html",
 "aff": true
 },
 {
@@ -735,7 +735,7 @@ window.bsSearchIndex = [
 "isbn": "9798217061273",
 "cover": "9798217061273.jpg",
 "buy": "https://bookshop.org/a/125864/9798217061273",
-"page": "bookstore.html",
+"page": "book-space-behind-the-face.html",
 "aff": true
 },
 {
