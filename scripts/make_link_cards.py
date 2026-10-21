@@ -29,6 +29,10 @@ BOOKS = [
          title="Switzy", author="Emma Cline"),
     dict(slug="ambivalence", cover="AMBIVALENCE.png", label="Memoir · Bookstore Pick",
          title="Ambivalence: An Education", author="Brian Dillon"),
+    dict(slug="sound-within-sound", cover="9781419753565.jpg", label="Music History · Bookstore Pick",
+         title="Sound Within Sound", author="Kate Molleson"),
+    dict(slug="space-behind-the-face", cover="9798217061273.jpg", label="Memoir · Pre-order · Nov 3",
+         title="The Space Behind the Face", author="Robert Wilson with Keith McDermott"),
 ]
 
 FONTS = f"""
