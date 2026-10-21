@@ -721,6 +721,24 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Sound Within Sound: Radical Composers of the Twentieth Century",
+"author": "Kate Molleson",
+"isbn": "9781419753565",
+"cover": "9781419753565.jpg",
+"buy": "https://bookshop.org/a/125864/9781419753565",
+"page": "book-sound-within-sound.html",
+"aff": true
+},
+{
+"title": "The Space Behind the Face: Life Stories (pre-order)",
+"author": "Robert Wilson with Keith McDermott",
+"isbn": "9798217061273",
+"cover": "9798217061273.jpg",
+"buy": "https://bookshop.org/a/125864/9798217061273",
+"page": "book-space-behind-the-face.html",
+"aff": true
+},
+{
 "title": "Strange Attractor (Terence McKenna bio)",
 "isbn": "9780262049573",
 "cover": "Terence.jpg",
