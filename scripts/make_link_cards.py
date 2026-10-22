@@ -37,6 +37,16 @@ BOOKS = [
          title="The Sandman", author="Lars Kepler"),
     dict(slug="susan-sontag-collected-essays", cover="9781598538595.jpg", label="Library of America · Pre-order · Nov 3",
          title="The Collected Essays", author="Susan Sontag, ed. David Rieff"),
+    dict(slug="mad-eden", cover="9780374620158.jpg", label="National Book Award 2026 · Fiction Finalist",
+         title="Mad Eden", author="Morgan Thomas"),
+    dict(slug="dey", cover="9780593803523.jpg", label="National Book Award 2026 · Fiction Finalist",
+         title="Dèy", author="Edwidge Danticat"),
+    dict(slug="huna", cover="9798217153602.jpg", label="National Book Award 2026 · Nonfiction Finalist",
+         title="Huna", author="Abdelrahman ElGendy"),
+    dict(slug="mother-tongue", cover="9780593241530.jpg", label="National Book Award 2026 · Nonfiction Finalist",
+         title="Mother Tongue", author="Sara Nović"),
+    dict(slug="pure-men", cover="9781635424706.jpg", label="National Book Award 2026 · Translated Literature Finalist",
+         title="Pure Men", author="Mohamed Mbougar Sarr"),
 ]
 
 FONTS = f"""
