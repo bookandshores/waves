@@ -364,6 +364,22 @@
         /* B&S: Tip the Booktender button */
         .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
+        /* B&S: old-school ad spots, a row of 3 squares in WE LOVE YOU. Swap an .ad-empty for an advertiser's <img> when sold. */
+        .ad-slot { margin: 0 auto 5rem; text-align: center; }
+        .ad-slot.in-section { margin: 3rem auto 0; }
+        .ad-label { display:block; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.32em; text-transform:uppercase; margin:0 0 0.7rem; }
+        .ad-row { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:1.6rem; max-width:780px; margin:0 auto; }
+        .ad-box { display:flex; width:100%; aspect-ratio:1 / 1; container-type:inline-size; background:#fbf3dc; border:3px solid #000; outline:1px solid #000; outline-offset:-7px; padding:11px; color:#000; text-decoration:none; box-shadow:5px 5px 0 #000; transition:transform 0.2s ease, box-shadow 0.2s ease; }
+        .ad-box:hover { transform:translate(-2px,-2px); box-shadow:7px 7px 0 #000; }
+        .ad-empty { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:3.2cqi; border:1px dashed #000; padding:4cqi; overflow:hidden; }
+        .ad-kicker { font-family:'IBM Plex Mono',monospace; font-size:4.3cqi; letter-spacing:0.16em; text-transform:uppercase; white-space:nowrap; }
+        .ad-kicker .ad-star { color:#dd4522; }
+        .ad-head { font-family:'Oswald',sans-serif; font-weight:700; font-size:12.5cqi; line-height:0.92; text-transform:uppercase; letter-spacing:-0.01em; }
+        .ad-rule { width:70%; border:0; border-top:3px double #000; height:0; margin:0; }
+        .ad-sub { font-family:'Oswald',sans-serif; font-weight:500; font-size:5.8cqi; letter-spacing:0.04em; text-transform:uppercase; line-height:1.15; }
+        .ad-contact { font-family:'IBM Plex Mono',monospace; font-size:4.6cqi; line-height:1.4; }
+        .ad-contact strong { display:inline-block; margin-top:1cqi; background:#000; color:#f6bd28; padding:0.5cqi 2.2cqi; font-weight:500; white-space:nowrap; }
+        @media (max-width: 720px) { .ad-row { grid-template-columns:1fr; max-width:280px; } }
     </style>
 </head>
 <body>
@@ -511,12 +527,45 @@
                 </div>
                 <!-- B&S: Send a Postcard moved into WE LOVE YOU -->
                 <div class="radio-card" id="penpal">
-                    <img src="radio.jpg" alt="Montez Press Radio Music Postcard" style="max-width: 220px; border: 3px solid var(--black); border-radius: 8px;">
+                    <img src="postcard-vintage-back.jpg" alt="Vintage Book &amp; Shores postcard addressed to 1968 S. Coastal Hwy, Laguna Beach" style="max-width: 220px; border: 3px solid var(--black); border-radius: 8px;">
                     <h3>Send a Postcard</h3>
                     <p style="margin: 0.4rem 0 0.8rem;">Let pen and ink be your guide.</p>
                     <p><strong>Book and Shores<br>1968 S. Coastal Hwy #4182<br>Laguna Beach, CA 92651</strong></p>
                 </div>
             </div>
+            <!-- B&S: old-school "This Space for Rent" ad spots in WE LOVE YOU (3 squares); each box emails readme@ -->
+            <aside class="ad-slot in-section" aria-label="Advertisements">
+                <span class="ad-label">Advertisement</span>
+                <div class="ad-row">
+                    <a class="ad-box" href="mailto:readme@bookandshores.com?subject=Advertising%20on%20Book%20%26%20Shores">
+                        <div class="ad-empty">
+                            <span class="ad-kicker"><span class="ad-star">&#9733;</span> Ocean View <span class="ad-star">&#9733;</span></span>
+                            <span class="ad-head">Ad Space<br>Open</span>
+                            <hr class="ad-rule">
+                            <span class="ad-sub">Steps from<br>the bookstore.</span>
+                            <span class="ad-contact">Inquire:<br><strong>readme@bookandshores.com</strong></span>
+                        </div>
+                    </a>
+                    <a class="ad-box" href="mailto:readme@bookandshores.com?subject=Advertising%20on%20Book%20%26%20Shores">
+                        <div class="ad-empty">
+                            <span class="ad-kicker"><span class="ad-star">&#9733;</span> Now Leasing <span class="ad-star">&#9733;</span></span>
+                            <span class="ad-head">Your Name<br>Here</span>
+                            <hr class="ad-rule">
+                            <span class="ad-sub">Readers with taste,<br>guaranteed.</span>
+                            <span class="ad-contact">Inquire:<br><strong>readme@bookandshores.com</strong></span>
+                        </div>
+                    </a>
+                    <a class="ad-box" href="mailto:readme@bookandshores.com?subject=Advertising%20on%20Book%20%26%20Shores">
+                        <div class="ad-empty">
+                            <span class="ad-kicker"><span class="ad-star">&#9733;</span> Mint Condition <span class="ad-star">&#9733;</span></span>
+                            <span class="ad-head">Still<br>Available</span>
+                            <hr class="ad-rule">
+                            <span class="ad-sub">Never been read. Like<br>most first editions.</span>
+                            <span class="ad-contact">Inquire:<br><strong>readme@bookandshores.com</strong></span>
+                        </div>
+                    </a>
+                </div>
+            </aside>
         </section>
     </main>
     <footer>
