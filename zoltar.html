@@ -8,11 +8,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <title>Book &amp; Shores Zoltar | Book &amp; Shores</title>
-    <meta name="description" content="Book &amp; Shores Zoltar, a digital book vending machine with a fortune-teller twist. Insert curiosity. Receive a book.">
+    <title>Book &amp; Shores Zoltar: The Machine that Reads You | Book &amp; Shores</title>
+    <meta name="description" content="Book &amp; Shores Zoltar, a digital book vending machine with a fortune-teller twist. The Machine that Reads You. Print books and ebooks.">
     <link rel="canonical" href="https://bookandshores.com/zoltar.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Book &amp; Shores Zoltar">
+    <meta property="og:title" content="Book &amp; Shores Zoltar: The Machine that Reads You">
     <meta property="og:description" content="A digital book vending machine with a fortune-teller twist. Insert curiosity. Receive a book.">
     <meta property="og:url" content="https://bookandshores.com/zoltar.html">
     <!-- link-preview:start -->
@@ -58,6 +58,8 @@
         .intro .kicker { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; }
         .intro h2 { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1; text-transform: uppercase; letter-spacing: -.01em; margin: .3rem 0 .5rem; }
         .intro p { max-width: 40rem; margin: 0 auto; font-size: .95rem; }
+        .intro h2.tagline { font-size: clamp(2.6rem, 9vw, 5.4rem); line-height: .92; margin: .35rem 0 .8rem; text-shadow: 4px 4px 0 rgba(0,0,0,.14); }
+        .intro h2.tagline span { display: inline-block; background: var(--black); color: var(--yellow); padding: 0 .22em; border-radius: 8px; transform: rotate(-3deg); font-size: .62em; vertical-align: .18em; }
 
         /* ===== Machine ===== */
         .machine-wrap { perspective: 1400px; display: flex; justify-content: center; }
@@ -251,7 +253,7 @@
         .reveal.open { display: flex; animation: fade .3s ease; }
         @keyframes fade { from { opacity: 0; } }
         .ticket {
-            position: relative; width: 100%; max-width: 640px; max-height: calc(100vh - 36px); overflow: auto;
+            position: relative; width: 100%; max-width: 700px; max-height: calc(100vh - 36px); overflow: auto;
             background: var(--black); color: #fff; border: 4px solid var(--yellow); border-radius: 18px;
             padding: 26px 26px 22px; box-shadow: 0 0 0 6px #000, 0 0 60px rgba(246,189,40,.55);
             animation: rise .7s cubic-bezier(.2,1.3,.4,1);
@@ -283,6 +285,18 @@
             padding: .55rem 2rem; border-radius: 10px; box-shadow: 0 5px 0 #8a6500; transition: transform .15s ease;
         }
         .buy:hover { transform: translateY(-2px); } .buy:active { transform: translateY(3px); box-shadow: 0 2px 0 #8a6500; }
+        .buy { text-align: center; line-height: 1.05; font-size: 1.3rem; padding: .55rem 1.15rem; }
+        .buy small { display: block; margin-top: .28rem; font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: .62rem; letter-spacing: .14em; color: #000; opacity: .78; }
+        .buy.ebook { position: relative; padding-inline: 1.5rem; }
+        .buy.ebook::after { /* little sticker */
+            content: "NEW"; position: absolute; top: -11px; right: -10px; background: #000; color: var(--yellow); border: 2px solid var(--yellow);
+            font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: .6rem; letter-spacing: .12em; padding: 1px 6px; border-radius: 6px; transform: rotate(8deg);
+        }
+        .buy[hidden] { display: none; }
+        .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+        .actions .buy { padding-inline: .7rem; }
+        .actions .buy[hidden] + .again { grid-column: auto; }
+        .actions .again { grid-column: 1 / -1; justify-self: start; }
         .again {
             background: transparent; color: var(--yellow); border: 3px solid var(--yellow); border-radius: 10px; cursor: pointer;
             font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; padding: .7rem 1.1rem;
@@ -321,7 +335,9 @@
             .ticket-body { grid-template-columns: 1fr; gap: 16px; text-align: center; }
             .ticket-cover { width: 54%; max-width: 200px; margin: 6px auto 0; }
             .actions { justify-content: center; }
-            .buy { width: 100%; text-align: center; }
+            .buy { width: 100%; text-align: center; font-size: 1.5rem; }
+            .actions { grid-template-columns: 1fr; }
+            .actions .again { width: 100%; justify-self: stretch; }
         }
         @media (max-width: 380px) { .ask { width: 100px; height: 100px; font-size: 1.05rem; } .ask small { display: none; } }
         @media (prefers-reduced-motion: reduce) {
@@ -342,8 +358,8 @@
         <!-- B&S: Zoltar, a digital book vending machine -->
         <section class="intro">
             <div class="kicker">Step right up</div>
-            <h2>The machine that reads you</h2>
-            <p>Press the big yellow button and Zoltar picks your next read. Know what you want? Punch in a slot code, or tap any cover.</p>
+            <h2 class="tagline">The Machine <span>that</span> Reads You</h2>
+            <p>Press the big yellow button and Zoltar picks your next read. Know what you want? Punch in a slot code, or tap any cover. Take it home in print, or read the ebook tonight.</p>
         </section>
 
         <div class="machine-wrap">
@@ -353,7 +369,7 @@
                         <div class="bulbs top" aria-hidden="true"></div>
                         <div class="pre">The Great &amp; Literary</div>
                         <span class="name">Book &amp; Shores <em>Zoltar</em></span>
-                        <span class="tag">Insert curiosity. Receive a book.</span>
+                        <span class="tag">The Machine that Reads You</span>
                         <div class="bulbs btm" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -401,7 +417,8 @@
                     <p class="fortune" id="fortune"></p>
                     <p class="book-name"><b id="tTitle"></b><br><span id="tAuthor"></span></p>
                     <div class="actions">
-                        <a class="buy" id="buy" href="#" rel="noopener sponsored">Buy Now</a>
+                        <a class="buy" id="buy" href="#" rel="noopener sponsored">Buy the Book<small>Print &middot; ships to you</small></a>
+                        <a class="buy ebook" id="ebook" href="#" target="_blank" rel="noopener sponsored" hidden>Ebook<small>Digital &middot; read tonight</small></a>
                         <button class="again" id="again" type="button">Try again</button>
                     </div>
                     <p class="via" id="via"></p>
@@ -453,6 +470,30 @@
             ['ego-trip', 'The Ego Trip', 'Kimon de Greef', '9780385550246', '', 'Beware gurus bearing toads. Zoltar has seen how this trip ends.'],
             ['nerd-reich', 'The Nerd Reich', 'Gil Dur\u00e1n', '9781668221402', '', 'Tech billionaires loom in your future. Read the warning label first.']
         ];
+        // Bookshop.org ebook editions: [Bookshop product path, ebook EAN]. Link = product page + ?ean=EBOOK&digital=t&affiliate=125864
+        // (the format Bookshop's own ebook share links use). Books without a confirmed ebook edition get no EBOOK button.
+        var EBOOKS = {
+            'sandman': ['the-sandman-a-novel-lars-kepler/acc92d0235b6be2d', '9781524732257'],
+            'ripley': ['the-talented-mr-ripley-patricia-highsmith/ad6d888cfdc8d4fa', '9780393344721'],
+            'carol': ['carol-patricia-highsmith/3d06ecb89c2ad4f7', '9780393345643'],
+            'wilson': ['the-space-behind-the-face-life-stories-robert-wilson/4661552c0412f8ff', '9798217061280'],
+            'sound': ['sound-within-sound-radical-composers-of-the-twentieth-century-kate-molleson/b3664349ebf637ef', '9781647002534'],
+            'end': ['the-end-of-everything-visionary-and-brilliant-china-mieville-m-john-harrison/fe6e357926af029c', '9798217438679'],
+            'switzy': ['switzy-a-novel-emma-cline/f5a588e2ff0bd8e0', '9780593595251'],
+            'dogs': ['all-them-dogs-a-novel-djamel-white/6a6a2065023a0448', '9798217046690'],
+            'ambivalence': ['ambivalence-brian-dillon/5a7de895b7f5d04a', '9798896231110'],
+            'demon': ['demon-copperhead-a-novel-barbara-kingsolver/685df5a3bfc2305a', '9780063251991'],
+            'odyssey': ['the-odyssey-penguin-classics-deluxe-edition-homer/a81376267225cf32', '9781101221846'],
+            'moosewood': ['the-moosewood-cookbook-40th-anniversary-edition-mollie-katzen/6981e1bb1d37ef2e', '9781607747406'],
+            'future-shock': ['future-shock-alvin-toffler/05c7eb7dd17fd632', '9780593159767'],
+            'belafonte': ['daylight-come-harry-belafonte-and-the-world-he-made-joshua-jelly-schapiro/94080209b51f0a6d', '9780593652718'],
+            'hiroshima': ['what-divides-us-a-memoir-of-hiroshima-kiyoshi-tanimoto/ce9f3dc906283bdb', '9798217197996'],
+            'ego-trip': ['the-ego-trip-psychedelic-toads-a-trail-of-deaths-and-the-guru-who-peddled-transcendence-kimon-de-greef/9e7f0e20e04fc1b3', '9780385550239'],
+            'sakamoto': ['music-sets-you-free-ryuichi-sakamoto/849179867382adde', '9780063416529'],
+            'clara': ['madame-composer-the-virtuosic-genius-of-clara-schumann-sarah-fritz/9ace517951fcf549', '9798897101894'],
+            'push-the-wall': ['push-the-wall-my-life-writing-drawing-and-the-art-of-storytelling-frank-miller/e8f1f6099d7abe45', '9781668065310'],
+            'nerd-reich': ['the-nerd-reich-silicon-valley-fascism-and-the-war-on-democracy-gil-dur-n/a6f6f0dce1150339', '9781668221426']
+        };
         var ROWS = 'ABCDEF', PER = 5;
         var glass = document.getElementById('glass'), machine = document.getElementById('machine');
         var lcd1 = document.getElementById('lcd1'), lcd2 = document.getElementById('lcd2');
@@ -549,13 +590,20 @@
             var buy = document.getElementById('buy');
             if (b[4]) {
                 buy.href = b[4]; buy.removeAttribute('target');
-                buy.setAttribute('aria-label', 'Buy ' + b[1] + ': see its Book & Shores page');
-                document.getElementById('via').textContent = 'Opens the Book & Shores page for this book.';
+                buy.setAttribute('aria-label', 'Buy the book: ' + b[1] + ', see its Book & Shores page');
+                document.getElementById('via').textContent = 'Print: opens the Book & Shores page for this book.';
             } else {
                 buy.href = BS + b[3]; buy.target = '_blank';
-                buy.setAttribute('aria-label', 'Buy ' + b[1] + ' by ' + b[2] + ' on Bookshop.org (opens in a new tab)');
-                document.getElementById('via').textContent = 'Ships from Bookshop.org, which supports independent bookstores.';
+                buy.setAttribute('aria-label', 'Buy the print book of ' + b[1] + ' by ' + b[2] + ' on Bookshop.org (opens in a new tab)');
+                document.getElementById('via').textContent = 'Print ships from Bookshop.org, which supports independent bookstores.';
             }
+            var eb = document.getElementById('ebook'), e = EBOOKS[b[0]];
+            if (e) {
+                eb.href = 'https://bookshop.org/p/books/' + e[0] + '?ean=' + e[1] + '&digital=t&affiliate=125864';
+                eb.setAttribute('aria-label', 'Buy the ebook of ' + b[1] + ' on Bookshop.org (opens in a new tab)');
+                eb.hidden = false;
+                document.getElementById('via').textContent += ' Ebooks are sold by Bookshop.org and read in its free app or browser reader.';
+            } else { eb.hidden = true; eb.removeAttribute('href'); }
             reveal.classList.add('open');
             machine.classList.remove('busy');
             setLcd('ENJOY YOUR BOOK', codeOf(i));
