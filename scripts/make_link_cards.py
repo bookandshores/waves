@@ -47,6 +47,8 @@ BOOKS = [
          title="Mother Tongue", author="Sara Nović"),
     dict(slug="pure-men", cover="9781635424706.jpg", label="National Book Award 2026 · Translated Literature Finalist",
          title="Pure Men", author="Mohamed Mbougar Sarr"),
+    dict(slug="fictional-selves", cover="9798217086320.jpg", label="Memoir · Crown · Sept 29, 2026",
+         title="Fictional Selves", author="Kyle MacLachlan"),
 ]
 
 FONTS = f"""
