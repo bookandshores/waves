@@ -364,6 +364,14 @@
         /* B&S: Tip the Booktender button */
         .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
+        /* B&S: alien Zoltar in the tip tile (same arched window look as the machine) */
+        .tip-zoltar { display:block; width:132px; margin:0 auto 0.6rem; text-decoration:none; }
+        .tip-zoltar-win { position:relative; display:block; width:100%; aspect-ratio:2 / 3; border:4px solid var(--yellow); border-radius:66px 66px 10px 10px; overflow:hidden; background:#000; box-shadow:0 0 0 3px #000, 0 0 14px rgba(246,189,40,.45), inset 0 0 10px rgba(0,0,0,.8); transition:transform .2s ease, box-shadow .3s ease; }
+        .tip-zoltar-win video { display:block; width:100%; height:100%; object-fit:cover; }
+        .tip-zoltar-win::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, transparent 38%, rgba(255,255,255,.16) 46%, transparent 54%); }
+        .tip-zoltar:hover .tip-zoltar-win, .tip-zoltar:focus-visible .tip-zoltar-win { transform:translateY(-2px); box-shadow:0 0 0 3px #000, 0 0 22px 3px rgba(246,189,40,.8), inset 0 0 10px rgba(0,0,0,.8); }
+        .tip-zoltar:focus-visible { outline:3px solid var(--black); outline-offset:6px; border-radius:8px; }
+        .tip-zoltar-line { margin:0 0 0.2rem; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.04em; }
         /* B&S: the Zoltar machine lives inside GREETINGS (styles in zoltar-machine.css) */
         .greeting-box.zoltar-greeting { width:100%; }
         .greeting-box .zmx { text-align:left; margin-top:.4rem; }
@@ -580,8 +588,16 @@
                     <a href="https://www.kcrw.com/music/shows/eclectic24" target="_blank" rel="noopener" class="btn">Listen on KCRW</a>
                 </div>
                 <div class="radio-card">
-                    <img src="bookandshores-x.jpg" alt="Tip the Booktender at Book &amp; Shores" style="max-width: 220px; border: 3px solid var(--black); border-radius: 8px;">
-                    <!-- B&S: tip tile uses X profile image; same PayPal link -->
+                    <!-- B&S: tip tile shows alien Zoltar (looping silent video) in the small arched window; same PayPal link -->
+                    <a class="tip-zoltar" href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" aria-label="Zoltar says: tip the Booktender. Tip on PayPal (opens in a new tab)">
+                        <span class="tip-zoltar-win" aria-hidden="true">
+                            <video id="tipAlienVid" autoplay muted loop playsinline preload="metadata" poster="zoltar-video/zoltar-alien-poster.jpg" tabindex="-1">
+                                <source src="zoltar-video/zoltar-alien.webm" type="video/webm">
+                                <source src="zoltar-video/zoltar-alien.mp4" type="video/mp4">
+                            </video>
+                        </span>
+                    </a>
+                    <p class="tip-zoltar-line">Zoltar says: tip the Booktender.</p>
                     <a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" class="btn" aria-label="Tip the Booktender on PayPal (opens in a new tab)" rel="noopener">TIP THE BOOKTENDER</a>
                 </div>
                 <!-- B&S: Send a Postcard moved into WE LOVE YOU -->
@@ -665,5 +681,14 @@
     <script data-goatcounter="https://bookandshores.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <script src="zoltar-machine.js" defer></script>
+<script>
+    // B&S: tip-tile alien Zoltar: silent loop; poster only under reduced motion or if autoplay fails
+    (function () {
+        var v = document.getElementById('tipAlienVid'); if (!v) return;
+        v.muted = true;
+        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); return; }
+        var p = v.play(); if (p && p.catch) p.catch(function () { v.pause(); });
+    })();
+    </script>
 </body>
 </html>
