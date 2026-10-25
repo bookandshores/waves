@@ -17,8 +17,8 @@
     function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
     function buyUrl(b) { return AFF + b.isbn; }
     function ebookUrl(b) { return b.ebook ? "https://bookshop.org/p/books/" + b.ebook[0] + "?ean=" + b.ebook[1] + "&digital=t&affiliate=125864" : null; }
-    // The "read me." mug (our own photo, circle-cropped) is every map marker. Swap atlas/mug-pin.jpg to change them all.
-    function mugImg() { var im = el("img", "mug"); im.src = "atlas/mug-pin.jpg"; im.alt = ""; im.width = 40; im.height = 40; im.draggable = false; return im; }
+    // The "read me." mug (3D render) is every map marker. Swap atlas/mug3d-pin.png to change them all.
+    function mugImg() { var im = el("img", "mug"); im.src = "atlas/mug3d-pin.png"; im.alt = ""; im.width = 44; im.height = 44; im.draggable = false; return im; }
     function newTab(a) { a.target = "_blank"; a.rel = "noopener sponsored"; return a; }
 
     /* ---------- Pin list (static-friendly, also the keyboard/no-map path) ---------- */

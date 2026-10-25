@@ -14,3 +14,7 @@ cover-heart-of-darkness.jpg   File:Blackwood's Magazine - 1899 cover.jpg  (the m
 cover-robinson-crusoe.jpg     File:Robinson Crusoe 1719 1st edition.jpg  (first-edition title page)
 cover-air.jpg, cover-the-ego-trip.jpg, cover-tin-can-coast.jpg  our own site assets (IMG_2773.jpg, IMG_2778.jpg, TIN.png), resized to 240px.
 mug-pin.jpg  circular map-marker crop of the "read me." mug photo (/brand/read-me-mug.jpg, Book & Shores' own asset), no redraw.
+
+mug3d-turntable.webp  animated turntable of the "read me." mug (3D render by Book & Shores, /workspace brand/mug3d), recompressed to 360px wide for the hero and the home Atlas card.
+mug3d-poster.png      static three-quarter frame of the same render, shown under prefers-reduced-motion.
+mug3d-pin.png         128px render used as every map marker (replaces mug-pin.jpg, which is kept in the repo, unused).

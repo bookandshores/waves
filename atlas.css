@@ -18,9 +18,9 @@ h2 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.05; }
 /* Hero */
 .atlas-hero { position:relative; text-align:center; max-width:960px; margin:1.2rem auto 2.2rem; padding:0 .5rem; }
 .hero-row { display:flex; align-items:center; justify-content:center; gap:clamp(1.2rem,4vw,2.6rem); text-align:left; }
-.hero-mug { flex:none; width:clamp(130px,17vw,200px); height:auto; aspect-ratio:375/427; object-fit:cover; border:4px solid var(--black); border-radius:10px; transform:rotate(-4deg); box-shadow:7px 7px 0 var(--black); background:var(--cream); }
+.hero-mug { flex:none; width:clamp(170px,22vw,260px); display:block; } .hero-mug img { display:block; width:100%; height:auto; aspect-ratio:360/269; object-fit:contain; filter:drop-shadow(6px 7px 0 rgba(0,0,0,.85)); }
 .hero-text { text-align:left; }
-@media (max-width:680px) { .hero-row { flex-direction:column; text-align:center; gap:1rem; } .hero-text { text-align:center; } .hero-mug { width:120px; } }
+@media (max-width:680px) { .hero-row { flex-direction:column; text-align:center; gap:1rem; } .hero-text { text-align:center; } .hero-mug { width:170px; } }
 .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:.8rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; }
 .atlas-hero h1 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.02; font-size:clamp(2.4rem,7.6vw,5rem); text-transform:uppercase; letter-spacing:-.01em; margin:.5rem 0 .6rem; }
 .atlas-hero h1 span { display:block; }
@@ -40,16 +40,16 @@ h2 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.05; }
 .map-fallback[hidden] { display:none; }
 .map-note { text-align:center; font-size:.85rem; color:var(--gray); margin-top:.9rem; max-width:700px; margin-left:auto; margin-right:auto; }
 
-/* Pins (DOM markers). Every pin is the "read me." mug, circle-cropped from our own photo (atlas/mug-pin.jpg).
+/* Pins (DOM markers). Every pin is the "read me." mug, circle-cropped from our own photo (atlas/mug3d-pin.png).
    Never transform .pin itself (MapLibre positions markers with transform); animate the inner .mug instead. */
-.pin { width:40px; height:40px; padding:0; border:0; background:none; cursor:pointer; display:block; border-radius:50%; }
-.pin .mug { display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; background:var(--cream); border:3px solid var(--yellow); box-shadow:0 0 0 2px var(--ink),0 4px 8px rgba(0,0,0,.4); pointer-events:none; }
+.pin { width:44px; height:44px; padding:0; border:0; background:none; cursor:pointer; display:block; border-radius:50%; }
+.pin .mug { display:block; width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 3px 3px rgba(0,0,0,.5)); pointer-events:none; }
 .pin.area::after { content:""; position:absolute; inset:-9px; border-radius:50%; border:2px dashed var(--ink); pointer-events:none; }
 .pin .n { position:absolute; top:-8px; right:-9px; min-width:19px; height:19px; padding:0 4px; border-radius:999px; background:var(--red); color:#fff; border:2px solid var(--ink); font:600 .68rem/15px 'IBM Plex Mono',monospace; text-align:center; z-index:1; }
-.pin:hover .mug, .pin:focus-visible .mug, .pin.on .mug { border-color:var(--red); }
+.pin:hover .mug, .pin:focus-visible .mug, .pin.on .mug { filter:drop-shadow(0 0 0 var(--red)) drop-shadow(0 0 3px var(--red)) drop-shadow(0 0 3px var(--red)); }
 .pin:focus-visible { outline:3px solid var(--ink); outline-offset:6px; }
 .pin .rnum { display:none; }
-@media (prefers-reduced-motion:no-preference) { .pin .mug { transition:transform .15s ease,border-color .15s ease; } .pin:hover .mug, .pin:focus-visible .mug { transform:scale(1.18); } }
+@media (prefers-reduced-motion:no-preference) { .pin .mug { transition:transform .15s ease; } .pin:hover .mug, .pin:focus-visible .mug { transform:scale(1.18); } }
 
 /* Place search */
 .place-search { max-width:760px; margin:0 auto 1rem; text-align:center; }
@@ -96,14 +96,14 @@ h2 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.05; }
 
 /* Search mode on the map: matching pins pop in (mug drops onto the place), the rest recede, the searched place gets a big mug */
 .pin.faded .mug { opacity:.4; filter:grayscale(.6); }
-.pin.hit .mug { border-color:var(--red); box-shadow:0 0 0 2px var(--ink),0 0 0 6px rgba(216,49,43,.35),0 4px 8px rgba(0,0,0,.4); }
+.pin.hit .mug { filter:drop-shadow(0 0 2px var(--red)) drop-shadow(0 0 5px var(--red)) drop-shadow(0 3px 3px rgba(0,0,0,.5)); }
 @keyframes mugdrop { 0% { transform:translateY(-44px) scale(.3); opacity:0; } 55% { transform:translateY(5px) scale(1.12); opacity:1; } 78% { transform:translateY(-3px) scale(.96); } 100% { transform:none; opacity:1; } }
 @media (prefers-reduced-motion:no-preference) { .pin.pop .mug { animation:mugdrop .62s cubic-bezier(.3,.7,.4,1) both; animation-delay:var(--d,0s); } .yah .mug { animation:mugdrop .7s cubic-bezier(.3,.7,.4,1) both; } .yah::before { animation:yahpulse 2.4s ease-out 1s 2; } }
 @keyframes yahpulse { 0% { transform:scale(.7); opacity:.7; } 100% { transform:scale(1.9); opacity:0; } }
 .yah-wrap { width:58px; height:58px; pointer-events:none; }
 .yah { position:relative; width:100%; height:100%; }
 .yah::before { content:""; position:absolute; inset:0; border-radius:50%; border:3px solid var(--red); opacity:0; }
-.yah .mug { display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; border:4px solid var(--red); box-shadow:0 0 0 2px var(--ink),0 6px 12px rgba(0,0,0,.45); background:var(--cream); }
+.yah .mug { display:block; width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 0 2px var(--red)) drop-shadow(0 0 4px var(--red)) drop-shadow(0 5px 6px rgba(0,0,0,.45)); }
 .yah .tag { position:absolute; left:50%; top:calc(100% + 5px); transform:translateX(-50%); white-space:nowrap; background:var(--ink); color:var(--yellow); font:600 .62rem/1 'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .5rem; border-radius:4px; }
 .yah-wrap { z-index:4; }
 
@@ -192,9 +192,9 @@ footer a { color:var(--black); }
 
 .pin.dim { opacity:.3; filter:grayscale(.7); }
 .pin.route { width:42px; height:42px; }
-.pin.route .mug { border-color:var(--night); box-shadow:0 0 0 2px var(--yellow),0 5px 10px rgba(0,0,0,.55); }
+.pin.route .mug { filter:drop-shadow(0 0 2px var(--night)) drop-shadow(0 4px 4px rgba(0,0,0,.6)); }
 .pin.route .rnum { display:flex; position:absolute; left:-9px; bottom:-8px; width:22px; height:22px; border-radius:50%; background:var(--night); color:var(--yellow); border:2px solid var(--yellow); align-items:center; justify-content:center; font:700 .8rem/1 'Oswald',sans-serif; z-index:1; pointer-events:none; }
-.pin.route:hover .mug, .pin.route:focus-visible .mug, .pin.route.on .mug { border-color:var(--blood); }
+.pin.route:hover .mug, .pin.route:focus-visible .mug, .pin.route.on .mug { filter:drop-shadow(0 0 2px var(--blood)) drop-shadow(0 0 4px var(--blood)); }
 .pin.route.area::after { inset:-10px; border-color:var(--night); }
 .pin.route .n { top:-10px; right:-11px; }
 

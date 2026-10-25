@@ -372,7 +372,7 @@
         /* B&S: compact Atlas feature under GREETINGS */
         .ah-card { background:var(--cream,#f4e9d3); border:3px solid #000; border-radius:10px; box-shadow:6px 6px 0 rgba(0,0,0,.85); padding:1.4rem 1.2rem 1.6rem; max-width:720px; margin:0 auto; text-align:center; }
         .ah-row { display:flex; align-items:center; justify-content:center; gap:clamp(1rem,3vw,1.8rem); }
-        .ah-mug { flex:none; width:clamp(96px,16vw,132px); height:auto; aspect-ratio:375/427; object-fit:cover; border:3px solid #000; border-radius:8px; transform:rotate(-4deg); box-shadow:5px 5px 0 #000; background:#fff; }
+        .ah-mug { flex:none; width:clamp(130px,22vw,190px); display:block; } .ah-mug img { display:block; width:100%; height:auto; aspect-ratio:360/269; object-fit:contain; filter:drop-shadow(5px 6px 0 rgba(0,0,0,.85)); }
         .ah-text { text-align:left; }
         .ah-eyebrow { font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; margin:0 0 .2rem; }
         .ah-title { font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; line-height:1.02; font-size:clamp(2rem,7vw,3.4rem); margin:0; }
@@ -407,7 +407,7 @@
             <!-- B&S: the Atlas feature lives under GREETINGS. Compact version; the full map is on atlas.html (no duplicate map here). -->
             <div class="ah-card">
                 <div class="ah-row">
-                    <img class="ah-mug" src="atlas/read-me-mug.jpg" alt="A white coffee mug that says read me." width="375" height="427">
+                    <picture class="ah-mug"><source media="(prefers-reduced-motion: reduce)" srcset="atlas/mug3d-poster.png" width="360" height="352"><img src="atlas/mug3d-turntable.webp" alt="A white 3D coffee mug that says read me., slowly turning." width="360" height="269"></picture>
                     <div class="ah-text">
                         <p class="ah-eyebrow">The Book &amp; Shores Atlas</p>
                         <h3 class="ah-title">Go There. <span>Read It.</span></h3>
