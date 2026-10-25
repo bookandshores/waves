@@ -447,8 +447,8 @@
                     <p class="fortune" id="fortune"></p>
                     <p class="book-name"><b id="tTitle"></b><br><span id="tAuthor"></span></p>
                     <div class="actions">
-                        <a class="buy" id="buy" href="#" rel="noopener sponsored">Buy the Book<small>Print</small></a>
-                        <a class="buy ebook" id="ebook" href="#" target="_blank" rel="noopener sponsored" hidden>Ebook<small>Digital</small></a>
+                        <a class="buy" id="buy" href="bookstore.html" rel="noopener sponsored">Buy the Book<small>Print</small></a>
+                        <a class="buy ebook" id="ebook" href="bookstore.html" target="_blank" rel="noopener sponsored" hidden>Ebook<small>Digital</small></a>
                         <button class="again" id="again" type="button">Try again</button>
                     </div>
                     <p class="tip-line"><a class="tip-mini" href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" aria-label="Tip the Booktender on PayPal (opens in a new tab)">Tip the Booktender</a></p>
@@ -652,11 +652,12 @@
                 }, 300);
             }, 4200);
         }
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
             anchor.addEventListener('click', e => {
-                e.preventDefault();
                 const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
