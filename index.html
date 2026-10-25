@@ -364,18 +364,6 @@
         /* B&S: Tip the Booktender button */
         .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
-        /* B&S: alien Zoltar in the tip tile, framed like a fortune-machine glass window (black housing, yellow trim) */
-        .tip-zoltar { display:block; width:196px; margin:0 auto 1.1rem; text-decoration:none; }
-        .tip-frame { display:block; position:relative; padding:34px 14px 30px; background:linear-gradient(180deg,#1b1b1d,#0d0d0e 40%,#0d0d0e); border:3px solid var(--yellow); border-radius:22px 22px 8px 8px; box-shadow:0 0 0 3px #000, 0 6px 0 3px #000, 0 0 18px rgba(246,189,40,.35); transition:transform .2s ease, filter .3s ease; }
-        .tip-frame::before { content:"ZOLTAR"; position:absolute; top:7px; left:0; right:0; text-align:center; font-family:'Oswald',sans-serif; font-weight:600; font-size:.95rem; letter-spacing:.34em; text-indent:.34em; color:#fff2c2; text-shadow:0 0 6px #ffd85a, 0 0 14px rgba(246,189,40,.7); line-height:1; }
-        .tip-frame::after { content:""; position:absolute; left:50%; bottom:9px; width:62px; height:9px; transform:translateX(-50%); background:#000; border:2px solid var(--yellow); border-radius:6px; box-shadow:inset 0 2px 0 #000; }
-        .tip-zoltar-win { position:relative; display:block; width:100%; aspect-ratio:3 / 4; border:4px solid #000; border-radius:6px; overflow:hidden; background:#000; box-shadow:0 0 0 2px var(--yellow), inset 0 0 14px rgba(0,0,0,.85); }
-        .tip-zoltar-win video { display:block; width:100%; height:100%; object-fit:cover; }
-        .tip-zoltar-win::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.2) 40%, rgba(255,255,255,.04) 48%, transparent 52%), linear-gradient(0deg, rgba(246,189,40,.12), transparent 35%); }
-        .tip-zoltar:hover .tip-frame, .tip-zoltar:focus-visible .tip-frame { transform:translateY(-2px); filter:brightness(1.06); }
-        .tip-zoltar:focus-visible { outline:3px solid var(--black); outline-offset:6px; border-radius:8px; }
-        @media (prefers-reduced-motion: reduce) { .tip-frame { transition:none; } .tip-zoltar:hover .tip-frame, .tip-zoltar:focus-visible .tip-frame { transform:none; } }
-        .tip-zoltar-line { margin:0 0 0.2rem; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.04em; }
         /* B&S: the Zoltar machine lives inside GREETINGS (styles in zoltar-machine.css) */
         .greeting-box.zoltar-greeting { width:100%; }
         .greeting-box .zmx { text-align:left; margin-top:.4rem; }
@@ -632,16 +620,8 @@
                     <a href="https://www.kcrw.com/music/shows/eclectic24" target="_blank" rel="noopener" class="btn">Listen on KCRW</a>
                 </div>
                 <div class="radio-card">
-                    <!-- B&S: tip tile shows alien Zoltar (looping silent video) in the small arched window; same PayPal link -->
-                    <a class="tip-zoltar" href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" aria-label="Zoltar says: tip the Booktender. Tip on PayPal (opens in a new tab)">
-                        <span class="tip-frame" aria-hidden="true"><span class="tip-zoltar-win">
-                            <video id="tipAlienVid" autoplay muted loop playsinline preload="metadata" poster="zoltar-video/zoltar-alien-poster.jpg" tabindex="-1">
-                                <source src="zoltar-video/zoltar-alien.webm" type="video/webm">
-                                <source src="zoltar-video/zoltar-alien.mp4" type="video/mp4">
-                            </video>
-                        </span></span>
-                    </a>
-                    <p class="tip-zoltar-line">Zoltar says: tip the Booktender.</p>
+                    <img src="bookandshores-x.jpg" alt="Tip the Booktender at Book &amp; Shores" style="max-width: 220px; border: 3px solid var(--black); border-radius: 8px;">
+                    <!-- B&S: tip tile uses X profile image; same PayPal link -->
                     <a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" class="btn" aria-label="Tip the Booktender on PayPal (opens in a new tab)" rel="noopener">TIP THE BOOKTENDER</a>
                 </div>
                 <!-- B&S: Send a Postcard moved into WE LOVE YOU -->
@@ -725,14 +705,5 @@
     <script data-goatcounter="https://bookandshores.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <script src="zoltar-machine.js" defer></script>
-<script>
-    // B&S: tip-tile alien Zoltar: silent loop; poster only under reduced motion or if autoplay fails
-    (function () {
-        var v = document.getElementById('tipAlienVid'); if (!v) return;
-        v.muted = true;
-        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); return; }
-        var p = v.play(); if (p && p.catch) p.catch(function () { v.pause(); });
-    })();
-    </script>
 </body>
 </html>
