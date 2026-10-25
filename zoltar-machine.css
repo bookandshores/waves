@@ -259,7 +259,6 @@
         .zmx .again:hover { background: var(--yellow); color: #000; }
         .zmx .ticket:focus { outline: none; }
         .zmx .close { position: absolute; top: 14px; right: 16px; background: none; border: 0; color: var(--yellow); font-size: 1.8rem; line-height: 1; cursor: pointer; font-family: 'Oswald', sans-serif; }
-        .zmx .via { margin-top: .6rem; margin-bottom: 0; font-size: .72rem; color: #a9a9a9; }
 
 
 /* ===== Responsive ===== */
@@ -298,8 +297,15 @@
   .zmx .fortune { margin-bottom: .5rem; }
   .zmx .actions { margin-top: .7rem; gap: 10px; }
   .zmx .tip-line { margin-top: .6rem; }
-  .zmx .via { margin-top: .5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .zmx *, .zmx *::before, .zmx *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
 }
+
+/* Intro / tagline block (scoped; same look as zoltar.html .intro) */
+.zmx-intro { text-align: center; margin: 0 0 1.8rem; }
+.zmx-intro .kicker { font-family: 'IBM Plex Mono', monospace; font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; }
+.zmx-intro h2.tagline { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; font-size: clamp(2.6rem, 9vw, 5.4rem); line-height: .92; margin: .35rem 0 .8rem; text-shadow: 4px 4px 0 rgba(0,0,0,.14); }
+.zmx-intro h2.tagline span { display: inline-block; background: #000; color: #f6bd28; padding: 0 .22em; border-radius: 8px; transform: rotate(-3deg); font-size: .62em; vertical-align: .18em; }
+.zmx-intro p { max-width: 40rem; margin: 0 auto; font-size: .95rem; text-align: center; }
+@media (min-width: 900px) { .zmx-intro h2.tagline { font-size: 4.3rem; white-space: nowrap; } }
