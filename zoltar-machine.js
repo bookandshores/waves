@@ -156,18 +156,18 @@
             if (b[4]) {
                 buy.href = b[4]; buy.removeAttribute('target');
                 buy.setAttribute('aria-label', 'Buy the book: ' + b[1] + ', see its Book & Shores page');
-                document.getElementById('via').textContent = 'Print: opens the Book & Shores page for this book.';
+                document.getElementById('via').textContent = '';
             } else {
                 buy.href = BS + b[3]; buy.target = '_blank';
                 buy.setAttribute('aria-label', 'Buy the print book of ' + b[1] + ' by ' + b[2] + ' on Bookshop.org (opens in a new tab)');
-                document.getElementById('via').textContent = 'Print ships from Bookshop.org, which supports independent bookstores.';
+                document.getElementById('via').textContent = 'Print via Bookshop.org.';
             }
             var eb = document.getElementById('ebook'), e = EBOOKS[b[0]];
             if (e) {
                 eb.href = 'https://bookshop.org/p/books/' + e[0] + '?ean=' + e[1] + '&digital=t&affiliate=125864';
                 eb.setAttribute('aria-label', 'Buy the ebook of ' + b[1] + ' on Bookshop.org (opens in a new tab)');
                 eb.hidden = false;
-                document.getElementById('via').textContent += ' Ebooks are sold by Bookshop.org and read in its free app or browser reader.';
+                var v = document.getElementById('via'); v.textContent = v.textContent ? 'Print & ebooks via Bookshop.org.' : 'Ebooks via Bookshop.org.';
             } else { eb.hidden = true; eb.removeAttribute('href'); }
             reveal.classList.add('open');
             machine.classList.remove('busy');
