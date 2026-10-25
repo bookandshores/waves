@@ -40,24 +40,37 @@
     <main>
         <!-- B&S Atlas of Books v1. Pin data lives in atlas-data.js. Map: MapLibre GL (vendored) + free OpenFreeMap tiles. -->
         <section class="atlas-hero" aria-labelledby="atlas-title">
-            <div class="stamp" aria-hidden="true">
-                <img src="atlas/read-me-mug.jpg" alt="" width="375" height="427">
-                <svg class="postmark" viewBox="0 0 120 120" focusable="false">
-                    <defs><path id="pm-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-                    <circle cx="60" cy="60" r="55" fill="none" stroke="#111" stroke-width="2.5"/>
-                    <circle cx="60" cy="60" r="32" fill="none" stroke="#111" stroke-width="1.5"/>
-                    <text font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" letter-spacing="2.2" fill="#111"><textPath href="#pm-circle" startOffset="0">BOOK &amp; SHORES · BOOK ATLAS ·</textPath></text>
-                    <text x="60" y="64" text-anchor="middle" font-family="Oswald, sans-serif" font-size="13" font-weight="700" fill="#111">VOL. 1</text>
-                </svg>
+            <div class="hero-row">
+                <img class="hero-mug" src="atlas/read-me-mug.jpg" alt="A white coffee mug that says read me." width="375" height="427">
+                <div class="hero-text">
+                    <p class="eyebrow">Places in books · Vol. 1</p>
+                    <h1 id="atlas-title">Go There. <span>Read It.</span></h1>
+                    <p class="subline">B&amp;S Atlas</p>
+                </div>
             </div>
-            <p class="eyebrow">Places in books · Vol. 1</p>
-            <h1 id="atlas-title">Go There. <span>Read It.</span></h1>
-            <p class="subline">B&amp;S Atlas</p>
             <p class="tagline">Every book has a zip code. Even the made-up ones.</p>
-            <p class="lede">A map of where books are set. Tap a pin, meet the book, take it home in print or ebook.</p>
+            <p class="lede">A map of where books are set. Type any place, or tap a pin, meet the book and take it home in print or ebook.</p>
         </section>
 
         <section class="map-section" aria-label="Map of books">
+            <form class="place-search" id="place-search" role="search" autocomplete="off" novalidate>
+                <label for="place-q" class="ps-label">Type any place</label>
+                <div class="ps-row">
+                    <div class="ps-box">
+                        <input id="place-q" name="q" type="search" role="combobox" aria-expanded="false" aria-controls="place-sug" aria-autocomplete="list" aria-describedby="search-status" placeholder="City, country or region" enterkeyhint="search" maxlength="80" spellcheck="false">
+                        <ul id="place-sug" class="ps-sug" role="listbox" aria-label="Place suggestions" hidden></ul>
+                    </div>
+                    <button type="submit" class="ps-go">Go there</button>
+                </div>
+                <p id="search-status" class="ps-status" role="status" aria-live="polite"></p>
+            </form>
+            <section class="search-results" id="search-results" aria-labelledby="sr-title" hidden>
+                <div class="sr-head">
+                    <h2 id="sr-title" tabindex="-1">Results</h2>
+                    <button type="button" class="sr-clear" id="sr-clear">Clear search</button>
+                </div>
+                <div id="sr-body"></div>
+            </section>
             <div class="region-bar" id="regions" role="group" aria-label="Jump to a region">
                 <button type="button" data-region="world" aria-pressed="true">World</button>
                 <button type="button" data-region="na" aria-pressed="false">North America</button>
@@ -95,15 +108,14 @@
             <noscript><p>The map needs JavaScript. Every book here is also in <a href="bookstore.html">the bookstore</a>.</p></noscript>
         </section>
 
-        <!-- B&S TODO: "Claim a pin" form tool is pending (free Google Forms alternative). The button below is a placeholder (href="#"). Swap in the real form URL when chosen. -->
         <section class="claim" aria-labelledby="claim-title">
             <div class="postcard">
                 <div class="pc-msg">
                     <p class="eyebrow">Wish you were here</p>
                     <h2 id="claim-title">Claim a pin</h2>
                     <p>Know a book that belongs on the map? Send us the title and the place, and where in the book it says so. We check it, then pin it.</p>
-                    <a class="btn claim-btn" id="claim-btn" href="#" data-todo="claim-form-url">Add your book</a>
-                    <p class="soon">Claims open soon.</p>
+                    <a class="btn claim-btn" id="claim-btn" href="mailto:readme@bookandshores.com?subject=Atlas%20pin%3A%20%5Bbook%20title%5D&amp;body=Book%3A%0A%0AAuthor%3A%0A%0AWhere%20it%20is%20set%20%28place%29%3A%0A%0ASource%20link%20%28where%20the%20book%20says%20so%2C%20or%20a%20review%2Fpublisher%20page%29%3A%0A%0ACredit%20me%20as%20%28optional%2C%20an%20%40handle%20only%3B%20leave%20blank%20to%20stay%20unnamed%29%3A%0A">Add your book</a>
+                    <p class="soon">Opens an email to readme@bookandshores.com. Credit is opt-in: add an @handle if you want one, nothing else is shown.</p>
                 </div>
                 <div class="pc-addr" aria-hidden="true">
                     <div class="pc-stamp"><span>Place<br>stamp<br>here</span></div>
@@ -119,7 +131,7 @@
     <footer>
         <div class="footer-content">
             <p>© 2026 Book &amp; Shores • Contact: <a href="mailto:readme@bookandshores.com">readme@bookandshores.com</a></p>
-            <p class="fine">Book &amp; Shores earns a small commission from Bookshop.org purchases, which supports independent bookstores. Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>, tiles by <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, rendered with <a href="https://maplibre.org" target="_blank" rel="noopener">MapLibre</a>.</p>
+            <p class="fine">Book &amp; Shores earns a small commission from Bookshop.org purchases, which supports independent bookstores. Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>, place search by <a href="https://photon.komoot.io" target="_blank" rel="noopener">Photon</a>, tiles by <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, rendered with <a href="https://maplibre.org" target="_blank" rel="noopener">MapLibre</a>.</p>
         </div>
     </footer>
 

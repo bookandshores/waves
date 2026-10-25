@@ -17,6 +17,8 @@
     function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
     function buyUrl(b) { return AFF + b.isbn; }
     function ebookUrl(b) { return b.ebook ? "https://bookshop.org/p/books/" + b.ebook[0] + "?ean=" + b.ebook[1] + "&digital=t&affiliate=125864" : null; }
+    // The "read me." mug (our own photo, circle-cropped) is every map marker. Swap atlas/mug-pin.jpg to change them all.
+    function mugImg() { var im = el("img", "mug"); im.src = "atlas/mug-pin.jpg"; im.alt = ""; im.width = 40; im.height = 40; im.draggable = false; return im; }
     function newTab(a) { a.target = "_blank"; a.rel = "noopener sponsored"; return a; }
 
     /* ---------- Pin list (static-friendly, also the keyboard/no-map path) ---------- */
@@ -115,6 +117,7 @@
     function goRegion(key) {
         var r = REGIONS[key]; if (!r || !map) { return; }
         if (routeOn) { setRoute(false); }
+        clearSearch();
         if (popup) { popup.remove(); }
         var small = mapEl.clientWidth < 600;
         map.fitBounds(r.bounds, { padding: small ? 14 : 46, duration: reduce ? 0 : 1100, maxZoom: key === "world" ? 3 : 6 });
@@ -163,6 +166,7 @@
     function setRoute(on, silent, instant) {
         if (!ROUTE || !map) { return; }
         routeOn = on;
+        if (on) { clearSearch(); }
         if (popup) { popup.remove(); }
         document.getElementById("map").classList.toggle("moody", on);
         document.querySelector(".airmail").classList.toggle("moody", on);
@@ -175,7 +179,7 @@
             m.classList.toggle("route", on && i > -1);
             m.classList.toggle("dim", on && i === -1);
             m.disabled = on && i === -1;
-            if (on && i > -1) { m.setAttribute("data-n", String(i + 1)); } else { m.removeAttribute("data-n"); }
+            m.querySelector(".rnum").textContent = on && i > -1 ? String(i + 1) : "";
             var base = markers[id].label;
             m.setAttribute("aria-label", on && i > -1 ? "Gothic October stop " + (i + 1) + " of " + routeStops.length + ". " + base : base);
         });
@@ -270,6 +274,8 @@
             var b = el("button", "pin" + (p.area ? " area" : ""));
             b.type = "button";
             b.setAttribute("aria-label", p.name + ": " + p.books.map(function (x) { return x.title; }).join(", ") + (p.area ? " (area pin)" : ""));
+            b.appendChild(mugImg());
+            b.appendChild(el("span", "rnum"));
             if (p.books.length > 1) { b.appendChild(el("span", "n", String(p.books.length))); }
             b.addEventListener("click", function (e) { e.stopPropagation(); showPlace(p.id, false); });
             var m = new maplibregl.Marker({ element: b, anchor: "center" }).setLngLat([p.lng, p.lat]).addTo(map);
@@ -285,6 +291,267 @@
         map.on("error", function (e) { if (e && e.error && /Failed to fetch|NetworkError|ERR_/.test(String(e.error.message || e.error))) { /* tiles offline: pins still work */ } });
         // Pins are the product. Keep them even if tiles fail.
     }
+
+
+    /* ---------- Place search (Photon geocoder, free, no key; matching by distance + place/country/region names) ---------- */
+    var PHOTON = "https://photon.komoot.io/api/";
+    var MAIL = "readme@bookandshores.com";
+    var CONTS = {
+        "europe": { cont: "Europe", b: [[-25, 34], [45, 71]], label: "Europe" },
+        "asia": { cont: "Asia", b: [[26, -10], [150, 55]], label: "Asia" },
+        "africa": { cont: "Africa", b: [[-20, -35], [52, 37]], label: "Africa" },
+        "north america": { cont: "North America", b: [[-168, 7], [-52, 72]], label: "North America" },
+        "south america": { cont: "South America", b: [[-82, -56], [-34, 13]], label: "South America" },
+        "oceania": { cont: "Oceania", b: [[110, -48], [180, 0]], label: "Oceania" },
+        "australia": { cont: "Oceania", b: [[110, -48], [180, -9]], label: "Australia" }
+    };
+    var form = document.getElementById("place-search"), qIn = document.getElementById("place-q"), sugUl = document.getElementById("place-sug");
+    var statusEl = document.getElementById("search-status"), panel = document.getElementById("search-results"), srBody = document.getElementById("sr-body"), srTitle = document.getElementById("sr-title");
+    var sugs = [], sugIdx = -1, sugTimer = null, sugReq = 0, sugCtl = null, sugFor = "", geoDown = false;
+    var searchOn = false, yahMarker = null, popTimer = null;
+
+    function norm(s) { return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
+    function km(aLng, aLat, bLng, bLat) {
+        var r = Math.PI / 180, dLa = (bLat - aLat) * r, dLo = (bLng - aLng) * r;
+        var h = Math.sin(dLa / 2) * Math.sin(dLa / 2) + Math.cos(aLat * r) * Math.cos(bLat * r) * Math.sin(dLo / 2) * Math.sin(dLo / 2);
+        return 12742 * Math.asin(Math.min(1, Math.sqrt(h)));
+    }
+    function setStatus(t) { statusEl.textContent = t || ""; }
+
+    function simplify(f) {
+        var pr = f.properties || {}, c = f.geometry && f.geometry.coordinates;
+        if (!pr.name || !c) { return null; }
+        var ex = pr.extent, bounds = null;
+        if (ex && ex.length === 4) { bounds = [[Math.min(ex[0], ex[2]), Math.min(ex[1], ex[3])], [Math.max(ex[0], ex[2]), Math.max(ex[1], ex[3])]]; }
+        var sub = [pr.type === "city" || pr.type === "district" || pr.type === "locality" ? (pr.county && pr.county !== pr.name ? pr.county : "") : "", pr.state && pr.state !== pr.name ? pr.state : "", pr.country && pr.country !== pr.name ? pr.country : ""].filter(Boolean);
+        return { label: pr.name, sub: sub.join(", "), lng: c[0], lat: c[1], type: pr.type || "other", cc: (pr.countrycode || "").toUpperCase(), bounds: bounds, name: pr.name, country: pr.country || "" };
+    }
+    function localConts(q) {
+        var nq = norm(q), out = [];
+        if (nq.length < 3) { return out; }
+        Object.keys(CONTS).forEach(function (k) { if (k.indexOf(nq) === 0) { out.push({ label: CONTS[k].label, sub: "Continent", continent: CONTS[k], type: "continent" }); } });
+        return out;
+    }
+    function fetchPlaces(q) {
+        if (sugCtl) { try { sugCtl.abort(); } catch (e) { /* old browsers */ } }
+        sugCtl = window.AbortController ? new AbortController() : null;
+        var url = PHOTON + "?q=" + encodeURIComponent(q) + "&limit=6&lang=en&layer=city&layer=state&layer=country&layer=county&layer=district&layer=locality";
+        return fetch(url, sugCtl ? { signal: sugCtl.signal } : {}).then(function (r) {
+            if (!r.ok) { throw new Error("geocoder " + r.status); }
+            return r.json();
+        }).then(function (j) {
+            var seen = {}, out = [];
+            (j.features || []).forEach(function (f) {
+                var s = simplify(f); if (!s) { return; }
+                var key = s.label + "|" + s.sub + "|" + s.type; if (seen[key]) { return; } seen[key] = 1; out.push(s);
+            });
+            return out;
+        });
+    }
+
+    function closeSug() { sugUl.hidden = true; sugUl.textContent = ""; qIn.setAttribute("aria-expanded", "false"); qIn.removeAttribute("aria-activedescendant"); sugIdx = -1; }
+    function paintSug() {
+        sugUl.textContent = "";
+        sugs.forEach(function (s, i) {
+            var li = el("li"); li.id = "sug-" + i; li.setAttribute("role", "option"); li.setAttribute("aria-selected", String(i === sugIdx));
+            li.appendChild(document.createTextNode(s.label));
+            if (s.sub) { li.appendChild(el("small", null, s.sub)); }
+            li.addEventListener("mousedown", function (e) { e.preventDefault(); });
+            li.addEventListener("click", function () { choose(s); });
+            sugUl.appendChild(li);
+        });
+        sugUl.hidden = !sugs.length; qIn.setAttribute("aria-expanded", String(!!sugs.length));
+        if (sugIdx >= 0) { qIn.setAttribute("aria-activedescendant", "sug-" + sugIdx); var a = document.getElementById("sug-" + sugIdx); if (a && a.scrollIntoView) { a.scrollIntoView({ block: "nearest" }); } } else { qIn.removeAttribute("aria-activedescendant"); }
+    }
+    function suggest(q) {
+        var id = ++sugReq;
+        setStatus("Looking…");
+        return fetchPlaces(q).then(function (list) {
+            if (id !== sugReq) { return null; }
+            geoDown = false; sugFor = q;
+            sugs = localConts(q).concat(list); sugIdx = -1; paintSug();
+            setStatus(sugs.length ? sugs.length + (sugs.length === 1 ? " place" : " places") + " found. Use the arrow keys, then Enter." : "No place by that name. Try a bigger area or another spelling.");
+            return sugs;
+        }, function (err) {
+            if (id !== sugReq || (err && err.name === "AbortError")) { return null; }
+            geoDown = true; sugFor = q; sugs = localConts(q); sugIdx = -1; paintSug();
+            setStatus("Place lookup isn't reachable right now. Press Go to match against our own pin names, or try again in a moment.");
+            return sugs;
+        });
+    }
+    qIn.addEventListener("input", function () {
+        clearTimeout(sugTimer);
+        var q = qIn.value.trim();
+        if (q.length < 3) { sugReq++; sugs = []; closeSug(); setStatus(q ? "Keep typing (3 letters or more)." : ""); return; }
+        sugTimer = setTimeout(function () { suggest(q); }, 350);
+    });
+    qIn.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+            if (!sugs.length) { return; }
+            e.preventDefault();
+            sugIdx = e.key === "ArrowDown" ? (sugIdx + 1) % sugs.length : (sugIdx <= 0 ? sugs.length - 1 : sugIdx - 1);
+            paintSug();
+        } else if (e.key === "Escape" && !sugUl.hidden) { e.stopPropagation(); closeSug(); }
+    });
+    qIn.addEventListener("blur", function () { setTimeout(closeSug, 120); });
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearTimeout(sugTimer);
+        var q = qIn.value.trim();
+        if (q.length < 2) { setStatus("Type a place first."); qIn.focus(); return; }
+        if (sugIdx >= 0 && sugs[sugIdx]) { choose(sugs[sugIdx]); return; }
+        if (sugFor === q && sugs.length) { choose(sugs[0]); return; }
+        var c = localConts(q).filter(function (s) { return norm(s.label) === norm(q); })[0];
+        if (c) { choose(c); return; }
+        suggest(q).then(function (list) {
+            if (list === null) { return; }
+            if (list.length) { choose(list[0]); } else if (geoDown) { landLocal(q); } else { landOn({ label: q, sub: "", type: "none", unknown: true }); }
+        });
+    });
+
+    function choose(s) { qIn.value = s.label; closeSug(); sugs = []; landOn(s); }
+
+    function reachFor(f) {
+        var t = f.type;
+        if (t === "state" || t === "county") {
+            if (f.bounds) { var diag = km(f.bounds[0][0], f.bounds[0][1], f.bounds[1][0], f.bounds[1][1]); return Math.min(500, Math.max(60, diag / 2)); }
+            return 150;
+        }
+        return 60;
+    }
+    function computeHits(f) {
+        var out = [];
+        if (f.continent) { PLACES.forEach(function (p) { if (p.cont === f.continent.cont) { out.push({ p: p, d: 0 }); } }); return out; }
+        if (f.unknown || f.noGeo) { var nq = norm(f.label); PLACES.forEach(function (p) { if ((p.reg || []).indexOf(nq) > -1 || norm(p.name).indexOf(nq) > -1) { out.push({ p: p, d: 0 }); } }); return out; }
+        var nm = norm(f.name), R = reachFor(f), isCountry = f.type === "country", isArea = f.type === "state" || f.type === "county";
+        var regOnly = false;
+        if (isArea && nm) { regOnly = PLACES.some(function (p) { return (p.reg || []).indexOf(nm) > -1 && (!f.cc || f.cc === p.cc); }); }
+        if (isArea) { R = Math.min(R, 120); }
+        PLACES.forEach(function (p) {
+            var d = km(f.lng, f.lat, p.lng, p.lat), hit = false;
+            if (regOnly) { if ((p.reg || []).indexOf(nm) > -1 && (!f.cc || f.cc === p.cc)) { out.push({ p: p, d: d }); } return; }
+            if (isCountry) { hit = p.cc === f.cc || (p.reg || []).indexOf(nm) > -1; }
+            else {
+                if (nm && (p.reg || []).indexOf(nm) > -1 && (!f.cc || f.cc === p.cc)) { hit = true; }
+                if (!hit && isArea && f.bounds) { var bw = (f.bounds[1][0] - f.bounds[0][0]) * 0.15, bh = (f.bounds[1][1] - f.bounds[0][1]) * 0.15; // inset: state bounding boxes spill into neighbours
+                    if (p.lng >= f.bounds[0][0] + bw && p.lng <= f.bounds[1][0] - bw && p.lat >= f.bounds[0][1] + bh && p.lat <= f.bounds[1][1] - bh) { hit = true; } }
+                if (!hit && d <= R + (p.area ? 20 : 0)) { hit = true; }
+            }
+            if (hit) { out.push({ p: p, d: d }); }
+        });
+        out.sort(function (a, b) { return a.d - b.d; });
+        return out;
+    }
+
+    function mailtoFor(place) {
+        var subj = "Atlas pin: " + place;
+        var body = "Book:\n\nAuthor:\n\nWhere it is set (place): " + place + "\n\nSource link (where the book says so, or a review/publisher page):\n\nCredit me as (optional, an @handle only; leave blank to stay unnamed):\n";
+        return "mailto:" + MAIL + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
+    }
+    function whereLabel(f) { return f.country && f.country !== f.label && !f.continent ? f.label + ", " + f.country : f.label; }
+    function bookCard(h, b) {
+        var li = el("li", "sr-card");
+        var img = el("img"); img.src = b.cover; img.alt = "Cover of " + b.title + " by " + b.author; img.width = 72; img.height = 108; img.loading = "lazy"; li.appendChild(img);
+        var col = el("div");
+        col.appendChild(el("div", "sr-where", h.p.name));
+        col.appendChild(el("div", "sr-title", b.title));
+        col.appendChild(el("div", "sr-author", b.author + (b.year ? " · " + b.year : "")));
+        var set = el("div", "sr-set"); set.appendChild(el("b", null, "Set in: ")); set.appendChild(document.createTextNode(b.setting)); col.appendChild(set);
+        var act = el("div", "sr-actions");
+        var buy = newTab(el("a", "buy", "Buy the book")); buy.href = buyUrl(b); buy.setAttribute("aria-label", "Buy " + b.title + " on Bookshop.org (opens in a new tab)"); act.appendChild(buy);
+        var eu = ebookUrl(b);
+        if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " on Bookshop.org (opens in a new tab)"); act.appendChild(eb); }
+        if (map) {
+            var on = el("button", null, "On the map"); on.type = "button"; on.setAttribute("aria-label", "Show " + h.p.name + " on the map");
+            on.addEventListener("click", function () { showPlace(h.p.id, true); });
+            act.appendChild(on);
+        }
+        col.appendChild(act);
+        var pg;
+        if (b.page) { pg = el("a", "sr-page", b.page.indexOf("book-") === 0 ? "Read our page →" : "See it in our shop →"); pg.href = b.page; }
+        else { pg = newTab(el("a", "sr-page", "Where it's set: source →")); pg.rel = "noopener"; pg.href = b.srcUrl; }
+        col.appendChild(pg);
+        li.appendChild(col);
+        return li;
+    }
+    function renderResults(f, hits) {
+        var label = whereLabel(f), nBooks = 0;
+        hits.forEach(function (h) { nBooks += h.p.books.length; });
+        srBody.textContent = "";
+        if (!hits.length) {
+            srTitle.textContent = "No books pinned here yet";
+            var p = el("p", "sr-empty");
+            p.appendChild(document.createTextNode("No books pinned here yet. Know one? "));
+            var a = el("a", null, "Email us."); a.href = mailtoFor(label); p.appendChild(a);
+            srBody.appendChild(p);
+            srBody.appendChild(el("p", "sr-more", "Tell us the book, where it's set and where it says so. We check it, then pin it."));
+        } else {
+            srTitle.textContent = plural(nBooks, "book") + (f.continent || f.type === "country" || f.type === "state" || f.type === "county" ? " in " : " near ") + label;
+            var ul = el("ul", "sr-list");
+            hits.forEach(function (h) { h.p.books.forEach(function (b) { ul.appendChild(bookCard(h, b)); }); });
+            srBody.appendChild(ul);
+            var more = el("p", "sr-more"); more.appendChild(document.createTextNode("Know another one here? ")); var ma = el("a", null, "Email us."); ma.href = mailtoFor(label); more.appendChild(ma);
+            srBody.appendChild(more);
+        }
+        panel.hidden = false;
+    }
+
+    function clearSearchVisuals() {
+        clearTimeout(popTimer);
+        if (yahMarker) { yahMarker.remove(); yahMarker = null; }
+        Object.keys(markers).forEach(function (k) { markers[k].el.classList.remove("hit", "pop", "faded"); markers[k].el.style.removeProperty("--d"); });
+    }
+    function clearSearch(keepInput) {
+        if (!searchOn && panel.hidden) { return; }
+        searchOn = false; clearSearchVisuals(); panel.hidden = true; srBody.textContent = ""; setStatus("");
+        if (!keepInput) { qIn.value = ""; }
+    }
+    function yahNode(label) {
+        var wrap = el("div", "yah-wrap"); wrap.setAttribute("role", "img"); wrap.setAttribute("aria-label", "You are here: " + label);
+        var y = el("div", "yah"); y.appendChild(mugImg()); y.appendChild(el("span", "tag", "You are here")); wrap.appendChild(y);
+        return wrap;
+    }
+    function landLocal(q) { landOn({ label: q, sub: "", type: "none", noGeo: true }); }
+
+    function landOn(f) {
+        if (routeOn) { setRoute(false); }
+        if (popup) { popup.remove(); }
+        clearSearchVisuals();
+        Array.prototype.forEach.call(document.querySelectorAll("#regions button[data-region]"), function (b) { b.setAttribute("aria-pressed", "false"); });
+        searchOn = true;
+        var hits = computeHits(f), label = whereLabel(f);
+        renderResults(f, hits);
+        setStatus(f.unknown ? "We couldn't find that place on the map." : hits.length ? plural(hits.length, "pin") + " found." : "No pins here yet.");
+        if (map) {
+            var hitIds = {}; hits.forEach(function (h, i) { hitIds[h.p.id] = i; });
+            Object.keys(markers).forEach(function (k) {
+                var e = markers[k].el; e.classList.toggle("hit", hitIds[k] !== undefined); e.classList.toggle("faded", hitIds[k] === undefined);
+                if (hitIds[k] !== undefined) { e.style.setProperty("--d", (Math.min(hitIds[k], 8) * 0.1 + 0.05).toFixed(2) + "s"); }
+            });
+            var small = mapEl.clientWidth < 600, pad = small ? 64 : 80, dur = reduce ? 0 : 1500;
+            var b = new maplibregl.LngLatBounds(), have = false;
+            if (f.continent) { b.extend(f.continent.b[0]); b.extend(f.continent.b[1]); have = true; }
+            else if (!f.unknown && !f.noGeo) { b.extend([f.lng, f.lat]); have = true; }
+            if (!f.continent) { hits.forEach(function (h) { b.extend([h.p.lng, h.p.lat]); have = true; }); }
+            if (f.bounds && (f.type === "state" || f.type === "county" || f.type === "country") && !hits.length) { b.extend(f.bounds[0]); b.extend(f.bounds[1]); }
+            if (have) {
+                var maxZ = f.continent ? 5 : (f.type === "country" ? 5 : f.type === "state" || f.type === "county" ? 7 : 9);
+                map.fitBounds(b, { padding: pad, maxZoom: maxZ, duration: dur });
+            }
+            var landed = false;
+            function land() {
+                if (landed || !searchOn) { return; } landed = true;
+                if (!f.continent && !f.unknown && !f.noGeo) {
+                    yahMarker = new maplibregl.Marker({ element: yahNode(label), anchor: "center" }).setLngLat([f.lng, f.lat]).addTo(map);
+                }
+                hits.forEach(function (h) { var e = markers[h.p.id].el, im = e.querySelector(".mug"); e.classList.remove("pop"); if (im) { void im.offsetWidth; } e.classList.add("pop"); });
+            }
+            if (dur === 0) { land(); } else { map.once("moveend", land); popTimer = setTimeout(land, dur + 500); }
+        }
+        // bring the results into view and announce them
+        try { document.getElementById("place-search").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); srTitle.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+    }
+    document.getElementById("sr-clear").addEventListener("click", function () { clearSearch(); if (popup) { popup.remove(); } qIn.focus(); if (map) { goRegion("world"); } });
 
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && popup && popup.isOpen()) {

@@ -8,3 +8,9 @@ cover-dracula.jpg         File:Dracula-First-Edition-1897.jpg
 cover-dorian-gray.jpg     File:Houghton HEW 12.10.15 - The Picture of Dorian Gray, 1891 (cover).jpg
 cover-heap-earth-upon-it.jpg  our own HEAP.png (existing site asset)
 Resized to 240px wide. Source pages: https://commons.wikimedia.org/wiki/File:<name with underscores>
+
+Added with the search update (also Wikimedia Commons, marked Public domain there):
+cover-heart-of-darkness.jpg   File:Blackwood's Magazine - 1899 cover.jpg  (the magazine cover where the novella first ran, Feb 1899)
+cover-robinson-crusoe.jpg     File:Robinson Crusoe 1719 1st edition.jpg  (first-edition title page)
+cover-air.jpg, cover-the-ego-trip.jpg, cover-tin-can-coast.jpg  our own site assets (IMG_2773.jpg, IMG_2778.jpg, TIN.png), resized to 240px.
+mug-pin.jpg  circular map-marker crop of the "read me." mug photo (/brand/read-me-mug.jpg, Book & Shores' own asset), no redraw.

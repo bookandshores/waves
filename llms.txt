@@ -22,7 +22,7 @@ Affiliate disclosure: Book & Shores earns a small commission from Bookshop.org p
 
 - [Bookstore](https://bookandshores.com/bookstore.html): The full A–Z shelf of Book & Shores picks, with a search bar for any book. Every pick links to Bookshop.org.
 - [Book & Shores Zoltar](https://bookandshores.com/zoltar.html): A digital book vending machine. Zoltar picks your next read, or you punch in a slot code; print and ebook links on every book.
-- [Go There. Read It. | B&S Book Atlas | Book & Shores](https://bookandshores.com/atlas.html): A world map of where books are set. Each pin is a book placed at its stated setting, with print and ebook links. Includes a Gothic October reading route (atlas.html#gothic-october).
+- [Go There. Read It. | B&S Book Atlas | Book & Shores](https://bookandshores.com/atlas.html): A world map of where books are set. Each pin is a book placed at its stated setting, with print and ebook links. Type any place to see the books set there. Includes a Gothic October reading route (atlas.html#gothic-october).
 - [Booker Prize 2026 shortlist](https://bookandshores.com/booker-2026-shortlist.html): All six shortlisted novels, a sentence each. The winner is announced November 9, 2026.
 - [Booker Prize 2026 longlist picks](https://bookandshores.com/booker-2026-longlist.html): Three longlisted novels hand-picked by Book & Shores: Switzy, Helen of Nowhere and All Them Dogs.
 - [Author of the Month: Jonathan Lethem](https://bookandshores.com/author-of-the-month.html): Where to start, six of his best books, and Office Politics, the lost novel in his new NYRB essay.
