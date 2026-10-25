@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Go There. Read It. | B&amp;S Book Atlas | Book &amp; Shores</title>
+    <meta name="description" content="A world map of books and the places they are set. Tap a pin to meet the book, then take it home in print or ebook. Every book has a zip code. Even the made-up ones.">
+    <link rel="canonical" href="https://bookandshores.com/atlas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Go There. Read It. | B&amp;S Book Atlas | Book &amp; Shores">
+    <meta name="twitter:title" content="Go There. Read It. | B&amp;S Book Atlas | Book &amp; Shores">
+    <meta property="og:description" content="Every book has a zip code. Even the made-up ones. A world map of books and the places they are set.">
+    <meta property="og:url" content="https://bookandshores.com/atlas.html">
+    <meta property="og:image" content="https://bookandshores.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bookandshores">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/maplibre-gl/maplibre-gl.css">
+    <link rel="stylesheet" href="atlas.css">
+</head>
+<body>
+    <header>
+        <p class="site-name"><a href="index.html">Book &amp; Shores</a></p>
+        <nav aria-label="Main">
+            <a href="index.html">← Home</a>
+            <a href="bookstore.html">Buy Books</a>
+            <a href="zoltar.html">Zoltar</a>
+            <a href="atlas.html" aria-current="page">Atlas</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- B&S Atlas of Books v1. Pin data lives in atlas-data.js. Map: MapLibre GL (vendored) + free OpenFreeMap tiles. -->
+        <section class="atlas-hero" aria-labelledby="atlas-title">
+            <div class="hero-row">
+                <picture class="hero-mug"><source media="(prefers-reduced-motion: reduce)" srcset="atlas/mug3d-poster.png" width="360" height="352"><img src="atlas/mug3d-turntable.webp" alt="A white 3D coffee mug that says read me., slowly turning." width="360" height="269"></picture>
+                <div class="hero-text">
+                    <p class="eyebrow">Places in books · Vol. 1</p>
+                    <h1 id="atlas-title">Go There. <span>Read It.</span></h1>
+                    <p class="subline">B&amp;S Atlas</p>
+                </div>
+            </div>
+            <p class="tagline">Every book has a zip code. Even the made-up ones.</p>
+            <p class="lede">A map of where books are set. Type any place, or tap a pin, meet the book and take it home in print or ebook.</p>
+        </section>
+
+        <section class="map-section" aria-label="Map of books">
+            <form class="place-search" id="place-search" role="search" autocomplete="off" novalidate>
+                <label for="place-q" class="ps-label">Type any place</label>
+                <div class="ps-row">
+                    <div class="ps-box">
+                        <input id="place-q" name="q" type="search" role="combobox" aria-expanded="false" aria-controls="place-sug" aria-autocomplete="list" aria-describedby="search-status" placeholder="City, country or region" enterkeyhint="search" maxlength="80" spellcheck="false">
+                        <ul id="place-sug" class="ps-sug" role="listbox" aria-label="Place suggestions" hidden></ul>
+                    </div>
+                    <button type="submit" class="ps-go">Go there</button>
+                </div>
+                <p id="search-status" class="ps-status" role="status" aria-live="polite"></p>
+            </form>
+            <section class="search-results" id="search-results" aria-labelledby="sr-title" hidden>
+                <div class="sr-head">
+                    <h2 id="sr-title" tabindex="-1">Results</h2>
+                    <button type="button" class="sr-clear" id="sr-clear">Clear search</button>
+                </div>
+                <div id="sr-body"></div>
+            </section>
+            <div class="region-bar" id="regions" role="group" aria-label="Jump to a region">
+                <button type="button" data-region="world" aria-pressed="true">World</button>
+                <button type="button" data-region="na" aria-pressed="false">North America</button>
+                <button type="button" data-region="europe" aria-pressed="false">Europe</button>
+                <button type="button" data-region="asia" aria-pressed="false">Asia</button>
+                <button type="button" id="route-chip" class="route-chip" aria-pressed="false" aria-describedby="route-blurb">Gothic October <span class="new">New</span></button>
+            </div>
+            <div class="route-banner" id="route-banner" hidden>
+                <p class="rb-eyebrow">A reading route · Halloween 2026</p>
+                <h3>Gothic October</h3>
+                <p id="route-blurb" class="rb-blurb">Seven stops, eight books, oldest to newest. Lock the door first.</p>
+                <div class="rb-actions">
+                    <button type="button" class="rb-copy" id="route-copy">Copy link to this route</button>
+                    <span id="route-copy-status" class="rb-status" role="status" aria-live="polite"></span>
+                </div>
+            </div>
+            <div class="airmail">
+                <div class="map-frame">
+                    <div id="map" role="region" aria-label="Interactive world map. Each pin is a book and the place it is set. The same pins are listed below the map."></div>
+                    <p class="map-fallback" id="map-fallback" hidden>The map could not load here. The same pins are listed below.</p>
+                </div>
+            </div>
+            <div class="route-list" id="route-list" hidden>
+                <h3>The route</h3>
+                <ol id="route-ol" class="route-ol"></ol>
+                <p class="rl-note">Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.</p>
+            </div>
+            <p class="map-note">Pins mark a book's stated setting. A dashed ring means the book names a region, not an address, so the pin sits inside it. <span class="only-sm">On a phone the map can't fit the whole world, so use the region buttons above to hop around.</span></p>
+        </section>
+
+        <section class="pin-list" aria-labelledby="list-title">
+            <h2 id="list-title">All the pins</h2>
+            <p class="lede small" id="pin-count"></p>
+            <ul id="pins-ul" class="pins-ul"></ul>
+            <noscript><p>The map needs JavaScript. Every book here is also in <a href="bookstore.html">the bookstore</a>.</p></noscript>
+        </section>
+
+        <section class="claim" aria-labelledby="claim-title">
+            <div class="postcard">
+                <div class="pc-msg">
+                    <p class="eyebrow">Wish you were here</p>
+                    <h2 id="claim-title">Claim a pin</h2>
+                    <p>Know a book that belongs on the map? Send us the title and the place, and where in the book it says so. We check it, then pin it.</p>
+                    <a class="btn claim-btn" id="claim-btn" href="mailto:readme@bookandshores.com?subject=Atlas%20pin%3A%20%5Bbook%20title%5D&amp;body=Book%3A%0A%0AAuthor%3A%0A%0AWhere%20it%20is%20set%20%28place%29%3A%0A%0ASource%20link%20%28where%20the%20book%20says%20so%2C%20or%20a%20review%2Fpublisher%20page%29%3A%0A%0ACredit%20me%20as%20%28optional%2C%20an%20%40handle%20only%3B%20leave%20blank%20to%20stay%20unnamed%29%3A%0A">Add your book</a>
+                    <p class="soon">Opens an email to readme@bookandshores.com. Credit is opt-in: add an @handle if you want one, nothing else is shown.</p>
+                </div>
+                <div class="pc-addr" aria-hidden="true">
+                    <div class="pc-stamp"><span>Place<br>stamp<br>here</span></div>
+                    <div class="line">To: A reader, anywhere</div>
+                    <div class="line">Book:</div>
+                    <div class="line">Place:</div>
+                    <div class="line">Page:</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 Book &amp; Shores • Contact: <a href="mailto:readme@bookandshores.com">readme@bookandshores.com</a></p>
+            <p class="fine">Book &amp; Shores earns a small commission from Bookshop.org purchases, which supports independent bookstores. Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>, place search by <a href="https://photon.komoot.io" target="_blank" rel="noopener">Photon</a>, tiles by <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, rendered with <a href="https://maplibre.org" target="_blank" rel="noopener">MapLibre</a>.</p>
+        </div>
+    </footer>
+
+    <script src="vendor/maplibre-gl/maplibre-gl.js"></script>
+    <script src="atlas-data.js"></script>
+    <script src="atlas.js"></script>
+    <!-- B&S: GoatCounter visitor counter (free, no cookies), same site as the home page -->
+    <script data-goatcounter="https://bookandshores.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

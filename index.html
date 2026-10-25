@@ -364,23 +364,28 @@
         /* B&S: Tip the Booktender button */
         .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
-        /* B&S: alien Zoltar in the tip tile, framed like a fortune-machine glass window (black housing, yellow trim) */
-        .tip-zoltar { display:block; width:196px; margin:0 auto 1.1rem; text-decoration:none; }
-        .tip-frame { display:block; position:relative; padding:34px 14px 30px; background:linear-gradient(180deg,#1b1b1d,#0d0d0e 40%,#0d0d0e); border:3px solid var(--yellow); border-radius:22px 22px 8px 8px; box-shadow:0 0 0 3px #000, 0 6px 0 3px #000, 0 0 18px rgba(246,189,40,.35); transition:transform .2s ease, filter .3s ease; }
-        .tip-frame::before { content:"ZOLTAR"; position:absolute; top:7px; left:0; right:0; text-align:center; font-family:'Oswald',sans-serif; font-weight:600; font-size:.95rem; letter-spacing:.34em; text-indent:.34em; color:#fff2c2; text-shadow:0 0 6px #ffd85a, 0 0 14px rgba(246,189,40,.7); line-height:1; }
-        .tip-frame::after { content:""; position:absolute; left:50%; bottom:9px; width:62px; height:9px; transform:translateX(-50%); background:#000; border:2px solid var(--yellow); border-radius:6px; box-shadow:inset 0 2px 0 #000; }
-        .tip-zoltar-win { position:relative; display:block; width:100%; aspect-ratio:3 / 4; border:4px solid #000; border-radius:6px; overflow:hidden; background:#000; box-shadow:0 0 0 2px var(--yellow), inset 0 0 14px rgba(0,0,0,.85); }
-        .tip-zoltar-win video { display:block; width:100%; height:100%; object-fit:cover; }
-        .tip-zoltar-win::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.2) 40%, rgba(255,255,255,.04) 48%, transparent 52%), linear-gradient(0deg, rgba(246,189,40,.12), transparent 35%); }
-        .tip-zoltar:hover .tip-frame, .tip-zoltar:focus-visible .tip-frame { transform:translateY(-2px); filter:brightness(1.06); }
-        .tip-zoltar:focus-visible { outline:3px solid var(--black); outline-offset:6px; border-radius:8px; }
-        @media (prefers-reduced-motion: reduce) { .tip-frame { transition:none; } .tip-zoltar:hover .tip-frame, .tip-zoltar:focus-visible .tip-frame { transform:none; } }
-        .tip-zoltar-line { margin:0 0 0.2rem; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.04em; }
         /* B&S: the Zoltar machine lives inside GREETINGS (styles in zoltar-machine.css) */
         .greeting-box.zoltar-greeting { width:100%; }
         .greeting-box .zmx { text-align:left; margin-top:.4rem; }
         .greeting-box .zmx .hint { margin-bottom:0; }
         @media (max-width: 600px) { .greeting-box.zoltar-greeting { padding: 1.2rem .6rem 1.4rem; } }
+        /* B&S: compact Atlas feature under GREETINGS */
+        .ah-card { background:var(--cream,#f4e9d3); border:3px solid #000; border-radius:10px; box-shadow:6px 6px 0 rgba(0,0,0,.85); padding:1.4rem 1.2rem 1.6rem; max-width:720px; margin:0 auto; text-align:center; }
+        .ah-row { display:flex; align-items:center; justify-content:center; gap:clamp(1rem,3vw,1.8rem); }
+        .ah-mug { flex:none; width:clamp(130px,22vw,190px); display:block; } .ah-mug img { display:block; width:100%; height:auto; aspect-ratio:360/269; object-fit:contain; filter:drop-shadow(5px 6px 0 rgba(0,0,0,.85)); }
+        .ah-text { text-align:left; }
+        .ah-eyebrow { font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; margin:0 0 .2rem; }
+        .ah-title { font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; line-height:1.02; font-size:clamp(2rem,7vw,3.4rem); margin:0; }
+        .ah-title span { display:block; }
+        .ah-tagline { font-style:italic; font-weight:500; font-size:clamp(.95rem,3.4vw,1.15rem); margin:1rem 0 1.1rem; border-top:3px solid #000; border-bottom:3px solid #000; padding:.4rem .8rem; display:inline-block; }
+        .ah-label { display:block; font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:1.2rem; margin-bottom:.35rem; }
+        .ah-formrow { display:flex; gap:.5rem; max-width:520px; margin:0 auto; }
+        .ah-formrow input { flex:1; min-width:0; font:inherit; font-size:1rem; padding:.65rem .8rem; background:#fffaf0; color:#000; border:3px solid #000; border-radius:8px; }
+        .ah-go { font:inherit; font-size:.85rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:.55rem 1rem; background:#000; color:var(--yellow); border:3px solid #000; border-radius:8px; cursor:pointer; }
+        .ah-go:hover, .ah-go:focus-visible { background:#d8312b; border-color:#d8312b; color:#fff; }
+        .greeting-box .btn.ah-open { margin-top:1.1rem; }
+        @media (max-width: 520px) { .ah-row { flex-direction:column; gap:.8rem; } .ah-text { text-align:center; } .ah-card { padding:1.1rem .8rem 1.3rem; } .greeting-box.atlas-home { padding:1.4rem .6rem 1.6rem; } }
+        .greeting-box.atlas-home :focus-visible, .ah-card :focus-visible { outline:3px solid #000; outline-offset:3px; }
     </style>
     <link rel="stylesheet" href="zoltar-machine.css">
 </head>
@@ -392,83 +397,32 @@
             <span class="nav-booker"><a href="booker-2026-shortlist.html">Booker Shortlist</a><a href="booker-2026-shortlist.html" class="nav-tag">Announced Nov 9th</a></span>
             <a href="#reads">Weekly Reads</a>
             <a href="author-of-the-month.html">Author of the Month</a>
-            <a href="zoltar.html">Zoltar</a>
+            <a href="#zoltar">Zoltar</a>
+            <a href="atlas.html">Atlas</a>
         </nav>
     </header>
     <main>
-        <div class="greeting-box zoltar-greeting">
+        <div class="greeting-box zoltar-greeting atlas-home" id="atlas">
             <h2 style="margin:0 0 0.8rem;">GREETINGS!</h2>
-            <section class="zmx-intro">
-                <div class="kicker">Step right up</div>
-                <h2 class="tagline">The Machine <span>that</span> Reads You</h2>
-                <p>Press the big yellow button and Zoltar picks your next read. Know what you want? Punch in a slot code, or tap any cover. Take it home in print, or read the ebook tonight.</p>
-            </section>
-            <!-- B&S: the real working Zoltar machine (same markup, CSS and JS as zoltar.html) -->
-        <div class="zmx" id="zmx" data-keys-focus>
-        <div class="machine-wrap">
-            <div class="machine" id="machine">
-                <div class="marquee">
-                    <div class="marquee-inner">
-                        <div class="bulbs top" aria-hidden="true"></div>
-                        <div class="pre">The Great &amp; Literary</div>
-                        <span class="name">Book &amp; Shores <em>Zoltar</em></span>
-                        <span class="tag">The Machine that Reads You</span>
-                        <div class="bulbs btm" aria-hidden="true"></div>
+            <!-- B&S: the Atlas feature lives under GREETINGS. Compact version; the full map is on atlas.html (no duplicate map here). -->
+            <div class="ah-card">
+                <div class="ah-row">
+                    <picture class="ah-mug"><source media="(prefers-reduced-motion: reduce)" srcset="atlas/mug3d-poster.png" width="360" height="352"><img src="atlas/mug3d-turntable.webp" alt="A white 3D coffee mug that says read me., slowly turning." width="360" height="269"></picture>
+                    <div class="ah-text">
+                        <p class="ah-eyebrow">The Book &amp; Shores Atlas</p>
+                        <h3 class="ah-title">Go There. <span>Read It.</span></h3>
                     </div>
                 </div>
-
-                <div class="body">
-                    <div class="glass" id="glass" aria-label="Books in the machine"></div>
-                    <div class="panel">
-                        <div class="alien-win" aria-hidden="true">
-                            <video id="alienVid" autoplay muted loop playsinline preload="metadata" poster="zoltar-video/zoltar-alien-poster.jpg" tabindex="-1">
-                                <source src="zoltar-video/zoltar-alien.webm" type="video/webm">
-                                <source src="zoltar-video/zoltar-alien.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="lcd" aria-live="polite">
-                            <div class="l1" id="lcd1">ZOLTAR IS READY</div>
-                            <div class="l2" id="lcd2">ENTER CODE</div>
-                        </div>
-                        <div class="keypad" id="keypad" aria-label="Keypad"></div>
-                        <button class="ask" id="ask" type="button">Ask<br>Zoltar<small>Press here</small></button>
-                        <ol class="rules">
-                            <li>Ask Zoltar.</li>
-                            <li>Accept your fate.</li>
-                            <li>Read it on the beach.</li>
-                        </ol>
-                        <div class="coin" aria-hidden="true"><span></span>Insert curiosity</div>
-                        <div class="stub" aria-hidden="true"><div class="slit"></div><div class="paper">Fortunes<br>printed here<small>1 book each</small></div></div>
+                <p class="ah-tagline">Every book has a zip code. Even the made-up ones.</p>
+                <form class="ah-search" action="atlas.html" method="get" role="search">
+                    <label for="home-place-q" class="ah-label">Type any place</label>
+                    <div class="ah-formrow">
+                        <input id="home-place-q" name="q" type="search" placeholder="City, country or region" maxlength="80" autocomplete="off" enterkeyhint="search">
+                        <button type="submit" class="ah-go">Go there</button>
                     </div>
-                </div>
-
-                <div class="tray" id="tray" aria-hidden="true"><span>PUSH</span></div>
+                </form>
+                <a class="btn ah-open" href="atlas.html">Open the Atlas</a>
             </div>
-        </div>
-        <div class="feet" aria-hidden="true" style="max-width:900px;margin:0 auto;"><i></i><i></i></div>
-
-        <p class="hint">Every book here is a real Book &amp; Shores pick. <b>30 slots, 30 fortunes.</b> Zoltar is never wrong, only early.</p>
-    <div class="reveal" id="reveal" role="dialog" aria-modal="true" aria-labelledby="fortune">
-        <div class="ticket" id="ticket" tabindex="-1">
-            <button class="close" id="close" type="button" aria-label="Close">×</button>
-            <div class="ticket-head"><span>Your fortune</span><span class="slotcode" id="tCode">A1</span></div>
-            <div class="ticket-body">
-                <div class="ticket-cover"><div class="rays" aria-hidden="true"></div><img id="tImg" src="" alt=""></div>
-                <div>
-                    <div class="says">Zoltar says</div>
-                    <p class="fortune" id="fortune"></p>
-                    <p class="book-name"><b id="tTitle"></b><br><span id="tAuthor"></span></p>
-                    <div class="actions">
-                        <a class="buy" id="buy" href="bookstore.html" rel="noopener sponsored">Buy the Book<small>Print</small></a>
-                        <a class="buy ebook" id="ebook" href="bookstore.html" target="_blank" rel="noopener sponsored" hidden>Ebook<small>Digital</small></a>
-                        <button class="again" id="again" type="button">Try again</button>
-                    </div>
-                    <p class="tip-line"><a class="tip-mini" href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" aria-label="Tip the Booktender on PayPal (opens in a new tab)">Tip the Booktender</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-        </div>
         </div>
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
@@ -575,6 +529,80 @@
             <span class="btn">Meet the Author</span>
             </a>
         </section>
+        <!-- B&S: the Zoltar machine moved here, directly below Author of the Month (it used to sit under GREETINGS) -->
+        <div class="greeting-box zoltar-greeting" id="zoltar">
+            <section class="zmx-intro">
+                <div class="kicker">Step right up</div>
+                <h2 class="tagline">The Machine <span>that</span> Reads You</h2>
+                <p>Press the big yellow button and Zoltar picks your next read. Know what you want? Punch in a slot code, or tap any cover. Take it home in print, or read the ebook tonight.</p>
+            </section>
+            <!-- B&S: the real working Zoltar machine (same markup, CSS and JS as zoltar.html) -->
+        <div class="zmx" id="zmx" data-keys-focus>
+        <div class="machine-wrap">
+            <div class="machine" id="machine">
+                <div class="marquee">
+                    <div class="marquee-inner">
+                        <div class="bulbs top" aria-hidden="true"></div>
+                        <div class="pre">The Great &amp; Literary</div>
+                        <span class="name">Book &amp; Shores <em>Zoltar</em></span>
+                        <span class="tag">The Machine that Reads You</span>
+                        <div class="bulbs btm" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <div class="glass" id="glass" aria-label="Books in the machine"></div>
+                    <div class="panel">
+                        <div class="alien-win" aria-hidden="true">
+                            <video id="alienVid" autoplay muted loop playsinline preload="metadata" poster="zoltar-video/zoltar-alien-poster.jpg" tabindex="-1">
+                                <source src="zoltar-video/zoltar-alien.webm" type="video/webm">
+                                <source src="zoltar-video/zoltar-alien.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="lcd" aria-live="polite">
+                            <div class="l1" id="lcd1">ZOLTAR IS READY</div>
+                            <div class="l2" id="lcd2">ENTER CODE</div>
+                        </div>
+                        <div class="keypad" id="keypad" aria-label="Keypad"></div>
+                        <button class="ask" id="ask" type="button">Ask<br>Zoltar<small>Press here</small></button>
+                        <ol class="rules">
+                            <li>Ask Zoltar.</li>
+                            <li>Accept your fate.</li>
+                            <li>Read it on the beach.</li>
+                        </ol>
+                        <div class="coin" aria-hidden="true"><span></span>Insert curiosity</div>
+                        <div class="stub" aria-hidden="true"><div class="slit"></div><div class="paper">Fortunes<br>printed here<small>1 book each</small></div></div>
+                    </div>
+                </div>
+
+                <div class="tray" id="tray" aria-hidden="true"><span>PUSH</span></div>
+            </div>
+        </div>
+        <div class="feet" aria-hidden="true" style="max-width:900px;margin:0 auto;"><i></i><i></i></div>
+
+        <p class="hint">Every book here is a real Book &amp; Shores pick. <b>30 slots, 30 fortunes.</b> Zoltar is never wrong, only early.</p>
+    <div class="reveal" id="reveal" role="dialog" aria-modal="true" aria-labelledby="fortune">
+        <div class="ticket" id="ticket" tabindex="-1">
+            <button class="close" id="close" type="button" aria-label="Close">×</button>
+            <div class="ticket-head"><span>Your fortune</span><span class="slotcode" id="tCode">A1</span></div>
+            <div class="ticket-body">
+                <div class="ticket-cover"><div class="rays" aria-hidden="true"></div><img id="tImg" src="" alt=""></div>
+                <div>
+                    <div class="says">Zoltar says</div>
+                    <p class="fortune" id="fortune"></p>
+                    <p class="book-name"><b id="tTitle"></b><br><span id="tAuthor"></span></p>
+                    <div class="actions">
+                        <a class="buy" id="buy" href="bookstore.html" rel="noopener sponsored">Buy the Book<small>Print</small></a>
+                        <a class="buy ebook" id="ebook" href="bookstore.html" target="_blank" rel="noopener sponsored" hidden>Ebook<small>Digital</small></a>
+                        <button class="again" id="again" type="button">Try again</button>
+                    </div>
+                    <p class="tip-line"><a class="tip-mini" href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" aria-label="Tip the Booktender on PayPal (opens in a new tab)">Tip the Booktender</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+        </div>
         <section id="support" class="section">
             <h2 style="margin:0 0 0.8rem;">WE LOVE YOU</h2>
             <p class="support-text">Keep the waves alive!</p>
@@ -592,16 +620,8 @@
                     <a href="https://www.kcrw.com/music/shows/eclectic24" target="_blank" rel="noopener" class="btn">Listen on KCRW</a>
                 </div>
                 <div class="radio-card">
-                    <!-- B&S: tip tile shows alien Zoltar (looping silent video) in the small arched window; same PayPal link -->
-                    <a class="tip-zoltar" href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" aria-label="Zoltar says: tip the Booktender. Tip on PayPal (opens in a new tab)">
-                        <span class="tip-frame" aria-hidden="true"><span class="tip-zoltar-win">
-                            <video id="tipAlienVid" autoplay muted loop playsinline preload="metadata" poster="zoltar-video/zoltar-alien-poster.jpg" tabindex="-1">
-                                <source src="zoltar-video/zoltar-alien.webm" type="video/webm">
-                                <source src="zoltar-video/zoltar-alien.mp4" type="video/mp4">
-                            </video>
-                        </span></span>
-                    </a>
-                    <p class="tip-zoltar-line">Zoltar says: tip the Booktender.</p>
+                    <img src="bookandshores-x.jpg" alt="Tip the Booktender at Book &amp; Shores" style="max-width: 220px; border: 3px solid var(--black); border-radius: 8px;">
+                    <!-- B&S: tip tile uses X profile image; same PayPal link -->
                     <a href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" class="btn" aria-label="Tip the Booktender on PayPal (opens in a new tab)" rel="noopener">TIP THE BOOKTENDER</a>
                 </div>
                 <!-- B&S: Send a Postcard moved into WE LOVE YOU -->
@@ -685,14 +705,5 @@
     <script data-goatcounter="https://bookandshores.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <script src="zoltar-machine.js" defer></script>
-<script>
-    // B&S: tip-tile alien Zoltar: silent loop; poster only under reduced motion or if autoplay fails
-    (function () {
-        var v = document.getElementById('tipAlienVid'); if (!v) return;
-        v.muted = true;
-        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); return; }
-        var p = v.play(); if (p && p.catch) p.catch(function () { v.pause(); });
-    })();
-    </script>
 </body>
 </html>
