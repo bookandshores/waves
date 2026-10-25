@@ -560,6 +560,12 @@
         }
     });
 
+    // Home-page search box hands us ?q=<place>
+    function fromQuery() {
+        var q = ""; try { q = new URLSearchParams(location.search).get("q") || ""; } catch (e) { return; }
+        q = q.trim().slice(0, 80); if (q.length < 2) { return; }
+        qIn.value = q; form.dispatchEvent(new Event("submit", { cancelable: true }));
+    }
     renderList();
     renderRoute();
     try {
@@ -573,4 +579,5 @@
         var rc = document.getElementById("route-chip"); if (rc) { rc.hidden = true; }
         Array.prototype.forEach.call(document.querySelectorAll(".pl-show"), function (b) { b.hidden = true; });
     }
+    fromQuery();
 })();
