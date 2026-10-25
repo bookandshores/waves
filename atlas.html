@@ -8,11 +8,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
     <link rel="manifest" href="site.webmanifest">
-    <title>The Book &amp; Shores Atlas of Books | Every Book Has a Zip Code</title>
+    <title>Go There. Read It. | B&amp;S Book Atlas | Book &amp; Shores</title>
     <meta name="description" content="A world map of books and the places they are set. Tap a pin to meet the book, then take it home in print or ebook. Every book has a zip code. Even the made-up ones.">
     <link rel="canonical" href="https://bookandshores.com/atlas.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="The Book &amp; Shores Atlas of Books">
+    <meta property="og:title" content="Go There. Read It. | B&amp;S Book Atlas | Book &amp; Shores">
+    <meta name="twitter:title" content="Go There. Read It. | B&amp;S Book Atlas | Book &amp; Shores">
     <meta property="og:description" content="Every book has a zip code. Even the made-up ones. A world map of books and the places they are set.">
     <meta property="og:url" content="https://bookandshores.com/atlas.html">
     <meta property="og:image" content="https://bookandshores.com/og-image.png">
@@ -27,7 +28,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="index.html">Book &amp; Shores</a></h1>
+        <p class="site-name"><a href="index.html">Book &amp; Shores</a></p>
         <nav aria-label="Main">
             <a href="index.html">← Home</a>
             <a href="bookstore.html">Buy Books</a>
@@ -45,12 +46,13 @@
                     <defs><path id="pm-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
                     <circle cx="60" cy="60" r="55" fill="none" stroke="#111" stroke-width="2.5"/>
                     <circle cx="60" cy="60" r="32" fill="none" stroke="#111" stroke-width="1.5"/>
-                    <text font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" letter-spacing="2.2" fill="#111"><textPath href="#pm-circle" startOffset="0">BOOK &amp; SHORES · ATLAS OF BOOKS ·</textPath></text>
+                    <text font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" letter-spacing="2.2" fill="#111"><textPath href="#pm-circle" startOffset="0">BOOK &amp; SHORES · BOOK ATLAS ·</textPath></text>
                     <text x="60" y="64" text-anchor="middle" font-family="Oswald, sans-serif" font-size="13" font-weight="700" fill="#111">VOL. 1</text>
                 </svg>
             </div>
             <p class="eyebrow">Places in books · Vol. 1</p>
-            <h2 id="atlas-title">The Book &amp; Shores <span>Atlas of Books</span></h2>
+            <h1 id="atlas-title">Go There. <span>Read It.</span></h1>
+            <p class="subline">B&amp;S Atlas</p>
             <p class="tagline">Every book has a zip code. Even the made-up ones.</p>
             <p class="lede">A map of where books are set. Tap a pin, meet the book, take it home in print or ebook.</p>
         </section>
@@ -61,12 +63,27 @@
                 <button type="button" data-region="na" aria-pressed="false">North America</button>
                 <button type="button" data-region="europe" aria-pressed="false">Europe</button>
                 <button type="button" data-region="asia" aria-pressed="false">Asia</button>
+                <button type="button" id="route-chip" class="route-chip" aria-pressed="false" aria-describedby="route-blurb">Gothic October <span class="new">New</span></button>
+            </div>
+            <div class="route-banner" id="route-banner" hidden>
+                <p class="rb-eyebrow">A reading route · Halloween 2026</p>
+                <h3>Gothic October</h3>
+                <p id="route-blurb" class="rb-blurb">Seven stops, eight books, oldest to newest. Lock the door first.</p>
+                <div class="rb-actions">
+                    <button type="button" class="rb-copy" id="route-copy">Copy link to this route</button>
+                    <span id="route-copy-status" class="rb-status" role="status" aria-live="polite"></span>
+                </div>
             </div>
             <div class="airmail">
                 <div class="map-frame">
                     <div id="map" role="region" aria-label="Interactive world map. Each pin is a book and the place it is set. The same pins are listed below the map."></div>
                     <p class="map-fallback" id="map-fallback" hidden>The map could not load here. The same pins are listed below.</p>
                 </div>
+            </div>
+            <div class="route-list" id="route-list" hidden>
+                <h3>The route</h3>
+                <ol id="route-ol" class="route-ol"></ol>
+                <p class="rl-note">Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.</p>
             </div>
             <p class="map-note">Pins mark a book's stated setting. A dashed ring means the book names a region, not an address, so the pin sits inside it. <span class="only-sm">On a phone the map can't fit the whole world, so use the region buttons above to hop around.</span></p>
         </section>

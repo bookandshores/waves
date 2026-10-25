@@ -8,6 +8,10 @@
     var mapEl = document.getElementById("map");
     var fallback = document.getElementById("map-fallback");
     var map = null, popup = null, activeId = null, markers = {};
+    var ROUTES = window.bsRoutes || [];
+    var ROUTE = ROUTES[0] || null;
+    var routeStops = ROUTE ? ROUTE.stops.slice() : [];
+    var routeOn = false, mapReady = false;
 
     function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
     function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
@@ -24,7 +28,7 @@
             li.appendChild(el("div", "pl-place", p.name));
             p.books.forEach(function (b) {
                 var d = el("div", "pl-book");
-                var a = el("a", null, b.title); a.href = b.page; d.appendChild(a);
+                var a = el("a", null, b.title); a.href = b.page || b.srcUrl; if (!b.page) { newTab(a); a.rel = "noopener"; } d.appendChild(a);
                 d.appendChild(document.createTextNode(" by " + b.author));
                 li.appendChild(d);
             });
@@ -42,6 +46,8 @@
     function popupNode(p) {
         var root = el("div", "pp");
         var head = el("div", "pp-head", p.name);
+        var stopNo = routeOn ? routeStops.indexOf(p.id) + 1 : 0;
+        if (stopNo) head.appendChild(el("small", "pp-stop", "Stop " + stopNo + " of " + routeStops.length));
         if (p.area) head.appendChild(el("small", null, "Area pin · region, not an address"));
         root.appendChild(head);
         var body = el("div", "pp-body");
@@ -51,7 +57,7 @@
             row.appendChild(img);
             var col = el("div");
             col.appendChild(el("div", "pp-title", b.title));
-            col.appendChild(el("div", "pp-author", b.author));
+            col.appendChild(el("div", "pp-author", b.author + (b.year ? " · " + b.year : "")));
             var set = el("div", "pp-set"); set.appendChild(el("b", null, "Set in: ")); set.appendChild(document.createTextNode(b.setting)); col.appendChild(set);
             if (b.note) col.appendChild(el("div", "pp-note", b.note));
             var act = el("div", "pp-actions");
@@ -61,12 +67,22 @@
             var eu = ebookUrl(b);
             if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " on Bookshop.org (opens in a new tab)"); act.appendChild(eb); }
             col.appendChild(act);
-            var pg = el("a", "pp-page", b.page.indexOf("book-") === 0 ? "Read our page →" : "See it in our shop →");
-            pg.href = b.page; col.appendChild(pg);
+            var pg;
+            if (b.page) { pg = el("a", "pp-page", b.page.indexOf("book-") === 0 ? "Read our page →" : "See it in our shop →"); pg.href = b.page; }
+            else { pg = newTab(el("a", "pp-page", "Where it's set: source →")); pg.rel = "noopener"; pg.href = b.srcUrl; }
+            col.appendChild(pg);
             row.appendChild(col);
             body.appendChild(row);
         });
         root.appendChild(body);
+        if (stopNo) {
+            var nav = el("div", "pp-route");
+            var prev = el("button", "pp-step", "← Stop " + (stopNo - 1)); prev.type = "button";
+            var next = el("button", "pp-step", "Stop " + (stopNo + 1) + " →"); next.type = "button";
+            if (stopNo > 1) { prev.addEventListener("click", function () { showPlace(routeStops[stopNo - 2], false); }); } else { prev.disabled = true; prev.textContent = "Start"; }
+            if (stopNo < routeStops.length) { next.addEventListener("click", function () { showPlace(routeStops[stopNo], false); }); } else { next.disabled = true; next.textContent = "The end"; }
+            nav.appendChild(prev); nav.appendChild(next); root.appendChild(nav);
+        }
         return root;
     }
 
@@ -85,7 +101,7 @@
         popup.on("close", function () { if (activeId === id) { setActive(null); } });
         setActive(id);
         var h = mapEl.clientHeight;
-        var opts = { center: [p.lng, p.lat], offset: [0, Math.round(h * 0.22)], zoom: Math.max(map.getZoom(), p.area ? 4 : 5) };
+        var opts = { center: [p.lng, p.lat], offset: [0, Math.round(h * 0.3)], zoom: Math.max(map.getZoom(), p.area ? 4 : 5) };
         if (reduce) { map.jumpTo(opts); } else { map.easeTo(Object.assign(opts, { duration: 900 })); }
     }
 
@@ -98,10 +114,111 @@
     };
     function goRegion(key) {
         var r = REGIONS[key]; if (!r || !map) { return; }
+        if (routeOn) { setRoute(false); }
         if (popup) { popup.remove(); }
         var small = mapEl.clientWidth < 600;
         map.fitBounds(r.bounds, { padding: small ? 14 : 46, duration: reduce ? 0 : 1100, maxZoom: key === "world" ? 3 : 6 });
         Array.prototype.forEach.call(document.querySelectorAll("#regions button"), function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-region") === key)); });
+    }
+
+    /* ---------- Seasonal route (Gothic October) ---------- */
+    function place(id) { return PLACES.filter(function (x) { return x.id === id; })[0]; }
+    // Curved "airmail" arc between two stops so the path reads as a route, not a ruler line.
+    function arc(a, b) {
+        var pts = [], n = 28, dx = b[0] - a[0], dy = b[1] - a[1], k = 0.16;
+        for (var i = 0; i <= n; i++) {
+            var t = i / n, bulge = Math.sin(Math.PI * t) * k;
+            pts.push([a[0] + dx * t - dy * bulge, a[1] + dy * t + dx * bulge]);
+        }
+        return pts;
+    }
+    function routeGeo() {
+        var coords = [];
+        for (var i = 0; i < routeStops.length - 1; i++) {
+            var A = place(routeStops[i]), B = place(routeStops[i + 1]);
+            var seg = arc([A.lng, A.lat], [B.lng, B.lat]);
+            coords = coords.concat(i ? seg.slice(1) : seg);
+        }
+        return { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: coords } };
+    }
+    function routeBounds() {
+        var b = new maplibregl.LngLatBounds();
+        routeStops.forEach(function (id) { var p = place(id); b.extend([p.lng, p.lat]); });
+        return b;
+    }
+    function ensureRouteLayers() {
+        if (map.getSource("route")) { return; }
+        map.addSource("route", { type: "geojson", data: routeGeo() });
+        map.addLayer({ id: "route-halo", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" },
+            paint: { "line-color": "#f4e9d3", "line-width": 7, "line-opacity": 0, "line-opacity-transition": { duration: reduce ? 0 : 500 } } });
+        map.addLayer({ id: "route-line", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" },
+            paint: { "line-color": "#4a0f22", "line-width": 3, "line-dasharray": [1.6, 1.4], "line-opacity": 0, "line-opacity-transition": { duration: reduce ? 0 : 500 } } });
+    }
+    function paintRoute() {
+        if (!map || !mapReady) { return; }
+        ensureRouteLayers();
+        map.setPaintProperty("route-halo", "line-opacity", routeOn ? 0.85 : 0);
+        map.setPaintProperty("route-line", "line-opacity", routeOn ? 1 : 0);
+    }
+    function setRoute(on, silent, instant) {
+        if (!ROUTE || !map) { return; }
+        routeOn = on;
+        if (popup) { popup.remove(); }
+        document.getElementById("map").classList.toggle("moody", on);
+        document.querySelector(".airmail").classList.toggle("moody", on);
+        var chip = document.getElementById("route-chip");
+        if (chip) { chip.setAttribute("aria-pressed", String(on)); }
+        var banner = document.getElementById("route-banner"); if (banner) { banner.hidden = !on; }
+        var rl = document.getElementById("route-list"); if (rl) { rl.hidden = !on; }
+        Object.keys(markers).forEach(function (id) {
+            var i = routeStops.indexOf(id), m = markers[id].el;
+            m.classList.toggle("route", on && i > -1);
+            m.classList.toggle("dim", on && i === -1);
+            m.disabled = on && i === -1;
+            if (on && i > -1) { m.setAttribute("data-n", String(i + 1)); } else { m.removeAttribute("data-n"); }
+            var base = markers[id].label;
+            m.setAttribute("aria-label", on && i > -1 ? "Gothic October stop " + (i + 1) + " of " + routeStops.length + ". " + base : base);
+        });
+        if (on) {
+            Array.prototype.forEach.call(document.querySelectorAll("#regions button[data-region]"), function (b) { b.setAttribute("aria-pressed", "false"); });
+            var small = mapEl.clientWidth < 600;
+            map.fitBounds(routeBounds(), { padding: small ? { top: 30, bottom: 30, left: 24, right: 24 } : 70, duration: (reduce || instant) ? 0 : 1100, maxZoom: 6 });
+        }
+        paintRoute();
+        if (!silent) {
+            try { history.replaceState(null, "", on ? "#" + ROUTE.id : location.pathname + location.search); } catch (e) { /* file:// etc. */ }
+        }
+    }
+    function renderRoute() {
+        if (!ROUTE) { return; }
+        var ol = document.getElementById("route-ol");
+        routeStops.forEach(function (id, i) {
+            var p = place(id), li = el("li");
+            li.appendChild(el("span", "rn", String(i + 1)));
+            var box = el("div", "rb");
+            box.appendChild(el("div", "rp", p.name));
+            p.books.forEach(function (b) { box.appendChild(el("div", "rt", b.title + " · " + b.author + (b.year ? ", " + b.year : ""))); });
+            var btn = el("button", "pl-show", "Show stop " + (i + 1)); btn.type = "button";
+            btn.setAttribute("aria-label", "Show stop " + (i + 1) + ", " + p.name + ", on the map");
+            btn.addEventListener("click", function () { if (!routeOn) { setRoute(true); } showPlace(id, true); });
+            box.appendChild(btn);
+            li.appendChild(box); ol.appendChild(li);
+        });
+        var books = 0; routeStops.forEach(function (id) { books += place(id).books.length; });
+        document.getElementById("route-blurb").textContent = plural(routeStops.length, "stop") + ", " + plural(books, "book") + ", oldest to newest. " + (ROUTE.blurb.split(". ").slice(1).join(". ") || "");
+        var chip = document.getElementById("route-chip");
+        chip.addEventListener("click", function () { setRoute(!routeOn); });
+        var cp = document.getElementById("route-copy"), st = document.getElementById("route-copy-status");
+        cp.addEventListener("click", function () {
+            var url = location.origin && location.origin !== "null" ? location.origin + location.pathname + "#" + ROUTE.id : "https://bookandshores.com/atlas.html#" + ROUTE.id;
+            function done(m) { st.textContent = m; setTimeout(function () { st.textContent = ""; }, 3500); }
+            if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(url).then(function () { done("Link copied: " + url); }, function () { done(url); }); }
+            else { done(url); }
+        });
+        window.addEventListener("hashchange", function () {
+            var want = location.hash === "#" + ROUTE.id;
+            if (want !== routeOn) { setRoute(want, true); }
+        });
     }
 
     /* ---------- Map ---------- */
@@ -156,7 +273,14 @@
             if (p.books.length > 1) { b.appendChild(el("span", "n", String(p.books.length))); }
             b.addEventListener("click", function (e) { e.stopPropagation(); showPlace(p.id, false); });
             var m = new maplibregl.Marker({ element: b, anchor: "center" }).setLngLat([p.lng, p.lat]).addTo(map);
-            markers[p.id] = { m: m, el: b };
+            markers[p.id] = { m: m, el: b, label: b.getAttribute("aria-label") };
+        });
+        map.on("load", function () {
+            mapReady = true; paintRoute();
+            if (ROUTE && location.hash === "#" + ROUTE.id && !routeOn) {
+                setRoute(true, true, true);
+                var rb = document.getElementById("regions"); if (rb) { rb.scrollIntoView({ block: "start" }); }
+            }
         });
         map.on("error", function (e) { if (e && e.error && /Failed to fetch|NetworkError|ERR_/.test(String(e.error.message || e.error))) { /* tiles offline: pins still work */ } });
         // Pins are the product. Keep them even if tiles fail.
@@ -170,6 +294,7 @@
     });
 
     renderList();
+    renderRoute();
     try {
         initMap();
         Array.prototype.forEach.call(document.querySelectorAll("#regions button"), function (b) {
@@ -178,6 +303,7 @@
     } catch (err) {
         if (fallback) { fallback.hidden = false; }
         var rb = document.getElementById("regions"); if (rb) { rb.hidden = true; }
+        var rc = document.getElementById("route-chip"); if (rc) { rc.hidden = true; }
         Array.prototype.forEach.call(document.querySelectorAll(".pl-show"), function (b) { b.hidden = true; });
     }
 })();

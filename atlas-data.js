@@ -115,4 +115,63 @@ window.bsAtlas = [
       page: "bookstore.html", ebook: ["what-divides-us-a-memoir-of-hiroshima-kiyoshi-tanimoto/ce9f3dc906283bdb", "9798217197996"],
       src: "bookstore.html card excerpt (\"The world's first atomic bomb had exploded in the sky above Hiroshima\")" }
   ]}
+  ,
+  /* ---- Gothic October route (see window.bsRoutes below) ----
+     Classics have no page on our site yet, so they carry "srcUrl" (a setting source) instead of "page".
+     Covers for the public-domain classics are real first-edition covers or title pages from Wikimedia Commons (public domain);
+     filenames are listed in atlas/CREDITS.txt. Buy links point at a current Penguin Classics / OWC paperback ISBN. */
+  { id: "otranto", name: "Otranto, Italy (the castle is made up)", lng: 18.4897, lat: 40.1469, area: true, books: [
+    { title: "The Castle of Otranto", author: "Horace Walpole", year: 1764, isbn: "9780140437676", cover: "atlas/cover-otranto.jpg",
+      setting: "A haunted castle at \"Otranto\" in the Kingdom of Naples", note: "Usually called the first Gothic novel. The castle is invented, Walpole took the name from a map of Naples.",
+      srcUrl: "https://kids.britannica.com/scholars/article/The-Castle-of-Otranto/484203",
+      src: "Britannica (Castle of Otranto): fictional castle named from a map of Naples; 1764. Cover: 1764 title page, Wikimedia Commons, public domain." }
+  ]},
+  { id: "geneva", name: "Geneva, Switzerland", lng: 6.1432, lat: 46.2044, area: false, books: [
+    { title: "Frankenstein", author: "Mary Shelley", year: 1818, isbn: "9780141439471", cover: "atlas/cover-frankenstein.jpg",
+      setting: "Geneva, Victor's family home, then Ingolstadt, the Alps and the Arctic", note: "Shelley began it near Geneva in the summer of 1816.",
+      srcUrl: "https://www.britannica.com/topic/Frankenstein-novel",
+      src: "Britannica (Frankenstein): Victor raised in Geneva; written at Lake Geneva 1816. Cover: 1818 title page, Wikimedia Commons, public domain." }
+  ]},
+  { id: "thornfield", name: "Derbyshire, England (Thornfield is made up)", lng: -1.6527, lat: 53.3277, area: true, books: [
+    { title: "Jane Eyre", author: "Charlotte Brontë", year: 1847, isbn: "9780141441146", cover: "atlas/cover-jane-eyre.jpg",
+      setting: "Thornfield Hall, an invented house in the English Midlands", note: "The pin sits at Hathersage, near North Lees Hall, the model most often suggested. Other houses are suggested too.",
+      srcUrl: "https://en.wikipedia.org/wiki/Thornfield_Hall",
+      src: "Wikipedia (Thornfield Hall); Peak District National Park (North Lees Hall); Derbyshire HER. Fictional house, model is tradition not proof. Cover: 1847 title page, Wikimedia Commons, public domain." }
+  ]},
+  { id: "yorkshire", name: "Yorkshire moors, England", lng: -1.9600, lat: 53.8300, area: true, books: [
+    { title: "Wuthering Heights", author: "Emily Brontë", year: 1847, isbn: "9780141439556", cover: "atlas/cover-wuthering-heights.jpg",
+      setting: "The Yorkshire moors, at Wuthering Heights and Thrushcross Grange", note: "Both houses are invented. The pin sits on the moors near Haworth, where the Brontës lived.",
+      srcUrl: "https://en.wikipedia.org/wiki/Wuthering_Heights",
+      src: "Wikipedia (Wuthering Heights): set on the Yorkshire moors; houses fictional. Cover: 1847 first edition, Houghton Library via Wikimedia Commons, public domain." }
+  ]},
+  { id: "london-gothic", name: "London, England", lng: -0.1365, lat: 51.5136, area: true, books: [
+    { title: "The Strange Case of Dr Jekyll and Mr Hyde", author: "Robert Louis Stevenson", year: 1886, isbn: "9780141439730", cover: "atlas/cover-jekyll-hyde.jpg",
+      setting: "Fog-bound Victorian London", note: "Penguin's edition also has Olalla and The Body Snatcher.",
+      srcUrl: "https://www.penguin.co.uk/books/54791/the-strange-case-of-dr-jekyll-and-mr-hyde-and-other-tales-of-terror-by-robert-louis-stevenson-ed--robert-mighall/9780141439730",
+      src: "Penguin Classics page: \"the hunt through fog-bound London\". Cover: 1886 title page, UCLA copy via Wikimedia Commons, public domain." },
+    { title: "The Picture of Dorian Gray", author: "Oscar Wilde", year: 1890, isbn: "9780141439570", cover: "atlas/cover-dorian-gray.jpg",
+      setting: "Victorian London, from Mayfair drawing rooms to the docks", note: "Serialized in 1890, published as a book in 1891.",
+      srcUrl: "https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray",
+      src: "Wikipedia (The Picture of Dorian Gray): set in London. Cover: 1891 book cover, Houghton Library via Wikimedia Commons, public domain." }
+  ]},
+  { id: "whitby", name: "Whitby, England", lng: -0.6206, lat: 54.4858, area: false, books: [
+    { title: "Dracula", author: "Bram Stoker", year: 1897, isbn: "9780141439846", cover: "atlas/cover-dracula.jpg",
+      setting: "Whitby, where the Demeter runs aground (the book also opens in Transylvania)", note: "Stoker stayed in Whitby in the summer of 1890. Chapters VI to VIII are set there.",
+      srcUrl: "https://whitbymuseum.org.uk/bram-stokers-signature-in-the-museum-visitor-book/",
+      src: "Whitby Museum (Stoker's 1890 visit; chapters VI-VIII set in Whitby). Cover: 1897 first edition, Wikimedia Commons, public domain." }
+  ]},
+  { id: "kerry", name: "County Kerry, Ireland (Ballycrea is made up)", lng: -9.5500, lat: 52.1500, area: true, books: [
+    { title: "Heap Earth Upon It", author: "Chloe Michelle Howarth", year: 2026, isbn: "9781685892531", cover: "atlas/cover-heap-earth-upon-it.jpg",
+      setting: "Ballycrea, an invented village in County Kerry, January 1965", note: "A rural Gothic about siblings, secrets and a village that watches.",
+      page: "bookstore.html",
+      src: "Irish Times review (set in 1965 in Ballycrea, Co Kerry); GCN interview (\"rural Gothic\"); Penguin Random House page (\"Gothic, lush, and suspenseful\"). Cover: our own HEAP.png." }
+  ]}
+];
+
+/* Seasonal routes. A route is an ordered list of place ids, drawn as a numbered path.
+   Deep link: atlas.html#<id>. */
+window.bsRoutes = [
+  { id: "gothic-october", name: "Gothic October",
+    blurb: "Seven stops, eight books, oldest to newest. Lock the door first.",
+    stops: ["otranto", "geneva", "thornfield", "yorkshire", "london-gothic", "whitby", "kerry"] }
 ];

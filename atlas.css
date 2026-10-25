@@ -5,8 +5,8 @@ html { font-size:100%; -webkit-text-size-adjust:100%; }
 body { background:var(--yellow); color:var(--black); font-family:'IBM Plex Mono',monospace; line-height:1.6; min-height:100vh; font-size:clamp(1rem,3.5vw,1.125rem); overflow-x:hidden; }
 a { color:inherit; }
 header { padding:2.2rem 1rem 1.4rem; text-align:center; border-bottom:4px solid var(--black); }
-header h1 { font-family:'Oswald',sans-serif; font-size:clamp(3rem,9vw,6.5rem); font-weight:700; letter-spacing:-0.03em; line-height:.92; text-transform:uppercase; }
-header h1 a { text-decoration:none; }
+header .site-name { font-family:'Oswald',sans-serif; font-size:clamp(3rem,9vw,6.5rem); font-weight:700; letter-spacing:-0.03em; line-height:.92; text-transform:uppercase; }
+header .site-name a { text-decoration:none; }
 nav { margin:1.6rem 0 .6rem; display:flex; justify-content:center; gap:1.8rem; flex-wrap:wrap; }
 nav a { text-decoration:none; font-size:clamp(1rem,4vw,1.2rem); font-weight:500; letter-spacing:.08em; text-transform:uppercase; }
 @media (max-width:480px) { nav { gap:.4rem 1.1rem; } nav a { font-size:.92rem; letter-spacing:.05em; } }
@@ -18,8 +18,8 @@ h2 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.05; }
 /* Hero */
 .atlas-hero { position:relative; text-align:center; max-width:900px; margin:1.2rem auto 2.2rem; padding:0 .5rem; }
 .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:.8rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; }
-.atlas-hero h2 { font-size:clamp(2.4rem,7.6vw,5rem); text-transform:uppercase; letter-spacing:-.01em; margin:.5rem 0 .9rem; }
-.atlas-hero h2 span { display:block; }
+.atlas-hero h1 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.02; font-size:clamp(2.4rem,7.6vw,5rem); text-transform:uppercase; letter-spacing:-.01em; margin:.5rem 0 .9rem; }
+.atlas-hero h1 span { display:block; }
 .tagline { font-size:clamp(1.05rem,3.6vw,1.45rem); font-weight:500; font-style:italic; border-top:3px solid var(--black); border-bottom:3px solid var(--black); display:inline-block; padding:.45rem 1.1rem; margin-bottom:1rem; }
 .lede { max-width:620px; margin:0 auto; }
 .lede.small { font-size:.95rem; margin:-.4rem auto 1.4rem; color:var(--gray); }
@@ -110,3 +110,58 @@ footer a { color:var(--black); }
 
 .only-sm { display:none; }
 @media (max-width:600px) { .only-sm { display:inline; } }
+
+/* ---------- Gothic October route (moody accent: oxblood + night ink on the same marigold/cream/black base) ---------- */
+:root { --blood:#4a0f22; --night:#1c1420; }
+.route-chip { background:var(--night) !important; color:var(--cream) !important; border-color:var(--night) !important; display:inline-flex; align-items:center; gap:.5rem; }
+.region-bar button.route-chip[aria-pressed="true"], .region-bar button.route-chip:hover { background:var(--blood) !important; border-color:var(--blood) !important; color:var(--yellow) !important; }
+.route-chip .new { font-size:.6rem; letter-spacing:.12em; background:var(--yellow); color:var(--black); padding:.05rem .35rem; border-radius:3px; }
+.route-banner { max-width:760px; margin:0 auto 1.2rem; padding:1rem 1.2rem 1.1rem; text-align:center; background:var(--night); color:var(--cream); border:3px solid var(--black); border-radius:6px; box-shadow:6px 6px 0 var(--blood); }
+.route-banner[hidden], .route-list[hidden] { display:none; }
+.rb-eyebrow { font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--yellow); opacity:.9; }
+.route-banner h3 { font-family:'Oswald',sans-serif; font-size:clamp(1.9rem,6vw,2.7rem); line-height:1.05; text-transform:uppercase; color:var(--yellow); letter-spacing:.03em; margin:.2rem 0 .35rem; }
+.rb-blurb { font-size:.92rem; margin-bottom:.7rem; }
+.rb-actions { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:.4rem .9rem; }
+.rb-copy { font:inherit; font-size:.74rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:.4rem .8rem; background:var(--yellow); color:var(--black); border:2px solid var(--yellow); border-radius:5px; cursor:pointer; }
+.rb-copy:hover, .rb-copy:focus-visible { background:transparent; color:var(--yellow); }
+.route-banner :focus-visible { outline-color:var(--yellow); }
+.rb-status { font-size:.72rem; color:var(--cream); word-break:break-all; }
+.rb-status:empty { display:none; }
+
+/* moody map: tint the tiles only, markers and popups stay crisp */
+#map .maplibregl-canvas { transition:filter .6s ease; }
+#map.moody .maplibregl-canvas { filter:sepia(.3) saturate(.7) brightness(.84) contrast(1.06); }
+.airmail { transition:background .4s ease; }
+.airmail.moody { background:repeating-linear-gradient(135deg,var(--blood) 0 16px,var(--cream) 16px 32px,#2a2d3e 32px 48px,var(--cream) 48px 64px); box-shadow:0 10px 35px rgba(28,20,32,.5); }
+@media (prefers-reduced-motion:reduce) { #map .maplibregl-canvas, .airmail { transition:none; } }
+
+.pin.dim { opacity:.3; filter:grayscale(.7); }
+.pin.route { width:34px; height:34px; background:var(--night); border-color:var(--yellow); box-shadow:0 0 0 2px var(--black),0 5px 10px rgba(0,0,0,.55); }
+.pin.route::before { content:attr(data-n); inset:0; display:flex; align-items:center; justify-content:center; background:transparent; color:var(--yellow); font:700 1.05rem/1 'Oswald',sans-serif; }
+.pin.route:hover, .pin.route:focus-visible, .pin.route.on { background:var(--blood); }
+.pin.route.area::after { inset:-10px; border-color:var(--night); }
+.pin.route .n { top:-10px; right:-11px; }
+
+.pp-stop { color:var(--yellow) !important; opacity:1 !important; }
+.pp-route { display:flex; justify-content:space-between; gap:.5rem; padding:.5rem .7rem; background:var(--night); border-top:3px solid var(--black); }
+.pp-step { font:inherit; font-size:.7rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:.35rem .6rem; background:transparent; color:var(--yellow); border:2px solid var(--yellow); border-radius:4px; cursor:pointer; }
+.pp-step:hover:not(:disabled), .pp-step:focus-visible { background:var(--yellow); color:var(--black); }
+.pp-step:disabled { opacity:.45; cursor:default; }
+.pp-step:focus-visible { outline:3px solid var(--cream); outline-offset:2px; }
+
+.route-list { max-width:900px; margin:1.6rem auto 0; padding:1.2rem 1.2rem 1rem; background:var(--night); color:var(--cream); border:3px solid var(--black); border-radius:6px; box-shadow:6px 6px 0 var(--blood); }
+.route-list h3 { font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.06em; color:var(--yellow); font-size:1.5rem; text-align:center; margin-bottom:.8rem; }
+.route-ol { list-style:none; display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:.8rem 1rem; }
+.route-ol li { display:flex; gap:.75rem; align-items:flex-start; }
+.route-ol .rn { flex:none; width:34px; height:34px; border-radius:50%; border:3px solid var(--yellow); display:flex; align-items:center; justify-content:center; font:700 1rem/1 'Oswald',sans-serif; color:var(--yellow); }
+.route-ol .rp { font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.04em; color:var(--yellow); line-height:1.2; }
+.route-ol .rt { font-size:.82rem; line-height:1.35; }
+.route-ol .pl-show { background:var(--yellow); color:var(--black); margin-top:.4rem; }
+.route-ol .pl-show:hover { background:var(--cream); color:var(--black); }
+.route-list :focus-visible { outline-color:var(--yellow); }
+.rl-note { font-size:.74rem; text-align:center; margin-top:1rem; opacity:.85; }
+@media (max-width:480px) { .route-chip { font-size:.8rem; } .pin.route { width:34px; height:34px; } }
+
+.subline { font-family:'Oswald',sans-serif; font-weight:500; text-transform:uppercase; letter-spacing:.22em; font-size:clamp(1rem,3.4vw,1.35rem); margin:-.2rem 0 1rem; }
+
+@media (max-width:600px) { .pp-body { max-height:min(260px,calc(var(--map-h,560px) - 230px)); } .pp-head small { letter-spacing:.04em; font-size:.6rem; } .pp-head { font-size:.98rem; } .pin.route { width:32px; height:32px; } }

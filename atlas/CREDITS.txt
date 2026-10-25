@@ -1,0 +1,10 @@
+Public-domain cover images for the Gothic October route, from Wikimedia Commons (all marked Public domain there):
+cover-otranto.jpg         File:The Castle of Otranto title page.jpg
+cover-frankenstein.jpg    File:Frankenstein 1818 edition title page.jpg
+cover-wuthering-heights.jpg  File:Houghton Lowell 1238.5 (A) - Wuthering Heights, 1847.jpg
+cover-jane-eyre.jpg       File:Jane Eyre title page.jpg
+cover-jekyll-hyde.jpg     File:Robert Louis Stevenson, Strange Case of Dr Jekyll and Mr Hyde, 1886, title page (UCLA Library copy).jpg
+cover-dracula.jpg         File:Dracula-First-Edition-1897.jpg
+cover-dorian-gray.jpg     File:Houghton HEW 12.10.15 - The Picture of Dorian Gray, 1891 (cover).jpg
+cover-heap-earth-upon-it.jpg  our own HEAP.png (existing site asset)
+Resized to 240px wide. Source pages: https://commons.wikimedia.org/wiki/File:<name with underscores>
