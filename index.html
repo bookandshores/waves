@@ -364,57 +364,18 @@
         /* B&S: Tip the Booktender button */
         .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
-        /* B&S: alien Zoltar in the tip tile (same arched window look as the machine) */
-        .tip-zoltar { display:block; width:132px; margin:0 auto 0.6rem; text-decoration:none; }
-        .tip-zoltar-win { position:relative; display:block; width:100%; aspect-ratio:2 / 3; border:4px solid var(--yellow); border-radius:66px 66px 10px 10px; overflow:hidden; background:#000; box-shadow:0 0 0 3px #000, 0 0 14px rgba(246,189,40,.45), inset 0 0 10px rgba(0,0,0,.8); transition:transform .2s ease, box-shadow .3s ease; }
+        /* B&S: alien Zoltar in the tip tile, framed like a fortune-machine glass window (black housing, yellow trim) */
+        .tip-zoltar { display:block; width:196px; margin:0 auto 1.1rem; text-decoration:none; }
+        .tip-frame { display:block; position:relative; padding:34px 14px 30px; background:linear-gradient(180deg,#1b1b1d,#0d0d0e 40%,#0d0d0e); border:3px solid var(--yellow); border-radius:22px 22px 8px 8px; box-shadow:0 0 0 3px #000, 0 6px 0 3px #000, 0 0 18px rgba(246,189,40,.35); transition:transform .2s ease, filter .3s ease; }
+        .tip-frame::before { content:"ZOLTAR"; position:absolute; top:7px; left:0; right:0; text-align:center; font-family:'Oswald',sans-serif; font-weight:600; font-size:.95rem; letter-spacing:.34em; text-indent:.34em; color:#fff2c2; text-shadow:0 0 6px #ffd85a, 0 0 14px rgba(246,189,40,.7); line-height:1; }
+        .tip-frame::after { content:""; position:absolute; left:50%; bottom:9px; width:62px; height:9px; transform:translateX(-50%); background:#000; border:2px solid var(--yellow); border-radius:6px; box-shadow:inset 0 2px 0 #000; }
+        .tip-zoltar-win { position:relative; display:block; width:100%; aspect-ratio:3 / 4; border:4px solid #000; border-radius:6px; overflow:hidden; background:#000; box-shadow:0 0 0 2px var(--yellow), inset 0 0 14px rgba(0,0,0,.85); }
         .tip-zoltar-win video { display:block; width:100%; height:100%; object-fit:cover; }
-        .tip-zoltar-win::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, transparent 38%, rgba(255,255,255,.16) 46%, transparent 54%); }
-        .tip-zoltar:hover .tip-zoltar-win, .tip-zoltar:focus-visible .tip-zoltar-win { transform:translateY(-2px); box-shadow:0 0 0 3px #000, 0 0 22px 3px rgba(246,189,40,.8), inset 0 0 10px rgba(0,0,0,.8); }
+        .tip-zoltar-win::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.2) 40%, rgba(255,255,255,.04) 48%, transparent 52%), linear-gradient(0deg, rgba(246,189,40,.12), transparent 35%); }
+        .tip-zoltar:hover .tip-frame, .tip-zoltar:focus-visible .tip-frame { transform:translateY(-2px); filter:brightness(1.06); }
         .tip-zoltar:focus-visible { outline:3px solid var(--black); outline-offset:6px; border-radius:8px; }
+        @media (prefers-reduced-motion: reduce) { .tip-frame { transition:none; } .tip-zoltar:hover .tip-frame, .tip-zoltar:focus-visible .tip-frame { transform:none; } }
         .tip-zoltar-line { margin:0 0 0.2rem; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.04em; }
-
-        /* ===== TEMP frame previews: ?tipframe=A|B|C (only the chosen one ships) ===== */
-        .tip-frame { display:block; position:relative; }
-        .tip-zoltar[data-frame] { width:196px; margin-bottom:1.1rem; }
-        .tip-zoltar[data-frame] .tip-zoltar-win { aspect-ratio:3 / 4; border-radius:0; border:0; box-shadow:none; }
-        .tip-zoltar[data-frame]:hover .tip-zoltar-win, .tip-zoltar[data-frame]:focus-visible .tip-zoltar-win { transform:none; box-shadow:none; }
-        .tip-zoltar[data-frame] .tip-frame { transition:transform .2s ease, filter .3s ease; }
-        .tip-zoltar[data-frame]:hover .tip-frame, .tip-zoltar[data-frame]:focus-visible .tip-frame { transform:translateY(-2px); filter:brightness(1.06); }
-
-        /* A: carnival marquee, yellow bulbs around a rectangular window */
-        .tip-zoltar[data-frame="A"] .tip-frame { padding:18px; background:#111; border:3px solid #000; border-radius:8px; box-shadow:0 0 0 3px var(--yellow), 0 0 0 6px #000, 0 6px 0 6px #000; }
-        .tip-zoltar[data-frame="A"] .tip-frame::before { content:""; position:absolute; inset:0; pointer-events:none; border-radius:5px;
-            --bulb: radial-gradient(circle, #fffbe0 0 2.2px, #ffd34d 2.8px 4.4px, rgba(246,189,40,.35) 5px 7px, transparent 7.5px);
-            background:
-                var(--bulb) 0 0 / 22px 18px space no-repeat,
-                var(--bulb) 0 100% / 22px 18px space no-repeat,
-                var(--bulb) 0 0 / 18px 22px no-repeat space,
-                var(--bulb) 100% 0 / 18px 22px no-repeat space; }
-        .tip-zoltar[data-frame="A"] .tip-frame::before { animation:tip-bulbs 1.4s ease-in-out infinite alternate; }
-        @keyframes tip-bulbs { 0% { opacity:1; } 100% { opacity:.55; } }
-        .tip-zoltar[data-frame="A"] .tip-zoltar-win { position:relative; z-index:1; outline:3px solid #000; box-shadow:inset 0 0 12px rgba(0,0,0,.8); }
-
-        /* B: fortune-machine glass window, black housing, yellow trim */
-        .tip-zoltar[data-frame="B"] .tip-frame { padding:34px 14px 30px; background:linear-gradient(180deg,#1b1b1d,#0d0d0e 40%,#0d0d0e); border:3px solid var(--yellow); border-radius:22px 22px 8px 8px; box-shadow:0 0 0 3px #000, 0 6px 0 3px #000, 0 0 18px rgba(246,189,40,.35); }
-        .tip-zoltar[data-frame="B"] .tip-frame::before { content:"ZOLTAR"; position:absolute; top:7px; left:0; right:0; text-align:center; font-family:'Oswald',sans-serif; font-weight:600; font-size:.95rem; letter-spacing:.34em; text-indent:.34em; color:#fff2c2; text-shadow:0 0 6px #ffd85a, 0 0 14px rgba(246,189,40,.7); line-height:1; }
-        .tip-zoltar[data-frame="B"] .tip-frame::after { content:""; position:absolute; left:50%; bottom:9px; width:62px; height:9px; transform:translateX(-50%); background:#000; border:2px solid var(--yellow); border-radius:6px; box-shadow:inset 0 2px 0 #000; }
-        .tip-zoltar[data-frame="B"] .tip-zoltar-win { border:4px solid #000; border-radius:6px; box-shadow:0 0 0 2px var(--yellow), inset 0 0 14px rgba(0,0,0,.85); }
-        .tip-zoltar[data-frame="B"] .tip-zoltar-win::after { background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.2) 40%, rgba(255,255,255,.04) 48%, transparent 52%), linear-gradient(0deg, rgba(246,189,40,.12), transparent 35%); }
-
-        /* C: pulp postcard: cream paper, perforated stamp edge, slight tilt */
-        .tip-zoltar[data-frame="C"] .tip-frame { transform:rotate(-2.5deg); padding:8px; background:radial-gradient(circle at 6px 6px, transparent 3.6px, #fbf2d9 4.2px) -6px -6px / 12px 12px; filter:drop-shadow(3px 4px 0 rgba(0,0,0,.85)); }
-        .tip-zoltar[data-frame="C"]:hover .tip-frame, .tip-zoltar[data-frame="C"]:focus-visible .tip-frame { transform:rotate(-1deg) translateY(-2px); }
-        .tip-zoltar[data-frame="C"] .tip-frame > .tip-zoltar-win { box-sizing:border-box; border:0; padding:0; background:#000; outline:0; }
-        .tip-zoltar[data-frame="C"] .tip-frame::before { content:""; position:absolute; inset:8px; background:#fbf2d9; z-index:0; }
-        .tip-zoltar[data-frame="C"] .tip-frame::after { content:"LAGUNA\A BEACH\A CA"; white-space:pre; position:absolute; right:-6px; bottom:-8px; z-index:3; width:60px; height:60px; border:2px solid #dd4522; border-radius:50%; color:#dd4522; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:.46rem; letter-spacing:0; line-height:1.2; display:flex; align-items:center; justify-content:center; text-align:center; transform:rotate(-14deg); opacity:.92; mix-blend-mode:multiply; }
-        .tip-zoltar[data-frame="C"] .tip-zoltar-win { position:relative; z-index:1; margin:0; border:3px solid #000; outline:5px solid #fbf2d9; box-shadow:0 0 0 8px var(--yellow); }
-        .tip-zoltar[data-frame="C"] .tip-frame { padding:8px 8px 8px; }
-        .tip-zoltar[data-frame="C"] .tip-zoltar-win { width:calc(100% - 28px); margin:14px; }
-
-        @media (prefers-reduced-motion: reduce) {
-            .tip-zoltar[data-frame] .tip-frame, .tip-zoltar[data-frame] .tip-frame::before, .tip-zoltar[data-frame] .tip-frame::after { animation:none !important; transition:none !important; }
-            .tip-zoltar[data-frame="A"] .tip-frame::before { opacity:1; }
-        }
         /* B&S: the Zoltar machine lives inside GREETINGS (styles in zoltar-machine.css) */
         .greeting-box.zoltar-greeting { width:100%; }
         .greeting-box .zmx { text-align:left; margin-top:.4rem; }
@@ -725,11 +686,6 @@
             async src="//gc.zgo.at/count.js"></script>
     <script src="zoltar-machine.js" defer></script>
 <script>
-    // TEMP preview switch: ?tipframe=A|B|C  (remove once a frame is chosen)
-    (function () {
-        var m = /[?&]tipframe=([ABC])/i.exec(location.search); if (!m) return;
-        var a = document.querySelector('.tip-zoltar'); if (a) a.setAttribute('data-frame', m[1].toUpperCase());
-    })();
     // B&S: tip-tile alien Zoltar: silent loop; poster only under reduced motion or if autoplay fails
     (function () {
         var v = document.getElementById('tipAlienVid'); if (!v) return;
