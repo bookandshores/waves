@@ -154,10 +154,10 @@
             document.getElementById('tAuthor').textContent = b[2];
             var buy = document.getElementById('buy');
             if (b[4]) {
-                buy.href = b[4]; buy.removeAttribute('target');
+                buy.href = b[4]; buy.removeAttribute('target'); buy.removeAttribute('rel');
                 buy.setAttribute('aria-label', 'Buy the book: ' + b[1] + ', see its Book & Shores page');
             } else {
-                buy.href = BS + b[3]; buy.target = '_blank';
+                buy.href = BS + b[3]; buy.target = '_blank'; buy.rel = 'noopener sponsored';
                 buy.setAttribute('aria-label', 'Buy the print book of ' + b[1] + ' by ' + b[2] + ' on Bookshop.org (opens in a new tab)');
             }
             var eb = document.getElementById('ebook'), e = EBOOKS[b[0]];
@@ -171,6 +171,15 @@
             setLcd('ENJOY YOUR BOOK', codeOf(i));
             setTimeout(function () { document.getElementById('ticket').focus({ preventScroll: true }); }, 50);
         }
+        // Links are plain anchors. Safety net only: if the browser blocks the new tab, open the link in this tab instead.
+        [document.getElementById('buy'), document.getElementById('ebook')].forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                if (a.target !== '_blank' || !a.getAttribute('href') || e.defaultPrevented) return;
+                e.preventDefault();
+                var w = null; try { w = window.open(a.href, '_blank'); } catch (x) {}
+                if (w) { try { w.opener = null; } catch (x) {} } else { location.href = a.href; }
+            });
+        });
         function reset() {
             slots.forEach(function (s) { s.classList.remove('lit', 'pick', 'gone'); });
             busy = false; ask.disabled = false; machine.classList.remove('busy');
