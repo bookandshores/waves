@@ -18,3 +18,9 @@ mug-pin.jpg  circular map-marker crop of the "read me." mug photo (/brand/read-m
 mug3d-turntable.webp  animated turntable of the "read me." mug (3D render by Book & Shores, /workspace brand/mug3d), recompressed to 360px wide for the hero and the home Atlas card.
 mug3d-poster.png      static three-quarter frame of the same render, shown under prefers-reduced-motion.
 mug3d-pin.png         128px render used as every map marker (replaces mug-pin.jpg, which is kept in the repo, unused).
+
+Added with the bookstore-catalog batch (all our own site assets, resized to 240px wide; no outside images):
+cover-small-rain.jpg, cover-black-dahlia.jpg, cover-cool-machine.jpg, cover-land-in-winter.jpg, cover-palm-house.jpg, cover-moosewood.jpg, cover-1984.jpg
+  from Small Rain.png, BLACK.png, CoolMachine.png, Winter.png, n-6.jpg, Moose.png, n-4.jpg (the bookstore card covers)
+cover-motherless-brooklyn.jpg, cover-fortress-of-solitude.jpg, cover-brooklyn-crime-novel.jpg, cover-chronic-city.jpg, cover-gun-occasional-music.jpg
+  from the aotm-lethem-*.jpg covers on author-of-the-month.html
