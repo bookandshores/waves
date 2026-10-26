@@ -1,0 +1,27 @@
+Public-domain cover images for the Gothic October route, from Wikimedia Commons (all marked Public domain there):
+cover-otranto.jpg         File:The Castle of Otranto title page.jpg
+cover-frankenstein.jpg    File:Frankenstein 1818 edition title page.jpg
+cover-wuthering-heights.jpg  File:Houghton Lowell 1238.5 (A) - Wuthering Heights, 1847.jpg
+cover-jane-eyre.jpg       File:Jane Eyre title page.jpg
+cover-jekyll-hyde.jpg     File:Robert Louis Stevenson, Strange Case of Dr Jekyll and Mr Hyde, 1886, title page (UCLA Library copy).jpg
+cover-dracula.jpg         File:Dracula-First-Edition-1897.jpg
+cover-dorian-gray.jpg     File:Houghton HEW 12.10.15 - The Picture of Dorian Gray, 1891 (cover).jpg
+cover-heap-earth-upon-it.jpg  our own HEAP.png (existing site asset)
+Resized to 240px wide. Source pages: https://commons.wikimedia.org/wiki/File:<name with underscores>
+
+Added with the search update (also Wikimedia Commons, marked Public domain there):
+cover-heart-of-darkness.jpg   File:Blackwood's Magazine - 1899 cover.jpg  (the magazine cover where the novella first ran, Feb 1899)
+cover-robinson-crusoe.jpg     File:Robinson Crusoe 1719 1st edition.jpg  (first-edition title page)
+cover-air.jpg, cover-the-ego-trip.jpg, cover-tin-can-coast.jpg  our own site assets (IMG_2773.jpg, IMG_2778.jpg, TIN.png), resized to 240px.
+mug-pin.jpg  circular map-marker crop of the "read me." mug photo (/brand/read-me-mug.jpg, Book & Shores' own asset), no redraw.
+
+mug3d-turntable.webp  animated turntable of the "read me." mug (3D render by Book & Shores, /workspace brand/mug3d), recompressed to 360px wide for the hero and the home Atlas card.
+mug3d-poster.png      static three-quarter frame of the same render, shown under prefers-reduced-motion.
+mug3d-pin.png         128px render used as every map marker (replaces mug-pin.jpg, which is kept in the repo, unused).
+
+Added with the bookstore-catalog batch (all our own site assets, resized to 240px wide; no outside images):
+cover-small-rain.jpg, cover-black-dahlia.jpg, cover-cool-machine.jpg, cover-land-in-winter.jpg, cover-palm-house.jpg, cover-moosewood.jpg, cover-1984.jpg
+  from Small Rain.png, BLACK.png, CoolMachine.png, Winter.png, n-6.jpg, Moose.png, n-4.jpg (the bookstore card covers)
+cover-motherless-brooklyn.jpg, cover-fortress-of-solitude.jpg, cover-brooklyn-crime-novel.jpg, cover-chronic-city.jpg, cover-gun-occasional-music.jpg
+  from the aotm-lethem-*.jpg covers on author-of-the-month.html
+cover-the-great-eastern.jpg  from GREATEASTERN.jpg (our bookstore card cover, copied unchanged, 180px wide)
