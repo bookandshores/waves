@@ -221,3 +221,7 @@ footer a { color:var(--black); }
 .subline { font-family:'Oswald',sans-serif; font-weight:500; text-transform:uppercase; letter-spacing:.22em; font-size:clamp(1rem,3.4vw,1.35rem); margin:-.2rem 0 1rem; }
 
 @media (max-width:600px) { .pp-body { max-height:min(260px,calc(var(--map-h,560px) - 230px)); } .pp-head small { letter-spacing:.04em; font-size:.6rem; } .pp-head { font-size:.98rem; } .pin.route { width:38px; height:38px; } .pin { width:36px; height:36px; } .yah-wrap { width:50px; height:50px; } }
+
+.claim-alt, .claim-fallback { font-size:.85rem; }
+.claim-fallback { margin-top:.6rem; }
+.claim-alt-link { background:none; border:0; padding:0; font:inherit; color:inherit; text-decoration:underline; cursor:pointer; }
