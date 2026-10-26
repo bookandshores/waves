@@ -71,7 +71,11 @@ window.bsAtlas = [
     { title: "Pure Ox", author: "Mateo Askaripour", isbn: "9798217178995", cover: "atlas/cover-pure-ox.jpg",
       setting: "Brooklyn", note: "A sanitation worker, a secret manuscript, a book deal, and a strike.",
       page: "bookstore.html",
-      src: "bookstore.html card blurb (\"A Brooklyn sanitation worker\")" }
+      src: "bookstore.html card blurb (\"A Brooklyn sanitation worker\")" },
+    { title: "Motherless Brooklyn", author: "Jonathan Lethem", year: 1999, isbn: "9780375724831", cover: "atlas/cover-motherless-brooklyn.jpg",
+      setting: "Brooklyn: a Tourettic private eye and the orphans of Frank Minna's agency", note: "Won the 1999 National Book Critics Circle Award for fiction. Jonathan Lethem is our Author of the Month for November 2026.",
+      page: "author-of-the-month.html",
+      src: "author-of-the-month.html (\"a Brooklyn orphan with Tourette's\"); Wikipedia (Motherless Brooklyn): Lionel Essrog and the Minna Men are orphans from Brooklyn; NBCC Award 1999" }
   ]},
   { id: "massachusetts", name: "Coastal Massachusetts, USA", lng: -70.7000, lat: 42.5000, area: true, cc: "US", cont: "North America", reg: ["massachusetts", "cape ann", "new england"], books: [
     { title: "The Things We Never Say", author: "Elizabeth Strout", isbn: "9798217154746", cover: "atlas/cover-the-things-we-never-say.jpg",
@@ -197,6 +201,69 @@ window.bsAtlas = [
       setting: "An uninhabited island \"on the coast of America, near the mouth of the great river Oroonoque\", with Trinidad to its west. Tobago is the usual real-world match. Crusoe's plantation years are in Brazil.", note: "A public-domain classic. Cover: the 1719 first-edition frontispiece and title page.",
       srcUrl: "https://kids.britannica.com/scholars/article/Robinson-Crusoe/486430",
       src: "Defoe's own title page and text (Orinoco, Trinidad to the W/NW); Britannica; Wikipedia, Tobago (\"roughly matches the island in Robinson Crusoe\")" }
+  ]},
+  /* ---- Added with the bookstore-catalog batch (branch bs/atlas-prize-pins). Same rules: stated settings only, sources cited in "src". ---- */
+  { id: "iowa-city", name: "Iowa City, Iowa", lng: -91.5302, lat: 41.6611, area: false, cc: "US", cont: "North America", reg: ["iowa city", "iowa", "johnson county", "midwest"], books: [
+    { title: "Small Rain", author: "Garth Greenwell", year: 2024, isbn: "9781250397508", cover: "atlas/cover-small-rain.jpg",
+      setting: "Iowa City, in a hospital ER and ICU, six months into the Covid pandemic", note: "A poet's two weeks in intensive care, told with tenderness and a partner waiting at home.",
+      page: "bookstore.html",
+      src: "The Atlantic review (a hospital in Iowa City); WSJ review (a poet in Iowa City, six months into the pandemic); Guardian review (first Greenwell novel set in the US, a hospital in Iowa)" }
+  ]},
+  { id: "hollywood", name: "Hollywood, Los Angeles", lng: -118.3267, lat: 34.1016, area: true, cc: "US", cont: "North America", reg: ["hollywood", "los angeles", "la", "california", "los angeles county"], books: [
+    { title: "Black Dahlia", author: "William J. Mann", year: 2026, isbn: "9781668075906", cover: "atlas/cover-black-dahlia.jpg",
+      setting: "Los Angeles, 1946 to 1947: the Hollywood streets where Elizabeth Short struggled, and the vacant lot where she was found", note: "True crime that gives the victim her dignity back and takes apart the old lesbian-murder myth.",
+      page: "bookstore.html",
+      src: "Simon & Schuster (publisher page: the 1947 murder, midcentury Hollywood); Kirkus review (January 15, 1947, Los Angeles; the seedier streets of Hollywood in the '40s); Cinesaurus Rex interview with Mann (the \"lesbian theory\" as homophobic myth)" }
+  ]},
+  { id: "harlem", name: "Harlem, New York", lng: -73.9465, lat: 40.8116, area: true, cc: "US", cont: "North America", reg: ["harlem", "sugar hill", "new york", "new york city", "nyc", "manhattan"], books: [
+    { title: "Cool Machine", author: "Colson Whitehead", year: 2026, isbn: "9780385550505", cover: "atlas/cover-cool-machine.jpg",
+      setting: "Harlem, 1981 to 1986, roving across the whole city from Windows on the World to Sugar Hill", note: "Last of the Harlem Trilogy. A Kirkus Prize finalist.",
+      page: "bookstore.html",
+      src: "Penguin Random House page (1980s New York, \"up in Harlem\"); Wikipedia (Cool Machine: set in Harlem, NYC); Penn Libraries catalog (Harlem (New York, N.Y.)--Fiction); Kirkus (Kirkus Prize finalist)" }
+  ]},
+  { id: "upper-east-side", name: "Upper East Side, Manhattan", lng: -73.9566, lat: 40.7736, area: true, cc: "US", cont: "North America", reg: ["upper east side", "manhattan", "new york", "new york city", "nyc"], books: [
+    { title: "Chronic City", author: "Jonathan Lethem", year: 2009, isbn: "9780307277527", cover: "atlas/cover-chronic-city.jpg",
+      setting: "The Upper East Side of Manhattan, in a foggy, surreal city with a tiger on the loose", note: "A former child star and a paranoid pop-culture critic wander a strange New York.",
+      page: "author-of-the-month.html",
+      src: "author-of-the-month.html (\"a foggy, surreal Manhattan with a tiger on the loose\"); Wikipedia (Chronic City): Lethem said it is \"set on the Upper East Side of Manhattan\"" }
+  ]},
+  { id: "boerum-hill", name: "Boerum Hill, Brooklyn", lng: -73.9857, lat: 40.686, area: true, cc: "US", cont: "North America", reg: ["boerum hill", "dean street", "gowanus", "brooklyn", "kings county", "new york", "new york city", "nyc"], books: [
+    { title: "The Fortress of Solitude", author: "Jonathan Lethem", year: 2003, isbn: "9780375724886", cover: "atlas/cover-fortress-of-solitude.jpg",
+      setting: "Boerum Hill, Brooklyn, in the 1970s: two boys on the same block", note: "Funk, graffiti, superheroes and a friendship that breaks your heart a little.",
+      page: "author-of-the-month.html",
+      src: "author-of-the-month.html (\"the same 1970s Brooklyn block\"); Wikipedia (The Fortress of Solitude; Jonathan Lethem): the two friends grow up on the same block in Boerum Hill" },
+    { title: "Brooklyn Crime Novel", author: "Jonathan Lethem", year: 2023, isbn: "9780062938817", cover: "atlas/cover-brooklyn-crime-novel.jpg",
+      setting: "Dean Street, Brooklyn, over more than fifty years", note: "One block, fifty years, and the kids who grew up on it. The pin sits in Boerum Hill, where Dean Street runs.",
+      page: "author-of-the-month.html",
+      src: "author-of-the-month.html (\"more than fifty years of one Brooklyn neighborhood\"); HarperCollins page (blurb: \"If Dean Street could talk, Brooklyn Crime Novel would be its voice ... a half-century of Brooklyn's dirt\")" }
+  ]},
+  { id: "oakland", name: "Oakland, California", lng: -122.2712, lat: 37.8044, area: true, cc: "US", cont: "North America", reg: ["oakland", "san francisco", "bay area", "alameda county", "california"], books: [
+    { title: "Gun, with Occasional Music", author: "Jonathan Lethem", year: 1994, isbn: "9780156028974", cover: "atlas/cover-gun-occasional-music.jpg",
+      setting: "A near-future version of Oakland and San Francisco", note: "Noir, but weirder: a private eye, a rabbit in his waiting room and a kangaroo on his tail.",
+      page: "author-of-the-month.html",
+      src: "author-of-the-month.html (\"a private eye in near-future Oakland\"); Wikipedia (Gun, with Occasional Music): a futuristic San Francisco and Oakland" }
+  ]},
+  { id: "ithaca", name: "Ithaca, New York", lng: -76.4966, lat: 42.444, area: false, cc: "US", cont: "North America", reg: ["ithaca", "tompkins county", "finger lakes", "new york", "upstate new york"], books: [
+    { title: "Moosewood Cookbook", author: "Mollie Katzen", year: 1977, isbn: "9781607747390", cover: "atlas/cover-moosewood.jpg",
+      setting: "Moosewood Restaurant, Ithaca, where the recipes were cooked", note: "A cookbook, not a novel. Hand-lettered recipes from a collective kitchen in Ithaca.",
+      page: "bookstore.html", ebook: ["the-moosewood-cookbook-40th-anniversary-edition-mollie-katzen/6981e1bb1d37ef2e", "9781607747406"],
+      src: "Wikipedia (Mollie Katzen; Moosewood Restaurant): Katzen helped build Moosewood Restaurant in Ithaca in 1972-73 and The Moosewood Cookbook grew out of it; the restaurant is in Ithaca, New York" }
+  ]},
+  { id: "somerset", name: "Somerset, England", lng: -2.8, lat: 51.1, area: true, cc: "GB", cont: "Europe", reg: ["somerset", "west country", "england", "bristol"], books: [
+    { title: "The Land in Winter", author: "Andrew Miller", year: 2024, isbn: "9798889661566", cover: "atlas/cover-land-in-winter.jpg",
+      setting: "Somerset, in the West Country, December 1962 to February 1963 (the Big Freeze)", note: "Two neighboring couples, one dairy farm and a winter that will not end. Shortlisted for the 2025 Booker Prize.",
+      page: "bookstore.html",
+      src: "The Booker Prizes (book page: December 1962, the West Country; shortlisted for the Booker Prize 2025); Booker reading guide (Bill and Rita Simmons moved to Somerset from London); Hachette UK (Somerset, Bristol)" }
+  ]},
+  { id: "london-thames", name: "London, along the Thames", lng: -0.1, lat: 51.505, area: true, cc: "GB", cont: "Europe", reg: ["london", "greater london", "thames", "england"], books: [
+    { title: "The Palm House", author: "Gwendoline Riley", year: 2026, isbn: "9798896230526", cover: "atlas/cover-palm-house.jpg",
+      setting: "London: a pub by the Thames and the literary magazine offices around it", note: "Longlisted for the 2026 Booker Prize. Friends, grief and a hostile takeover of a magazine.",
+      page: "bookstore.html",
+      src: "The Booker Prizes (book page: long evenings in an ancient pub by the Thames; judges: \"rarefied London intellectual spaces\"; longlisted for the Booker Prize 2026)" },
+    { title: "1984", author: "George Orwell", year: 1949, isbn: "9780451524935", cover: "atlas/cover-1984.jpg",
+      setting: "London, chief city of Airstrip One, where Winston Smith works at the Ministry of Truth", note: "Britain renamed Airstrip One, in the superstate of Oceania.",
+      page: "bookstore.html",
+      src: "Wikipedia (Nineteen Eighty-Four): Winston Smith works at the Ministry of Truth in London; Great Britain is now Airstrip One, a province of Oceania" }
   ]}
 ];
 
