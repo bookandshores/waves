@@ -443,6 +443,29 @@
         return out;
     }
 
+
+    function claimExtras(subj, body) {
+        var wrap = el("span", "claim-alt");
+        var g = el("a", "claim-alt-link", "Open in Gmail");
+        g.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(MAIL) + "&su=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
+        g.target = "_blank"; g.rel = "noopener";
+        var c = el("button", "claim-alt-link", "Copy " + MAIL);
+        c.type = "button";
+        c.addEventListener("click", function () {
+            function done(ok) { c.textContent = ok ? "Copied. Paste it into any email." : "Email us at " + MAIL; }
+            if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(MAIL).then(function () { done(true); }, function () { done(false); }); }
+            else {
+                var t = document.createElement("textarea"); t.value = MAIL; document.body.appendChild(t); t.select();
+                var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+                document.body.removeChild(t); done(ok);
+            }
+        });
+        wrap.appendChild(g); wrap.appendChild(document.createTextNode(" \u00b7 ")); wrap.appendChild(c);
+        return wrap;
+    }
+    function bodyFor(place) {
+        return "Book:\n\nAuthor:\n\nWhere it is set (place): " + place + "\n\nSource link (where the book says so, or a review/publisher page):\n\nCredit me as (optional, an @handle only; leave blank to stay unnamed):\n";
+    }
     function mailtoFor(place) {
         var subj = "Atlas pin: " + place;
         var body = "Book:\n\nAuthor:\n\nWhere it is set (place): " + place + "\n\nSource link (where the book says so, or a review/publisher page):\n\nCredit me as (optional, an @handle only; leave blank to stay unnamed):\n";
@@ -482,7 +505,7 @@
             srTitle.textContent = "No books pinned here yet";
             var p = el("p", "sr-empty");
             p.appendChild(document.createTextNode("No books pinned here yet. Know one? "));
-            var a = el("a", null, "Email us."); a.href = mailtoFor(label); p.appendChild(a);
+            var a = el("a", null, "Email us."); a.href = mailtoFor(label); p.appendChild(a); p.appendChild(document.createTextNode(" ")); p.appendChild(claimExtras("Atlas pin: " + label, bodyFor(label)));
             srBody.appendChild(p);
             srBody.appendChild(el("p", "sr-more", "Tell us the book, where it's set and where it says so. We check it, then pin it."));
         } else {
@@ -490,7 +513,7 @@
             var ul = el("ul", "sr-list");
             hits.forEach(function (h) { h.p.books.forEach(function (b) { ul.appendChild(bookCard(h, b)); }); });
             srBody.appendChild(ul);
-            var more = el("p", "sr-more"); more.appendChild(document.createTextNode("Know another one here? ")); var ma = el("a", null, "Email us."); ma.href = mailtoFor(label); more.appendChild(ma);
+            var more = el("p", "sr-more"); more.appendChild(document.createTextNode("Know another one here? ")); var ma = el("a", null, "Email us."); ma.href = mailtoFor(label); more.appendChild(ma); more.appendChild(document.createTextNode(" ")); more.appendChild(claimExtras("Atlas pin: " + label, bodyFor(label)));
             srBody.appendChild(more);
         }
         panel.hidden = false;
@@ -580,4 +603,11 @@
         Array.prototype.forEach.call(document.querySelectorAll(".pl-show"), function (b) { b.hidden = true; });
     }
     fromQuery();
+    var cb = document.getElementById("claim-btn");
+    if (cb && cb.parentNode) {
+        var cp = el("p", "claim-fallback");
+        cp.appendChild(document.createTextNode("Button not opening an email? "));
+        cp.appendChild(claimExtras("Atlas pin: [book title]", bodyFor("")));
+        cb.parentNode.insertBefore(cp, cb.nextSibling);
+    }
 })();
