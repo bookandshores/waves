@@ -385,9 +385,9 @@
         .ah-go:hover, .ah-go:focus-visible { background:#d8312b; border-color:#d8312b; color:#fff; }
         .greeting-box .btn.ah-open { margin-top:1.1rem; }
         @media (max-width: 520px) { .ah-row { flex-direction:column; gap:.8rem; } .ah-text { text-align:center; } .ah-card { padding:1.1rem .8rem 1.3rem; } .greeting-box.atlas-home { padding:1.4rem .6rem 1.6rem; } }
+        .ah-simple { display:flex; flex-direction:column; align-items:center; gap:.6rem; color:inherit; text-decoration:none; margin:0 auto; } .ah-simple .ah-mug { width:clamp(170px,40vw,260px); } .ah-simple .ah-title { text-align:center; } .ah-simple, .ah-simple:hover, .ah-simple:focus, .ah-simple:visited, .ah-simple .ah-title, .ah-simple:hover .ah-title { text-decoration:none; border-bottom:0; }
         .greeting-box.atlas-home :focus-visible, .ah-card :focus-visible { outline:3px solid #000; outline-offset:3px; }
     </style>
-    <link rel="stylesheet" href="zoltar-machine.css">
 </head>
 <body>
     <header>
@@ -397,32 +397,17 @@
             <span class="nav-booker"><a href="booker-2026-shortlist.html">Booker Shortlist</a><a href="booker-2026-shortlist.html" class="nav-tag">Announced Nov 9th</a></span>
             <a href="#reads">Weekly Reads</a>
             <a href="author-of-the-month.html">Author of the Month</a>
-            <a href="#zoltar">Zoltar</a>
-            <a href="atlas.html">Atlas</a>
+            <!-- B&S: Zoltar (zoltar.html) and Atlas (atlas.html) nav links paused until she finishes adjustments; pages and code kept. To restore add <a href="zoltar.html">Zoltar</a> and <a href="atlas.html">Atlas</a> here. The mug under GREETINGS still links to atlas.html. -->
         </nav>
     </header>
     <main>
         <div class="greeting-box zoltar-greeting atlas-home" id="atlas">
             <h2 style="margin:0 0 0.8rem;">GREETINGS!</h2>
-            <!-- B&S: the Atlas feature lives under GREETINGS. Compact version; the full map is on atlas.html (no duplicate map here). -->
-            <div class="ah-card">
-                <div class="ah-row">
-                    <picture class="ah-mug"><source media="(prefers-reduced-motion: reduce)" srcset="atlas/mug3d-poster.png" width="360" height="352"><img src="atlas/mug3d-turntable.webp" alt="A white 3D coffee mug that says read me., slowly turning." width="360" height="269"></picture>
-                    <div class="ah-text">
-                        <p class="ah-eyebrow">The Book &amp; Shores Atlas</p>
-                        <h3 class="ah-title">Go There. <span>Read It.</span></h3>
-                    </div>
-                </div>
-                <p class="ah-tagline">A map of where books are set. Type any place, or tap a pin to meet the book and take it home in print or ebook.</p>
-                <form class="ah-search" action="atlas.html" method="get" role="search">
-                    <label for="home-place-q" class="ah-label">Type any place</label>
-                    <div class="ah-formrow">
-                        <input id="home-place-q" name="q" type="search" placeholder="City, country or region" maxlength="80" autocomplete="off" enterkeyhint="search">
-                        <button type="submit" class="ah-go">Go there</button>
-                    </div>
-                </form>
-                <a class="btn ah-open" href="atlas.html">Open the Atlas</a>
-            </div>
+            <!-- B&S: GREETINGS shows the spinning 3D mug and "Go There. Read It."; links to the Atlas page (atlas.html). -->
+            <a class="ah-simple" href="atlas.html" aria-label="Go There. Read It. Open the Book &amp; Shores Atlas">
+                <picture class="ah-mug"><source media="(prefers-reduced-motion: reduce)" srcset="atlas/mug3d-poster.png" width="360" height="352"><img src="atlas/mug3d-turntable.webp" alt="A white 3D coffee mug that says read me., slowly turning." width="360" height="269"></picture>
+                <span class="ah-title">Go There. <span>Read It.</span></span>
+            </a>
         </div>
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
@@ -529,80 +514,6 @@
             <span class="btn">Meet the Author</span>
             </a>
         </section>
-        <!-- B&S: the Zoltar machine moved here, directly below Author of the Month (it used to sit under GREETINGS) -->
-        <div class="greeting-box zoltar-greeting" id="zoltar">
-            <section class="zmx-intro">
-                <div class="kicker">Step right up</div>
-                <h2 class="tagline">The Machine <span>that</span> Reads You</h2>
-                <p>Press the big yellow button and Zoltar picks your next read. Know what you want? Punch in a slot code, or tap any cover. Take it home in print, or read the ebook tonight.</p>
-            </section>
-            <!-- B&S: the real working Zoltar machine (same markup, CSS and JS as zoltar.html) -->
-        <div class="zmx" id="zmx" data-keys-focus>
-        <div class="machine-wrap">
-            <div class="machine" id="machine">
-                <div class="marquee">
-                    <div class="marquee-inner">
-                        <div class="bulbs top" aria-hidden="true"></div>
-                        <div class="pre">The Great &amp; Literary</div>
-                        <span class="name">Book &amp; Shores <em>Zoltar</em></span>
-                        <span class="tag">The Machine that Reads You</span>
-                        <div class="bulbs btm" aria-hidden="true"></div>
-                    </div>
-                </div>
-
-                <div class="body">
-                    <div class="glass" id="glass" aria-label="Books in the machine"></div>
-                    <div class="panel">
-                        <div class="alien-win" aria-hidden="true">
-                            <video id="alienVid" autoplay muted loop playsinline preload="metadata" poster="zoltar-video/zoltar-alien-poster.jpg" tabindex="-1">
-                                <source src="zoltar-video/zoltar-alien.webm" type="video/webm">
-                                <source src="zoltar-video/zoltar-alien.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="lcd" aria-live="polite">
-                            <div class="l1" id="lcd1">ZOLTAR IS READY</div>
-                            <div class="l2" id="lcd2">ENTER CODE</div>
-                        </div>
-                        <div class="keypad" id="keypad" aria-label="Keypad"></div>
-                        <button class="ask" id="ask" type="button">Ask<br>Zoltar<small>Press here</small></button>
-                        <ol class="rules">
-                            <li>Ask Zoltar.</li>
-                            <li>Accept your fate.</li>
-                            <li>Read it on the beach.</li>
-                        </ol>
-                        <div class="coin" aria-hidden="true"><span></span>Insert curiosity</div>
-                        <div class="stub" aria-hidden="true"><div class="slit"></div><div class="paper">Fortunes<br>printed here<small>1 book each</small></div></div>
-                    </div>
-                </div>
-
-                <div class="tray" id="tray" aria-hidden="true"><span>PUSH</span></div>
-            </div>
-        </div>
-        <div class="feet" aria-hidden="true" style="max-width:900px;margin:0 auto;"><i></i><i></i></div>
-
-        <p class="hint">Every book here is a real Book &amp; Shores pick. <b>30 slots, 30 fortunes.</b> Zoltar is never wrong, only early.</p>
-    <div class="reveal" id="reveal" role="dialog" aria-modal="true" aria-labelledby="fortune">
-        <div class="ticket" id="ticket" tabindex="-1">
-            <button class="close" id="close" type="button" aria-label="Close">×</button>
-            <div class="ticket-head"><span>Your fortune</span><span class="slotcode" id="tCode">A1</span></div>
-            <div class="ticket-body">
-                <div class="ticket-cover"><div class="rays" aria-hidden="true"></div><img id="tImg" src="" alt=""></div>
-                <div>
-                    <div class="says">Zoltar says</div>
-                    <p class="fortune" id="fortune"></p>
-                    <p class="book-name"><b id="tTitle"></b><br><span id="tAuthor"></span></p>
-                    <div class="actions">
-                        <a class="buy" id="buy" href="bookstore.html" rel="noopener sponsored">Buy the Book<small>Print</small></a>
-                        <a class="buy ebook" id="ebook" href="bookstore.html" target="_blank" rel="noopener sponsored" hidden>Ebook<small>Digital</small></a>
-                        <button class="again" id="again" type="button">Try again</button>
-                    </div>
-                    <p class="tip-line"><a class="tip-mini" href="https://www.paypal.com/donate/?hosted_button_id=KW8FF3VJ27C3S" target="_blank" rel="noopener" aria-label="Tip the Booktender on PayPal (opens in a new tab)">Tip the Booktender</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-        </div>
-        </div>
         <section id="support" class="section">
             <h2 style="margin:0 0 0.8rem;">WE LOVE YOU</h2>
             <p class="support-text">Keep the waves alive!</p>
@@ -704,6 +615,5 @@
     <!-- B&S: GoatCounter visitor counter (free, no cookies) -->
     <script data-goatcounter="https://bookandshores.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
-    <script src="zoltar-machine.js" defer></script>
 </body>
 </html>
