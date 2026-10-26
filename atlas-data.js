@@ -299,18 +299,6 @@ window.bsAtlas = [
       setting: "Berlin, from the last day of February 1933: the film director Fritz Lang and the screenwriter Thea von Harbou as the Nazis take power", note: "Howard Rodman's first novel. He also wrote The Great Eastern, which is on this map in the North Atlantic.",
       srcUrl: "https://howardrodman.com/destiny-express/",
       src: "Howard Rodman's own book page for Destiny Express (\"Berlin, the last day of February, 1933 ... across the grid of Berlin\"). Cover from howardrodman.com." }
-  ]},
-  { id: "san-fernando-valley", name: "The San Fernando Valley, Los Angeles", lng: -118.4500, lat: 34.2000, area: true, cc: "US", cont: "North America", reg: ["san fernando valley", "van nuys", "los angeles", "la", "california", "southern california"], books: [
-    { title: "Things That Happened Before the Earthquake", author: "Chiara Barzini", year: 2017, isbn: "9780525432425", cover: "atlas/cover-things-that-happened-before-the-earthquake.jpg",
-      setting: "Van Nuys, in the San Fernando Valley, 1992: a fifteen-year-old Italian girl in an LA high school", note: "Chiara Barzini's debut novel, set just after the Rodney King riots. She is our Author of the Month for December 2026.",
-      srcUrl: "https://www.penguinrandomhouse.com/books/549831/things-that-happened-before-the-earthquake-by-chiara-barzini/",
-      src: "Penguin Random House (publisher page); Novel Visits review (Eugenia moves from Rome to Van Nuys in 1992); Publishers Weekly profile, \"Under the California Sun with Chiara Barzini\"" }
-  ]},
-  { id: "oder-valley", name: "The Oder valley (the Oderbruch), Prussia", lng: 14.30, lat: 52.65, area: true, cc: "DE", cont: "Europe", reg: ["oder", "oderbruch", "prussia", "brandenburg", "germany", "poland"], books: [
-    { title: "Centroeuropa", author: "Vicente Luis Mora", year: 2020, isbn: "9781954276529", cover: "atlas/cover-centroeuropa.jpg",
-      setting: "Szonden, a small Prussian town on the Oder, in the early 1800s", note: "A National Book Award finalist. Szonden is a village the novel never ties to a map, so the ring marks the Oder valley where its sugar-beet business is set.",
-      srcUrl: "https://www.complete-review.com/reviews/espana/moravl.htm",
-      src: "Complete Review (\"largely set in nineteenth-century Prussia, in the small town of Szonden ... on the Oder\"; Redo's sugar-beet business in the Oderbruch); Bellevue Literary Press (publisher page: the dawn of the nineteenth century, Prussian soldiers). The town itself is not a real place we can locate, so only the region is pinned." }
   ]}
 ];
 
