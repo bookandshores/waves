@@ -25,3 +25,9 @@ cover-small-rain.jpg, cover-black-dahlia.jpg, cover-cool-machine.jpg, cover-land
 cover-motherless-brooklyn.jpg, cover-fortress-of-solitude.jpg, cover-brooklyn-crime-novel.jpg, cover-chronic-city.jpg, cover-gun-occasional-music.jpg
   from the aotm-lethem-*.jpg covers on author-of-the-month.html
 cover-the-great-eastern.jpg  from GREATEASTERN.jpg (our bookstore card cover, copied unchanged, 180px wide)
+
+Added with the Author of the Month / Howard Rodman / Weekly Reads audit (branch bs/atlas-aotm-rodman-pins), all resized to 240px wide:
+cover-office-politics.jpg, cover-liberation-summer.jpg, cover-the-odyssey.jpg, cover-us-v-them.jpg  our own site assets (aotm-lethem-office-politics.jpg, IMG_2774.jpg, Odyssey.png, USV.png)
+cover-centroeuropa.jpg  from weekly-centroeuropa.jpg (our Graveyard Shift Weekly Reads cover, branch bs/weekly-oct25)
+cover-things-that-happened-before-the-earthquake.jpg  from aotm-barzini-earthquake.jpg (our December Author of the Month draft cover, branch bs/aotm-barzini-draft)
+cover-destiny-express.jpg  publisher cover as shown on howardrodman.com/destiny-express/ (the author's own site), not yet a bookstore.html card
