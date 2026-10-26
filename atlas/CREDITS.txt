@@ -24,3 +24,4 @@ cover-small-rain.jpg, cover-black-dahlia.jpg, cover-cool-machine.jpg, cover-land
   from Small Rain.png, BLACK.png, CoolMachine.png, Winter.png, n-6.jpg, Moose.png, n-4.jpg (the bookstore card covers)
 cover-motherless-brooklyn.jpg, cover-fortress-of-solitude.jpg, cover-brooklyn-crime-novel.jpg, cover-chronic-city.jpg, cover-gun-occasional-music.jpg
   from the aotm-lethem-*.jpg covers on author-of-the-month.html
+cover-the-great-eastern.jpg  from GREATEASTERN.jpg (our bookstore card cover, copied unchanged, 180px wide)

@@ -264,6 +264,13 @@ window.bsAtlas = [
       setting: "London, chief city of Airstrip One, where Winston Smith works at the Ministry of Truth", note: "Britain renamed Airstrip One, in the superstate of Oceania.",
       page: "bookstore.html",
       src: "Wikipedia (Nineteen Eighty-Four): Winston Smith works at the Ministry of Truth in London; Great Britain is now Airstrip One, a province of Oceania" }
+  ]},
+  { id: "north-atlantic", name: "The North Atlantic (the transatlantic cable)", lng: -32, lat: 50.2, area: true, cc: "", cont: "Atlantic Ocean", reg: ["north atlantic", "north atlantic ocean", "atlantic", "atlantic ocean", "transatlantic", "at sea"], books: [
+    { title: "The Great Eastern", author: "Howard A. Rodman", year: 2019, isbn: "9781644285541", cover: "atlas/cover-the-great-eastern.jpg",
+      setting: "The North Atlantic, with scenes in New York, London, Paris and India (1850s-1870s). The pin sits on the open ocean along the transatlantic cable route", note: "Captain Nemo versus Captain Ahab, with the engineer Brunel caught between. An anticolonial sea adventure.",
+      page: "bookstore.html",
+      srcUrl: "https://howardrodman.com/the-great-eastern/",
+      src: "Howard Rodman's own book page (\"set in the 1850s-1870s in New York, London, Paris, India, and the North Atlantic\"); Melville House / Penguin Random House blurb (Nemo's fight against the laying of the Transatlantic cable); Walter Mosley blurb (the ship's mission to lay the Transatlantic cable). The novel moves between several places, so the pin marks only the North Atlantic; the other places are not pinned." }
   ]}
 ];
 
