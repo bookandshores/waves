@@ -65,13 +65,21 @@ window.bsAtlas = [
     { title: "Going Down in Gotham", author: "Zoe Hansen", isbn: "9798994335628", cover: "atlas/cover-going-down-in-gotham.jpg",
       setting: "Manhattan, 1980s, by way of London", note: "A memoir of MTV, heroin, and a madam's-eye view of the city.",
       page: "bookstore.html",
-      src: "bookstore.html card blurb (\"London to 1980s New York ... Manhattan\")" }
+      src: "bookstore.html card blurb (\"London to 1980s New York ... Manhattan\")" },
+    { title: "Office Politics", author: "Wilfrid Sheed", year: 1966, isbn: "9781961341180", cover: "atlas/cover-office-politics.jpg",
+      setting: "A drab office on the east side of Manhattan: the staff of The Outsider, a small highbrow weekly, 1960s", note: "A McNally Editions reissue of the 1966 novel, and one of the books Jonathan Lethem champions as our Author of the Month for November 2026.",
+      page: "author-of-the-month.html#9781961341180",
+      src: "author-of-the-month.html (Lethem's Office Politics pick); Electric Literature, \"Wilfrid Sheed's Office Politics Reconsidered\" (the office is \"somewhere on the east side of Manhattan\"); McNally Editions (publisher page: a satire of 1960s intellectual New York, set at the magazine The Outsider)" }
   ]},
   { id: "brooklyn", name: "Brooklyn, New York", lng: -73.9442, lat: 40.6782, area: false, cc: "US", cont: "North America", reg: ["brooklyn", "kings county", "new york", "new york city", "nyc"], books: [
     { title: "Pure Ox", author: "Mateo Askaripour", isbn: "9798217178995", cover: "atlas/cover-pure-ox.jpg",
       setting: "Brooklyn", note: "A sanitation worker, a secret manuscript, a book deal, and a strike.",
       page: "bookstore.html",
       src: "bookstore.html card blurb (\"A Brooklyn sanitation worker\")" },
+    { title: "US v. THEM", author: "Ronen Givony", year: 2026, isbn: "9781419775260", cover: "atlas/cover-us-v-them.jpg",
+      setting: "Brooklyn, mainly the Williamsburg and Greenpoint waterfront scene, 2004\u20132014", note: "Nonfiction: an oral-style history of the indie-music decade in New York. Pinned because the book is about one place, Brooklyn.",
+      page: "bookstore.html",
+      src: "Abrams (publisher page: Us v. Them, the Brooklyn indie-music scene 2004\u20132014); Brooklyn Magazine interview (Mar. 24, 2026); Library Journal review" },
     { title: "Motherless Brooklyn", author: "Jonathan Lethem", year: 1999, isbn: "9780375724831", cover: "atlas/cover-motherless-brooklyn.jpg",
       setting: "Brooklyn: a Tourettic private eye and the orphans of Frank Minna's agency", note: "Won the 1999 National Book Critics Circle Award for fiction. Jonathan Lethem is our Author of the Month for November 2026.",
       page: "author-of-the-month.html",
@@ -271,6 +279,26 @@ window.bsAtlas = [
       page: "bookstore.html",
       srcUrl: "https://howardrodman.com/the-great-eastern/",
       src: "Howard Rodman's own book page (\"set in the 1850s-1870s in New York, London, Paris, India, and the North Atlantic\"); Melville House / Penguin Random House blurb (Nemo's fight against the laying of the Transatlantic cable); Walter Mosley blurb (the ship's mission to lay the Transatlantic cable). The novel moves between several places, so the pin marks only the North Atlantic; the other places are not pinned." }
+  ]},
+  { id: "atlantic-city", name: "Atlantic City, New Jersey, USA", lng: -74.4229, lat: 39.3643, area: false, cc: "US", cont: "North America", reg: ["atlantic city", "new jersey", "nj", "boardwalk", "jersey shore"], books: [
+    { title: "Liberation Summer", author: "Micki McElya", year: 2026, isbn: "9781982166762", cover: "atlas/cover-liberation-summer.jpg",
+      setting: "The Atlantic City Boardwalk, September 1968: the Miss America pageant protests", note: "Nonfiction. Pinned because the book builds to one place and one weekend. It also ranges across 1968 America.",
+      page: "bookstore.html",
+      srcUrl: "https://www.harvard.com/book/9781982166762",
+      src: "Avid Reader Press / Simon & Schuster description (via Harvard Book Store): \"Atlantic City played host ... the boardwalk became a site of vigorously contested ideas\"; Elaine Weiss blurb (\"the Atlantic City boardwalk in late summer 1968\"); Kirkus (starred review). The book also covers wider 1968 politics, which are not pinned." }
+  ]},
+  { id: "ionian-islands", name: "Ithaca and the Ionian Islands, Greece", lng: 20.65, lat: 38.30, area: true, cc: "GR", cont: "Europe", reg: ["ithaca", "ithaki", "ionian islands", "ionian sea", "kefalonia", "cephalonia", "greece"], books: [
+    { title: "The Odyssey", author: "Homer", isbn: "9780140268867", cover: "atlas/cover-the-odyssey.jpg",
+      setting: "Ithaca, Odysseus's island home, in the Ionian Sea", note: "The poem ranges across the Mediterranean, and the pin marks only the home he is trying to reach. Scholars still debate exactly which modern island Homer's Ithaca is, so the ring covers the Ionian group.",
+      page: "bookstore.html",
+      srcUrl: "https://en.wikipedia.org/wiki/Ithaca_(island)",
+      src: "Wikipedia (Ithaca (island)): Odysseus's home in the Odyssey; modern Ithaki is the traditional identification, with Lefkada and Paliki (Kefalonia) proposed as alternatives; HISTORY.com, \"Is the Island of Ithaca in The Odyssey a Real Place?\"; Perseus / Princeton Encyclopedia of Classical Sites (Ithaca, Greece). The other places in the poem are not pinned." }
+  ]},
+  { id: "berlin", name: "Berlin, Germany", lng: 13.4050, lat: 52.5200, area: false, cc: "DE", cont: "Europe", reg: ["berlin", "germany", "weimar", "weimar republic"], books: [
+    { title: "Destiny Express", author: "Howard A. Rodman", isbn: "9781644285534", cover: "atlas/cover-destiny-express.jpg",
+      setting: "Berlin, from the last day of February 1933: the film director Fritz Lang and the screenwriter Thea von Harbou as the Nazis take power", note: "Howard Rodman's first novel. He also wrote The Great Eastern, which is on this map in the North Atlantic.",
+      srcUrl: "https://howardrodman.com/destiny-express/",
+      src: "Howard Rodman's own book page for Destiny Express (\"Berlin, the last day of February, 1933 ... across the grid of Berlin\"). Cover from howardrodman.com." }
   ]}
 ];
 
