@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="max-image-preview:large">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
     <link rel="manifest" href="site.webmanifest">
     <title>Book & Shores | Books & Prints | 2026</title>
     <meta name="description" content="Books and Oddity Illustrations 2026 — Limited edition signed prints, posters, and curated oddity books by Book & Shores.">
@@ -364,6 +364,29 @@
         /* B&S: Tip the Booktender button */
         .tip-btn { display:inline-block; margin-top:0.8rem; padding:0.45rem 1rem; background:var(--yellow); color:var(--black); border:3px solid var(--black); border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s ease; }
         .tip-btn:hover { transform:translateY(-2px); background:var(--black); color:var(--yellow); }
+        /* B&S: the Zoltar machine lives inside GREETINGS (styles in zoltar-machine.css) */
+        .greeting-box.zoltar-greeting { width:100%; }
+        .greeting-box .zmx { text-align:left; margin-top:.4rem; }
+        .greeting-box .zmx .hint { margin-bottom:0; }
+        @media (max-width: 600px) { .greeting-box.zoltar-greeting { padding: 1.2rem .6rem 1.4rem; } }
+        /* B&S: compact Atlas feature under GREETINGS */
+        .ah-card { background:var(--cream,#f4e9d3); border:3px solid #000; border-radius:10px; box-shadow:6px 6px 0 rgba(0,0,0,.85); padding:1.4rem 1.2rem 1.6rem; max-width:720px; margin:0 auto; text-align:center; }
+        .ah-row { display:flex; align-items:center; justify-content:center; gap:clamp(1rem,3vw,1.8rem); }
+        .ah-mug { flex:none; width:clamp(130px,22vw,190px); display:block; } .ah-mug img { display:block; width:100%; height:auto; aspect-ratio:360/269; object-fit:contain; filter:drop-shadow(5px 6px 0 rgba(0,0,0,.85)); }
+        .ah-text { text-align:left; }
+        .ah-eyebrow { font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; margin:0 0 .2rem; }
+        .ah-title { font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; line-height:1.02; font-size:clamp(2rem,7vw,3.4rem); margin:0; }
+        .ah-title span { display:block; }
+        .ah-tagline { font-style:italic; font-weight:500; font-size:clamp(.95rem,3.4vw,1.15rem); margin:1rem 0 1.1rem; border-top:3px solid #000; border-bottom:3px solid #000; padding:.4rem .8rem; display:inline-block; }
+        .ah-label { display:block; font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:1.2rem; margin-bottom:.35rem; }
+        .ah-formrow { display:flex; gap:.5rem; max-width:520px; margin:0 auto; }
+        .ah-formrow input { flex:1; min-width:0; font:inherit; font-size:1rem; padding:.65rem .8rem; background:#fffaf0; color:#000; border:3px solid #000; border-radius:8px; }
+        .ah-go { font:inherit; font-size:.85rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:.55rem 1rem; background:#000; color:var(--yellow); border:3px solid #000; border-radius:8px; cursor:pointer; }
+        .ah-go:hover, .ah-go:focus-visible { background:#d8312b; border-color:#d8312b; color:#fff; }
+        .greeting-box .btn.ah-open { margin-top:1.1rem; }
+        @media (max-width: 520px) { .ah-row { flex-direction:column; gap:.8rem; } .ah-text { text-align:center; } .ah-card { padding:1.1rem .8rem 1.3rem; } .greeting-box.atlas-home { padding:1.4rem .6rem 1.6rem; } }
+        .ah-simple { display:flex; flex-direction:column; align-items:center; gap:.6rem; color:inherit; text-decoration:none; margin:0 auto; } .ah-simple .ah-mug { width:clamp(170px,40vw,260px); } .ah-simple .ah-title { text-align:center; } .ah-simple, .ah-simple:hover, .ah-simple:focus, .ah-simple:visited, .ah-simple .ah-title, .ah-simple:hover .ah-title { text-decoration:none; border-bottom:0; }
+        .greeting-box.atlas-home :focus-visible, .ah-card :focus-visible { outline:3px solid #000; outline-offset:3px; }
     </style>
 </head>
 <body>
@@ -374,14 +397,17 @@
             <span class="nav-booker"><a href="booker-2026-shortlist.html">Booker Shortlist</a><a href="booker-2026-shortlist.html" class="nav-tag">Announced Nov 9th</a></span>
             <a href="#reads">Weekly Reads</a>
             <a href="author-of-the-month.html">Author of the Month</a>
+            <!-- B&S: Zoltar (zoltar.html) and Atlas (atlas.html) nav links paused until she finishes adjustments; pages and code kept. To restore add <a href="zoltar.html">Zoltar</a> and <a href="atlas.html">Atlas</a> here. The mug under GREETINGS still links to atlas.html. -->
         </nav>
     </header>
     <main>
-        <div class="greeting-box">
+        <div class="greeting-box zoltar-greeting atlas-home" id="atlas">
             <h2 style="margin:0 0 0.8rem;">GREETINGS!</h2>
-            <div class="poster-preview">
-                <img src="117-sig.png" alt="Book & Shores Read Me Poster">
-            </div>
+            <!-- B&S: GREETINGS shows the spinning 3D mug and "Go There. Read It."; links to the Atlas page (atlas.html). -->
+            <a class="ah-simple" href="atlas.html" aria-label="Go There. Read It. Open the Book &amp; Shores Atlas">
+                <picture class="ah-mug"><source media="(prefers-reduced-motion: reduce)" srcset="atlas/mug3d-poster.png" width="360" height="352"><img src="atlas/mug3d-turntable.webp" alt="A white 3D coffee mug that says read me., slowly turning." width="360" height="269"></picture>
+                <span class="ah-title">Go There. <span>Read It.</span></span>
+            </a>
         </div>
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
@@ -577,11 +603,12 @@
                 }, 300);
             }, 4200);
         }
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
             anchor.addEventListener('click', e => {
-                e.preventDefault();
                 const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>

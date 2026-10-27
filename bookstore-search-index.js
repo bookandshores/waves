@@ -694,6 +694,24 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "The Sandman",
+"author": "Lars Kepler (translated by Neil Smith)",
+"isbn": "9780525433057",
+"cover": "9780525433057.jpg",
+"buy": "https://bookshop.org/a/125864/9780525433057",
+"page": "book-the-sandman.html",
+"aff": true
+},
+{
+"title": "Susan Sontag: The Collected Essays (pre-order)",
+"author": "Susan Sontag (edited by David Rieff)",
+"isbn": "9781598538595",
+"cover": "9781598538595.jpg",
+"buy": "https://bookshop.org/a/125864/9781598538595",
+"page": "book-susan-sontag-collected-essays.html",
+"aff": true
+},
+{
 "title": "The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)",
 "isbn": "9781419793967",
 "cover": "SimpsonsTreehouse.png",
