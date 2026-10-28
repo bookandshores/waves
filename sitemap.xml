@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bookandshores.com/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/atlas.html</loc>
   </url>
   <url>
     <loc>https://bookandshores.com/author-of-the-month.html</loc>
@@ -17,11 +20,11 @@
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
-    <loc>https://bookandshores.com/book-carol.html</loc>
+    <loc>https://bookandshores.com/book-black-bag.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
-    <loc>https://bookandshores.com/book-centroeuropa.html</loc>
+    <loc>https://bookandshores.com/book-carol.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
@@ -29,7 +32,11 @@
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
-    <loc>https://bookandshores.com/book-night-of-a-thousand-hells.html</loc>
+    <loc>https://bookandshores.com/book-john-of-john.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-may-we-feed-the-king.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
@@ -41,6 +48,9 @@
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
+    <loc>https://bookandshores.com/book-susan-sontag-collected-essays.html</loc>
+  </url>
+  <url>
     <loc>https://bookandshores.com/book-switzy.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
@@ -49,7 +59,57 @@
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
+    <loc>https://bookandshores.com/book-the-disappearers.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
     <loc>https://bookandshores.com/book-the-end-of-everything.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-the-sandman.html</loc>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-the-things-we-never-say.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/booker-2026-longlist.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/booker-2026-shortlist.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/bookstore.html</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/gift-guide-2026.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/shop-posters.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/zoltar.html</loc>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/charlotte-verse-vino-2026.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/epicfest-2026.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-centroeuropa.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-night-of-a-thousand-hells.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
@@ -61,23 +121,7 @@
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
-    <loc>https://bookandshores.com/booker-2026-longlist.html</loc>
-    <lastmod>2026-10-20</lastmod>
-  </url>
-  <url>
-    <loc>https://bookandshores.com/booker-2026-shortlist.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://bookandshores.com/bookstore.html</loc>
-    <lastmod>2026-10-21</lastmod>
-  </url>
-  <url>
     <loc>https://bookandshores.com/national-book-awards-2026-finalists.html</loc>
-    <lastmod>2026-10-20</lastmod>
-  </url>
-  <url>
-    <loc>https://bookandshores.com/shop-posters.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
 </urlset>
