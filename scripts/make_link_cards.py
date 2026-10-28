@@ -30,6 +30,14 @@ BOOKS = [
          title="Switzy", author="Emma Cline"),
     dict(slug="ambivalence", cover="AMBIVALENCE.png", label="Memoir · Bookstore Pick",
          title="Ambivalence: An Education", author="Brian Dillon"),
+    dict(slug="sound-within-sound", cover="9781419753565.jpg", label="Music History · Bookstore Pick",
+         title="Sound Within Sound", author="Kate Molleson"),
+    dict(slug="space-behind-the-face", cover="9798217061273.jpg", label="Memoir · Pre-order · Nov 3",
+         title="The Space Behind the Face", author="Robert Wilson with Keith McDermott"),
+    dict(slug="the-sandman", cover="9780525433057.jpg", label="Now Apple TV's Nocturne · Oct 30",
+         title="The Sandman", author="Lars Kepler"),
+    dict(slug="susan-sontag-collected-essays", cover="9781598538595.jpg", label="Library of America · Pre-order · Nov 3",
+         title="The Collected Essays", author="Susan Sontag, ed. David Rieff"),
 ]
 
 # Event / list pages: no cover image; the right side is a big type block with the date.

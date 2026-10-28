@@ -694,6 +694,24 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "The Sandman",
+"author": "Lars Kepler (translated by Neil Smith)",
+"isbn": "9780525433057",
+"cover": "9780525433057.jpg",
+"buy": "https://bookshop.org/a/125864/9780525433057",
+"page": "book-the-sandman.html",
+"aff": true
+},
+{
+"title": "Susan Sontag: The Collected Essays (pre-order)",
+"author": "Susan Sontag (edited by David Rieff)",
+"isbn": "9781598538595",
+"cover": "9781598538595.jpg",
+"buy": "https://bookshop.org/a/125864/9781598538595",
+"page": "book-susan-sontag-collected-essays.html",
+"aff": true
+},
+{
 "title": "The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)",
 "isbn": "9781419793967",
 "cover": "SimpsonsTreehouse.png",
@@ -718,6 +736,24 @@ window.bsSearchIndex = [
 "cover": "RedSnoopy.png",
 "buy": "https://bookshop.org/a/125864/9781787742727",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Sound Within Sound: Radical Composers of the Twentieth Century",
+"author": "Kate Molleson",
+"isbn": "9781419753565",
+"cover": "9781419753565.jpg",
+"buy": "https://bookshop.org/a/125864/9781419753565",
+"page": "book-sound-within-sound.html",
+"aff": true
+},
+{
+"title": "The Space Behind the Face: Life Stories (pre-order)",
+"author": "Robert Wilson with Keith McDermott",
+"isbn": "9798217061273",
+"cover": "9798217061273.jpg",
+"buy": "https://bookshop.org/a/125864/9798217061273",
+"page": "book-space-behind-the-face.html",
 "aff": true
 },
 {
