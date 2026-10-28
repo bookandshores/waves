@@ -300,6 +300,27 @@ window.bsAtlas = [
       srcUrl: "https://howardrodman.com/destiny-express/",
       src: "Howard Rodman's own book page for Destiny Express (\"Berlin, the last day of February, 1933 ... across the grid of Berlin\"). Cover from howardrodman.com." }
   ]}
+  ,{ id: "lower-manhattan", name: "William Street, Lower Manhattan, New York", lng: -74.0083, lat: 40.7063, area: true, cc: "US", cont: "North America", reg: ["lower manhattan", "william street", "financial district", "manhattan", "new york", "new york city", "nyc"], books: [
+    { title: "A Washington Irving Sketch Book: Reflections on an American Writer", author: "Phillip Lopate", year: 2026, isbn: "9780691284439", cover: "atlas/cover-washington-irving-sketch-book.jpg",
+      setting: "Irving's New York City, from his family's home and shop on William Street in Lower Manhattan", note: "Nonfiction sketches of the writer. The book also follows Irving to the Hudson River Valley and Europe; only his New York beginnings are pinned.",
+      page: "book-washington-irving-sketch-book.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/phillip-lopate/a-washington-irving-sketch-book/",
+      src: "Kirkus Reviews (names Irving's \"beloved hometown, New York City\" and his family's home and shop on William Street in Lower Manhattan); Princeton University Press book page. The pin sits near William Street, not at an exact address. The other places in the book are not pinned." }
+  ]},
+  { id: "brownsville-matamoros", name: "Brownsville, Texas, and Matamoros, Mexico", lng: -97.4975, lat: 25.9017, area: true, cc: "US", cont: "North America", reg: ["brownsville", "matamoros", "heroica matamoros", "rio grande", "rio grande valley", "cameron county", "texas", "tx", "tamaulipas", "mexico"], books: [
+    { title: "Rewriting American Architecture: Contesting the Myths of National Culture", author: "Charles L. Davis II, Kathryn E. Holliday and Joanna Merwood-Salisbury (eds.)", year: 2026, isbn: "9781477334171", cover: "atlas/cover-rewriting-american-architecture.jpg",
+      setting: "Essays on the border cities of Brownsville, Texas, and Matamoros, Tamaulipas, in the nineteenth century (chapter 9)", note: "Nonfiction. A collection of 20 essays with no single setting. The pin marks only the places one chapter studies, so read it as essays on this border.",
+      page: "book-rewriting-american-architecture.html",
+      srcUrl: "https://utpress.utexas.edu/9781477334171/",
+      src: "University of Texas Press book page (table of contents) and the publisher's review copy of the book (chapter 9, on Brownsville, Texas, and Heroica Matamoros, Tamaulipas). The book's other chapters are not pinned." }
+  ]},
+  { id: "austin", name: "Austin, Texas", lng: -97.7431, lat: 30.2672, area: false, cc: "US", cont: "North America", reg: ["austin", "travis county", "texas", "tx"], books: [
+    { title: "Rewriting American Architecture: Contesting the Myths of National Culture", author: "Charles L. Davis II, Kathryn E. Holliday and Joanna Merwood-Salisbury (eds.)", year: 2026, isbn: "9781477334171", cover: "atlas/cover-rewriting-american-architecture.jpg",
+      setting: "Essays on nineteenth-century Austin, Texas, and the Mason family of builders (chapter 4)", note: "Nonfiction. A collection of 20 essays with no single setting. The pin marks only the place one chapter studies, so read it as essays on Austin.",
+      page: "book-rewriting-american-architecture.html",
+      srcUrl: "https://utpress.utexas.edu/9781477334171/",
+      src: "University of Texas Press book page (table of contents) and the publisher's review copy of the book (chapter 4, on the Mason family, builders in Austin, Texas). The book's other chapters are not pinned." }
+  ]}
 ];
 
 /* Seasonal routes. A route is an ordered list of place ids, drawn as a numbered path.
