@@ -29,3 +29,6 @@ cover-the-great-eastern.jpg  from GREATEASTERN.jpg (our bookstore card cover, co
 Added with the Author of the Month / Howard Rodman / Weekly Reads audit (branch bs/atlas-aotm-rodman-pins), all resized to 240px wide:
 cover-office-politics.jpg, cover-liberation-summer.jpg, cover-the-odyssey.jpg, cover-us-v-them.jpg  our own site assets (aotm-lethem-office-politics.jpg, IMG_2774.jpg, Odyssey.png, USV.png)
 cover-destiny-express.jpg  publisher cover as shown on howardrodman.com/destiny-express/ (the author's own site), not yet a bookstore.html card
+
+Added with the Irving and Texas book pages (branch bs/irving-texas-atlas), resized to 240px wide:
+cover-washington-irving-sketch-book.jpg, cover-rewriting-american-architecture.jpg  our own page covers (weekly-irving.jpg, weekly-texas-architecture.jpg). The Irving cover is the publisher's (Princeton University Press); the Texas cover comes from the University of Texas Press media kit sent to us for review.
