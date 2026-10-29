@@ -480,6 +480,55 @@
             <a href="bookstore.html" class="btn" style="font-size: 1.4rem; padding: 1.1rem 3rem;">See Full Bookstore</a>
             <p style="margin-top: 1.2rem; color: var(--gray);">Welcome to the waves babe</p>
         </div>
+        <!-- B&S: Dates to Remember (prize season), above Spin Brigitte -->
+        <style>
+        .dtr { max-width: 1100px; margin: 3rem auto; padding: 2rem clamp(1rem,4vw,2.5rem); background: var(--yellow); color: var(--black); border: 4px solid var(--black); border-radius: 12px; }
+        .dtr-k { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .dtr h2 { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2.4rem, 8vw, 4.5rem); line-height: 0.95; letter-spacing: -0.02em; margin: 0.3rem 0; text-transform: uppercase; text-align: left; }
+        .dtr-sub { font-weight: 600; border-bottom: 3px solid var(--black); padding-bottom: 1rem; margin: 0; }
+        .dtr-dates { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
+        .dtr-d { flex: 1 1 260px; background: var(--black); color: var(--yellow); border-radius: 10px; padding: 1rem 1.2rem; text-decoration: none; }
+        .dtr-d .n { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1; }
+        .dtr-d .w { display: block; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.25rem; color: #fff; margin: 0.3rem 0 0.15rem; }
+        .dtr-d .x { display: block; font-size: 0.85rem; color: #fff; }
+        .dtr-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.4rem 0.9rem; }
+        .dtr-book { display: block; color: var(--black); text-decoration: none; }
+        .dtr-book img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border: 3px solid var(--black); border-radius: 4px; display: block; transition: transform .15s; }
+        .dtr-book:hover img, .dtr-book:focus img { transform: translateY(-4px); }
+        .dtr-t { display: block; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.1; margin-top: 0.4rem; }
+        .dtr-a { display: block; font-size: 0.78rem; line-height: 1.25; margin-top: 0.15rem; }
+        .dtr-c { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #444; margin-top: 0.15rem; }
+        .dtr-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 1.8rem; text-align: center; }
+        @media (max-width: 900px) { .dtr-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 600px) { .dtr-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem 0.6rem; } .dtr-t { font-size: 0.85rem; } .dtr-a { font-size: 0.68rem; } }
+        @media (max-width: 360px) { .dtr-grid { grid-template-columns: repeat(2, 1fr); } }
+        </style>
+        <section class="dtr" id="dates-to-remember" aria-labelledby="dtr-title">
+            <div class="dtr-k">Prize season</div>
+            <h2 id="dtr-title">Dates to Remember</h2>
+            <p class="dtr-sub">11 National Book Award finalists, to read before the ceremony</p>
+            <div class="dtr-dates">
+                <a class="dtr-d" href="atlas.html#booker-prize-2026"><span class="n">MON NOV 9</span><span class="w">Booker Prize 2026 winner</span><span class="x">London · livestream 4:45 PM ET</span></a>
+                <a class="dtr-d" href="atlas.html#national-book-awards-2026"><span class="n">WED NOV 18</span><span class="w">National Book Awards</span><span class="x">Free livestream · 8 PM ET</span></a>
+            </div>
+            <div class="dtr-grid">
+                <a class="dtr-book" href="book-paradiso-17.html"><img src="nba26-paradiso-17.jpg" alt="Cover of Paradiso 17 by Hannah Lillith Assadi" loading="lazy"><span class="dtr-t">Paradiso 17</span><span class="dtr-a">Hannah Lillith Assadi</span><span class="dtr-c">Fiction</span></a>
+                <a class="dtr-book" href="book-dey.html"><img src="nba26-dey.jpg" alt="Cover of Dèy by Edwidge Danticat" loading="lazy"><span class="dtr-t">Dèy</span><span class="dtr-a">Edwidge Danticat</span><span class="dtr-c">Fiction</span></a>
+                <a class="dtr-book" href="book-pretend-youre-dead-and-i-carry-you.html"><img src="nba26-pretend-youre-dead.jpg" alt="Cover of Pretend You’re Dead and I Carry You by Julián Delgado Lopera" loading="lazy"><span class="dtr-t">Pretend You’re Dead and I Carry You</span><span class="dtr-a">Julián Delgado Lopera</span><span class="dtr-c">Fiction</span></a>
+                <a class="dtr-book" href="book-beginning-middle-end.html"><img src="nba26-beginning-middle-end.jpg" alt="Cover of Beginning Middle End by Valeria Luiselli" loading="lazy"><span class="dtr-t">Beginning Middle End</span><span class="dtr-a">Valeria Luiselli</span><span class="dtr-c">Fiction</span></a>
+                <a class="dtr-book" href="book-mad-eden.html"><img src="nba26-mad-eden.jpg" alt="Cover of Mad Eden by Morgan Thomas" loading="lazy"><span class="dtr-t">Mad Eden</span><span class="dtr-a">Morgan Thomas</span><span class="dtr-c">Fiction</span></a>
+                <a class="dtr-book" href="book-huna.html"><img src="nba26-huna.jpg" alt="Cover of Huna by Abdelrahman ElGendy" loading="lazy"><span class="dtr-t">Huna</span><span class="dtr-a">Abdelrahman ElGendy</span><span class="dtr-c">Nonfiction</span></a>
+                <a class="dtr-book" href="book-let-the-poets-govern.html"><img src="nba26-let-the-poets-govern.jpg" alt="Cover of Let the Poets Govern by Camonghne Felix" loading="lazy"><span class="dtr-t">Let the Poets Govern</span><span class="dtr-a">Camonghne Felix</span><span class="dtr-c">Nonfiction</span></a>
+                <a class="dtr-book" href="book-mother-tongue.html"><img src="nba26-mother-tongue.jpg" alt="Cover of Mother Tongue by Sara Nović" loading="lazy"><span class="dtr-t">Mother Tongue</span><span class="dtr-a">Sara Nović</span><span class="dtr-c">Nonfiction</span></a>
+                <a class="dtr-book" href="book-spawning-season.html"><img src="nba26-spawning-season.jpg" alt="Cover of Spawning Season by Joseph Osmundson" loading="lazy"><span class="dtr-t">Spawning Season</span><span class="dtr-a">Joseph Osmundson</span><span class="dtr-c">Nonfiction</span></a>
+                <a class="dtr-book" href="book-pure-men.html"><img src="nba26-pure-men.jpg" alt="Cover of Pure Men by Mohamed Mbougar Sarr" loading="lazy"><span class="dtr-t">Pure Men</span><span class="dtr-a">Mohamed Mbougar Sarr</span><span class="dtr-c">Translated</span></a>
+                <a class="dtr-book" href="book-your-presence-is-a-danger-to-your-life.html"><img src="nba26-your-presence.jpg" alt="Cover of Your Presence Is a Danger to Your Life by Samar Yazbek" loading="lazy"><span class="dtr-t">Your Presence Is a Danger to Your Life</span><span class="dtr-a">Samar Yazbek</span><span class="dtr-c">Translated</span></a>
+            </div>
+            <div class="dtr-links">
+                <a href="national-book-awards-2026-finalists.html" class="btn">See All 11 Finalists</a>
+                <a href="atlas.html#national-book-awards-2026" class="btn">Follow the Prize Routes on the Atlas</a>
+            </div>
+        </section>
         <!-- B&S: Spin Brigitte moved above Send a Postcard -->
         <div class="bardot-container" id="spin">
             <h2 style="margin-bottom: 1.5rem;">Spin Brigitte for a Wave of Wisdom</h2>
