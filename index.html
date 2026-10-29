@@ -13,7 +13,7 @@
     <link rel="canonical" href="https://bookandshores.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Book &amp; Shores | Books &amp; Prints | 2026">
-    <meta property="og:description" content="Curated books, Weekly Reads, Author of the Month and prints by Book &amp; Shores.">
+    <meta property="og:description" content="Buy Books, Booker Shortlist, Weekly Reads, Author of the Month and the Atlas by Book &amp; Shores.">
     <meta property="og:url" content="https://bookandshores.com/">
     <meta property="og:image" content="https://bookandshores.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -397,7 +397,8 @@
             <span class="nav-booker"><a href="booker-2026-shortlist.html">Booker Shortlist</a><a href="booker-2026-shortlist.html" class="nav-tag">Announced Nov 9th</a></span>
             <a href="#reads">Weekly Reads</a>
             <a href="author-of-the-month.html">Author of the Month</a>
-            <!-- B&S: Zoltar (zoltar.html) and Atlas (atlas.html) nav links paused until she finishes adjustments; pages and code kept. To restore add <a href="zoltar.html">Zoltar</a> and <a href="atlas.html">Atlas</a> here. The mug under GREETINGS still links to atlas.html. -->
+            <a href="atlas.html">Atlas</a>
+            <!-- B&S: Atlas nav link restored Oct 28 at her request. Zoltar (zoltar.html) nav link still paused; to restore add <a href="zoltar.html">Zoltar</a> here. The mug under GREETINGS still links to atlas.html. -->
         </nav>
     </header>
     <main>
@@ -411,7 +412,7 @@
         </div>
         <section id="reads" class="section">
             <h2>Weekly Reads</h2>
-            <p style="max-width: 560px; margin: -0.6rem auto 1.2rem; text-align: center; color: var(--black); font-size: clamp(1rem, 3.8vw, 1.1rem);">Patricia Highsmith is having a moment. Read <em>The Talented Mr. Ripley</em> before <em>A Talent for Murder</em> opens Oct 23, with <em>Carol</em> as a bonus, plus M. John Harrison's Booker contender <em>The End of Everything</em>. <a href="https://bleeckerstreetmedia.com/a-talent-for-murder" target="_blank" rel="noopener" style="color: var(--black); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">Purchase Bleecker movie tickets here</a>.</p>
+            <p style="max-width: 560px; margin: -0.6rem auto 1.2rem; text-align: center; color: var(--black); font-size: clamp(1rem, 3.8vw, 1.1rem);">The Graveyard Shift. Four National Book Award finalists with a little Halloween in them: a deal with the devil, a field of frozen soldiers, a gothic in three sisters, and the jailhouse records behind American music. Winners are named Nov 18. <a href="national-book-awards-2026-finalists.html" style="color: var(--black); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">See all 15 finalists</a>.</p>
             <div style="text-align: center;">
                 <a href="https://x.com/bookandshores" class="x-link" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -420,36 +421,43 @@
                     @bookandshores
                 </a>
             </div>
-            <div class="books-grid" id="weekly-grid">
+            <!-- B&S: this week's original Book & Shores illustration (signed AE), framed like the cover cards -->
+            <figure style="margin: 1.6rem auto 2.4rem; max-width: min(460px, 92%); text-align: center;">
+                <img src="weekly-graveyard-shift-illustration.jpg" width="1000" height="971" loading="lazy" alt="Book &amp; Shores illustration: two 1950s pin-ups kiss beside a beach bonfire at night, one holding a read me. mug" style="display: block; width: 100%; height: auto; border: 4px solid var(--black); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);">
+            </figure>
+            <!-- B&S: four picks this week, so the grid fits four across on desktop -->
+            <div class="books-grid" id="weekly-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
                 <div class="book-card weekly-card">
                     <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
-                    <div class="book-cover-frame"><a href="book-talented-mr-ripley.html" style="display:block; width:100%; height:100%;"><img src="weekly-ripley.jpg" alt="The Talented Mr. Ripley by Patricia Highsmith"></a></div>
-                    <div class="book-title"><a href="book-talented-mr-ripley.html" style="color: var(--black); text-decoration: none;">The Talented Mr. Ripley — Patricia Highsmith</a></div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780393332148" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The Talented Mr. Ripley by Patricia Highsmith on Bookshop.org (opens in a new tab)">Buy Now</a></div>
-                </div>
-                <div class="book-card weekly-card">
-                    <!-- B&S: bonus pick alongside Ripley; cover and title link to the book page; Buy Now still goes to Bookshop -->
-                    <div class="book-cover-frame"><a href="book-carol.html" style="display:block; width:100%; height:100%;"><img src="weekly-carol.jpg" alt="Carol (The Price of Salt) by Patricia Highsmith"></a></div>
-                    <div class="book-title"><span style="display:inline-block; background: var(--black); color: var(--yellow); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.1rem 0.5rem; border-radius: 4px; margin-bottom: 0.3rem;">Bonus</span><br><a href="book-carol.html" style="color: var(--black); text-decoration: none;">Carol — Patricia Highsmith</a></div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780393325997" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Carol by Patricia Highsmith on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                    <div class="book-cover-frame"><a href="book-the-midnight-special.html" style="display:block; width:100%; height:100%;"><img src="weekly-midnight-special.jpg" alt="The Midnight Special by Colin Asher"></a></div>
+                    <div class="book-title"><a href="book-the-midnight-special.html" style="color: var(--black); text-decoration: none;">The Midnight Special — Colin Asher</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781324051398" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The Midnight Special by Colin Asher on Bookshop.org (opens in a new tab)">Buy Now</a></div>
                 </div>
                 <div class="book-card weekly-card">
                     <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
-                    <div class="book-cover-frame"><a href="book-the-end-of-everything.html" style="display:block; width:100%; height:100%;"><img src="weekly-end-of-everything.jpg" alt="The End of Everything by M. John Harrison"></a></div>
-                    <div class="book-title"><a href="book-the-end-of-everything.html" style="color: var(--black); text-decoration: none;">The End of Everything — M. John Harrison</a></div>
-                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798217438655" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The End of Everything by M. John Harrison on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                    <div class="book-cover-frame"><a href="book-centroeuropa.html" style="display:block; width:100%; height:100%;"><img src="weekly-centroeuropa.jpg" alt="Centroeuropa by Vicente Luis Mora"></a></div>
+                    <div class="book-title"><a href="book-centroeuropa.html" style="color: var(--black); text-decoration: none;">Centroeuropa — Vicente Luis Mora</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781954276529" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Centroeuropa by Vicente Luis Mora on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                </div>
+                <div class="book-card weekly-card">
+                    <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
+                    <div class="book-cover-frame"><a href="book-night-of-a-thousand-hells.html" style="display:block; width:100%; height:100%;"><img src="weekly-night-of-a-thousand-hells.jpg" alt="Night of a Thousand Hells by Intan Paramaditha"></a></div>
+                    <div class="book-title"><a href="book-night-of-a-thousand-hells.html" style="color: var(--black); text-decoration: none;">Night of a Thousand Hells — Intan Paramaditha</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9798889662129" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Night of a Thousand Hells by Intan Paramaditha on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                </div>
+                <div class="book-card weekly-card">
+                    <!-- B&S: cover and title link to the book page; Buy Now still goes to Bookshop -->
+                    <div class="book-cover-frame"><a href="book-the-school-of-night.html" style="display:block; width:100%; height:100%;"><img src="weekly-school-of-night.jpg" alt="The School of Night by Karl Ove Knausgaard"></a></div>
+                    <div class="book-title"><a href="book-the-school-of-night.html" style="color: var(--black); text-decoration: none;">The School of Night — Karl Ove Knausgaard</a></div>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780593832820" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The School of Night by Karl Ove Knausgaard on Bookshop.org (opens in a new tab)">Buy Now</a></div>
                 </div>
             </div>
-            <!-- B&S: Highsmith halftone photo row for the Ripley pick (edited versions), with credits -->
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 1.5rem; margin-top: 3rem;">
-                <figure style="margin: 0; flex: 0 1 206px; max-width: 100%;">
-                    <img src="highsmith-halftone-1962.png" alt="Black-and-cream halftone comic-dot portrait of Patricia Highsmith around 1962, smiling with her hand to her mouth" loading="lazy" style="display:block; width:100%; height:auto; aspect-ratio: 413 / 520; border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);">
-                    <figcaption style="margin-top: 0.6rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; line-height: 1.4; color: var(--black); text-align: center;">Patricia Highsmith, c. 1962. Publicity photo, Harper &amp; Brothers, via <a href="https://commons.wikimedia.org/wiki/File:Patricia-Highsmith-1962.jpg" style="color: var(--black);" target="_blank" rel="noopener">Wikimedia Commons</a> (public domain). Edited by Book &amp; Shores.</figcaption>
-                </figure>
-                <figure style="margin: 0; flex: 0 1 295px; max-width: 100%;">
-                    <img src="highsmith-halftone-1988.png" alt="Black and yellow halftone comic-dot portrait of Patricia Highsmith seated on the TV program After Dark in 1988" loading="lazy" style="display:block; width:100%; height:auto; aspect-ratio: 590 / 520; border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);">
-                    <figcaption style="margin-top: 0.6rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; line-height: 1.4; color: var(--black); text-align: center;">Patricia Highsmith on After Dark, 1988. Photo © Open Media Ltd, <a href="https://creativecommons.org/licenses/by-sa/3.0/" style="color: var(--black);" target="_blank" rel="noopener">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Highsmith_on_After_Dark.JPG" style="color: var(--black);" target="_blank" rel="noopener">Wikimedia Commons</a>. Cropped and edited by Book &amp; Shores.</figcaption>
-                </figure>
+            <!-- B&S: last week's Highsmith picks stay on the shelf; ticket card kept while A Talent for Murder is in theaters -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 3rem;">
+                <div style="flex: 0 1 300px; max-width: 100%; text-align: center; font-size: clamp(0.95rem, 3.5vw, 1.05rem); line-height: 1.5;">
+                    <span style="display:inline-block; background: var(--black); color: var(--yellow); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.1rem 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">Still on the shelf</span><br>
+                    Last week&#x27;s Highsmith double bill: <a href="book-talented-mr-ripley.html" style="color: var(--black); font-weight: 600;">The Talented Mr. Ripley</a> and <a href="book-carol.html" style="color: var(--black); font-weight: 600;">Carol</a>, because Carol is always a bonus.
+                </div>
                 <figure style="margin: 0; flex: 0 0 210px; max-width: 100%;">
                     <!-- B&S: ticket card for A Talent for Murder, text-only, links to Bleecker Street -->
                     <a href="https://bleeckerstreetmedia.com/a-talent-for-murder" target="_blank" rel="noopener" aria-label="Get tickets for A Talent for Murder from Bleecker Street (opens in a new tab)" style="display: flex; flex-direction: column; height: 260px; box-sizing: border-box; background: #f5ecd4; color: var(--black); text-decoration: none; border: 4px solid var(--black); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.22); overflow: hidden; text-align: center;">
@@ -558,6 +566,8 @@
                 <!-- B&S: year updated -->
                 © 2026 Book & Shores • Contact: <a href="mailto:readme@bookandshores.com" style="color: var(--black);">readme@bookandshores.com</a>
             </p>
+            <!-- B&S: Bookshop.org gift card (affiliate 125864) -->
+            <p class="bs-gift-footer" style="margin-top:0.8rem; font-size:0.9rem;"><a href="https://bookshop.org/a/125864/gift_cards" target="_blank" rel="noopener sponsored" style="color: var(--black); font-weight: 500;" aria-label="Give a Bookshop.org gift card (opens in a new tab)">Give a gift card →</a></p>
         </div>
     </footer>
     <script async src="//www.instagram.com/embed.js"></script>
