@@ -320,13 +320,88 @@ window.bsAtlas = [
       page: "book-rewriting-american-architecture.html",
       srcUrl: "https://utpress.utexas.edu/9781477334171/",
       src: "University of Texas Press book page (table of contents) and the publisher's review copy of the book (chapter 4, on the Mason family, builders in Austin, Texas). The book's other chapters are not pinned." }
+  ]},
+  { id: "bogota", name: "Bogotá, Colombia", lng: -74.0721, lat: 4.7110, area: false, cc: "CO", cont: "South America", reg: ["bogota", "bogotá", "colombia"], books: [
+    { title: "Pretend You’re Dead and I Carry You", author: "Julián Delgado Lopera", year: 2026, isbn: "9781324097204", cover: "atlas/cover-pretend-youre-dead-and-i-carry-you.jpg",
+      setting: "Bogotá in the 1990s, from a dreary apartment to the city’s queer underground", note: "A 2026 National Book Award finalist for Fiction.",
+      page: "book-pretend-youre-dead-and-i-carry-you.html",
+      srcUrl: "https://www.harvard.com/book/9781324097204",
+      src: "Publisher’s description (Liveright, via Harvard Book Store): \"a dreary Bogotá apartment\", \"Bogotá’s queer underground\"; book-pretend-youre-dead-and-i-carry-you.html (\"Bogotá in the 1990s\")" }
+  ]},
+  { id: "miami", name: "Miami, Florida", lng: -80.1918, lat: 25.7617, area: false, cc: "US", cont: "North America", reg: ["miami", "miami-dade", "florida", "fl"], books: [
+    { title: "Dèy", author: "Edwidge Danticat", year: 2026, isbn: "9780593803523", cover: "atlas/cover-dey.jpg",
+      setting: "Miami, with family still in Haiti", note: "A 2026 National Book Award finalist for Fiction.",
+      page: "book-dey.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/768725/dey-by-edwidge-danticat/",
+      src: "Penguin Random House book page: \"Magnolia, a successful Haitian American real estate agent in Miami\"" }
+  ]},
+  { id: "florida", name: "Florida, USA", lng: -82.4, lat: 29.2, area: true, cc: "US", cont: "North America", reg: ["florida", "fl"], books: [
+    { title: "Mad Eden", author: "Morgan Thomas", year: 2026, isbn: "9780374620158", cover: "atlas/cover-mad-eden.jpg",
+      setting: "A ramshackle cabin in a secluded stretch of Florida (the book doesn’t say where)", note: "A debut novel and a 2026 National Book Award finalist for Fiction.",
+      page: "book-mad-eden.html",
+      srcUrl: "https://www.mcdbooks.com/books/mad-eden",
+      src: "MCD Books / FSG publisher's description: \"a ramshackle cabin in a secluded stretch of Florida\". No town is named, so this is an area pin." }
+  ]},
+  { id: "dakar", name: "Dakar, Senegal", lng: -17.4677, lat: 14.7167, area: false, cc: "SN", cont: "Africa", reg: ["dakar", "senegal"], books: [
+    { title: "Pure Men", author: "Mohamed Mbougar Sarr (translated by Lara Vergnaud)", year: 2026, isbn: "9781635424706", cover: "atlas/cover-pure-men.jpg",
+      setting: "Dakar, and the hidden side of the city", note: "A 2026 National Book Award finalist for Translated Literature.",
+      page: "book-pure-men.html",
+      srcUrl: "https://otherpress.com/product/pure-men-9781635424706/",
+      src: "Other Press book page: \"A viral video makes the rounds in Dakar\"; \"he explores a hidden side of Dakar\"" }
+  ]},
+  { id: "sicily", name: "Sicily, Italy", lng: 14.2, lat: 37.55, area: true, cc: "IT", cont: "Europe", reg: ["sicily", "sicilia", "italy"], books: [
+    { title: "Beginning Middle End", author: "Valeria Luiselli", year: 2026, isbn: "9798217208319", cover: "atlas/cover-beginning-middle-end.jpg",
+      setting: "A stormy summer in Sicily, near the ancient ruins of a great-grandmother’s archaeological dig", note: "A 2026 National Book Award finalist for Fiction.",
+      page: "book-beginning-middle-end.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/815828/beginning-middle-end-by-valeria-luiselli/",
+      src: "Penguin Random House book page: \"They’ve landed in Sicily, near the ancient ruins where the mother’s grandmother worked long ago on an archaeological dig\". The ruins are not named, so this is an area pin." }
+  ]},
+  { id: "cairo", name: "Cairo, Egypt", lng: 31.2357, lat: 30.0444, area: false, cc: "EG", cont: "Africa", reg: ["cairo", "egypt"], books: [
+    { title: "Huna", author: "Abdelrahman ElGendy", year: 2026, isbn: "9798217153602", cover: "atlas/cover-huna.jpg",
+      setting: "Cairo in 2013, then six years in Egypt’s prisons", note: "Memoir. A debut and a 2026 National Book Award finalist for Nonfiction.",
+      page: "book-huna.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/799613/huna-by-abdelrahman-elgendy/",
+      src: "Penguin Random House book page: \"seventeen-year-old Abdelrahman ElGendy was a budding student activist in Cairo\"; six years as a political prisoner" }
+  ]},
+  { id: "gaza", name: "Gaza", lng: 34.40, lat: 31.42, area: true, cc: "PS", cont: "Asia", reg: ["gaza", "gaza strip", "palestine"], books: [
+    { title: "Your Presence Is a Danger to Your Life", author: "Samar Yazbek (translated by Leri Price)", year: 2026, isbn: "9781635426120", cover: "atlas/cover-your-presence-is-a-danger-to-your-life.jpg",
+      setting: "Survivors from Gaza, in their own words (many were interviewed in Doha in 2024)", note: "Nonfiction. A 2026 National Book Award finalist for Translated Literature.",
+      page: "book-your-presence-is-a-danger-to-your-life.html",
+      srcUrl: "https://otherpress.com/product/your-presence-is-a-danger-to-your-life-9781635426120/",
+      src: "Other Press book page: \"Samar Yazbek met with hundreds of survivors from Gaza\"; book-your-presence-is-a-danger-to-your-life.html (many receiving treatment in Doha)" }
+  ]},
+  { id: "safad", name: "Safad (Safed), Galilee", lng: 35.4960, lat: 32.9646, area: false, cc: "IL", cont: "Asia", reg: ["safad", "safed", "tzfat", "galilee", "palestine", "israel"], books: [
+    { title: "Paradiso 17", author: "Hannah Lillith Assadi", year: 2026, isbn: "9780593804056", cover: "atlas/cover-paradiso-17.jpg",
+      setting: "Safad, Palestine, on the edge of the 1948 Nakba, then Kuwait, a small Italian university town, New York and the Arizona desert", note: "Pinned where Sufien’s life begins. A 2026 National Book Award finalist for Fiction.",
+      page: "book-paradiso-17.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/776855/paradiso-17-by-hannah-lillith-assadi/",
+      src: "Penguin Random House book page: \"Raised in Safad on the precipice of the 1948 Nakba\"; later Kuwait, a small Italian university town, New York and Arizona" }
+  ]},
+  { id: "london-black-bag", name: "London, England (today)", lng: -0.1180, lat: 51.5230, area: true, cc: "GB", cont: "Europe", reg: ["london", "greater london", "england"], books: [
+    { title: "Black Bag", author: "Luke Kennard", year: 2026, isbn: "9781638933380", cover: "atlas/cover-black-bag.jpg",
+      setting: "Contemporary London: a grotty flat and a university lecture hall", note: "A campus novel. Shortlisted for the 2026 Booker Prize.",
+      page: "book-black-bag.html",
+      srcUrl: "https://thebookerprizes.com/the-booker-library/books/black-bag",
+      src: "The Booker Prizes book page, judges' citation: \"How does an aspiring actor survive in contemporary London\". The university is not named, so this is an area pin." }
   ]}
+
 ];
 
-/* Seasonal routes. A route is an ordered list of place ids, drawn as a numbered path.
-   Deep link: atlas.html#<id>. */
+/* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.
+   Deep link: atlas.html#<id>. Optional: eyebrow (banner kicker), order (replaces "oldest to newest" in the count line),
+   color (path color), moody (tint the map, Gothic only), note (line under the stop list), isNew (shows the "New" tag on the chip).
+   The first sentence of "blurb" is replaced by the live count ("8 stops, 8 books, west to east."). */
 window.bsRoutes = [
-  { id: "gothic-october", name: "Gothic October",
+  { id: "gothic-october", name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, isNew: true, color: "#4a0f22",
+    note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
     blurb: "Seven stops, eight books, oldest to newest. Lock the door first.",
-    stops: ["otranto", "geneva", "thornfield", "yorkshire", "london-gothic", "whitby", "kerry"] }
+    stops: ["otranto", "geneva", "thornfield", "yorkshire", "london-gothic", "whitby", "kerry"] },
+  { id: "national-book-awards-2026", name: "National Book Awards 2026", eyebrow: "Award route · winners named Nov 18", order: "west to east", color: "#111111",
+    note: "Three of the eleven finalists (Let the Poets Govern, Mother Tongue and Spawning Season) don't center on one place, so they aren't pinned. Each popup cites its source.",
+    blurb: "Eight stops. Fiction, Nonfiction and Translated Literature finalists, from Bogotá to Galilee.",
+    stops: ["bogota", "miami", "florida", "dakar", "sicily", "cairo", "gaza", "safad"] },
+  { id: "booker-prize-2026", name: "Booker Prize 2026", eyebrow: "Award route · winner named Nov 9", order: "west to east", color: "#7a4f00",
+    note: "Five of the six shortlisted novels. May We Feed the King isn't pinned because its medieval palace and kingdom aren't named. Each popup cites its source.",
+    blurb: "Five stops. The shortlist, from Kingston to the Kent coast.",
+    stops: ["kingston", "massachusetts", "hebrides", "london-black-bag", "kent"] }
 ];

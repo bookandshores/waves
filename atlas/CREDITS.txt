@@ -32,3 +32,6 @@ cover-destiny-express.jpg  publisher cover as shown on howardrodman.com/destiny-
 
 Added with the Irving and Texas book pages (branch bs/irving-texas-atlas), resized to 240px wide:
 cover-washington-irving-sketch-book.jpg, cover-rewriting-american-architecture.jpg  our own page covers (weekly-irving.jpg, weekly-texas-architecture.jpg). The Irving cover is the publisher's (Princeton University Press); the Texas cover comes from the University of Texas Press media kit sent to us for review.
+
+Added with the National Book Awards 2026 and Booker Prize 2026 routes (branch bs/nba-booker-bookstore-atlas), resized to 240px wide:
+cover-paradiso-17.jpg, cover-dey.jpg, cover-pretend-youre-dead-and-i-carry-you.jpg, cover-beginning-middle-end.jpg, cover-mad-eden.jpg, cover-huna.jpg, cover-pure-men.jpg, cover-your-presence-is-a-danger-to-your-life.jpg, cover-black-bag.jpg  publisher covers, from the covers already on our own book pages (ISBN-named jpgs and booker26-black-bag.jpg).

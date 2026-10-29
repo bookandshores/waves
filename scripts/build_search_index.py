@@ -44,15 +44,20 @@ def ld_books(path):
         except ValueError:
             continue
         items = [d] if d.get("@type") == "Book" else [i.get("item", {}) for i in d.get("itemListElement", [])]
+        items += [g for g in d.get("@graph", []) if isinstance(g, dict)]  # pages that wrap Book + Breadcrumbs in an @graph
         for b in items:
             if b.get("@type") == "Book" and re.fullmatch(r"\d{13}", b.get("isbn", "")):
                 yield b
+
+def authors(a):
+    a = a if isinstance(a, list) else [a or {}]
+    return ", ".join(x.get("name", "") for x in a if isinstance(x, dict) and x.get("name"))
 
 for path in sorted(glob.glob("book-*.html")) + ["author-of-the-month.html", "booker-2026-shortlist.html"]:
     for b in ld_books(path):
         isbn = b["isbn"]
         page = b.get("url", "").replace("https://bookandshores.com/", "") or path
-        add(isbn, title=b.get("name", ""), author=(b.get("author") or {}).get("name", ""), isbn=isbn,
+        add(isbn, title=b.get("name", ""), author=authors(b.get("author")), isbn=isbn,
             cover=b.get("image", "").replace("https://bookandshores.com/", ""), buy=AFF + isbn, page=page)
         if path.startswith("book-"):
             books[isbn]["page"] = path

@@ -9,7 +9,7 @@
     var fallback = document.getElementById("map-fallback");
     var map = null, popup = null, activeId = null, markers = {};
     var ROUTES = window.bsRoutes || [];
-    var ROUTE = ROUTES[0] || null;
+    var ROUTE = ROUTES[0] || null; // the route currently shown (each route has its own chip)
     var routeStops = ROUTE ? ROUTE.stops.slice() : [];
     var routeOn = false, mapReady = false;
 
@@ -155,7 +155,7 @@
         map.addLayer({ id: "route-halo", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" },
             paint: { "line-color": "#f4e9d3", "line-width": 7, "line-opacity": 0, "line-opacity-transition": { duration: reduce ? 0 : 500 } } });
         map.addLayer({ id: "route-line", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" },
-            paint: { "line-color": "#4a0f22", "line-width": 3, "line-dasharray": [1.6, 1.4], "line-opacity": 0, "line-opacity-transition": { duration: reduce ? 0 : 500 } } });
+            paint: { "line-color": (ROUTE && ROUTE.color) || "#4a0f22", "line-width": 3, "line-dasharray": [1.6, 1.4], "line-opacity": 0, "line-opacity-transition": { duration: reduce ? 0 : 500 } } });
     }
     function paintRoute() {
         if (!map || !mapReady) { return; }
@@ -163,17 +163,28 @@
         map.setPaintProperty("route-halo", "line-opacity", routeOn ? 0.85 : 0);
         map.setPaintProperty("route-line", "line-opacity", routeOn ? 1 : 0);
     }
-    function setRoute(on, silent, instant) {
+    function routeById(id) { return ROUTES.filter(function (r) { return r.id === id; })[0] || null; }
+    function useRoute(r) {
+        if (!r || r === ROUTE) { return; }
+        ROUTE = r; routeStops = r.stops.slice();
+        fillRoute();
+        if (map && map.getSource("route")) {
+            map.getSource("route").setData(routeGeo());
+            map.setPaintProperty("route-line", "line-color", r.color || "#4a0f22");
+        }
+    }
+    function setRoute(on, silent, instant, r) {
         if (!ROUTE || !map) { return; }
+        if (r) { useRoute(r); }
         routeOn = on;
         if (on) { clearSearch(); }
         if (popup) { popup.remove(); }
-        document.getElementById("map").classList.toggle("moody", on);
-        document.querySelector(".airmail").classList.toggle("moody", on);
-        var chip = document.getElementById("route-chip");
-        if (chip) { chip.setAttribute("aria-pressed", String(on)); }
-        var banner = document.getElementById("route-banner"); if (banner) { banner.hidden = !on; }
-        var rl = document.getElementById("route-list"); if (rl) { rl.hidden = !on; }
+        var moody = on && !!ROUTE.moody;
+        document.getElementById("map").classList.toggle("moody", moody);
+        document.querySelector(".airmail").classList.toggle("moody", moody);
+        Array.prototype.forEach.call(document.querySelectorAll(".route-chip[data-route]"), function (c) { c.setAttribute("aria-pressed", String(on && c.getAttribute("data-route") === ROUTE.id)); });
+        var banner = document.getElementById("route-banner"); if (banner) { banner.hidden = !on; banner.classList.toggle("award", !ROUTE.moody); }
+        var rl = document.getElementById("route-list"); if (rl) { rl.hidden = !on; rl.classList.toggle("award", !ROUTE.moody); }
         Object.keys(markers).forEach(function (id) {
             var i = routeStops.indexOf(id), m = markers[id].el;
             m.classList.toggle("route", on && i > -1);
@@ -181,7 +192,7 @@
             m.disabled = on && i === -1;
             m.querySelector(".rnum").textContent = on && i > -1 ? String(i + 1) : "";
             var base = markers[id].label;
-            m.setAttribute("aria-label", on && i > -1 ? "Gothic October stop " + (i + 1) + " of " + routeStops.length + ". " + base : base);
+            m.setAttribute("aria-label", on && i > -1 ? ROUTE.name + " stop " + (i + 1) + " of " + routeStops.length + ". " + base : base);
         });
         if (on) {
             Array.prototype.forEach.call(document.querySelectorAll("#regions button[data-region]"), function (b) { b.setAttribute("aria-pressed", "false"); });
@@ -193,9 +204,10 @@
             try { history.replaceState(null, "", on ? "#" + ROUTE.id : location.pathname + location.search); } catch (e) { /* file:// etc. */ }
         }
     }
-    function renderRoute() {
-        if (!ROUTE) { return; }
+    // Fill the banner and stop list for the current route.
+    function fillRoute() {
         var ol = document.getElementById("route-ol");
+        ol.textContent = "";
         routeStops.forEach(function (id, i) {
             var p = place(id), li = el("li");
             li.appendChild(el("span", "rn", String(i + 1)));
@@ -209,9 +221,26 @@
             li.appendChild(box); ol.appendChild(li);
         });
         var books = 0; routeStops.forEach(function (id) { books += place(id).books.length; });
-        document.getElementById("route-blurb").textContent = plural(routeStops.length, "stop") + ", " + plural(books, "book") + ", oldest to newest. " + (ROUTE.blurb.split(". ").slice(1).join(". ") || "");
-        var chip = document.getElementById("route-chip");
-        chip.addEventListener("click", function () { setRoute(!routeOn); });
+        document.getElementById("route-blurb").textContent = plural(routeStops.length, "stop") + ", " + plural(books, "book") + ", " + (ROUTE.order || "oldest to newest") + ". " + (ROUTE.blurb.split(". ").slice(1).join(". ") || "");
+        var bt = document.getElementById("route-title"); if (bt) { bt.textContent = ROUTE.name; }
+        var be = document.getElementById("route-eyebrow"); if (be) { be.textContent = ROUTE.eyebrow || "A reading route"; }
+        var rn = document.getElementById("route-note"); if (rn) { rn.textContent = ROUTE.note || "Each popup cites its source."; }
+    }
+    function renderRoute() {
+        if (!ROUTE) { return; }
+        fillRoute();
+        // One chip per route: the first is the #route-chip already in atlas.html, the rest are added after it.
+        var first = document.getElementById("route-chip"), prevChip = first;
+        ROUTES.forEach(function (r, i) {
+            var chip = i ? el("button", "route-chip" + (r.moody ? "" : " award"), r.name) : first;
+            if (i) {
+                chip.type = "button"; chip.setAttribute("aria-pressed", "false"); chip.setAttribute("aria-describedby", "route-blurb");
+                if (r.isNew) { chip.appendChild(document.createTextNode(" ")); chip.appendChild(el("span", "new", "New")); }
+                prevChip.parentNode.insertBefore(chip, prevChip.nextSibling); prevChip = chip;
+            }
+            chip.setAttribute("data-route", r.id);
+            chip.addEventListener("click", function () { setRoute(!(routeOn && ROUTE === r), false, false, r); });
+        });
         var cp = document.getElementById("route-copy"), st = document.getElementById("route-copy-status");
         cp.addEventListener("click", function () {
             var url = location.origin && location.origin !== "null" ? location.origin + location.pathname + "#" + ROUTE.id : "https://bookandshores.com/atlas.html#" + ROUTE.id;
@@ -220,8 +249,9 @@
             else { done(url); }
         });
         window.addEventListener("hashchange", function () {
-            var want = location.hash === "#" + ROUTE.id;
-            if (want !== routeOn) { setRoute(want, true); }
+            var r = routeById(location.hash.slice(1));
+            if (r) { if (!routeOn || r !== ROUTE) { setRoute(true, true, false, r); } }
+            else if (routeOn) { setRoute(false, true); }
         });
     }
 
@@ -283,8 +313,9 @@
         });
         map.on("load", function () {
             mapReady = true; paintRoute();
-            if (ROUTE && location.hash === "#" + ROUTE.id && !routeOn) {
-                setRoute(true, true, true);
+            var hashRoute = routeById(location.hash.slice(1));
+            if (hashRoute && !routeOn) {
+                setRoute(true, true, true, hashRoute);
                 var rb = document.getElementById("regions"); if (rb) { rb.scrollIntoView({ block: "start" }); }
             }
         });
