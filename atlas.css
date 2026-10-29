@@ -183,6 +183,12 @@ footer a { color:var(--black); }
 .rb-status { font-size:.72rem; color:var(--cream); word-break:break-all; }
 .rb-status:empty { display:none; }
 
+/* Award routes (National Book Awards, Booker): black and marigold, no map tint */
+.region-bar button.route-chip.award { background:var(--black) !important; color:var(--yellow) !important; border-color:var(--black) !important; }
+.region-bar button.route-chip.award[aria-pressed="true"], .region-bar button.route-chip.award:hover { background:var(--yellow) !important; color:var(--black) !important; border-color:var(--black) !important; }
+.route-banner.award { background:var(--black); box-shadow:6px 6px 0 var(--cream); }
+.route-list.award { background:var(--black); box-shadow:6px 6px 0 var(--cream); }
+
 /* moody map: tint the tiles only, markers and popups stay crisp */
 #map .maplibregl-canvas { transition:filter .6s ease; }
 #map.moody .maplibregl-canvas { filter:sepia(.3) saturate(.7) brightness(.84) contrast(1.06); }

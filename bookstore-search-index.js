@@ -109,6 +109,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Beginning Middle End",
+"author": "Valeria Luiselli",
+"isbn": "9798217208319",
+"cover": "9798217208319.jpg",
+"buy": "https://bookshop.org/a/125864/9798217208319",
+"page": "book-beginning-middle-end.html",
+"aff": true
+},
+{
 "title": "The Best American Essays 2026",
 "author": "Edited by M. Gessen",
 "isbn": "9780063454446",
@@ -141,7 +150,7 @@ window.bsSearchIndex = [
 "isbn": "9781638933380",
 "cover": "booker26-black-bag.jpg",
 "buy": "https://bookshop.org/a/125864/9781638933380",
-"page": "booker-2026-shortlist.html#9781638933380",
+"page": "book-black-bag.html",
 "aff": true
 },
 {
@@ -178,6 +187,15 @@ window.bsSearchIndex = [
 "cover": "CARBON.png",
 "buy": "https://bookshop.org/a/125864/9780262054775",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Centroeuropa",
+"author": "Vicente Luis Mora",
+"isbn": "9781954276529",
+"cover": "weekly-centroeuropa.jpg",
+"buy": "https://bookshop.org/a/125864/9781954276529",
+"page": "book-centroeuropa.html",
 "aff": true
 },
 {
@@ -303,7 +321,16 @@ window.bsSearchIndex = [
 "isbn": "9780593717202",
 "cover": "IMG_2779.jpg",
 "buy": "https://bookshop.org/a/125864/9780593717202",
-"page": "booker-2026-shortlist.html#9780593717202",
+"page": "book-the-disappearers.html",
+"aff": true
+},
+{
+"title": "Dèy",
+"author": "Edwidge Danticat",
+"isbn": "9780593803523",
+"cover": "9780593803523.jpg",
+"buy": "https://bookshop.org/a/125864/9780593803523",
+"page": "book-dey.html",
 "aff": true
 },
 {
@@ -331,6 +358,15 @@ window.bsSearchIndex = [
 "cover": "weekly-end-of-everything.jpg",
 "buy": "https://bookshop.org/a/125864/9798217438655",
 "page": "book-the-end-of-everything.html",
+"aff": true
+},
+{
+"title": "Fictional Selves: A Memoir",
+"author": "Kyle MacLachlan",
+"isbn": "9798217086320",
+"cover": "9798217086320.jpg",
+"buy": "https://bookshop.org/a/125864/9798217086320",
+"page": "book-fictional-selves.html",
 "aff": true
 },
 {
@@ -433,6 +469,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Huna",
+"author": "Abdelrahman ElGendy",
+"isbn": "9798217153602",
+"cover": "9798217153602.jpg",
+"buy": "https://bookshop.org/a/125864/9798217153602",
+"page": "book-huna.html",
+"aff": true
+},
+{
 "title": "I Made You Up Inside My Head",
 "author": "Marta Pérez-Carbonell (translated by Rosalind Harvey)",
 "isbn": "9780593854105",
@@ -447,7 +492,7 @@ window.bsSearchIndex = [
 "isbn": "9780802167194",
 "cover": "booker26-john-of-john.jpg",
 "buy": "https://bookshop.org/a/125864/9780802167194",
-"page": "booker-2026-shortlist.html#9780802167194",
+"page": "book-john-of-john.html",
 "aff": true
 },
 {
@@ -478,6 +523,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Let the Poets Govern",
+"author": "Camonghne Felix",
+"isbn": "9780593242148",
+"cover": "9780593242148.jpg",
+"buy": "https://bookshop.org/a/125864/9780593242148",
+"page": "book-let-the-poets-govern.html",
+"aff": true
+},
+{
 "title": "Liberation Summer: The Moment That Changed the Women’s Movement and the Future of American Politics",
 "author": "Micki McElya",
 "isbn": "9781982166762",
@@ -505,6 +559,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Mad Eden",
+"author": "Morgan Thomas",
+"isbn": "9780374620158",
+"cover": "9780374620158.jpg",
+"buy": "https://bookshop.org/a/125864/9780374620158",
+"page": "book-mad-eden.html",
+"aff": true
+},
+{
 "title": "Madame Composer: The Virtuosic Genius of Clara Schumann",
 "author": "Sarah Fritz",
 "isbn": "9798897101887",
@@ -519,7 +582,16 @@ window.bsSearchIndex = [
 "isbn": "9798893380620",
 "cover": "booker26-may-we-feed-the-king.jpg",
 "buy": "https://bookshop.org/a/125864/9798893380620",
-"page": "booker-2026-shortlist.html#9798893380620",
+"page": "book-may-we-feed-the-king.html",
+"aff": true
+},
+{
+"title": "The Midnight Special: The Secret Prison History of American Music",
+"author": "Colin Asher",
+"isbn": "9781324051398",
+"cover": "weekly-midnight-special.jpg",
+"buy": "https://bookshop.org/a/125864/9781324051398",
+"page": "book-the-midnight-special.html",
 "aff": true
 },
 {
@@ -529,6 +601,15 @@ window.bsSearchIndex = [
 "cover": "Moose.png",
 "buy": "https://bookshop.org/a/125864/9781607747390",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Mother Tongue",
+"author": "Sara Nović",
+"isbn": "9780593241530",
+"cover": "9780593241530.jpg",
+"buy": "https://bookshop.org/a/125864/9780593241530",
+"page": "book-mother-tongue.html",
 "aff": true
 },
 {
@@ -577,6 +658,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Night of a Thousand Hells",
+"author": "Intan Paramaditha",
+"isbn": "9798889662129",
+"cover": "weekly-night-of-a-thousand-hells.jpg",
+"buy": "https://bookshop.org/a/125864/9798889662129",
+"page": "book-night-of-a-thousand-hells.html",
+"aff": true
+},
+{
 "title": "Nova Scotia House",
 "author": "Charlie Porter",
 "isbn": "9781643622002",
@@ -610,6 +700,15 @@ window.bsSearchIndex = [
 "cover": "n-6.jpg",
 "buy": "https://bookshop.org/a/125864/9798896230526",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Paradiso 17",
+"author": "Hannah Lillith Assadi",
+"isbn": "9780593804056",
+"cover": "9780593804056.jpg",
+"buy": "https://bookshop.org/a/125864/9780593804056",
+"page": "book-paradiso-17.html",
 "aff": true
 },
 {
@@ -649,6 +748,15 @@ window.bsSearchIndex = [
 "aff": false
 },
 {
+"title": "Pretend You’re Dead and I Carry You",
+"author": "Julián Delgado Lopera",
+"isbn": "9781324097204",
+"cover": "9781324097204.jpg",
+"buy": "https://bookshop.org/a/125864/9781324097204",
+"page": "book-pretend-youre-dead-and-i-carry-you.html",
+"aff": true
+},
+{
 "title": "The Price of Salt, or Carol",
 "author": "Patricia Highsmith",
 "isbn": "9780393325997",
@@ -664,6 +772,15 @@ window.bsSearchIndex = [
 "cover": "Psychedelic.png",
 "buy": "https://bookshop.org/a/125864/9781645476047",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Pure Men",
+"author": "Mohamed Mbougar Sarr (translated by Lara Vergnaud)",
+"isbn": "9781635424706",
+"cover": "9781635424706.jpg",
+"buy": "https://bookshop.org/a/125864/9781635424706",
+"page": "book-pure-men.html",
 "aff": true
 },
 {
@@ -694,6 +811,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Rewriting American Architecture: Contesting the Myths of National Culture",
+"author": "Charles L. Davis II, Kathryn E. Holliday, Joanna Merwood-Salisbury",
+"isbn": "9781477334171",
+"cover": "weekly-texas-architecture.jpg",
+"buy": "https://bookshop.org/a/125864/9781477334171",
+"page": "book-rewriting-american-architecture.html",
+"aff": true
+},
+{
 "title": "The Sandman",
 "author": "Lars Kepler (translated by Neil Smith)",
 "isbn": "9780525433057",
@@ -703,12 +829,12 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
-"title": "Susan Sontag: The Collected Essays (pre-order)",
-"author": "Susan Sontag (edited by David Rieff)",
-"isbn": "9781598538595",
-"cover": "9781598538595.jpg",
-"buy": "https://bookshop.org/a/125864/9781598538595",
-"page": "book-susan-sontag-collected-essays.html",
+"title": "The School of Night",
+"author": "Karl Ove Knausgaard",
+"isbn": "9780593832820",
+"cover": "weekly-school-of-night.jpg",
+"buy": "https://bookshop.org/a/125864/9780593832820",
+"page": "book-the-school-of-night.html",
 "aff": true
 },
 {
@@ -757,6 +883,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Spawning Season",
+"author": "Joseph Osmundson",
+"isbn": "9781639737833",
+"cover": "9781639737833.jpg",
+"buy": "https://bookshop.org/a/125864/9781639737833",
+"page": "book-spawning-season.html",
+"aff": true
+},
+{
 "title": "Strange Attractor (Terence McKenna bio)",
 "isbn": "9780262049573",
 "cover": "Terence.jpg",
@@ -772,6 +907,15 @@ window.bsSearchIndex = [
 "cover": "IMG_2770.jpg",
 "buy": "https://bookshop.org/a/125864/9781668205730",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Susan Sontag: The Collected Essays (pre-order)",
+"author": "Edited by David Rieff",
+"isbn": "9781598538595",
+"cover": "9781598538595.jpg",
+"buy": "https://bookshop.org/a/125864/9781598538595",
+"page": "book-susan-sontag-collected-essays.html",
 "aff": true
 },
 {
@@ -798,7 +942,7 @@ window.bsSearchIndex = [
 "isbn": "9798217154746",
 "cover": "n.jpg",
 "buy": "https://bookshop.org/a/125864/9798217154746",
-"page": "booker-2026-shortlist.html#9798217154746",
+"page": "book-the-things-we-never-say.html",
 "aff": true
 },
 {
@@ -856,6 +1000,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "A Washington Irving Sketch Book: Reflections on an American Writer",
+"author": "Phillip Lopate",
+"isbn": "9780691284439",
+"cover": "weekly-irving.jpg",
+"buy": "https://bookshop.org/a/125864/9780691284439",
+"page": "book-washington-irving-sketch-book.html",
+"aff": true
+},
+{
 "title": "We Jazz Issue 19: Milestones",
 "cover": "WE JAZZ.png",
 "buy": "https://publicknowledgebooks.com/products/we-jazz-issue-19-milestones-1",
@@ -889,6 +1042,15 @@ window.bsSearchIndex = [
 "cover": "WORLDS.png",
 "buy": "https://bookshop.org/a/125864/9781478038870",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Your Presence Is a Danger to Your Life",
+"author": "Samar Yazbek (translated by Leri Price)",
+"isbn": "9781635426120",
+"cover": "9781635426120.jpg",
+"buy": "https://bookshop.org/a/125864/9781635426120",
+"page": "book-your-presence-is-a-danger-to-your-life.html",
 "aff": true
 }
 ];
