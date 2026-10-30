@@ -35,3 +35,6 @@ cover-washington-irving-sketch-book.jpg, cover-rewriting-american-architecture.j
 
 Added with the National Book Awards 2026 and Booker Prize 2026 routes (branch bs/nba-booker-bookstore-atlas), resized to 240px wide:
 cover-paradiso-17.jpg, cover-dey.jpg, cover-pretend-youre-dead-and-i-carry-you.jpg, cover-beginning-middle-end.jpg, cover-mad-eden.jpg, cover-huna.jpg, cover-pure-men.jpg, cover-your-presence-is-a-danger-to-your-life.jpg, cover-black-bag.jpg  publisher covers, from the covers already on our own book pages (ISBN-named jpgs and booker26-black-bag.jpg).
+
+Added with the Victorian Psycho book page (branch bs/victorian-psycho), resized to 240px wide:
+cover-victorian-psycho.jpg  publisher cover (Liveright paperback, 2026), from the cover on our own book page (9781324097785.jpg).
