@@ -1000,6 +1000,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Victorian Psycho",
+"author": "Virginia Feito",
+"isbn": "9781324097785",
+"cover": "9781324097785.jpg",
+"buy": "https://bookshop.org/a/125864/9781324097785",
+"page": "book-victorian-psycho.html",
+"aff": true
+},
+{
 "title": "A Washington Irving Sketch Book: Reflections on an American Writer",
 "author": "Phillip Lopate",
 "isbn": "9780691284439",

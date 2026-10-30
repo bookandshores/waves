@@ -154,7 +154,12 @@ window.bsAtlas = [
     { title: "Wuthering Heights", author: "Emily Brontë", year: 1847, isbn: "9780141439556", cover: "atlas/cover-wuthering-heights.jpg",
       setting: "The Yorkshire moors, at Wuthering Heights and Thrushcross Grange", note: "Both houses are invented. The pin sits on the moors near Haworth, where the Brontës lived.",
       srcUrl: "https://en.wikipedia.org/wiki/Wuthering_Heights",
-      src: "Wikipedia (Wuthering Heights): set on the Yorkshire moors; houses fictional. Cover: 1847 first edition, Houghton Library via Wikimedia Commons, public domain." }
+      src: "Wikipedia (Wuthering Heights): set on the Yorkshire moors; houses fictional. Cover: 1847 first edition, Houghton Library via Wikimedia Commons, public domain." },
+    { title: "Victorian Psycho", author: "Virginia Feito", year: 2025, isbn: "9781324097785", cover: "atlas/cover-victorian-psycho.jpg",
+      setting: "Ensor House, a manor on the moorland of Grim Wolds, Yorkshire, in the 19th century", note: "Grim Wolds and Ensor House are made up. No real town is named, so the pin shares the Yorkshire moors ring. The film opens in theaters Nov 13, 2026.",
+      page: "book-victorian-psycho.html",
+      srcUrl: "https://www.bookpage.com/reviews/victorian-psycho-virginia-feito-book-review/",
+      src: "W. W. Norton UK book page (\"Grim Wolds, England: Winifred Notty arrives at Ensor House\"); BookPage review (\"old manor house in Yorkshire\"); BookRags study guide (\"the fictional Yorkshire village of Grim Wolds\"); New York Times Book Review 2025-02-01 (Ensor House \"on a stretch of moorland\"). Grim Wolds is fictional, so this is an area pin." }
   ]},
   { id: "london-gothic", name: "London, England", lng: -0.1365, lat: 51.5136, area: true, cc: "GB", cont: "Europe", reg: ["london", "greater london", "england"], books: [
     { title: "The Strange Case of Dr Jekyll and Mr Hyde", author: "Robert Louis Stevenson", year: 1886, isbn: "9780141439730", cover: "atlas/cover-jekyll-hyde.jpg",

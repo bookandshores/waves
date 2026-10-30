@@ -62,6 +62,8 @@ BOOKS = [
          title="Your Presence Is a Danger to Your Life", author="Samar Yazbek"),
     dict(slug="fictional-selves", cover="9798217086320.jpg", label="Memoir · Crown · Sept 29, 2026",
          title="Fictional Selves", author="Kyle MacLachlan"),
+    dict(slug="victorian-psycho", cover="9781324097785.jpg", label="Novel · Liveright · Film in theaters Nov 13",
+         title="Victorian Psycho", author="Virginia Feito"),
 ]
 
 # Event / list pages: no cover image; the right side is a big type block with the date.
