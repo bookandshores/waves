@@ -1000,6 +1000,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "My Grandfather's Gallery: A Family Memoir of Art and War",
+"author": "Anne Sinclair",
+"isbn": "9781250074775",
+"cover": "9781250074775.jpg",
+"buy": "https://bookshop.org/a/125864/9781250074775",
+"page": "book-my-grandfathers-gallery.html",
+"aff": true
+},
+{
 "title": "Victorian Psycho",
 "author": "Virginia Feito",
 "isbn": "9781324097785",
