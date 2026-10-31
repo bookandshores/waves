@@ -136,6 +136,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Big American Writer: The Bilingual Jack Kerouac",
+"author": "Jean-Christophe Cloutier",
+"isbn": "9780231222457",
+"cover": "9780231222457.jpg",
+"buy": "https://bookshop.org/a/125864/9780231222457",
+"page": "book-big-american-writer.html",
+"aff": true
+},
+{
 "title": "Birds of America",
 "author": "Chera Hammons",
 "isbn": "9780593980033",
@@ -523,6 +532,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Learning from Savannah: From Ideal City to Elastic Urbanism",
+"author": "David W. Gobel, Robin B. Williams",
+"isbn": "9780820374604",
+"cover": "9780820374604.jpg",
+"buy": "https://bookshop.org/a/125864/9780820374604",
+"page": "book-learning-from-savannah.html",
+"aff": true
+},
+{
 "title": "Let the Poets Govern",
 "author": "Camonghne Felix",
 "isbn": "9780593242148",
@@ -655,6 +673,15 @@ window.bsSearchIndex = [
 "cover": "n-3.jpg",
 "buy": "https://bookshop.org/a/125864/9781668221402",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "The Night Before: Essays on Music, Comics, and Culture",
+"author": "David Hajdu",
+"isbn": "9780231225168",
+"cover": "9780231225168.jpg",
+"buy": "https://bookshop.org/a/125864/9780231225168",
+"page": "book-the-night-before.html",
 "aff": true
 },
 {
