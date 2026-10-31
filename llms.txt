@@ -1,6 +1,6 @@
 # Book & Shores
 
-> Book & Shores (bookandshores.com) is an independent book-recommendation site. We hand-pick new and notable books (Booker Prize 2026 titles, surf and sea reads, art books, classics and small-press finds) and link to buy each one from independent bookstores through Bookshop.org.
+> Book & Shores (bookandshores.com) is an independent bookstore and editorial site. We hand-pick new and notable books (Booker Prize 2026 titles, surf and sea reads, art books, classics and small-press finds) and link to buy each one from independent bookstores through Bookshop.org.
 
 Affiliate disclosure: Book & Shores earns a small commission from Bookshop.org purchases, which supports independent bookstores. Buy links use our Bookshop.org affiliate storefront (https://bookshop.org/a/125864/<ISBN>). Readers can also tip the site directly on PayPal ("Tip the Booktender"). Contact: readme@bookandshores.com
 
@@ -51,6 +51,7 @@ Affiliate disclosure: Book & Shores earns a small commission from Bookshop.org p
 - [Go There. Read It. | B&S Book Atlas | Book & Shores](https://bookandshores.com/atlas.html): A world map of where books are set. Each pin is a book placed at its stated setting, with print and ebook links. Type any place to see the books set there. Includes reading routes for Gothic October (atlas.html#gothic-october), the National Book Awards 2026 (atlas.html#national-book-awards-2026) and the Booker Prize 2026 (atlas.html#booker-prize-2026).
 - [Booker Prize 2026 shortlist](https://bookandshores.com/booker-2026-shortlist.html): All six shortlisted novels, a sentence each. The winner is announced November 9, 2026.
 - [Booker Prize 2026 longlist picks](https://bookandshores.com/booker-2026-longlist.html): Three longlisted novels hand-picked by Book & Shores: Switzy, Helen of Nowhere and All Them Dogs.
+- [Surf & Sea Reads](https://bookandshores.com/surf-and-sea-reads.html): Five surf and sea books picked by Book & Shores: Cocaine + Surfing, Tin Can Coast, Aqua, The Plunge and The Odyssey. Each links to Bookshop.org.
 - [National Book Awards 2026 finalists](https://bookandshores.com/national-book-awards-2026-finalists.html): Every finalist in Fiction, Nonfiction and Translated Literature, a sentence each. Winners are announced November 18, 2026.
 - [Author of the Month: Jonathan Lethem](https://bookandshores.com/author-of-the-month.html): Where to start, six of his best books, and Office Politics, the lost novel in his new NYRB essay.
 - [Verse & Vino 2026 authors](https://bookandshores.com/charlotte-verse-vino-2026.html): Verse & Vino 2026 in Charlotte (November 12, sold out): the new books from Isaac Fitzgerald, Lucy Foley, R. F. Kuang and Walter Mosley.

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Surf &amp; Sea Reads | Book &amp; Shores</title>
+    <meta name="description" content="Surf and sea books picked by Book &amp; Shores: Cocaine + Surfing, Tin Can Coast, Aqua, The Plunge and The Odyssey. Buy from independent bookstores through Bookshop.org.">
+    <meta property="og:title" content="Surf &amp; Sea Reads | Book &amp; Shores">
+    <meta property="og:description" content="Surf and sea books picked by Book &amp; Shores: Cocaine + Surfing, Tin Can Coast, Aqua, The Plunge and The Odyssey. Buy from independent bookstores through Bookshop.org.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Surf & Sea Reads", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Book", "name": "Cocaine + Surfing", "author": {"@type": "Person", "name": "Chas Smith"}, "isbn": "9781945572814", "url": "https://bookshop.org/a/125864/9781945572814"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Book", "name": "Tin Can Coast", "author": {"@type": "Person", "name": "Joseph Ogilvy"}, "isbn": "9781639736812", "url": "https://bookshop.org/a/125864/9781639736812"}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Book", "name": "Aqua", "author": {"@type": "Person", "name": "Chiara Barzini"}, "isbn": "9781961884908", "url": "https://bookshop.org/a/125864/9781961884908"}}, {"@type": "ListItem", "position": 4, "item": {"@type": "Book", "name": "The Plunge", "author": {"@type": "Person", "name": "Lila Raicek"}, "isbn": "9780778310600", "url": "https://bookshop.org/a/125864/9780778310600"}}, {"@type": "ListItem", "position": 5, "item": {"@type": "Book", "name": "The Odyssey", "author": {"@type": "Person", "name": "Homer"}, "isbn": "9780140268867", "url": "https://bookshop.org/a/125864/9780140268867"}}]}</script>
+    <style>
+        :root {
+            --yellow: #f6bd28;
+            --black: #000;
+            --dark-black: #111;
+            --gray: #444;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: clamp(1rem, 3.5vw, 1.125rem);
+        }
+        header {
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--black);
+        }
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.92;
+        }
+        nav {
+            margin: 2rem 0 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+        .section {
+            margin: 0 auto 5rem;
+            max-width: 1000px;
+            padding: 2.5rem 1.8rem;
+            border: 3px solid var(--black);
+            background: rgba(255,255,255,0.07);
+            border-radius: 12px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .intro-text {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 3.8vw, 1.15rem);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        .social-links {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            color: var(--black);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-links a:hover {
+            color: var(--dark-black);
+        }
+        .social-links svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem 2rem;
+            justify-items: center;
+        }
+        .book-card {
+            width: 180px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-6px);
+        }
+        .book-cover-frame {
+            width: 160px;
+            height: 240px;
+            margin: 0 auto 1rem;
+            background: white;
+            border: 4px solid var(--black);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .book-cover-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .book-title {
+            font-size: clamp(1rem, 3.5vw, 1.15rem);
+            font-weight: 500;
+            line-height: 1.35;
+        }
+        .payment-buttons {
+            margin-top: 0.8rem;
+        }
+        .btn, .payment-btn {
+            display: inline-block;
+            padding: 0.65rem 1.2rem;
+            background: var(--black);
+            color: var(--yellow);
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            width: 100%;
+            font-size: 0.95rem;
+        }
+        .btn:hover, .payment-btn:hover {
+            background: var(--dark-black);
+        }
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            background: rgba(0,0,0,0.03);
+            border-top: 4px solid var(--black);
+        }
+    
+        /* B&S: book page additions */
+        .book-detail { display:grid; grid-template-columns: minmax(180px,280px) 1fr; gap:2rem; align-items:start; }
+        .book-detail img { width:100%; border:3px solid var(--black); border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.25); }
+        .book-detail h2 { text-align:left; margin-bottom:0.4rem; }
+        .book-meta { color:var(--gray); margin-bottom:1.2rem; }
+        .curator-note { border-left:4px solid var(--black); padding-left:1rem; margin:1.4rem 0; font-style:italic; }
+        .buy-btn { display:inline-block; background:var(--black); color:var(--yellow); padding:0.9rem 2.2rem; border-radius:8px; text-decoration:none; font-family:'Oswald',sans-serif; font-size:1.3rem; letter-spacing:0.05em; }
+        .more-reads { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:1rem; }
+        .more-reads a { color:var(--black); }
+        @media (max-width:640px){ .book-detail{ grid-template-columns:1fr; } .book-detail h2{ text-align:center; } }
+        .shelf-note { font-size:0.9rem; line-height:1.4; margin-top:0.6rem; }
+    </style>
+    <link rel="canonical" href="https://bookandshores.com/surf-and-sea-reads.html">
+</head>
+<body>
+    <header>
+        <h1>BOOK &amp; SHORES</h1>
+        <nav>
+            <a href="index.html">← Home</a>
+            <a href="bookstore.html">Bookstore</a>
+            <a href="booker-2026-shortlist.html">Booker 2026</a>
+        </nav>
+    </header>
+    <main>
+        <!-- B&S: themed shelf page -->
+        <section class="section">
+            <h2>Surf &amp; Sea Reads</h2>
+            <!-- B&S: intro, edit in your own words -->
+            <p class="intro-text">Salt water, bad behavior and the California coast. Five books for the beach towns we land in, from Laguna Beach on out.</p>
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Cocaine.png" alt="Cocaine + Surfing by Chas Smith"></div>
+                    <div class="book-title">Cocaine + Surfing — Chas Smith</div>
+                    <p class="shelf-note">How cocaine rode into surf culture and never left, and what that says about the whole absurd surf industry.</p>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781945572814" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Cocaine + Surfing by Chas Smith on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="TIN.png" alt="Tin Can Coast by Joseph Ogilvy"></div>
+                    <div class="book-title">Tin Can Coast — Joseph Ogilvy</div>
+                    <p class="shelf-note">Abalone, sardines and yellowfin tuna: three centuries of the California coast, from Cannery Row's rise to its collapse.</p>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781639736812" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Tin Can Coast by Joseph Ogilvy on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="AQUA.png" alt="Aqua by Chiara Barzini"></div>
+                    <div class="book-title">Aqua — Chiara Barzini</div>
+                    <p class="shelf-note">A road trip along the Los Angeles Aqueduct, from the Owens Valley to the Salton Sea, and how water made Hollywood.</p>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9781961884908" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy Aqua by Chiara Barzini on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Plunge.png" alt="The Plunge by Lila Raicek"></div>
+                    <div class="book-title">The Plunge — Lila Raicek</div>
+                    <p class="shelf-note">After a crash sends her car off a Northern California coast road into the Pacific, Liv runs to New York and one scorching summer that ends at Lake Como.</p>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780778310600" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The Plunge by Lila Raicek on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover-frame"><img src="Odyssey.png" alt="The Odyssey by Homer (trans. Robert Fagles)"></div>
+                    <div class="book-title">The Odyssey — Homer (trans. Robert Fagles)</div>
+                    <p class="shelf-note">The original sea story. Ten years at sea, one way home.</p>
+                    <div class="payment-buttons"><a href="https://bookshop.org/a/125864/9780140268867" class="payment-btn" target="_blank" rel="noopener sponsored" aria-label="Buy The Odyssey by Homer (trans. Robert Fagles) on Bookshop.org (opens in a new tab)">Buy Now</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p style="margin-top: 2rem;">© 2026 Book &amp; Shores • Contact: <a href="mailto:readme@bookandshores.com" style="color: var(--black);">readme@bookandshores.com</a></p>
+            <p style="font-size:0.85rem; color:var(--gray); margin-top:0.6rem;">Book &amp; Shores earns a small commission from Bookshop.org purchases, which supports independent bookstores.</p>
+        </div>
+    </footer>
+</body>
+</html>
