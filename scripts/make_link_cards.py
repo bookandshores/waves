@@ -64,6 +64,8 @@ BOOKS = [
          title="Fictional Selves", author="Kyle MacLachlan"),
     dict(slug="victorian-psycho", cover="9781324097785.jpg", label="Novel · Liveright · Film in theaters Nov 13",
          title="Victorian Psycho", author="Virginia Feito"),
+    dict(slug="rewriting-american-architecture", cover="weekly-texas-architecture.jpg", label="Architecture · UT Press",
+         title="Rewriting American Architecture", author="Davis, Holliday & Merwood-Salisbury (eds.)"),
     dict(slug="learning-from-savannah", cover="9780820374604.jpg", maxh=460, label="Architecture · UGA Press",
          title="Learning from Savannah", author="David W. Gobel & Robin B. Williams"),
     dict(slug="big-american-writer", cover="9780231222457.jpg", label="Literary History · Columbia",
