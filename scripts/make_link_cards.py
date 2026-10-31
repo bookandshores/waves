@@ -65,7 +65,8 @@ BOOKS = [
     dict(slug="victorian-psycho", cover="9781324097785.jpg", label="Novel · Liveright · Film in theaters Nov 13",
          title="Victorian Psycho", author="Virginia Feito"),
     dict(slug="rewriting-american-architecture", cover="weekly-texas-architecture.jpg", label="Architecture · UT Press",
-         title="Rewriting American Architecture", author="Davis, Holliday & Merwood-Salisbury (eds.)"),
+         title="Rewriting American Architecture", author="Davis, Holliday & Merwood-Salisbury",
+         byline="edited by Davis, Holliday & Merwood-Salisbury"),
     dict(slug="learning-from-savannah", cover="9780820374604.jpg", maxh=460, label="Architecture · UGA Press",
          title="Learning from Savannah", author="David W. Gobel & Robin B. Williams"),
     dict(slug="big-american-writer", cover="9780231222457.jpg", label="Literary History · Columbia",
@@ -114,7 +115,7 @@ h1{{margin-top:22px;font-family:Oswald;font-weight:700;font-size:{size}px;line-h
 .cover{{height:{h}px;border:4px solid #000;box-shadow:14px 14px 0 #000;display:block}}
 </style></head><body><div class="frame"></div>
 <div class="left"><div class="mark">BOOK &amp; SHORES</div>
-<div class="label">{e(b['label'])}</div><h1>{e(t)}</h1><div class="by">by {e(b['author'])}</div>
+<div class="label">{e(b['label'])}</div><h1>{e(t)}</h1><div class="by">{e(b.get('byline', 'by ' + b['author']))}</div>
 <div class="foot"><span>bookandshores.com</span><span>Shop indie →</span></div></div>
 <div class="cwrap"><img class="cover" src="file://{cover}"></div></body></html>"""
 
