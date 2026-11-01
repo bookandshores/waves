@@ -641,11 +641,4 @@
         Array.prototype.forEach.call(document.querySelectorAll(".pl-show"), function (b) { b.hidden = true; });
     }
     fromQuery();
-    var cb = document.getElementById("claim-btn");
-    if (cb && cb.parentNode) {
-        var cp = el("p", "claim-fallback");
-        cp.appendChild(document.createTextNode("Button not opening an email? "));
-        cp.appendChild(claimExtras("Atlas pin: [book title]", bodyFor("")));
-        cb.parentNode.insertBefore(cp, cb.nextSibling);
-    }
 })();
