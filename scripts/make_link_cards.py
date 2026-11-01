@@ -64,6 +64,15 @@ BOOKS = [
          title="Fictional Selves", author="Kyle MacLachlan"),
     dict(slug="victorian-psycho", cover="9781324097785.jpg", label="Novel · Liveright · Film in theaters Nov 13",
          title="Victorian Psycho", author="Virginia Feito"),
+    dict(slug="rewriting-american-architecture", cover="weekly-texas-architecture.jpg", label="Architecture · UT Press",
+         title="Rewriting American Architecture", author="Davis, Holliday & Merwood-Salisbury",
+         byline="edited by Davis, Holliday & Merwood-Salisbury"),
+    dict(slug="learning-from-savannah", cover="9780820374604.jpg", maxh=460, label="Architecture · UGA Press",
+         title="Learning from Savannah", author="David W. Gobel & Robin B. Williams"),
+    dict(slug="big-american-writer", cover="9780231222457.jpg", label="Literary History · Columbia",
+         title="Big American Writer", author="Jean-Christophe Cloutier"),
+    dict(slug="the-night-before", cover="9780231225168.jpg", label="Music & Comics · Columbia · Nov 2026",
+         title="The Night Before", author="David Hajdu"),
 ]
 
 # Event / list pages: no cover image; the right side is a big type block with the date.
@@ -88,7 +97,7 @@ def card_html(b):
     t = b["title"]
     size = 96 if len(t) <= 14 else 78 if len(t) <= 24 else 66
     cover = ROOT / b["cover"]
-    h = min(500, Image.open(cover).size[1] - 8)  # never upscale (8 = border)
+    h = min(b.get("maxh", 500), Image.open(cover).size[1] - 8)  # never upscale (8 = border); maxh for wide covers
     top = 58 + (500 - h) // 2
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}
 *{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1200px;height:630px;overflow:hidden}}
@@ -106,7 +115,7 @@ h1{{margin-top:22px;font-family:Oswald;font-weight:700;font-size:{size}px;line-h
 .cover{{height:{h}px;border:4px solid #000;box-shadow:14px 14px 0 #000;display:block}}
 </style></head><body><div class="frame"></div>
 <div class="left"><div class="mark">BOOK &amp; SHORES</div>
-<div class="label">{e(b['label'])}</div><h1>{e(t)}</h1><div class="by">by {e(b['author'])}</div>
+<div class="label">{e(b['label'])}</div><h1>{e(t)}</h1><div class="by">{e(b.get('byline', 'by ' + b['author']))}</div>
 <div class="foot"><span>bookandshores.com</span><span>Shop indie →</span></div></div>
 <div class="cwrap"><img class="cover" src="file://{cover}"></div></body></html>"""
 

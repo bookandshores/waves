@@ -326,6 +326,27 @@ window.bsAtlas = [
       srcUrl: "https://utpress.utexas.edu/9781477334171/",
       src: "University of Texas Press book page (table of contents) and the publisher's review copy of the book (chapter 4, on the Mason family, builders in Austin, Texas). The book's other chapters are not pinned." }
   ]},
+  { id: "savannah", name: "Savannah, Georgia", lng: -81.0921, lat: 32.0790, area: true, cc: "US", cont: "North America", reg: ["savannah", "chatham county", "georgia", "ga", "savannah historic district"], books: [
+    { title: "Learning from Savannah: From Ideal City to Elastic Urbanism", author: "David W. Gobel and Robin B. Williams", year: 2026, isbn: "9780820374604", cover: "atlas/cover-learning-from-savannah.jpg",
+      setting: "Savannah, Georgia: the city's town plan of wards and squares, and the buildings and landscape it shaped", note: "Nonfiction. A history of the Savannah plan and the city's architecture. The pin sits on the historic town, not an exact address.",
+      page: "book-learning-from-savannah.html",
+      srcUrl: "https://www.ugapress.org/9780820374604/learning-from-savannah/",
+      src: "University of Georgia Press book page (\"the history of Savannah's famed urban plan and the history of the city's architecture\") and the publisher's review copy of the book." }
+  ]},
+  { id: "lowell", name: "Lowell, Massachusetts", lng: -71.3085, lat: 42.6414, area: false, cc: "US", cont: "North America", reg: ["lowell", "middlesex county", "massachusetts", "ma", "new england"], books: [
+    { title: "Big American Writer: The Bilingual Jack Kerouac", author: "Jean-Christophe Cloutier", year: 2026, isbn: "9780231222457", cover: "atlas/cover-big-american-writer.jpg",
+      setting: "Lowell, Massachusetts, where Jack Kerouac grew up in a French-speaking home", note: "Nonfiction. A study of Kerouac as a bilingual French Canadian writer. Only his Lowell upbringing is pinned.",
+      page: "book-big-american-writer.html",
+      srcUrl: "https://cup.columbia.edu/book/big-american-writer/9780231222457/",
+      src: "Columbia University Press book page (Kerouac \"was raised in a French-speaking home in Lowell, Massachusetts\"). The book's other places are not pinned." }
+  ]},
+  { id: "east-seventh-street", name: "64 East Seventh Street, East Village, New York", lng: -73.9871, lat: 40.7273, area: false, cc: "US", cont: "North America", reg: ["east village", "east seventh street", "east 7th street", "64 east seventh street", "lower east side", "manhattan", "new york", "new york city", "nyc"], books: [
+    { title: "The Night Before: Essays on Music, Comics, and Culture", author: "David Hajdu", year: 2026, isbn: "9780231225168", cover: "atlas/cover-the-night-before.jpg",
+      setting: "64 East Seventh Street in the East Village: the essay of that name tells the life of this one building", note: "Nonfiction. A collection of essays with no single setting. The pin marks only the building one essay is about.",
+      page: "book-the-night-before.html",
+      srcUrl: "https://cup.columbia.edu/book/the-night-before/9780231225168/",
+      src: "Columbia University Press book page (table of contents: \"64 East Seventh Street\") and the publisher's advance copy of the book (the essay is a history of the building). The book's other places are not pinned." }
+  ]},
   { id: "bogota", name: "Bogotá, Colombia", lng: -74.0721, lat: 4.7110, area: false, cc: "CO", cont: "South America", reg: ["bogota", "bogotá", "colombia"], books: [
     { title: "Pretend You’re Dead and I Carry You", author: "Julián Delgado Lopera", year: 2026, isbn: "9781324097204", cover: "atlas/cover-pretend-youre-dead-and-i-carry-you.jpg",
       setting: "Bogotá in the 1990s, from a dreary apartment to the city’s queer underground", note: "A 2026 National Book Award finalist for Fiction.",
