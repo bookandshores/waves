@@ -8,7 +8,7 @@
     var mapEl = document.getElementById("map");
     var fallback = document.getElementById("map-fallback");
     var map = null, popup = null, activeId = null, markers = {};
-    var ROUTES = window.bsRoutes || [];
+    var ROUTES = (window.bsRoutes || []).filter(function (r) { return !r.hidden; }); // hidden routes are retired, kept in atlas-data.js
     var ROUTE = ROUTES[0] || null; // the route currently shown (each route has its own chip)
     var routeStops = ROUTE ? ROUTE.stops.slice() : [];
     var routeOn = false, mapReady = false;

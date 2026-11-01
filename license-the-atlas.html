@@ -260,7 +260,7 @@
             <div class="stat"><b id="st-pins">57</b><span>Pins</span></div>
             <div class="stat"><b id="st-books">65</b><span>Books</span></div>
             <div class="stat"><b id="st-cc">19</b><span>Countries</span></div>
-            <div class="stat"><b id="st-routes">4</b><span>Reading routes</span></div>
+            <div class="stat"><b id="st-routes">3</b><span>Reading routes</span></div>
         </div>
 
         <h2>Three ways in</h2>
@@ -367,7 +367,7 @@
     <script src="atlas-data.js"></script>
     <script>
     (function () {
-        var a = window.bsAtlas, r = window.bsRoutes; if (!a || !a.length) return;
+        var a = window.bsAtlas, r = (window.bsRoutes || []).filter(function (x) { return !x.hidden; }); if (!a || !a.length) return;
         var b = {}, c = {}; a.forEach(function (p) { c[p.cc] = 1; (p.books || []).forEach(function (k) { b[k.isbn || k.title] = 1; }); });
         function set(id, n) { var e = document.getElementById(id); if (e && n) e.textContent = n; }
         set("st-pins", a.length); set("st-books", Object.keys(b).length); set("st-cc", Object.keys(c).length); if (r) set("st-routes", r.length);
