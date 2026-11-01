@@ -240,7 +240,6 @@
                 if (r.isNew) { chip.appendChild(document.createTextNode(" ")); chip.appendChild(el("span", "new", "New")); }
                 prevChip.parentNode.insertBefore(chip, prevChip.nextSibling); prevChip = chip;
             }
-            if (!i) { chip.classList.toggle("award", !r.moody); }
             chip.setAttribute("data-route", r.id);
             chip.addEventListener("click", function () { setRoute(!(routeOn && ROUTE === r), false, false, r); });
         });
