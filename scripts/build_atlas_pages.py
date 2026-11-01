@@ -151,8 +151,8 @@ def place_page(p, routes):
     url = f"{SITE}/atlas-{p['id']}.html"
     n = len(p["books"])
     titles = ", ".join(b["title"] for b in p["books"])
-    title = f"Books Set in {p['name']} | B&S Atlas | Book & Shores"
-    desc = f"{n} book{'s' if n != 1 else ''} on the B&S Atlas set in {p['name']}: {titles}. Each setting is cited from the book, its publisher or a major review."
+    title = f"Books Set in {p['name']} | Book & Shores Atlas · Go There. Read It."
+    desc = f"{n} book{'s' if n != 1 else ''} on the Book & Shores Atlas set in {p['name']}: {titles}. Each setting is cited from the book, its publisher or a major review."
     if len(desc) > 300: desc = desc[:297].rsplit(" ", 1)[0] + "…"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "CollectionPage", "@id": url, "url": url, "name": f"Books set in {p['name']}", "description": desc,
@@ -165,10 +165,10 @@ def place_page(p, routes):
             {"@type": "ListItem", "position": 3, "name": p["name"], "item": url}]},
         ORG]}
     on_routes = [r for r in routes if p["id"] in r.get("stops", [])]
-    out = [head(title, desc, url, ld, f"atlas-{p['id']}", f"Books set in {p['name']}, on the B&S Atlas by Book & Shores")]
+    out = [head(title, desc, url, ld, f"atlas-{p['id']}", f"Books set in {p['name']}, on the Book & Shores Atlas. Go There. Read It.")]
     out.append(f'        <p class="crumbs"><a href="atlas.html">Atlas</a> › <a href="atlas-places.html">All places</a> › {e(p["name"])}</p>\n')
     out.append(f"""        <section class="place-hero">
-            <p class="eyebrow">B&amp;S Atlas · {e(p.get('cont', ''))}</p>
+            <p class="eyebrow">Book &amp; Shores Atlas · {e(p.get('cont', ''))}</p>
             <h2>Books set in {e(p['name'])}</h2>
             <p>{n} book{'s' if n != 1 else ''} pinned here. {'The book names a region, not an exact address, so the pin sits inside the area.' if p.get('area') else 'The pin marks the named place.'}</p>
             <p style="margin-top:1rem;"><a class="btn" style="width:auto;" href="atlas.html#{e(p['id'])}">See it on the map →</a></p>
@@ -203,16 +203,16 @@ def index_page(places):
     url = f"{SITE}/atlas-places.html"
     nb = len({b.get("isbn") or b["title"] for p in places for b in p["books"]})
     ncc = len({p["cc"] for p in places if p.get("cc")})
-    desc = f"Every place on the B&S Atlas, a map of books at their stated settings by Book & Shores, an independent bookstore: {len(places)} places, {nb} books, {ncc} countries, each setting cited."
+    desc = f"Every place on the Book & Shores Atlas (Go There. Read It.), a map of books at their stated settings by Book & Shores, an independent bookstore: {len(places)} places, {nb} books, {ncc} countries, each setting cited."
     ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "CollectionPage", "@id": url, "url": url, "name": "B&S Atlas: all places", "description": desc,
+        {"@type": "CollectionPage", "@id": url, "url": url, "name": "Book & Shores Atlas: all places", "description": desc,
          "isPartOf": {"@id": SITE + "/atlas.html#dataset"}, "publisher": {"@id": SITE + "/#org"},
          "mainEntity": {"@type": "ItemList", "numberOfItems": len(places), "itemListElement": [
              {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/atlas-{p['id']}.html", "name": f"Books set in {p['name']}"} for i, p in enumerate(places)]}},
         ORG]}
-    out = [head("All Places on the B&S Atlas: Books by Setting | Book & Shores", desc, url, ld, "atlas-places", "Every place on the B&S Atlas by Book & Shores")]
+    out = [head("All Places on the Book & Shores Atlas: Books by Setting · Go There. Read It.", desc, url, ld, "atlas-places", "Every place on the Book & Shores Atlas. Go There. Read It.")]
     out.append(f"""        <section class="place-hero">
-            <p class="eyebrow">B&amp;S Atlas · Index</p>
+            <p class="eyebrow">Book &amp; Shores Atlas · Index</p>
             <h2>Every place on the Atlas</h2>
             <p>Earth's curated atlas of books, each pinned to its stated setting and sourced. {len(places)} places, {nb} books, {ncc} countries.</p>
             <p style="margin-top:1rem;"><a class="btn" style="width:auto;" href="atlas.html">Open the map →</a></p>
@@ -234,13 +234,13 @@ def index_page(places):
 def atlas_blocks(places):
     nb = len({b.get("isbn") or b["title"] for p in places for b in p["books"]})
     ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "Dataset", "@id": SITE + "/atlas.html#dataset", "name": "B&S Atlas: books mapped to their stated settings",
+        {"@type": "Dataset", "@id": SITE + "/atlas.html#dataset", "name": "Book & Shores Atlas: books mapped to their stated settings", "alternateName": "Book and Shores Atlas",
          "description": f"Earth's curated atlas of books, each pinned to its stated setting and sourced: {nb} books at {len(places)} places, every setting cited from the book, its publisher or a major review. Made by Book & Shores, an independent bookstore.",
          "url": SITE + "/atlas.html", "creator": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
          "keywords": ["literary map", "books by setting", "book atlas", "literary geography", "literary travel"],
          "spatialCoverage": {"@type": "Place", "name": "World"}, "dateModified": TODAY, "isAccessibleForFree": True,
          "hasPart": [{"@type": "CollectionPage", "url": f"{SITE}/atlas-{p['id']}.html", "name": f"Books set in {p['name']}"} for p in places]},
-        {"@type": "ItemList", "@id": SITE + "/atlas.html#pins", "name": "Pins on the B&S Atlas", "numberOfItems": len(places),
+        {"@type": "ItemList", "@id": SITE + "/atlas.html#pins", "name": "Pins on the Book & Shores Atlas", "numberOfItems": len(places),
          "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/atlas-{p['id']}.html", "name": p["name"]} for i, p in enumerate(places)]},
         ORG]}
     ldtag = '    <!-- atlas-ld:start -->\n    <script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False).replace("</", "<\\/") + "</script>\n    <!-- atlas-ld:end -->"
@@ -289,11 +289,11 @@ def render_card(name, htm):
 def cards(places):
     for p in places:
         n = len(p["books"])
-        render_card(f"atlas-{p['id']}", card_html(f"B&S Atlas · {p.get('cont', '')}", f"Books set in {p['name']}",
+        render_card(f"atlas-{p['id']}", card_html(f"Book & Shores Atlas · {p.get('cont', '')}", f"Books set in {p['name']}",
                     " · ".join(b["title"] for b in p["books"]), str(n), "book" + ("s" if n != 1 else "") + " pinned here"))
     nb = len({b.get("isbn") or b["title"] for p in places for b in p["books"]})
-    render_card("atlas-places", card_html("B&S Atlas · Index", "Every place on the Atlas",
-                f"{nb} books at their stated settings, each one cited.", str(len(places)), "places"))
+    render_card("atlas-places", card_html("Book & Shores Atlas · Index", "Every place on the Atlas",
+                f"Go There. Read It. {nb} books at their stated settings, each one cited.", str(len(places)), "places"))
 
 if __name__ == "__main__":
     CSS = base_css()
