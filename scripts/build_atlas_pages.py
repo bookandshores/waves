@@ -185,7 +185,7 @@ def place_page(p, routes):
                 <p class="by">by {e(b['author'])}{yr}</p>
                 <dl>
                     <dt>Setting</dt><dd>{e(b.get('setting', p['name']))}</dd>
-                    {'<dt>About</dt><dd>' + e(b['note']) + '</dd>' if b.get('note') else ''}
+                    {'<dt>About</dt><dd>' + e(b['note']) + '</dd>' if b.get('note') else ''}{'<dt>Partner pin</dt><dd>Paid placement from ' + e(b['partner']) + '. The setting is sourced like every other pin.</dd>' if b.get('partner') else ''}
                     <dt>Source</dt><dd class="src">{src_html(b)}</dd>
                     {'<dt>ISBN</dt><dd>' + e(b['isbn']) + '</dd>' if b.get('isbn') else ''}
                 </dl>

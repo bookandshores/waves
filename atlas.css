@@ -123,6 +123,7 @@ h2 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.05; }
 .pp-author { font-size:.78rem; margin-bottom:.35rem; }
 .pp-set { font-size:.74rem; line-height:1.4; }
 .pp-set b { font-weight:600; }
+.partner-tag { display:inline-block; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; border:1.5px solid currentColor; border-radius:4px; padding:.05rem .35rem; margin-top:.3rem; }
 .pp-note { font-size:.72rem; color:var(--gray); margin-top:.25rem; line-height:1.4; }
 .pp-actions { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.55rem; }
 .pp-actions a { font-size:.7rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; padding:.38rem .6rem; border-radius:4px; border:2px solid var(--black); line-height:1.2; }
