@@ -83,6 +83,9 @@ EVENTS = [
     dict(page="epicfest-2026", label="Charlotte · Free Kids' Festival", title="EpicFest 2026",
          by="8 visiting authors & illustrators", big="NOV 7", small="ImaginOn",
          alt="EpicFest 2026 authors' books, a Book & Shores reading list"),
+    dict(page="license-the-atlas", label="For Presses, Tourism & Libraries", title="License the Atlas",
+         by="Launch pins · Regional embeds · Partner maps", big="ATLAS", small="Partners",
+         alt="License the B&S Atlas: partner pins, regional embeds and custom maps from Book & Shores"),
 ]
 
 FONTS = f"""
