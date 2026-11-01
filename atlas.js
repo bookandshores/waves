@@ -251,7 +251,9 @@
         });
         window.addEventListener("hashchange", function () {
             var r = routeById(location.hash.slice(1));
+            var h = location.hash.slice(1);
             if (r) { if (!routeOn || r !== ROUTE) { setRoute(true, true, false, r); } }
+            else if (h && place(h)) { if (routeOn) { setRoute(false, true); } if (mapReady) { showPlace(h, true); } }
             else if (routeOn) { setRoute(false, true); }
         });
     }
