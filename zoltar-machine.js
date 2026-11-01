@@ -158,12 +158,12 @@
                 buy.setAttribute('aria-label', 'Buy the book: ' + b[1] + ', see its Book & Shores page');
             } else {
                 buy.href = BS + b[3]; buy.target = '_blank'; buy.rel = 'noopener sponsored';
-                buy.setAttribute('aria-label', 'Buy the print book of ' + b[1] + ' by ' + b[2] + ' on Bookshop.org (opens in a new tab)');
+                buy.setAttribute('aria-label', 'Buy the print book of ' + b[1] + ' by ' + b[2] + ' (opens in a new tab)');
             }
             var eb = document.getElementById('ebook'), e = EBOOKS[b[0]];
             if (e) {
                 eb.href = 'https://bookshop.org/p/books/' + e[0] + '?ean=' + e[1] + '&digital=t&affiliate=125864';
-                eb.setAttribute('aria-label', 'Buy the ebook of ' + b[1] + ' on Bookshop.org (opens in a new tab)');
+                eb.setAttribute('aria-label', 'Buy the ebook of ' + b[1] + ' (opens in a new tab)');
                 eb.hidden = false;
             } else { eb.hidden = true; eb.removeAttribute('href'); }
             reveal.classList.add('open');
