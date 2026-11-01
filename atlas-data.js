@@ -416,10 +416,16 @@ window.bsAtlas = [
 
 /* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.
    Deep link: atlas.html#<id>. Optional: eyebrow (banner kicker), order (replaces "oldest to newest" in the count line),
-   color (path color), moody (tint the map, Gothic only), note (line under the stop list), isNew (shows the "New" tag on the chip).
+   color (path color), moody (tint the map, Gothic only), note (line under the stop list), isNew (shows the "New" tag on the chip). The first route uses the #route-chip button in atlas.html.
    The first sentence of "blurb" is replaced by the live count ("8 stops, 8 books, west to east."). */
 window.bsRoutes = [
-  { id: "gothic-october", name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, isNew: true, color: "#4a0f22",
+  /* Weekly Reads route: only books that were Book & Shores Weekly Reads picks (index.html history) AND already have a sourced pin above.
+     Every book at each stop is a Weekly Reads pick. Picks with no single stated setting stay off the map. */
+  { id: "weekly-reads", name: "Weekly Reads", eyebrow: "A reading route · Our picks", isNew: true, order: "west to east", color: "#1f4e79",
+    note: "Only Weekly Reads picks with a sourced setting are pinned. Each popup cites its source.",
+    blurb: "Eight stops. Weekly Reads picks, from California to Italy.",
+    stops: ["monterey", "atlantic-city", "harlem", "north-atlantic", "dublin", "london-thames", "zurich", "positano"] },
+  { id: "gothic-october", name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
     blurb: "Seven stops, eight books, oldest to newest. Lock the door first.",
     stops: ["otranto", "geneva", "thornfield", "yorkshire", "london-gothic", "whitby", "kerry"] },
