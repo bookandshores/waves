@@ -23,10 +23,10 @@
 
     /* ---------- Pin list (static-friendly, also the keyboard/no-map path) ---------- */
     function renderList() {
-        var ul = document.getElementById("pins-ul"), total = 0;
+        var ul = document.getElementById("pins-ul"), seen = {};
         ul.textContent = ""; // drop the server-rendered list (for crawlers and no-JS readers); rebuild it with map buttons
         PLACES.forEach(function (p) {
-            total += p.books.length;
+            p.books.forEach(function (k) { seen[k.isbn || (k.title + "|" + k.author)] = 1; }); // count each book once, even if pinned in two places
             var li = el("li");
             var pd = el("div", "pl-place"), pa = el("a", null, p.name); pa.href = "atlas-" + p.id + ".html"; pd.appendChild(pa); li.appendChild(pd);
             p.books.forEach(function (b) {
@@ -42,7 +42,7 @@
             li.appendChild(btn);
             ul.appendChild(li);
         });
-        document.getElementById("pin-count").textContent = plural(PLACES.length, "pin") + ", " + plural(total, "book") + ". More on the way.";
+        document.getElementById("pin-count").textContent = plural(PLACES.length, "pin") + ", " + plural(Object.keys(seen).length, "book") + ". More on the way.";
     }
 
     /* ---------- Popup ---------- */
