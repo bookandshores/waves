@@ -218,6 +218,17 @@
         .tier .price small { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
         .tier ul { padding-left: 1.1rem; font-size: 0.95rem; margin-bottom: 1rem; }
         .tier .btn { margin-top: auto; text-align: center; }
+        .tier-art { margin: auto 0; padding: 0.4rem 0 1.2rem; text-align: center; }
+        .tier-art + .btn, .route-eg + .btn { margin-top: 0; }
+        .tier-mug img { width: 200px; max-width: 70%; height: auto; display: inline-block; }
+        .tier-map .map-pic { position: relative; border: 3px solid var(--black); border-radius: 8px; overflow: hidden; }
+        .tier-map .map-pic img { display: block; width: 100%; height: auto; }
+        .tier-map .map-pic .map-logo { position: absolute; width: 30%; height: auto; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); filter: drop-shadow(3px 3px 0 var(--black)); }
+        .tier-map figcaption { font-size: 0.62rem; margin-top: 0.3rem; opacity: 0.7; }
+        .route-eg { margin: 0 0 0.8rem; text-align: center; }
+        .route-eg span { display: block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.35rem; }
+        .route-pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; padding: 0.45rem 1rem; background: var(--black); color: var(--yellow); border: 3px solid var(--black); border-radius: 999px; text-decoration: none; }
+        .route-pill:hover, .route-pill:focus-visible { background: var(--yellow); color: var(--black); }
         .tier .get { font-weight: 600; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
         .tier .sample { margin: 0 0 0.8rem; } .tier .sample img { width: 100%; height: auto; border: 3px solid var(--black); border-radius: 8px; display: block; }
         .tier .sample figcaption, .tier .eg { font-size: 0.8rem; margin-top: 0.3rem; } .tier .eg { margin-bottom: 1rem; } .tier .eg a { color: var(--black); }
@@ -281,7 +292,8 @@
                     <li>Kept current for 12 months as new pins are added</li>
                     <li>Credit and a link back to you</li>
                 </ul>
-                <p class="eg">See an example route: <a href="atlas.html#gothic-october">Gothic October</a>, 7 stops</p>
+                <figure class="tier-art tier-mug"><picture><source media="(prefers-reduced-motion: reduce)" srcset="atlas/mug3d-poster.png"><img src="atlas/mug3d-turntable.webp" alt="Book &amp; Shores READ ME mug" width="360" height="352" loading="lazy" decoding="async"></picture></figure>
+                <p class="route-eg"><span>Example route</span><a class="route-pill" href="atlas.html#national-book-awards-2026">National Book Awards 2026 →</a></p>
                 <a class="btn" href="mailto:readme@bookandshores.com?subject=Regional%20Atlas">Ask about an embed</a>
             </article>
             <article class="tier">
@@ -297,6 +309,7 @@
                     <li>Hosted and updated for the first year, then $150 a year</li>
                 </ul>
                 <p class="eg">See an example: the <a href="atlas.html#booker-prize-2026">Booker Prize 2026 route</a>, 5 stops</p>
+                <figure class="tier-art tier-map"><div class="map-pic"><img src="atlas/license-map.jpg" alt="The Book &amp; Shores Atlas map with the Book &amp; Shores logo" width="640" height="344" loading="lazy" decoding="async"><img class="map-logo" src="favicon-192.png" alt="" width="192" height="192" loading="lazy"></div><figcaption>Map © OpenFreeMap, OpenMapTiles, OpenStreetMap contributors</figcaption></figure>
                 <a class="btn" href="mailto:readme@bookandshores.com?subject=Atlas%20Partner%20Map">Plan a map</a>
             </article>
         </div>
@@ -309,7 +322,7 @@
                 <li>Type any city, country or region and see the books set there.</li>
                 <li>Each pin opens a card with the cover, the setting and the source for it, plus print and ebook links.</li>
                 <li>When a book names a region instead of an address, a dashed ring shows the area, so nothing is overstated.</li>
-                <li>Reading routes link stops in order: Gothic October, the National Book Awards 2026 and the Booker Prize 2026.</li>
+                <li>Reading routes link stops in order: Weekly Reads, the National Book Awards 2026 and the Booker Prize 2026.</li>
                 <li>Works on phones, and every pin is also listed in plain text below the map.</li>
             </ul>
             <p class="intro-text" style="margin-top:1.5rem;"><a class="btn" style="width:auto;" href="atlas.html">Open the Atlas →</a></p>
@@ -354,7 +367,7 @@
     <script src="atlas-data.js"></script>
     <script>
     (function () {
-        var a = window.bsAtlas, r = window.bsRoutes; if (!a || !a.length) return;
+        var a = window.bsAtlas, r = (window.bsRoutes || []).filter(function (x) { return !x.hidden; }); if (!a || !a.length) return;
         var b = {}, c = {}; a.forEach(function (p) { c[p.cc] = 1; (p.books || []).forEach(function (k) { b[k.isbn || k.title] = 1; }); });
         function set(id, n) { var e = document.getElementById(id); if (e && n) e.textContent = n; }
         set("st-pins", a.length); set("st-books", Object.keys(b).length); set("st-cc", Object.keys(c).length); if (r) set("st-routes", r.length);

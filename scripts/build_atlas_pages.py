@@ -298,6 +298,7 @@ def cards(places):
 if __name__ == "__main__":
     CSS = base_css()
     places, routes = load()
+    routes = [r for r in routes if not r.get("hidden")]  # retired routes stay in atlas-data.js but aren't linked
     for p in places:
         (ROOT / f"atlas-{p['id']}.html").write_text(place_page(p, routes))
     (ROOT / "atlas-places.html").write_text(index_page(places))
