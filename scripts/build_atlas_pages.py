@@ -7,6 +7,7 @@ Writes (from repo root):  python3 scripts/build_atlas_pages.py
   - atlas.html             fills two marked blocks: Dataset + ItemList JSON-LD in <head>, and a static pin list
                            (atlas.js replaces the list when JavaScript runs)
   - sitemap-atlas.xml      sitemap for the generated pages (listed in robots.txt)
+  - og/atlas-<id>.png, og/atlas-places.png  link cards, only with --cards (needs google-chrome)
 Re-run after every atlas-data.js change. Needs node (to read the data file exactly as the browser does).
 """
 import html, json, re, subprocess, datetime
@@ -51,7 +52,8 @@ EXTRA = """
         @media (max-width: 640px) { .pbook { grid-template-columns: 1fr; } .pbook img { width: 140px; margin: 0 auto; } }
 """
 
-def head(title, desc, url, ld, img="https://bookandshores.com/og-image.png?v=2"):
+def head(title, desc, url, ld, card, alt):
+    img = f"{SITE}/og/{card}.png"
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +72,12 @@ def head(title, desc, url, ld, img="https://bookandshores.com/og-image.png?v=2")
     <meta property="og:description" content="{e(desc)}">
     <meta property="og:url" content="{url}">
     <meta property="og:image" content="{img}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{e(alt)}">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{img}">
+    <meta name="twitter:image:alt" content="{e(alt)}">
     <meta name="twitter:site" content="@bookandshores">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -158,7 +165,7 @@ def place_page(p, routes):
             {"@type": "ListItem", "position": 3, "name": p["name"], "item": url}]},
         ORG]}
     on_routes = [r for r in routes if p["id"] in r.get("stops", [])]
-    out = [head(title, desc, url, ld)]
+    out = [head(title, desc, url, ld, f"atlas-{p['id']}", f"Books set in {p['name']}, on the B&S Atlas by Book & Shores")]
     out.append(f'        <p class="crumbs"><a href="atlas.html">Atlas</a> › <a href="atlas-places.html">All places</a> › {e(p["name"])}</p>\n')
     out.append(f"""        <section class="place-hero">
             <p class="eyebrow">B&amp;S Atlas · {e(p.get('cont', ''))}</p>
@@ -203,7 +210,7 @@ def index_page(places):
          "mainEntity": {"@type": "ItemList", "numberOfItems": len(places), "itemListElement": [
              {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/atlas-{p['id']}.html", "name": f"Books set in {p['name']}"} for i, p in enumerate(places)]}},
         ORG]}
-    out = [head("All Places on the B&S Atlas: Books by Setting | Book & Shores", desc, url, ld)]
+    out = [head("All Places on the B&S Atlas: Books by Setting | Book & Shores", desc, url, ld, "atlas-places", "Every place on the B&S Atlas by Book & Shores")]
     out.append(f"""        <section class="place-hero">
             <p class="eyebrow">B&amp;S Atlas · Index</p>
             <h2>Every place on the Atlas</h2>
@@ -249,6 +256,45 @@ def sitemap(places):
     body = "".join(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{TODAY}</lastmod>\n  </url>\n" for u in urls)
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n"
 
+def card_html(label, h1, by, big, small):
+    import sys; sys.path.insert(0, str(ROOT / "scripts")); from make_link_cards import FONTS
+    size = 84 if len(h1) <= 22 else 68 if len(h1) <= 34 else 56
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}
+*{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1200px;height:630px;overflow:hidden}}
+body{{background:#f6bd28;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
+.frame{{position:absolute;inset:22px;border:4px solid #000}}
+.left{{position:absolute;left:70px;top:62px;width:660px;height:506px;display:flex;flex-direction:column}}
+.mark{{font-family:Oswald;font-weight:700;font-size:40px;line-height:1}}
+.label{{margin-top:44px;align-self:flex-start;background:#000;color:#f6bd28;font-weight:600;font-size:20px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px}}
+h1{{margin-top:20px;font-family:Oswald;font-weight:700;font-size:{size}px;line-height:.95;letter-spacing:-0.02em;text-transform:uppercase}}
+.by{{margin-top:18px;font-size:22px;font-weight:500;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
+.foot{{margin-top:auto;border-top:3px solid #000;padding-top:16px;font-size:20px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}}
+.box{{position:absolute;right:92px;top:108px;width:320px;height:400px;background:#000;color:#f6bd28;box-shadow:14px 14px 0 #000;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px}}
+.big{{font-family:Oswald;font-weight:700;font-size:120px;line-height:.9}}
+.small{{margin-top:22px;border-top:3px solid #f6bd28;padding-top:14px;font-size:22px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}}
+</style></head><body><div class="frame"></div>
+<div class="left"><div class="mark">BOOK &amp; SHORES</div><div class="label">{e(label)}</div><h1>{e(h1)}</h1><div class="by">{e(by)}</div>
+<div class="foot">bookandshores.com</div></div>
+<div class="box"><div class="big">{e(big)}</div><div class="small">{e(small)}</div></div></body></html>"""
+
+def render_card(name, htm):
+    out = ROOT / "og"; out.mkdir(exist_ok=True)
+    tmp = out / f".tmp-{name}.html"; tmp.write_text(htm)
+    subprocess.run(["google-chrome", "--headless=new", "--no-sandbox", "--disable-gpu", "--hide-scrollbars", "--allow-file-access-from-files",
+                    "--window-size=1200,630", "--force-device-scale-factor=1", "--virtual-time-budget=3000",
+                    f"--screenshot={out / (name + '.png')}", f"file://{tmp}"], check=True, capture_output=True)
+    tmp.unlink()
+
+def cards(places):
+    for p in places:
+        n = len(p["books"])
+        render_card(f"atlas-{p['id']}", card_html(f"B&S Atlas · {p.get('cont', '')}", f"Books set in {p['name']}",
+                    " · ".join(b["title"] for b in p["books"]), str(n), "book" + ("s" if n != 1 else "") + " pinned here"))
+    nb = len({b.get("isbn") or b["title"] for p in places for b in p["books"]})
+    render_card("atlas-places", card_html("B&S Atlas · Index", "Every place on the Atlas",
+                f"{nb} books at their stated settings, each one cited.", str(len(places)), "places"))
+
 if __name__ == "__main__":
     CSS = base_css()
     places, routes = load()
@@ -267,4 +313,6 @@ if __name__ == "__main__":
         s = s.replace('<ul id="pins-ul" class="pins-ul"></ul>', '<ul id="pins-ul" class="pins-ul">' + lst + "</ul>", 1)
     a.write_text(s)
     (ROOT / "sitemap-atlas.xml").write_text(sitemap(places))
+    if "--cards" in __import__("sys").argv:
+        cards(places)
     print(f"{len(places)} place pages + atlas-places.html + sitemap-atlas.xml; atlas.html blocks updated")
