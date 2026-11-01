@@ -24,10 +24,11 @@
     /* ---------- Pin list (static-friendly, also the keyboard/no-map path) ---------- */
     function renderList() {
         var ul = document.getElementById("pins-ul"), total = 0;
+        ul.textContent = ""; // drop the server-rendered list (for crawlers and no-JS readers); rebuild it with map buttons
         PLACES.forEach(function (p) {
             total += p.books.length;
             var li = el("li");
-            li.appendChild(el("div", "pl-place", p.name));
+            var pd = el("div", "pl-place"), pa = el("a", null, p.name); pa.href = "atlas-" + p.id + ".html"; pd.appendChild(pa); li.appendChild(pd);
             p.books.forEach(function (b) {
                 var d = el("div", "pl-book");
                 var a = el("a", null, b.title); a.href = b.page || b.srcUrl; if (!b.page) { newTab(a); a.rel = "noopener"; } d.appendChild(a);
@@ -62,12 +63,13 @@
             col.appendChild(el("div", "pp-author", b.author + (b.year ? " · " + b.year : "")));
             var set = el("div", "pp-set"); set.appendChild(el("b", null, "Set in: ")); set.appendChild(document.createTextNode(b.setting)); col.appendChild(set);
             if (b.note) col.appendChild(el("div", "pp-note", b.note));
+            if (b.partner) col.appendChild(el("div", "partner-tag", "Partner pin · " + b.partner));
             var act = el("div", "pp-actions");
             var buy = newTab(el("a", "buy", "Buy the book")); buy.href = buyUrl(b);
-            buy.setAttribute("aria-label", "Buy " + b.title + " on Bookshop.org (opens in a new tab)");
+            buy.setAttribute("aria-label", "Buy " + b.title + " (opens in a new tab)");
             act.appendChild(buy);
             var eu = ebookUrl(b);
-            if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " on Bookshop.org (opens in a new tab)"); act.appendChild(eb); }
+            if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " (opens in a new tab)"); act.appendChild(eb); }
             col.appendChild(act);
             var pg;
             if (b.page) { pg = el("a", "pp-page", b.page.indexOf("book-") === 0 ? "Read our page →" : "See it in our shop →"); pg.href = b.page; }
@@ -250,7 +252,9 @@
         });
         window.addEventListener("hashchange", function () {
             var r = routeById(location.hash.slice(1));
+            var h = location.hash.slice(1);
             if (r) { if (!routeOn || r !== ROUTE) { setRoute(true, true, false, r); } }
+            else if (h && place(h)) { if (routeOn) { setRoute(false, true); } if (mapReady) { showPlace(h, true); } }
             else if (routeOn) { setRoute(false, true); }
         });
     }
@@ -317,6 +321,8 @@
             if (hashRoute && !routeOn) {
                 setRoute(true, true, true, hashRoute);
                 var rb = document.getElementById("regions"); if (rb) { rb.scrollIntoView({ block: "start" }); }
+            } else if (!hashRoute && location.hash.length > 1 && place(location.hash.slice(1))) {
+                showPlace(location.hash.slice(1), true); // deep link from a place page, e.g. atlas.html#savannah
             }
         });
         map.on("error", function (e) { if (e && e.error && /Failed to fetch|NetworkError|ERR_/.test(String(e.error.message || e.error))) { /* tiles offline: pins still work */ } });
@@ -511,10 +517,11 @@
         col.appendChild(el("div", "sr-title", b.title));
         col.appendChild(el("div", "sr-author", b.author + (b.year ? " · " + b.year : "")));
         var set = el("div", "sr-set"); set.appendChild(el("b", null, "Set in: ")); set.appendChild(document.createTextNode(b.setting)); col.appendChild(set);
+        if (b.partner) col.appendChild(el("div", "partner-tag", "Partner pin · " + b.partner));
         var act = el("div", "sr-actions");
-        var buy = newTab(el("a", "buy", "Buy the book")); buy.href = buyUrl(b); buy.setAttribute("aria-label", "Buy " + b.title + " on Bookshop.org (opens in a new tab)"); act.appendChild(buy);
+        var buy = newTab(el("a", "buy", "Buy the book")); buy.href = buyUrl(b); buy.setAttribute("aria-label", "Buy " + b.title + " (opens in a new tab)"); act.appendChild(buy);
         var eu = ebookUrl(b);
-        if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " on Bookshop.org (opens in a new tab)"); act.appendChild(eb); }
+        if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " (opens in a new tab)"); act.appendChild(eb); }
         if (map) {
             var on = el("button", null, "On the map"); on.type = "button"; on.setAttribute("aria-label", "Show " + h.p.name + " on the map");
             on.addEventListener("click", function () { showPlace(h.p.id, true); });

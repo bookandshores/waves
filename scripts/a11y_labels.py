@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """B&S: accessibility / AI-agent labels. No visual change. Idempotent.
-- Bookshop Buy links: aria-label "Buy <title> on Bookshop.org (opens in a new tab)", rel="noopener sponsored"
+- Bookshop Buy links: aria-label "Buy <title> (opens in a new tab)", rel="noopener sponsored"
 - Tip links: aria-label; new-tab links get rel=noopener
 - Spin Brigitte: type=button, aria-label, aria-controls; result region is aria-live
 - KCRW <audio>: aria-label
@@ -57,7 +57,7 @@ def process(name):
             t = title_before(src, m.start())
             if t:
                 t = re.sub(r"\s+[–—-]\s+", " by ", t, count=1) if (" by " not in t and t not in TITLE_OVERRIDES.values()) else t
-                new = set_attr(new, "aria-label", html.escape("Buy %s on Bookshop.org (opens in a new tab)" % t))
+                new = set_attr(new, "aria-label", html.escape("Buy %s (opens in a new tab)" % t))
             else:
                 missing.append((name, tag))
             new = fix_rel(new, ["noopener", "sponsored"])
@@ -83,7 +83,7 @@ def process(name):
         src = src.replace("""'<img src="' + bsEsc(b.cover) + '" alt="' + name + '" """,
                           """'<img src="' + bsEsc(b.cover) + '" alt="Cover of ' + bsEsc(b.title) + (b.author ? ' by ' + bsEsc(b.author) : '') + '" """)
         src = src.replace("""rel="noopener" class="btn">Buy Now</a>' +""",
-                          """rel="noopener sponsored" class="btn" aria-label="Buy ' + bsEsc(b.title) + ' on Bookshop.org (opens in a new tab)">Buy Now</a>' +""")
+                          """rel="noopener sponsored" class="btn" aria-label="Buy ' + bsEsc(b.title) + ' (opens in a new tab)">Buy Now</a>' +""")
         src = src.replace("""target="_blank" rel="noopener" class="tip-btn">Tip the Booktender</a>';""",
                           """target="_blank" rel="noopener" class="tip-btn" aria-label="Tip the Booktender on PayPal (opens in a new tab)">Tip the Booktender</a>';""")
         src = src.replace('<audio controls preload="none" src="https://streams.kcrw.com/e24_mp3"',
