@@ -63,6 +63,7 @@ Affiliate disclosure: Book & Shores earns a small commission from Bookshop.org p
 
 - [Home](https://bookandshores.com/): Weekly Reads, the Booker 2026 shortlist, Dates to Remember (upcoming book-prize dates), Spin Brigitte (a random pick from our shelves), and radio.
 - [Sitemap](https://bookandshores.com/sitemap.xml)
+- [Atlas: all places](https://bookandshores.com/atlas-places.html): Every place on the B&S Atlas with its books, one page per place (e.g. https://bookandshores.com/atlas-savannah.html). Each book is pinned at its stated setting with the source cited.
 
 ## Optional
 

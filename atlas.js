@@ -24,10 +24,11 @@
     /* ---------- Pin list (static-friendly, also the keyboard/no-map path) ---------- */
     function renderList() {
         var ul = document.getElementById("pins-ul"), total = 0;
+        ul.textContent = ""; // drop the server-rendered list (for crawlers and no-JS readers); rebuild it with map buttons
         PLACES.forEach(function (p) {
             total += p.books.length;
             var li = el("li");
-            li.appendChild(el("div", "pl-place", p.name));
+            var pd = el("div", "pl-place"), pa = el("a", null, p.name); pa.href = "atlas-" + p.id + ".html"; pd.appendChild(pa); li.appendChild(pd);
             p.books.forEach(function (b) {
                 var d = el("div", "pl-book");
                 var a = el("a", null, b.title); a.href = b.page || b.srcUrl; if (!b.page) { newTab(a); a.rel = "noopener"; } d.appendChild(a);
@@ -317,6 +318,8 @@
             if (hashRoute && !routeOn) {
                 setRoute(true, true, true, hashRoute);
                 var rb = document.getElementById("regions"); if (rb) { rb.scrollIntoView({ block: "start" }); }
+            } else if (!hashRoute && location.hash.length > 1 && place(location.hash.slice(1))) {
+                showPlace(location.hash.slice(1), true); // deep link from a place page, e.g. atlas.html#savannah
             }
         });
         map.on("error", function (e) { if (e && e.error && /Failed to fetch|NetworkError|ERR_/.test(String(e.error.message || e.error))) { /* tiles offline: pins still work */ } });
