@@ -64,7 +64,7 @@ Contact: readme@bookandshores.com
 
 - [Home](https://bookandshores.com/): Weekly Reads, the Booker 2026 shortlist, Dates to Remember (upcoming book-prize dates), Spin Brigitte (a random pick from our shelves), and radio.
 - [Sitemap](https://bookandshores.com/sitemap.xml)
-- [Atlas: all places](https://bookandshores.com/atlas-places.html): Every place on the Book & Shores Atlas with its books, one page per place (e.g. https://bookandshores.com/atlas-savannah.html). Each book is pinned at its stated setting with the source cited.
+- [Atlas: all the pins](https://bookandshores.com/atlas-pins.html): All 57 pins on the Book & Shores Atlas with their books, searchable by place, title or author and filterable by region or reading route; each pin has its own page (e.g. https://bookandshores.com/atlas-savannah.html). Each book is pinned at its stated setting with the source cited.
 
 ## Optional
 

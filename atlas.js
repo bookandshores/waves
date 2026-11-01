@@ -22,11 +22,24 @@
     function newTab(a) { a.target = "_blank"; a.rel = "noopener sponsored"; return a; }
 
     /* ---------- Pin list (static-friendly, also the keyboard/no-map path) ---------- */
+    // atlas.html shows a short list; every pin is on atlas-pins.html. Same rule as SHORT/short_picks in scripts/build_atlas_pages.py:
+    // the Weekly Reads stops first (route order), topped up with the newest pins (end of atlas-data.js).
+    var SHORT = 6;
+    function shortPicks() {
+        var by = {}, ids = [], wr = ROUTES.filter(function (r) { return r.id === "weekly-reads"; })[0];
+        PLACES.forEach(function (p) { by[p.id] = p; });
+        (wr ? wr.stops : []).forEach(function (id) { if (by[id] && ids.length < SHORT) ids.push(id); });
+        for (var i = PLACES.length - 1; i >= 0 && ids.length < SHORT; i--) { if (ids.indexOf(PLACES[i].id) < 0) ids.push(PLACES[i].id); }
+        var note = document.getElementById("pins-short-note");
+        if (note) note.textContent = wr && wr.stops.length >= SHORT ? "A few stops from our " + wr.name + " route" : "A few of our pins";
+        return ids.map(function (id) { return by[id]; });
+    }
     function renderList() {
         var ul = document.getElementById("pins-ul"), seen = {};
         ul.textContent = ""; // drop the server-rendered list (for crawlers and no-JS readers); rebuild it with map buttons
-        PLACES.forEach(function (p) {
-            p.books.forEach(function (k) { seen[k.isbn || (k.title + "|" + k.author)] = 1; }); // count each book once, even if pinned in two places
+        PLACES.forEach(function (p) { p.books.forEach(function (k) { seen[k.isbn || (k.title + "|" + k.author)] = 1; }); }); // count each book once, even if pinned in two places
+        var n = document.getElementById("pins-all-n"); if (n) n.textContent = PLACES.length;
+        shortPicks().forEach(function (p) {
             var li = el("li");
             var pd = el("div", "pl-place"), pa = el("a", null, p.name); pa.href = "atlas-" + p.id + ".html"; pd.appendChild(pa); li.appendChild(pd);
             p.books.forEach(function (b) {
