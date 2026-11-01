@@ -214,7 +214,7 @@ def index_page(places):
     out.append(f"""        <section class="place-hero">
             <p class="eyebrow">B&amp;S Atlas · Index</p>
             <h2>Every place on the Atlas</h2>
-            <p>{len(places)} places, {nb} books, {ncc} countries. Each book is pinned at its stated setting, and every pin cites its source.</p>
+            <p>Earth's curated atlas of books, each pinned to its stated setting and sourced. {len(places)} places, {nb} books, {ncc} countries.</p>
             <p style="margin-top:1rem;"><a class="btn" style="width:auto;" href="atlas.html">Open the map →</a></p>
         </section>
         <div class="idx">
@@ -235,7 +235,7 @@ def atlas_blocks(places):
     nb = len({b.get("isbn") or b["title"] for p in places for b in p["books"]})
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "Dataset", "@id": SITE + "/atlas.html#dataset", "name": "B&S Atlas: books mapped to their stated settings",
-         "description": f"A hand-checked map of {nb} books at {len(places)} places, each pinned at the book's stated setting with a cited source (the book, its publisher or a major review). Made by Book & Shores, an independent bookstore.",
+         "description": f"Earth's curated atlas of books, each pinned to its stated setting and sourced: {nb} books at {len(places)} places, every setting cited from the book, its publisher or a major review. Made by Book & Shores, an independent bookstore.",
          "url": SITE + "/atlas.html", "creator": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
          "keywords": ["literary map", "books by setting", "book atlas", "literary geography", "literary travel"],
          "spatialCoverage": {"@type": "Place", "name": "World"}, "dateModified": TODAY, "isAccessibleForFree": True,
