@@ -2,6 +2,7 @@
 // RULES: every pin is a book's STATED setting (from our own book page/blurb or the publisher/major press, see "src").
 // "area": true = the book names a region, not an exact address, so the pin sits inside the region (shown as a dashed ring).
 // "page": our own page for the book. "bookstore.html" means the book only has a card in our bookstore (no dedicated page yet).
+// "partner": optional, name of the press, author or organization that paid for a Launch Pin. Shows a "Partner pin" label on the card and the place page.
 // "ebook": [Bookshop product path, ebook EAN] copied from zoltar-machine.js (format Bookshop uses for ebook share links). Omit if none.
 // Buy link is always https://bookshop.org/a/125864/<ISBN13> (affiliate ID 125864).
 window.bsAtlas = [
