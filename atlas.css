@@ -27,6 +27,11 @@ h2 { font-family:'Oswald',sans-serif; font-weight:700; line-height:1.05; }
 .tagline { margin-top:1.2rem; font-size:clamp(1.05rem,3.6vw,1.45rem); font-weight:500; font-style:italic; border-top:3px solid var(--black); border-bottom:3px solid var(--black); display:inline-block; padding:.45rem 1.1rem; margin-bottom:1rem; }
 .lede { max-width:620px; margin:0 auto; }
 .lede.small { font-size:.95rem; margin:-.4rem auto 1.4rem; color:var(--gray); }
+#pin-count { margin-bottom:.3rem; }
+.lede.small.claim-hint { margin-top:0; }
+.claim-hint a { color:inherit; text-decoration:underline; white-space:nowrap; }
+#claim-a-pin { scroll-margin-top:1rem; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior:smooth; } }
 
 /* Map */
 .map-section { max-width:1100px; margin:0 auto 2.5rem; }
