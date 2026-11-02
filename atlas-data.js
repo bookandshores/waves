@@ -4,7 +4,7 @@
 // "page": our own page for the book. "bookstore.html" means the book only has a card in our bookstore (no dedicated page yet).
 // "partner": optional, name of the press, author or organization that paid for a Launch Pin. Shows a "Partner pin" label on the card and the place page.
 // "ebook": [Bookshop product path, ebook EAN] copied from zoltar-machine.js (format Bookshop uses for ebook share links). Omit if none.
-// Buy link is always https://bookshop.org/a/125864/<ISBN13> (affiliate ID 125864).
+// Buy link is https://bookshop.org/a/125864/<ISBN13> (affiliate ID 125864), unless "buy" gives the bookstore listing URL (e.g. a press).
 window.bsAtlas = [
   { id: "dublin", name: "Dublin, Ireland", lng: -6.2603, lat: 53.3498, area: false, cc: "IE", cont: "Europe", reg: ["dublin", "leinster", "ireland"], books: [
     { title: "All Them Dogs", author: "Djamel White", isbn: "9798217046676", cover: "atlas/cover-all-them-dogs.jpg",
@@ -21,6 +21,12 @@ window.bsAtlas = [
       setting: "Zurich (the last stop), after London and France", note: "A last pilgrimage across Europe. Longlisted for the 2026 Booker Prize.",
       page: "book-switzy.html", ebook: ["switzy-a-novel-emma-cline/f5a588e2ff0bd8e0", "9780593595251"],
       src: "book-switzy.html (flight to a clinic in Zurich; dinner in London; friend in France)" }
+  ]},
+  { id: "dordogne", name: "Dordogne, France", lng: 0.7500, lat: 45.1000, area: true, cc: "FR", cont: "Europe", reg: ["dordogne", "nouvelle-aquitaine", "perigord", "france"], books: [
+    { title: "Practicing Dying", author: "Charlotte Northall", isbn: "9781068758645", cover: "Practice.png",
+      setting: "A Zen Buddhist monastery in a forested national park in the Dordogne, rural France", note: "A literary anti-memoir of addiction and monastery life. Pilot Press.",
+      page: "bookstore.html", buy: "https://www.pilotpress.co.uk/catalogue",
+      src: "Publisher synopsis (\"a Zen Buddhist monastery in rural France\"), charlottenorthall.com/about-2; author's Chapter 5 excerpt (\"a forested national park in the Dordogne\"), https://charlottenorthall.substack.com/p/chapter-5" }
   ]},
   { id: "stockholm", name: "Stockholm, Sweden", lng: 18.0686, lat: 59.3293, area: true, cc: "SE", cont: "Europe", reg: ["stockholm"], books: [
     { title: "The Sandman", author: "Lars Kepler", isbn: "9780525433057", cover: "atlas/cover-the-sandman.jpg",
