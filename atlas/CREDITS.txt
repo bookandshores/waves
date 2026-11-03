@@ -44,3 +44,10 @@ cover-stations.jpg  publisher cover (Penguin Random House / Riverhead, images2.p
 cover-a-glaciers-guide-to-dying.jpg  publisher cover (Hachette Book Group / Algonquin shop page)
 cover-monsters-of-ohio.jpg, cover-this-impossible-life.jpg  publisher covers as shown on their NetGalley catalog pages (Tor Books; Mariner Books)
 cover-27-knots.jpg  publisher cover (Open Road Media, book-assets.openroadmedia.com/9798337209524.jpg)
+
+og/covers/ (hi-res covers used only on link cards, og/atlas-<id>.png):
+cover-stations.jpg  images2.penguinrandomhouse.com/cover/700jpg/9780593714607 (Penguin Random House / Riverhead)
+cover-a-glaciers-guide-to-dying.jpg  hachettebookgroup.com cover image for 9781523538003 (Hachette / Algonquin), resized to 720px tall
+cover-monsters-of-ohio.jpg  mpd-biblio-covers.imgix.net/9780765389039.jpg (Macmillan / Tor), resized to 720px tall
+cover-this-impossible-life.jpg  harpercollins.com cover image for 9780358650171 (HarperCollins / Mariner), resized to 720px tall
+cover-27-knots.jpg  book-assets.openroadmedia.com/9798337209524.jpg (Open Road Media)
