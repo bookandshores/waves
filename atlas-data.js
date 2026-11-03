@@ -452,6 +452,63 @@ window.bsAtlas = [
       page: "bookstore.html",
       srcUrl: "https://openroadmedia.com/ebook/27-knots/9798337209524",
       src: "Open Road Media book page: \"sent down the Mekong Delta on a napalm boat as part of the Mobile Riverine Force\" ... \"Fifty years later, lured to Washington, DC\"" }
+  ]},
+  /* ---- Backlist & midlist from our shelves (Nov 3, 2026): great books keep finding readers long after launch ---- */
+  { id: "peterborough-ontario", name: "Peterborough, Ontario, Canada", lng: -78.3197, lat: 44.3091, area: true, cc: "CA", cont: "North America", reg: ["peterborough", "ontario", "canada"], books: [
+    { title: "Dark Rides", author: "Derek McCormack", year: 1996, cover: "atlas/cover-dark-rides.jpg",
+      setting: "Peterborough, Ontario, in 1952: haunted hayrides, a joke shop and honky-tonks in a small Canadian city", note: "Linked stories its publisher calls \"like the best carnival dark ride you've ever been on.\" First published in 1996; the 30th anniversary edition is from Pilot Press, a small press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.taddlecreekmag.com/above-snakes",
+      src: "Taddle Creek: \"Dark Rides is set in Peterborough in 1952\"; Pilot Press catalogue: \"gay teenagers growing up in a small city in Canada in the 1950s\"" }
+  ]},
+  { id: "skies-over-france", name: "Skies over France, World War I (the Sopwith Camel is a doghouse)", lng: 2.8, lat: 49.9, area: true, cc: "FR", cont: "Europe", reg: ["france", "western front", "somme", "picardy", "europe"], books: [
+    { title: "Snoopy and the Red Baron", author: "Charles M. Schulz", year: 1966, isbn: "9781787742727", cover: "atlas/cover-snoopy-and-the-red-baron.jpg",
+      setting: "The skies over France in World War I, flown from atop Snoopy's doghouse, then behind enemy lines and back to base", note: "The doghouse is a Sopwith Camel, the enemy is the Red Baron, and the war is all in Snoopy's head. An area pin. First published 1966.",
+      page: "bookstore.html",
+      srcUrl: "https://www.enotes.com/topics/charles-m-onroe-schulz/criticism/clarence-petersen",
+      src: "Clarence Petersen, Book World, Chicago Tribune (Aug. 10, 1969): \"his doghouse is the Sopwith Camel\" ... \"Snoopy under anti-aircraft fire over France\"" }
+  ]},
+  { id: "jazz-age-new-york", name: "New York City in the Jazz Age", lng: -73.9855, lat: 40.7580, area: true, cc: "US", cont: "North America", reg: ["new york", "new york city", "manhattan", "nyc"], books: [
+    { title: "The Wild Party", author: "Joseph Moncure March, drawings by Art Spiegelman", year: 1928, isbn: "9780375706431", cover: "atlas/cover-the-wild-party.jpg",
+      setting: "Queenie's studio apartment in Jazz Age New York, over one long night of a party", note: "A 1928 ballad-novel, promptly banned in Boston, here with Art Spiegelman's drawings. An area pin: the flat's address isn't given. Pantheon.",
+      page: "bookstore.html",
+      srcUrl: "https://archive.nytimes.com/www.nytimes.com/books/99/07/25/nnp/moncure-wild.html",
+      src: "The New York Times review: \"the book of a young man eagerly slumming in Jazz Age New York\" ... \"That night they throw a party\"" }
+  ]},
+  { id: "north-shore-oahu", name: "North Shore, Oahu, Hawaii", lng: -158.0530, lat: 21.6650, area: true, cc: "US", cont: "North America", reg: ["north shore", "oahu", "hawaii", "pipeline", "pacific"], books: [
+    { title: "Welcome to Paradise, Now Go to Hell", author: "Chas Smith", year: 2013, isbn: "9780062202536", cover: "atlas/cover-welcome-to-paradise-now-go-to-hell.jpg",
+      setting: "Oahu's North Shore in winter, when the best surfers in the world converge on the Banzai Pipeline", note: "Nonfiction about surf culture on its most famous coast. HarperCollins.",
+      page: "bookstore.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/chas-smith/welcome-to-paradise-now-go-to-hell/",
+      src: "Kirkus review: \"a hip exposé of Hawaii's North Shore surfing culture\" ... \"the best surfers in the world converge on Oahu's North Shore\"" }
+  ]},
+  { id: "mississippi-river", name: "The Mississippi River", lng: -91.3500, lat: 39.7000, area: true, cc: "US", cont: "North America", reg: ["mississippi river", "mississippi", "missouri", "illinois", "midwest"], books: [
+    { title: "James", author: "Percival Everett", year: 2024, isbn: "9780385550369", cover: "atlas/cover-james.jpg",
+      setting: "A raft on the antebellum Mississippi River, as Jim runs from being sold, with Huck alongside", note: "Huckleberry Finn told by Jim. An area pin on the river. Winner of the Pulitzer Prize. Doubleday.",
+      page: "bookstore.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/percival-everett/james/",
+      src: "Kirkus review: \"the Black slave with whom the boy escapes via raft on the Mississippi River\" ... \"an antebellum wilderness\"" }
+  ]},
+  { id: "bucharest", name: "Bucharest, Romania", lng: 26.1025, lat: 44.4268, area: true, cc: "RO", cont: "Europe", reg: ["bucharest", "romania", "eastern europe"], books: [
+    { title: "Solenoid", author: "Mircea Cărtărescu (translated by Sean Cotter)", year: 2022, isbn: "9781646052028", cover: "atlas/cover-solenoid.jpg",
+      setting: "Bucharest, where solenoids hum hidden under the back alleys and tunnels of the city", note: "A teacher who wanted to be a writer keeps a diary that spirals into a cosmos. Deep Vellum, a small press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/mircea-cartarescu/solenoid/",
+      src: "Kirkus review: \"It's not the only solenoid hidden away in the back alleys and tunnels of Bucharest\"" }
+  ]},
+  { id: "dutch-countryside", name: "Dutch countryside, Netherlands", lng: 6.4, lat: 52.4, area: true, cc: "NL", cont: "Europe", reg: ["netherlands", "holland", "dutch countryside", "europe"], books: [
+    { title: "The Safekeep", author: "Yael van der Wouden", year: 2024, isbn: "9781668034354", cover: "atlas/cover-the-safekeep.jpg",
+      setting: "An old family house in the Dutch countryside in the summer of 1961", note: "Isabel's ordered life comes apart when her brother Louis's girlfriend, Eva, comes to stay. An area pin: the village isn't named. Avid Reader Press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/yael-van-der-wouden/the-safekeep/",
+      src: "Kirkus review: \"Two women spend a fraught summer together in the Dutch countryside\" ... \"opens in 1961 in the Netherlands\"" }
+  ]},
+  { id: "gyula", name: "Gyula, Hungary (the town is unnamed)", lng: 21.2784, lat: 46.6473, area: true, cc: "HU", cont: "Europe", reg: ["gyula", "bekes", "hungary", "eastern europe"], books: [
+    { title: "Baron Wenckheim's Homecoming", author: "László Krasznahorkai (translated by Ottilie Mulzet)", year: 2019, isbn: "9780811239707", cover: "atlas/cover-baron-wenckheims-homecoming.jpg",
+      setting: "An unnamed Hungarian town near the Romanian border, a lightly fictionalised Gyula, as a baron whose casino debts catch up with him comes home from Argentina", note: "The town is never named, so this is an area pin. New Directions.",
+      page: "bookstore.html",
+      srcUrl: "https://www.thesaturdaypaper.com.au/culture/books/2020/02/29/baron-wenckheims-homecoming/15804756009327",
+      src: "The Saturday Paper: \"The unnamed town is a lightly fictionalised version of Gyula, a city of some 30,000 souls in Békés County, near the Romanian border\"; Kirkus review: he \"returns to the countryside haunts of his youth\"" }
   ]}
 
 ];
