@@ -416,6 +416,42 @@ window.bsAtlas = [
       page: "book-black-bag.html",
       srcUrl: "https://thebookerprizes.com/the-booker-library/books/black-bag",
       src: "The Booker Prizes book page, judges' citation: \"How does an aspiring actor survive in contemporary London\". The university is not named, so this is an area pin." }
+  ]},
+  /* ---- LA Times "10 books to read in November" (Nov 2, 2026), the picks with a sourced setting ---- */
+  { id: "pimlico", name: "Pimlico, London, England", lng: -0.1334, lat: 51.4893, area: true, cc: "GB", cont: "Europe", reg: ["pimlico", "westminster", "london", "greater london", "england", "ireland", "dublin"], books: [
+    { title: "Stations", author: "Louise Kennedy", year: 2026, isbn: "9780593714607", cover: "atlas/cover-stations.jpg",
+      setting: "A squat in Pimlico, London, in the 1980s, after a girlhood in a small town south of Dublin", note: "Pinned at the Pimlico squat where Róisín finds Red. A novel of first love and regret. Riverhead.",
+      page: "bookstore.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/735417/stations-by-louise-kennedy/",
+      src: "Penguin Random House book page: \"In 1980s Ireland\" ... \"Róisín tracks down Red and moves into his Pimlico squat\"; Publishers Weekly review (\"her small town south of Dublin\")" }
+  ]},
+  { id: "glacier-national-park", name: "Glacier National Park, Montana", lng: -113.7870, lat: 48.7596, area: true, cc: "US", cont: "North America", reg: ["glacier national park", "montana", "rocky mountains", "alberta"], books: [
+    { title: "A Glacier's Guide to Dying", author: "Michelle Porter", year: 2026, isbn: "9781523538003", cover: "atlas/cover-a-glaciers-guide-to-dying.jpg",
+      setting: "A glacier in Glacier National Park, Montana, as wildfires rage, after a bus ride down from Alberta", note: "A young Métis man hunts for his missing father and hears the glacier speak. Algonquin Books.",
+      page: "bookstore.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/michelle-porter/a-glaciers-guide-to-dying/",
+      src: "Kirkus review: \"A young Métis man from Alberta winds up trekking a glacier in Montana\" ... \"the two men wind up in Glacier National Park, where wildfires rage\"; LA Times, Nov 2, 2026 (uncle in Montana)" }
+  ]},
+  { id: "richland-ohio", name: "Rural Ohio, USA (Richland is made up)", lng: -82.9071, lat: 40.4173, area: true, cc: "US", cont: "North America", reg: ["ohio", "richland", "midwest"], books: [
+    { title: "Monsters of Ohio", author: "John Scalzi", year: 2026, isbn: "9780765389039", cover: "atlas/cover-monsters-of-ohio.jpg",
+      setting: "Richland, a made-up small farm town in rural Ohio whose biggest employer is closing", note: "Sci-fi with tentacles and small-town resistance. Richland is made up, so this is an area pin. Tor Books.",
+      page: "bookstore.html",
+      srcUrl: "https://torpublishinggroup.com/monsters-of-ohio/?format=hardback&isbn=9780765389039",
+      src: "Tor Publishing Group book page: \"Welcome to Richland, Ohio\"; Kirkus review: \"the story's fictional town\" sits in the rural Ohio county where Scalzi lives" }
+  ]},
+  { id: "lagos", name: "Lagos, Nigeria", lng: 3.3792, lat: 6.5244, area: true, cc: "NG", cont: "Africa", reg: ["lagos", "nigeria", "west africa"], books: [
+    { title: "This Impossible Life", author: "Chinelo Okparanta", year: 2026, isbn: "9780358650171", cover: "atlas/cover-this-impossible-life.jpg",
+      setting: "Lagos, Nigeria, from 1993, then New York City and Italy", note: "Pinned where Alohan and Ivie's story begins. A saga of two orphaned siblings. Mariner Books.",
+      page: "bookstore.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/chinelo-okparanta/this-impossible-life/",
+      src: "Kirkus review: \"a brother and sister raised in Lagos\" ... \"In 1993\"; later New York City and Italy. Publisher copy: \"from Nigeria to the United States to Italy\"" }
+  ]},
+  { id: "mekong-delta", name: "Mekong Delta, Vietnam", lng: 105.7800, lat: 10.0300, area: true, cc: "VN", cont: "Asia", reg: ["mekong delta", "mekong", "vietnam", "washington", "washington dc"], books: [
+    { title: "27 Knots", author: "Martin J. Smith", year: 2026, isbn: "9798337209531", cover: "atlas/cover-27-knots.jpg",
+      setting: "The Mekong Delta during the Vietnam War, then Washington, DC, fifty years later", note: "Pinned on the river where Vance served with the Mobile Riverine Force. A thriller. Open Road Media.",
+      page: "bookstore.html",
+      srcUrl: "https://openroadmedia.com/ebook/27-knots/9798337209524",
+      src: "Open Road Media book page: \"sent down the Mekong Delta on a napalm boat as part of the Mobile Riverine Force\" ... \"Fifty years later, lured to Washington, DC\"" }
   ]}
 
 ];
