@@ -8,7 +8,8 @@ Writes (from repo root):  python3 scripts/build_atlas_pages.py
   - atlas.html             fills two marked blocks: Dataset + ItemList JSON-LD in <head>, and a static short pin list
                            (the SHORT picks; atlas.js rebuilds the same list when JavaScript runs) + the "See all N pins" count
   - sitemap-atlas.xml      sitemap for the generated pages (listed in robots.txt)
-  - og/atlas-<id>.png, og/atlas-pins.png  link cards, only with --cards (needs google-chrome)
+  - og/atlas-<id>.png, og/atlas-pins.png  link cards, only with --cards, or --card <id> ... for new pins (needs google-chrome).
+                           Place cards show the actual book card: cover (og/covers/ hi-res if present), title/author, place.
 Re-run after every atlas-data.js change. Needs node (to read the data file exactly as the browser does).
 """
 import html, json, re, subprocess, datetime
@@ -148,6 +149,12 @@ def src_html(b):
         return f'<a href="{e(b["page"])}">our page for the book</a>'
     return "Book &amp; Shores"
 
+def card_alt(p):
+    bs = p["books"]
+    if len(bs) == 1:
+        return f"Book card: {bs[0]['title']} by {bs[0]['author']}, pinned at {p['name']} on the Book & Shores Atlas. Go There. Read It."
+    return f"Book card: {', '.join(b['title'] for b in bs)}, pinned at {p['name']} on the Book & Shores Atlas. Go There. Read It."
+
 def place_page(p, routes):
     url = f"{SITE}/atlas-{p['id']}.html"
     n = len(p["books"])
@@ -166,7 +173,7 @@ def place_page(p, routes):
             {"@type": "ListItem", "position": 3, "name": p["name"], "item": url}]},
         ORG]}
     on_routes = [r for r in routes if p["id"] in r.get("stops", [])]
-    out = [head(title, desc, url, ld, f"atlas-{p['id']}", f"Books set in {p['name']}, on the Book & Shores Atlas. Go There. Read It.")]
+    out = [head(title, desc, url, ld, f"atlas-{p['id']}", card_alt(p))]
     out.append(f'        <p class="crumbs"><a href="atlas.html">Atlas</a> › <a href="atlas-pins.html">All the pins</a> › {e(p["name"])}</p>\n')
     out.append(f"""        <section class="place-hero">
             <p class="eyebrow">Book &amp; Shores Atlas · {e(p.get('cont', ''))}</p>
@@ -466,27 +473,52 @@ def sitemap(places):
     body = "".join(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{TODAY}</lastmod>\n  </url>\n" for u in urls)
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n"
 
-def card_html(label, h1, by, big, small):
+def cover_src(b):
+    """Hi-res cover for link cards: og/covers/<name> (publisher source, see atlas/CREDITS.txt) if present, else the Atlas thumbnail."""
+    c = b.get("cover") or ""
+    if not c: return ""
+    hi = ROOT / "og" / "covers" / Path(c).name
+    return f"file://{hi if hi.exists() else ROOT / c}"
+
+def card_html(label, h1, by, big, small, covers=(), place=""):
+    """Link card on #f6bd28. With covers: the actual book card (cover art, title/author in Oswald, place in IBM Plex Mono).
+    Without covers (index card): the count box."""
     import sys; sys.path.insert(0, str(ROOT / "scripts")); from make_link_cards import FONTS
+    covers = [c for c in covers if c][:3]
     size = 84 if len(h1) <= 22 else 68 if len(h1) <= 34 else 56
+    if covers:
+        n = len(covers); ch = {1: 470, 2: 430, 3: 400}[n]; step = {1: 0, 2: 120, 3: 95}[n]
+        imgs = "".join(f'<img class="cv" src="{e(c)}" style="height:{ch}px;right:{92 + step * (n - 1 - i)}px;top:{80 + (470 - ch) // 2 + (12 * (n - 1 - i) if n > 1 else 0)}px;z-index:{i + 1}">'
+                       for i, c in enumerate(covers))
+        right = imgs
+        place_html = f'<div class="place">&#9679; {e(place)}</div>' if place and n == 1 else ""
+        by_html = f'<div class="auth" style="font-size:{34 if n == 1 else 26}px">{e(by)}</div>'
+        if n > 1: size = min(size, 60)
+        lw = 620 if n == 1 else 560
+    else:
+        right = f'<div class="box"><div class="big">{e(big)}</div><div class="small">{e(small)}</div></div>'
+        place_html = ""; by_html = f'<div class="by">{e(by)}</div>'; lw = 660
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}
 *{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1200px;height:630px;overflow:hidden}}
 body{{background:#f6bd28;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
 .frame{{position:absolute;inset:22px;border:4px solid #000}}
-.left{{position:absolute;left:70px;top:62px;width:660px;height:506px;display:flex;flex-direction:column}}
+.left{{position:absolute;left:70px;top:62px;width:{lw}px;height:506px;display:flex;flex-direction:column}}
 .mark{{font-family:Oswald;font-weight:700;font-size:40px;line-height:1}}
 .label{{margin-top:44px;align-self:flex-start;background:#000;color:#f6bd28;font-weight:600;font-size:20px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px}}
 h1{{margin-top:20px;font-family:Oswald;font-weight:700;font-size:{size}px;line-height:.95;letter-spacing:-0.02em;text-transform:uppercase}}
+.auth{{flex-shrink:0;margin-top:14px;font-family:Oswald;font-weight:500;font-size:34px;line-height:1.1;text-transform:uppercase;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
+.place{{margin-top:22px;font-size:22px;font-weight:500;letter-spacing:.06em;line-height:1.3;text-transform:uppercase}}
 .by{{margin-top:18px;font-size:22px;font-weight:500;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 .foot{{margin-top:auto;border-top:3px solid #000;padding-top:16px;font-size:20px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}}
+.cv{{position:absolute;width:auto;max-width:340px;border:4px solid #000;box-shadow:14px 14px 0 #000;background:#fff}}
 .box{{position:absolute;right:92px;top:108px;width:320px;height:400px;background:#000;color:#f6bd28;box-shadow:14px 14px 0 #000;
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px}}
 .big{{font-family:Oswald;font-weight:700;font-size:120px;line-height:.9}}
 .small{{margin-top:22px;border-top:3px solid #f6bd28;padding-top:14px;font-size:22px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}}
 </style></head><body><div class="frame"></div>
-<div class="left"><div class="mark">BOOK &amp; SHORES</div><div class="label">{e(label)}</div><h1>{e(h1)}</h1><div class="by">{e(by)}</div>
+<div class="left"><div class="mark">BOOK &amp; SHORES</div><div class="label">{e(label)}</div><h1>{e(h1)}</h1>{by_html}{place_html}
 <div class="foot">bookandshores.com</div></div>
-<div class="box"><div class="big">{e(big)}</div><div class="small">{e(small)}</div></div></body></html>"""
+{right}</body></html>"""
 
 def render_card(name, htm):
     out = ROOT / "og"; out.mkdir(exist_ok=True)
@@ -496,13 +528,20 @@ def render_card(name, htm):
                     f"--screenshot={out / (name + '.png')}", f"file://{tmp}"], check=True, capture_output=True)
     tmp.unlink()
 
-def cards(places):
+def place_card(p):
+    bs = p["books"]; n = len(bs)
+    if n == 1:
+        b = bs[0]; h1, by = b["title"], "by " + b["author"]
+    else:
+        h1 = f"Books set in {p['name']}"; by = " · ".join(b["title"] for b in bs)
+    return card_html(f"Book & Shores Atlas · {p.get('cont', '')}", h1, by, str(n), "book" + ("s" if n != 1 else "") + " pinned here",
+                     covers=[cover_src(b) for b in bs], place=p["name"])
+
+def cards(places, only=None):
     for p in places:
-        n = len(p["books"])
-        render_card(f"atlas-{p['id']}", card_html(f"Book & Shores Atlas · {p.get('cont', '')}", f"Books set in {p['name']}",
-                    " · ".join(b["title"] for b in p["books"]), str(n), "book" + ("s" if n != 1 else "") + " pinned here"))
-    nb = len({b.get("isbn") or b["title"] for p in places for b in p["books"]})
-    pins_card(places)
+        if only and p["id"] not in only: continue
+        render_card(f"atlas-{p['id']}", place_card(p))
+    if not only: pins_card(places)
 
 def pins_card(places):
     render_card("atlas-pins", card_html("Book & Shores Atlas · Index", "All the Pins",
@@ -529,8 +568,11 @@ if __name__ == "__main__":
     s = re.sub(r'(<span id="pins-all-n">)\d+(</span>)', lambda m: m.group(1) + str(len(places)) + m.group(2), s)
     a.write_text(s)
     (ROOT / "sitemap-atlas.xml").write_text(sitemap(places))
-    if "--cards" in __import__("sys").argv:
+    argv = __import__("sys").argv
+    if "--cards" in argv:
         cards(places)
+    elif "--card" in argv:  # --card <place-id> [<place-id> ...]: render just these (new pins)
+        cards(places, set(argv[argv.index("--card") + 1:]))
     elif not (ROOT / "og" / "atlas-pins.png").exists():
         pins_card(places)
     print(f"{len(places)} place pages + atlas-pins.html (+ atlas-places.html redirect) + sitemap-atlas.xml; atlas.html blocks updated")
