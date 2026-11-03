@@ -51,3 +51,13 @@ cover-a-glaciers-guide-to-dying.jpg  hachettebookgroup.com cover image for 97815
 cover-monsters-of-ohio.jpg  mpd-biblio-covers.imgix.net/9780765389039.jpg (Macmillan / Tor), resized to 720px tall
 cover-this-impossible-life.jpg  harpercollins.com cover image for 9780358650171 (HarperCollins / Mariner), resized to 720px tall
 cover-27-knots.jpg  book-assets.openroadmedia.com/9798337209524.jpg (Open Road Media)
+
+Added with the backlist & midlist pins (branch atlas-backlist-nov3), resized to 240px wide:
+cover-dark-rides.jpg, cover-snoopy-and-the-red-baron.jpg, cover-the-wild-party.jpg  our own bookstore.html covers (DarkRides.jpg, RedSnoopy.png, Wild.png)
+cover-james.jpg  publisher cover (Penguin Random House / Doubleday, images.penguinrandomhouse.com/cover/700jpg/9780385550369)
+cover-solenoid.jpg  publisher cover (Deep Vellum shop, Solenoid.FrontCover.jpg)
+cover-the-safekeep.jpg  publisher cover (Simon & Schuster / Avid Reader Press cover image for 9781668034354)
+cover-welcome-to-paradise-now-go-to-hell.jpg  harpercollins.com cover image for 9780062202536 (HarperCollins)
+cover-baron-wenckheims-homecoming.jpg  publisher cover (New Directions) as shown on its Kirkus review page
+
+og/covers/ for these pins: the same sources, resized to at most 720px tall (Baron Wenckheim's Homecoming at its native 334x500).
