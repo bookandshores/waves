@@ -76,6 +76,8 @@ BOOKS = [
     dict(slug="black-designers-in-chicago", cover="9780226830551.jpg", label="Design History · U of Chicago Press",
          title="Black Designers in Chicago", author="Dingwall, Hartt & Schulman",
          byline="edited by Dingwall, Hartt & Schulman"),
+    dict(slug="dont-let-me-be-misunderstood", cover="9781469698212.jpg", label="Music History · UNC Press · Sept 29, 2026",
+         title="Don't Let Me Be Misunderstood", author="W. Jason Miller"),
 ]
 
 # Event / list pages: no cover image; the right side is a big type block with the date.
