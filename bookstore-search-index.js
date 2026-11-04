@@ -10,6 +10,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "27 Knots",
+"author": "Martin J. Smith",
+"isbn": "9798337209531",
+"cover": "atlas/cover-27-knots.jpg",
+"buy": "https://bookshop.org/a/125864/9798337209531",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "The Aesthetics of Machine Vision: Critical Terms and Ideas",
 "author": "Edited by Kathrin Maurer, Rikke Munck Petersen, Dominique Routhier, Kassandra Wellendorf, and Kristin Veel",
 "isbn": "9780262054171",
@@ -100,6 +109,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Baron Wenckheim's Homecoming",
+"author": "László Krasznahorkai",
+"isbn": "9780811239707",
+"cover": "atlas/cover-baron-wenckheims-homecoming.jpg",
+"buy": "https://bookshop.org/a/125864/9780811239707",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "Beautiful Particulars",
 "author": "David Weinberger",
 "isbn": "9780262054867",
@@ -169,6 +187,15 @@ window.bsSearchIndex = [
 "cover": "BLACK.png",
 "buy": "https://bookshop.org/a/125864/9781668075906",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Black Designers in Chicago",
+"author": "eds. Chris Dingwall, David Hartt & Daniel Schulman",
+"isbn": "9780226830551",
+"cover": "atlas/cover-black-designers-in-chicago.jpg",
+"buy": "https://bookshop.org/a/125864/9780226830551",
+"page": "book-black-designers-in-chicago.html",
 "aff": true
 },
 {
@@ -406,6 +433,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "A Glacier's Guide to Dying",
+"author": "Michelle Porter",
+"isbn": "9781523538003",
+"cover": "atlas/cover-a-glaciers-guide-to-dying.jpg",
+"buy": "https://bookshop.org/a/125864/9781523538003",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "Going Down in Gotham",
 "author": "Zoe Hansen",
 "isbn": "9798994335628",
@@ -492,6 +528,15 @@ window.bsSearchIndex = [
 "isbn": "9780593854105",
 "cover": "IMG_2775.jpg",
 "buy": "https://bookshop.org/a/125864/9780593854105",
+"page": "bookstore.html",
+"aff": true
+},
+{
+"title": "James",
+"author": "Percival Everett",
+"isbn": "9780385550369",
+"cover": "atlas/cover-james.jpg",
+"buy": "https://bookshop.org/a/125864/9780385550369",
 "page": "bookstore.html",
 "aff": true
 },
@@ -613,6 +658,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Monsters of Ohio",
+"author": "John Scalzi",
+"isbn": "9780765389039",
+"cover": "atlas/cover-monsters-of-ohio.jpg",
+"buy": "https://bookshop.org/a/125864/9780765389039",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "Moosewood Cookbook",
 "author": "Mollie Katzen",
 "isbn": "9781607747390",
@@ -646,6 +700,15 @@ window.bsSearchIndex = [
 "cover": "IMG_2781.jpg",
 "buy": "https://bookshop.org/a/125864/9780063416505",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "My Grandfather's Gallery",
+"author": "Anne Sinclair",
+"isbn": "9781250074775",
+"cover": "9781250074775.jpg",
+"buy": "https://bookshop.org/a/125864/9781250074775",
+"page": "book-my-grandfathers-gallery.html",
 "aff": true
 },
 {
@@ -847,6 +910,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "The Safekeep",
+"author": "Yael van der Wouden",
+"isbn": "9781668034354",
+"cover": "atlas/cover-the-safekeep.jpg",
+"buy": "https://bookshop.org/a/125864/9781668034354",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "The Sandman",
 "author": "Lars Kepler (translated by Neil Smith)",
 "isbn": "9780525433057",
@@ -892,6 +964,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Solenoid",
+"author": "Mircea Cărtărescu",
+"isbn": "9781646052028",
+"cover": "atlas/cover-solenoid.jpg",
+"buy": "https://bookshop.org/a/125864/9781646052028",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "Sound Within Sound: Radical Composers of the Twentieth Century",
 "author": "Kate Molleson",
 "isbn": "9781419753565",
@@ -916,6 +997,15 @@ window.bsSearchIndex = [
 "cover": "9781639737833.jpg",
 "buy": "https://bookshop.org/a/125864/9781639737833",
 "page": "book-spawning-season.html",
+"aff": true
+},
+{
+"title": "Stations",
+"author": "Louise Kennedy",
+"isbn": "9780593714607",
+"cover": "atlas/cover-stations.jpg",
+"buy": "https://bookshop.org/a/125864/9780593714607",
+"page": "bookstore.html",
 "aff": true
 },
 {
@@ -982,6 +1072,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "This Impossible Life",
+"author": "Chinelo Okparanta",
+"isbn": "9780358650171",
+"cover": "atlas/cover-this-impossible-life.jpg",
+"buy": "https://bookshop.org/a/125864/9780358650171",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "Tin Can Coast",
 "author": "Joseph Ogilvy",
 "isbn": "9781639736812",
@@ -1027,15 +1126,6 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
-"title": "My Grandfather's Gallery: A Family Memoir of Art and War",
-"author": "Anne Sinclair",
-"isbn": "9781250074775",
-"cover": "9781250074775.jpg",
-"buy": "https://bookshop.org/a/125864/9781250074775",
-"page": "book-my-grandfathers-gallery.html",
-"aff": true
-},
-{
 "title": "Victorian Psycho",
 "author": "Virginia Feito",
 "isbn": "9781324097785",
@@ -1061,6 +1151,15 @@ window.bsSearchIndex = [
 "author": "",
 "isbn": "",
 "aff": false
+},
+{
+"title": "Welcome to Paradise, Now Go to Hell",
+"author": "Chas Smith",
+"isbn": "9780062202536",
+"cover": "atlas/cover-welcome-to-paradise-now-go-to-hell.jpg",
+"buy": "https://bookshop.org/a/125864/9780062202536",
+"page": "bookstore.html",
+"aff": true
 },
 {
 "title": "The Whole Routine",

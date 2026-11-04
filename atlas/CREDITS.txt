@@ -61,3 +61,6 @@ cover-welcome-to-paradise-now-go-to-hell.jpg  harpercollins.com cover image for 
 cover-baron-wenckheims-homecoming.jpg  publisher cover (New Directions) as shown on its Kirkus review page
 
 og/covers/ for these pins: the same sources, resized to at most 720px tall (Baron Wenckheim's Homecoming at its native 334x500).
+
+cover-black-designers-in-chicago.jpg (and og/covers/, 9780226830551.jpg)  publisher cover, University of Chicago Press (tmm.chicagodistributioncenter.com/IsbnImages/9780226830551.jpg, shown on press.uchicago.edu), resized.
+img/editors/bdic-*.jpg  editor photos from the University of Chicago Press publicity folder for the book, credits as supplied: Chris Dingwall (Theresa Anasti), David Hartt (Ager Carlsen for PIN–UP), Daniel Schulman (Joe Mazza, Brave Lux, Inc.).

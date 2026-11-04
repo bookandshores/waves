@@ -333,6 +333,13 @@ window.bsAtlas = [
       srcUrl: "https://utpress.utexas.edu/9781477334171/",
       src: "University of Texas Press book page (table of contents) and the publisher's review copy of the book (chapter 4, on the Mason family, builders in Austin, Texas). The book's other chapters are not pinned." }
   ]},
+  { id: "bronzeville-chicago", name: "South Side Community Art Center, Bronzeville, Chicago", lng: -87.6227, lat: 41.8246, area: false, cc: "US", cont: "North America", reg: ["bronzeville", "south side", "south side community art center", "sscac", "3831 south michigan avenue", "michigan avenue", "chicago", "cook county", "illinois", "il"], books: [
+    { title: "Black Designers in Chicago: Culture and Community in the Twentieth Century", author: "Chris Dingwall, David Hartt and Daniel Schulman (eds.)", year: 2026, isbn: "9780226830551", cover: "atlas/cover-black-designers-in-chicago.jpg",
+      setting: "Chicago's South Side, where the South Side Community Art Center at 3831 South Michigan Avenue anchored generations of Black designers", note: "Nonfiction. An illustrated history of Black design across twentieth-century Chicago. The pin marks the art center the book returns to, not every place it covers.",
+      page: "book-black-designers-in-chicago.html",
+      srcUrl: "https://press.uchicago.edu/ucp/books/book/chicago/B/bo262165038.html",
+      src: "University of Chicago Press book page (Black designers \"helped to build community institutions such as the South Side Community Art Center\") and the publisher's review copy of the book (Jacqueline Goldsby's essay gives the center's site at 3831 South Michigan Avenue). The book's other places are not pinned." }
+  ]},
   { id: "savannah", name: "Savannah, Georgia", lng: -81.0921, lat: 32.0790, area: true, cc: "US", cont: "North America", reg: ["savannah", "chatham county", "georgia", "ga", "savannah historic district"], books: [
     { title: "Learning from Savannah: From Ideal City to Elastic Urbanism", author: "David W. Gobel and Robin B. Williams", year: 2026, isbn: "9780820374604", cover: "atlas/cover-learning-from-savannah.jpg",
       setting: "Savannah, Georgia: the city's town plan of wards and squares, and the buildings and landscape it shaped", note: "Nonfiction. A history of the Savannah plan and the city's architecture. The pin sits on the historic town, not an exact address.",
