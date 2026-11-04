@@ -532,6 +532,7 @@ def place_card(p):
     bs = p["books"]; n = len(bs)
     if n == 1:
         b = bs[0]; h1, by = b["title"], "by " + b["author"]
+        if len(h1) > 40 and ":" in h1: h1 = h1.split(":")[0]  # long subtitle pushes the footer off the card
     else:
         h1 = f"Books set in {p['name']}"; by = " · ".join(b["title"] for b in bs)
     return card_html(f"Book & Shores Atlas · {p.get('cont', '')}", h1, by, str(n), "book" + ("s" if n != 1 else "") + " pinned here",

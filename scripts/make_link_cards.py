@@ -73,6 +73,9 @@ BOOKS = [
          title="Big American Writer", author="Jean-Christophe Cloutier"),
     dict(slug="the-night-before", cover="9780231225168.jpg", label="Music & Comics · Columbia · Nov 2026",
          title="The Night Before", author="David Hajdu"),
+    dict(slug="black-designers-in-chicago", cover="9780226830551.jpg", label="Design History · U of Chicago Press",
+         title="Black Designers in Chicago", author="Dingwall, Hartt & Schulman",
+         byline="edited by Dingwall, Hartt & Schulman"),
 ]
 
 # Event / list pages: no cover image; the right side is a big type block with the date.
