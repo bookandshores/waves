@@ -78,6 +78,8 @@ BOOKS = [
          byline="edited by Dingwall, Hartt & Schulman"),
     dict(slug="dont-let-me-be-misunderstood", cover="9781469698212.jpg", label="Music History · UNC Press · Sept 29, 2026",
          title="Don't Let Me Be Misunderstood", author="W. Jason Miller"),
+    dict(slug="arrows-of-desire", cover="9781836741176.jpg", label="Film & Criticism · Verso · Oct 20, 2026",
+         title="Arrows of Desire", author="Peter Wollen", byline="Peter Wollen · ed. Eshun, Fuke & Helm-Grovas"),
 ]
 
 # Event / list pages: no cover image; the right side is a big type block with the date.

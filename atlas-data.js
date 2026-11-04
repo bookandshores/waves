@@ -22,6 +22,12 @@ window.bsAtlas = [
       page: "book-switzy.html", ebook: ["switzy-a-novel-emma-cline/f5a588e2ff0bd8e0", "9780593595251"],
       src: "book-switzy.html (flight to a clinic in Zurich; dinner in London; friend in France)" }
   ]},
+  { id: "ucla-westwood", name: "UCLA, Westwood, Los Angeles", lng: -118.4452, lat: 34.0689, area: false, cc: "US", cont: "North America", reg: ["ucla", "westwood", "los angeles", "la", "california"], books: [
+    { title: "Arrows of Desire", author: "Peter Wollen", isbn: "9781836741176", cover: "atlas/cover-arrows-of-desire.jpg",
+      setting: "UCLA in the 1990s, where Wollen taught and spent his mornings in the Arts Library chasing one text to the next", note: "Selected Writings 1963\u20132002, edited by Kodwo Eshun, Oliver Fuke & Nicolas Helm-Grovas. Verso.",
+      page: "book-arrows-of-desire.html",
+      src: "Adrian Martin, \"The One That Remembers Also Sings,\" Los Angeles Review of Books, Nov 4, 2026 (Chon Noriega, Wollen's UCLA colleague in the 1990s: \"He would spend his mornings in the Arts Library\"), https://lareviewofbooks.org/article/arrows-of-desire-peter-wollen-film-criticism-director/" }
+  ]},
   { id: "dordogne", name: "Dordogne, France", lng: 0.7500, lat: 45.1000, area: true, cc: "FR", cont: "Europe", reg: ["dordogne", "nouvelle-aquitaine", "perigord", "france"], books: [
     { title: "Practicing Dying", author: "Charlotte Northall", isbn: "9781068758645", cover: "Practice.png",
       setting: "A Zen Buddhist monastery in a forested national park in the Dordogne, rural France", note: "A literary anti-memoir of addiction and monastery life. Pilot Press.",
