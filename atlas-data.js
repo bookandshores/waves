@@ -542,7 +542,13 @@ window.bsAtlas = [
       page: "book-dont-let-me-be-misunderstood.html", srcUrl: "https://theconversation.com/nina-simone-langston-hughes-and-their-forgotten-creative-collaboration-290878",
       src: "W. Jason Miller in The Conversation (Simone moved to New York in 1959; the two visited each other's homes; she performed at the Village Gate in Greenwich Village); Backlash Blues timeline, https://www.backlash-blues.com/timeline (Hughes left Genet's The Blacks after the first act to watch Simone at the Village Gate, April 3, 1961)" }
   ]}
-
+,
+  { id: "paris-image-of-her", name: "Paris, France", lng: 2.3522, lat: 48.8566, area: false, cc: "FR", cont: "Europe", reg: ["paris", "ile-de-france", "france"], books: [
+    { title: "The Image of Her", author: "Simone de Beauvoir", year: 1966, isbn: "9780300287172", cover: "weekly-the-image-of-her.jpg",
+      setting: "Paris in the 1960s, where Laurence, an advertising copywriter, lives among the Parisian bourgeoisie", note: "Beauvoir's final novel (1966), translated by Lauren Elkin. Yale University Press.",
+      page: "bookstore.html", srcUrl: "https://yalebooks.yale.edu/book/9780300287172/the-image-of-her/",
+      src: "Yale University Press book page (\"the trappings of 1960s Parisian bourgeoisie\"; Laurence's career as an advertising copywriter); Waterstones / Vintage blurb (\"weekdays in Paris\")" }
+  ]}
 ];
 
 /* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.
@@ -554,8 +560,12 @@ window.bsRoutes = [
      Every book at each stop is a Weekly Reads pick. Picks with no single stated setting stay off the map. */
   { id: "weekly-reads", name: "Weekly Reads", eyebrow: "A reading route · Our picks", isNew: true, order: "west to east", color: "#1f4e79",
     note: "Only Weekly Reads picks with a sourced setting are pinned. Each popup cites its source.",
-    blurb: "Eight stops. Weekly Reads picks, from California to Italy.",
-    stops: ["monterey", "atlantic-city", "harlem", "north-atlantic", "dublin", "london-thames", "zurich", "positano"] },
+    blurb: "Ten stops. Weekly Reads picks, from California to Italy.",
+    stops: ["monterey", "ucla-westwood", "atlantic-city", "harlem", "north-atlantic", "dublin", "london-thames", "paris-image-of-her", "zurich", "positano"] },
+  { id: "read-me", name: "Weekly Read \u201cRead Me\u201d", eyebrow: "A reading route · Weekly Reads, Nov 8", isNew: true, order: "west to east", color: "#c8102e",
+    note: "Willie Nelson's The Last Leaf is a memoir of a whole life with no single stated place, so it isn't pinned. Each popup cites its source.",
+    blurb: "Three stops. This week's picks, from Westwood across the Atlantic to Paris.",
+    stops: ["ucla-westwood", "north-atlantic", "paris-image-of-her"] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
