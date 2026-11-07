@@ -510,7 +510,7 @@ body{{background:#f6bd28;color:#000;font-family:'IBM Plex Mono',monospace;positi
 .mark{{font-family:Oswald;font-weight:700;font-size:40px;line-height:1}}
 .label{{margin-top:44px;align-self:flex-start;background:#000;color:#f6bd28;font-weight:600;font-size:20px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px}}
 h1{{margin-top:20px;font-family:Oswald;font-weight:700;font-size:{size}px;line-height:.95;letter-spacing:-0.02em;text-transform:uppercase}}
-.auth{{flex-shrink:0;margin-top:14px;font-family:Oswald;font-weight:500;font-size:34px;line-height:1.1;text-transform:uppercase;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
+.auth{{flex-shrink:0;margin-top:14px;font-family:Oswald;font-weight:500;font-size:34px;line-height:1.1;text-transform:uppercase;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 .place{{margin-top:22px;font-size:22px;font-weight:500;letter-spacing:.06em;line-height:1.3;text-transform:uppercase}}
 .by{{margin-top:18px;font-size:22px;font-weight:500;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 .foot{{margin-top:auto;border-top:3px solid #000;padding-top:16px;font-size:20px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}}
