@@ -535,6 +535,13 @@ window.bsAtlas = [
       srcUrl: "https://www.dummyzine.com/about-dummy",
       src: "Copacetic Comics (\"edited and published right here in Pittsburgh, PA\"), https://copaceticcomics.com/comics/dummy-2; The Comics Journal author page for John Kelly (Dummy's publisher, lives in Pittsburgh), https://www.tcj.com/author/john-kelly/" }
   ]}
+  ,{ id: "village-gate", name: "The Village Gate, Greenwich Village, New York", lng: -74.0003, lat: 40.7290, area: false, cc: "US", cont: "North America", reg: ["village gate", "greenwich village", "bleecker street", "manhattan", "new york", "new york city", "nyc"], books: [
+    { title: "Don't Let Me Be Misunderstood", author: "W. Jason Miller", year: 2026, isbn: "9781469698212", cover: "atlas/cover-dont-let-me-be-misunderstood.jpg",
+      setting: "New York in the 1960s, where Langston Hughes and Nina Simone became close friends; Hughes left a play after its first act to hear her at the Village Gate on April 3, 1961",
+      note: "Nina Simone, Langston Hughes and the Birth of Black Power. A Booklist and Library Journal starred review. Cover courtesy University of North Carolina Press.",
+      page: "book-dont-let-me-be-misunderstood.html", srcUrl: "https://theconversation.com/nina-simone-langston-hughes-and-their-forgotten-creative-collaboration-290878",
+      src: "W. Jason Miller in The Conversation (Simone moved to New York in 1959; the two visited each other's homes; she performed at the Village Gate in Greenwich Village); Backlash Blues timeline, https://www.backlash-blues.com/timeline (Hughes left Genet's The Blacks after the first act to watch Simone at the Village Gate, April 3, 1961)" }
+  ]}
 
 ];
 
