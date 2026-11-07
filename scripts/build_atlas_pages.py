@@ -162,8 +162,9 @@ def place_page(p, routes):
     url = f"{SITE}/atlas-{p['id']}.html"
     n = len(p["books"])
     titles = ", ".join(b["title"] for b in p["books"])
-    title = f"Books Set in {p['name']} | Book & Shores Atlas · Go There. Read It."
+    title = f"{p['heading']}, {p['name']} | Book & Shores Atlas · Go There. Read It." if p.get("heading") else f"Books Set in {p['name']} | Book & Shores Atlas · Go There. Read It."
     desc = f"{n} book{'s' if n != 1 else ''} on the Book & Shores Atlas set in {p['name']}: {titles}. Each setting is cited from the book, its publisher or a major review."
+    if p.get("desc"): desc = p["desc"]
     if len(desc) > 300: desc = desc[:297].rsplit(" ", 1)[0] + "…"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "CollectionPage", "@id": url, "url": url, "name": f"Books set in {p['name']}", "description": desc,
@@ -180,8 +181,8 @@ def place_page(p, routes):
     out.append(f'        <p class="crumbs"><a href="atlas.html">Atlas</a> › <a href="atlas-pins.html">All the pins</a> › {e(p["name"])}</p>\n')
     out.append(f"""        <section class="place-hero">
             <p class="eyebrow">Book &amp; Shores Atlas · {e(p.get('cont', ''))}</p>
-            <h2>Books set in {e(p['name'])}</h2>
-            <p>{n} book{'s' if n != 1 else ''} pinned here. {'The book names a region, not an exact address, so the pin sits inside the area.' if p.get('area') else 'The pin marks the named place.'}</p>
+            <h2>{e(p['heading'] + ', ' + p['name']) if p.get('heading') else 'Books set in ' + e(p['name'])}</h2>
+            <p>{(str(n) + ' issues pinned here.') if p.get('heading') else (str(n) + ' book' + ('s' if n != 1 else '') + ' pinned here.')} {'The book names a region, not an exact address, so the pin sits inside the area.' if p.get('area') else 'The pin marks the named place.'}</p>
             <p style="margin-top:1rem;"><a class="btn" style="width:auto;" href="atlas.html#{e(p['id'])}">See it on the map →</a></p>
         </section>
 """)
@@ -538,6 +539,7 @@ def place_card(p):
         if len(h1) > 40 and ":" in h1: h1 = h1.split(":")[0]  # long subtitle pushes the footer off the card
     else:
         h1 = f"Books set in {p['name']}"; by = " · ".join(b["title"] for b in bs)
+    if p.get("heading"): h1 = p["heading"]; by = p.get("cardBy", by)  # e.g. a magazine pin, not books
     return card_html(f"Book & Shores Atlas · {p.get('cont', '')}", h1, by, str(n), "book" + ("s" if n != 1 else "") + " pinned here",
                      covers=[cover_src(b) for b in bs], place=p["name"])
 
