@@ -522,6 +522,13 @@ window.bsAtlas = [
       page: "bookstore.html",
       srcUrl: "https://www.thesaturdaypaper.com.au/culture/books/2020/02/29/baron-wenckheims-homecoming/15804756009327",
       src: "The Saturday Paper: \"The unnamed town is a lightly fictionalised version of Gyula, a city of some 30,000 souls in Békés County, near the Romanian border\"; Kirkus review: he \"returns to the countryside haunts of his youth\"" }
+  ]},
+  { id: "pittsburgh", name: "Pittsburgh, Pennsylvania", lng: -79.9959, lat: 40.4406, area: true, cc: "US", cont: "North America", reg: ["pittsburgh", "pennsylvania", "pa", "steel city"], books: [
+    { title: "Dummy", author: "John Kelly, editor and publisher", cover: "atlas/cover-dummy-1.jpg",
+      setting: "Pittsburgh, where Dummy is edited and published", note: "A comics and arts magazine with a deep affection for art and its makers. Each issue looks closely at creative process, historical material and rarely seen images. Book and Shores, an independent bookstore, pins Dummy with gratitude for its contribution to the literary arts. Image courtesy Dummy.",
+      page: "bookstore.html",
+      srcUrl: "https://www.dummyzine.com/about-dummy",
+      src: "Copacetic Comics (\"edited and published right here in Pittsburgh, PA\"), https://copaceticcomics.com/comics/dummy-2; The Comics Journal author page for John Kelly (Dummy's publisher, lives in Pittsburgh), https://www.tcj.com/author/john-kelly/" }
   ]}
 
 ];
