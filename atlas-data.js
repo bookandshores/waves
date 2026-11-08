@@ -562,10 +562,6 @@ window.bsRoutes = [
     note: "Only Weekly Reads picks with a sourced setting are pinned. Each popup cites its source.",
     blurb: "Ten stops. Weekly Reads picks, from California to Italy.",
     stops: ["monterey", "ucla-westwood", "atlantic-city", "harlem", "north-atlantic", "dublin", "london-thames", "paris-image-of-her", "zurich", "positano"] },
-  { id: "read-me", name: "Weekly Read \u201cRead Me\u201d", eyebrow: "A reading route · Weekly Reads, Nov 8", isNew: true, order: "west to east", color: "#c8102e",
-    note: "Willie Nelson's The Last Leaf is a memoir of a whole life with no single stated place, so it isn't pinned. Each popup cites its source.",
-    blurb: "Three stops. This week's picks, from Westwood across the Atlantic to Paris.",
-    stops: ["ucla-westwood", "north-atlantic", "paris-image-of-her"] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
