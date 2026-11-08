@@ -241,3 +241,5 @@ footer a { color:var(--black); }
 .pins-pill { display:inline-block; font-size:.85rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; padding:.6rem 1.3rem; background:var(--black); color:var(--yellow) !important; border:3px solid var(--black); border-radius:999px; text-decoration:none; }
 .pins-pill:hover, .pins-pill:focus-visible { background:var(--yellow); color:var(--black) !important; }
 .pins-short-note { margin:0 0 .9rem; font-size:.72rem; }
+/* Weekly Reads chip: black with white letters, in every state (AE, Nov 7 2026). */
+.region-bar button.route-chip:not(.award), .region-bar button.route-chip:not(.award)[aria-pressed="true"], .region-bar button.route-chip:not(.award):hover { background:#000 !important; color:#fff !important; border-color:#000 !important; }

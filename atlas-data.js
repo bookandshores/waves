@@ -263,6 +263,20 @@ window.bsAtlas = [
       page: "author-of-the-month.html",
       src: "author-of-the-month.html (\"more than fifty years of one Brooklyn neighborhood\"); HarperCollins page (blurb: \"If Dean Street could talk, Brooklyn Crime Novel would be its voice ... a half-century of Brooklyn's dirt\")" }
   ]},
+  { id: "boerum-hill-lethem-essay", name: "Lethem's room, Boerum Hill, Brooklyn", lng: -73.9846, lat: 40.6853, area: false, cc: "US", cont: "North America", reg: ["boerum hill", "brooklyn", "new york", "new york city", "nyc", "lethem"], books: [
+    { title: "9 Failures of the Imagination", author: "Jonathan Lethem", year: 2001, cover: "atlas/cover-lethem-9-failures.jpg",
+      setting: "Lethem's own room in Boerum Hill, Brooklyn, in the days after September 11, 2001", note: "A New York Times Magazine essay, Sept. 23, 2001, written from home in Boerum Hill. Jonathan Lethem is our Author of the Month for November 2026.",
+      page: "author-of-the-month.html",
+      srcUrl: "https://www.nytimes.com/2001/09/23/magazine/9-failures-of-the-imagination.html",
+      src: "The New York Times Magazine, \"9 Failures of the Imagination\" by Jonathan Lethem, Sept. 23, 2001 (opens: \"It began for me here, in the same room where I sit now, in Boerum Hill\")" }
+  ]},
+  { id: "bay-area-lethem-tension", name: "San Francisco Bay Area, California", lng: -122.33, lat: 37.82, area: true, cc: "US", cont: "North America", reg: ["bay area", "san francisco bay area", "oakland", "berkeley", "san francisco", "california", "lethem"], books: [
+    { title: "A Different Kind of Tension", author: "Jonathan Lethem", year: 2025, isbn: "9780063388864", cover: "atlas/cover-different-kind-of-tension.jpg",
+      setting: "The Bay Area, in the new story \"The Red Sun School of Thoughts\"", note: "New and selected stories from more than three decades, led by a never-before-published story set in the Bay Area. Paperback from Ecco, Sept. 1, 2026. Jonathan Lethem is our Author of the Month for November 2026.",
+      page: "author-of-the-month.html",
+      srcUrl: "https://penguinbookshop.com/book/9780063388864",
+      src: "Alta, quoted on the Penguin Bookshop page (\"a brand-new Bay Area\u2013set story, 'The Red Sun School of Thoughts'\"); HarperCollins page (paperback on sale Sept. 1, 2026), https://www.harpercollins.com/products/a-different-kind-of-tension-jonathan-lethem" }
+  ]},
   { id: "oakland", name: "Oakland, California", lng: -122.2712, lat: 37.8044, area: true, cc: "US", cont: "North America", reg: ["oakland", "san francisco", "bay area", "alameda county", "california"], books: [
     { title: "Gun, with Occasional Music", author: "Jonathan Lethem", year: 1994, isbn: "9780156028974", cover: "atlas/cover-gun-occasional-music.jpg",
       setting: "A near-future version of Oakland and San Francisco", note: "Noir, but weirder: a private eye, a rabbit in his waiting room and a kangaroo on his tail.",
@@ -558,10 +572,10 @@ window.bsAtlas = [
 window.bsRoutes = [
   /* Weekly Reads route: only books that were Book & Shores Weekly Reads picks (index.html history) AND already have a sourced pin above.
      Every book at each stop is a Weekly Reads pick. Picks with no single stated setting stay off the map. */
-  { id: "weekly-reads", name: "Weekly Reads", eyebrow: "A reading route · Our picks", isNew: true, order: "west to east", color: "#1f4e79",
-    note: "Only Weekly Reads picks with a sourced setting are pinned. Each popup cites its source.",
-    blurb: "Ten stops. Weekly Reads picks, from California to Italy.",
-    stops: ["monterey", "ucla-westwood", "atlantic-city", "harlem", "north-atlantic", "dublin", "london-thames", "paris-image-of-her", "zurich", "positano"] },
+  { id: "weekly-reads", name: "Weekly Reads", eyebrow: "A reading route · Weekly Reads, Nov 8", isNew: true, order: "west to east", color: "#1f4e79",
+    note: "This week's picks with a sourced setting, plus two stops from our Author of the Month Jonathan Lethem, his latest book and his Times essay from Boerum Hill, standing in for The Last Leaf and The Night Before, which don't center on one place. Each popup cites its source.",
+    blurb: "Five stops. This week's picks and Jonathan Lethem, from the Bay Area to Paris.",
+    stops: ["bay-area-lethem-tension", "ucla-westwood", "boerum-hill-lethem-essay", "north-atlantic", "paris-image-of-her"] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
