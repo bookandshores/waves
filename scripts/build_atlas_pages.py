@@ -426,7 +426,7 @@ def pins_page(places, routes):
     <footer>
         <div class="footer-content">
             <p>© 2026 Book &amp; Shores, an independent bookstore • Contact: <a href="mailto:readme@bookandshores.com">readme@bookandshores.com</a></p>
-            <p class="fine">Book &amp; Shores earns a small commission on purchases through links on the Atlas. Pins mark each book's stated setting, with the source cited on each place page.</p>
+            <p class="fine">Each pin on the Book &amp; Shores Atlas marks a book's stated setting, with the source cited on its place page. Book &amp; Shores is an independent bookstore. When you buy through our links, we earn a small commission, and that supports the Atlas.</p>
         </div>
     </footer>
     <script>{PINS_JS}</script>
