@@ -91,15 +91,6 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
-"title": "The Art of Stanley Mouse: California Dreams",
-"isbn": "9781593765460",
-"cover": "STANLEY2.jpg",
-"buy": "https://bookshop.org/a/125864/9781593765460",
-"page": "bookstore.html",
-"author": "",
-"aff": true
-},
-{
 "title": "Audition",
 "author": "Katie Kitamura",
 "isbn": "9780593852323",
@@ -223,6 +214,15 @@ window.bsSearchIndex = [
 "cover": "aotm-lethem-brooklyn-crime-novel.jpg",
 "buy": "https://bookshop.org/a/125864/9780062938817",
 "page": "author-of-the-month.html#9780062938817",
+"aff": true
+},
+{
+"title": "California Dreams: The Art of Stanley Mouse",
+"author": "Stanley Mouse Miller",
+"isbn": "9781593765460",
+"cover": "9781593765460.jpg",
+"buy": "https://bookshop.org/a/125864/9781593765460",
+"page": "book-california-dreams.html",
 "aff": true
 },
 {
