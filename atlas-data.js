@@ -585,6 +585,14 @@ window.bsAtlas = [
       src: "Europa Editions (\"Set across Indonesia, the United States, and Australia\"); Foreword Reviews (Mutiara in Indonesia; Maya in New York, then returns to Jakarta)" }
   ]}
 
+  ,{ id: "haight-ashbury-715", name: "715 Ashbury Street, Haight-Ashbury, San Francisco", lng: -122.4470, lat: 37.7687, area: false, cc: "US", cont: "North America", reg: ["haight-ashbury", "haight ashbury", "ashbury", "ashbury street", "715 ashbury", "san francisco", "california", "bay area"], books: [
+    { title: "California Dreams: The Art of Stanley Mouse", author: "Stanley Mouse Miller", year: 2015, isbn: "9781593765460", cover: "atlas/cover-california-dreams.jpg",
+      setting: "715 Ashbury Street in Haight-Ashbury, San Francisco, where Stanley Mouse and Alton Kelley lived and made posters in 1966–67, across the street from the Grateful Dead at 710 Ashbury", note: "Art book. A career-spanning collection of Mouse's psychedelic posters, album covers and later fine art. The pin marks the Haight-Ashbury house where Mouse and Kelley worked during the San Francisco poster scene the book covers; his Detroit hot-rod years and later work are not pinned.",
+      page: "book-california-dreams.html",
+      srcUrl: "https://softskull.com/books/california-dreams/",
+      src: "Soft Skull Press book page (Mouse \"taking Haight-Ashbury by storm\" in San Francisco's counterculture renaissance); Vanity Fair, July 2012 (\"Kelley and Mouse made their posters at 715 Ashbury, across the street\"); Sotheby's (Mouse lived at 715 Ashbury across from the Dead); SF Planning / San Francisco Heritage Citywide Historic Context Statement for Counterculture (1965–1975), adopted 17 July 2024 (Mouse Studios at 715 Ashbury)" }
+  ]}
+
 ];
 
 /* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.

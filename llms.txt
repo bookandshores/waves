@@ -55,6 +55,7 @@ Contact: readme@bookandshores.com
 - [Big American Writer by Jean-Christophe Cloutier](https://bookandshores.com/book-big-american-writer.html): Columbia University Press paperback, ISBN 9780231222457. Jack Kerouac read as a bilingual French Canadian writer, from his French manuscripts. Pinned on the Atlas in Lowell, Massachusetts.
 - [The Night Before by David Hajdu](https://bookandshores.com/book-the-night-before.html): Columbia University Press paperback, ISBN 9780231225168, out November 2026. David Hajdu's essays on music, comics and culture, from Billie Holiday to Billie Eilish. Pinned on the Atlas at 64 East Seventh Street in the East Village, the building one essay is about.
 - [Black Designers in Chicago, edited by Chris Dingwall, David Hartt and Daniel Schulman](https://bookandshores.com/book-black-designers-in-chicago.html): University of Chicago Press hardcover, ISBN 9780226830551, published October 2026. An illustrated history of the Black commercial artists, cartoonists, beauticians, printmakers and art directors who made Chicago's South Side a center of modern design. Pinned on the Atlas at the South Side Community Art Center in Bronzeville, Chicago.
+- [California Dreams: The Art of Stanley Mouse by Stanley Mouse Miller](https://bookandshores.com/book-california-dreams.html): Soft Skull Press hardcover, ISBN 9781593765460, published June 2015. A career-spanning collection of Mouse's psychedelic posters, album covers and fine art. Pinned on the Atlas at 715 Ashbury Street in Haight-Ashbury, San Francisco.
 
 ## Lists
 
@@ -72,7 +73,7 @@ Contact: readme@bookandshores.com
 
 - [Home](https://bookandshores.com/): Weekly Reads, the Booker 2026 shortlist, Dates to Remember (upcoming book-prize dates), Spin Brigitte (a random pick from our shelves), and radio.
 - [Sitemap](https://bookandshores.com/sitemap.xml)
-- [Atlas: all the pins](https://bookandshores.com/atlas-pins.html): All 81 pins on the Book & Shores Atlas with their books, searchable by place, title or author and filterable by region or reading route; each pin has its own page (e.g. https://bookandshores.com/atlas-savannah.html). Each book is pinned at its stated setting with the source cited.
+- [Atlas: all the pins](https://bookandshores.com/atlas-pins.html): All 82 pins on the Book & Shores Atlas with their books, searchable by place, title or author and filterable by region or reading route; each pin has its own page (e.g. https://bookandshores.com/atlas-savannah.html). Each book is pinned at its stated setting with the source cited.
 
 ## Optional
 
