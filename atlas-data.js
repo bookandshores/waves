@@ -308,7 +308,7 @@ window.bsAtlas = [
   { id: "north-atlantic", name: "The North Atlantic (the transatlantic cable)", lng: -32, lat: 50.2, area: true, cc: "", cont: "Atlantic Ocean", reg: ["north atlantic", "north atlantic ocean", "atlantic", "atlantic ocean", "transatlantic", "at sea"], books: [
     { title: "The Great Eastern", author: "Howard A. Rodman", year: 2019, isbn: "9781644285541", cover: "atlas/cover-the-great-eastern.jpg",
       setting: "The North Atlantic, with scenes in New York, London, Paris and India (1850s-1870s). The pin sits on the open ocean along the transatlantic cable route", note: "Captain Nemo versus Captain Ahab, with the engineer Brunel caught between. An anticolonial sea adventure.",
-      page: "bookstore.html",
+      page: "book-the-great-eastern.html",
       srcUrl: "https://howardrodman.com/the-great-eastern/",
       src: "Howard Rodman's own book page (\"set in the 1850s-1870s in New York, London, Paris, India, and the North Atlantic\"); Melville House / Penguin Random House blurb (Nemo's fight against the laying of the Transatlantic cable); Walter Mosley blurb (the ship's mission to lay the Transatlantic cable). The novel moves between several places, so the pin marks only the North Atlantic; the other places are not pinned." }
   ]},
@@ -560,9 +560,31 @@ window.bsAtlas = [
   { id: "paris-image-of-her", name: "Paris, France", lng: 2.3522, lat: 48.8566, area: false, cc: "FR", cont: "Europe", reg: ["paris", "ile-de-france", "france"], books: [
     { title: "The Image of Her", author: "Simone de Beauvoir", year: 1966, isbn: "9780300287172", cover: "weekly-the-image-of-her.jpg",
       setting: "Paris in the 1960s, where Laurence, an advertising copywriter, lives among the Parisian bourgeoisie", note: "Beauvoir's final novel (1966), translated by Lauren Elkin. Yale University Press.",
-      page: "bookstore.html", srcUrl: "https://yalebooks.yale.edu/book/9780300287172/the-image-of-her/",
+      page: "book-the-image-of-her.html", srcUrl: "https://yalebooks.yale.edu/book/9780300287172/the-image-of-her/",
       src: "Yale University Press book page (\"the trappings of 1960s Parisian bourgeoisie\"; Laurence's career as an advertising copywriter); Waterstones / Vintage blurb (\"weekdays in Paris\")" }
   ]}
+  ,{ id: "london-school-of-night", name: "London, England (1985)", lng: -0.1276, lat: 51.5072, area: true, cc: "GB", cont: "Europe", reg: ["london", "greater london", "england"], books: [
+    { title: "The School of Night", author: "Karl Ove Knausgaard", year: 2026, isbn: "9780593832820", cover: "weekly-school-of-night.jpg",
+      setting: "London, 1985: Kristian Hadeland is a photography student who meets an eccentric Dutch artist", note: "A 2026 National Book Award finalist for Translated Literature, and a Book & Shores Weekly Reads pick (Oct 25, 2026). The New York retrospective later in the novel is not pinned.",
+      page: "book-the-school-of-night.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/760316/the-school-of-night-by-karl-ove-knausgaard/",
+      src: "book-the-school-of-night.html (\"London, 1985. Kristian Hadeland, a photography student\"); Penguin Random House book page (London, 1985)" }
+  ]}
+  ,{ id: "szonden-oder", name: "Szonden, on the Oder (Prussia)", lng: 14.5506, lat: 52.3412, area: true, cc: "PL", cont: "Europe", reg: ["szonden", "oder", "prussia", "poland", "oder river"], books: [
+    { title: "Centroeuropa", author: "Vicente Luis Mora", year: 2026, isbn: "9781954276529", cover: "weekly-centroeuropa.jpg",
+      setting: "Szonden, a small Prussian town on the Oder River in the 1820s (in what is now Poland): Redo Hauptshammer digs to bury his wife and finds frozen soldiers", note: "A 2026 National Book Award finalist for Translated Literature, and a Book & Shores Weekly Reads pick (Oct 25, 2026). Szonden is the novel's town; the pin sits on the Oder near Frankfurt (Oder).",
+      page: "book-centroeuropa.html",
+      srcUrl: "https://www.kirkusreviews.com/book-reviews/vicente-luis-mora/centroeuropa/",
+      src: "Kirkus Reviews (\"the Prussian village of Szonden on the banks of the Oder River in the 1820s\"); Bellevue Literary Press book page; Complete Review (\"on the Oder (in what is now Poland)\")" }
+  ]}
+  ,{ id: "jakarta-thousand-hells", name: "Jakarta, Indonesia", lng: 106.8456, lat: -6.2088, area: true, cc: "ID", cont: "Asia", reg: ["jakarta", "indonesia", "java"], books: [
+    { title: "Night of a Thousand Hells", author: "Intan Paramaditha", year: 2026, isbn: "9798889662129", cover: "weekly-night-of-a-thousand-hells.jpg",
+      setting: "Jakarta, after a suicide bombing by the youngest of three Indonesian sisters; the novel also moves through the United States and Australia", note: "A 2026 National Book Award finalist for Translated Literature, and a Book & Shores Weekly Reads pick (Oct 25, 2026). The pin marks Jakarta; the other countries are not pinned.",
+      page: "book-night-of-a-thousand-hells.html",
+      srcUrl: "https://www.europaeditions.co.uk/book/9781787706644/night-of-a-thousand-hells",
+      src: "Europa Editions (\"Set across Indonesia, the United States, and Australia\"); Foreword Reviews (Mutiara in Indonesia; Maya in New York, then returns to Jakarta)" }
+  ]}
+
 ];
 
 /* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.
@@ -573,9 +595,9 @@ window.bsRoutes = [
   /* Weekly Reads route: only books that were Book & Shores Weekly Reads picks (index.html history) AND already have a sourced pin above.
      Every book at each stop is a Weekly Reads pick. Picks with no single stated setting stay off the map. */
   { id: "weekly-reads", name: "Weekly Reads", eyebrow: "A reading route · Weekly Reads, Nov 8", isNew: true, order: "west to east", color: "#1f4e79",
-    note: "This week's picks with a sourced setting, plus two stops from our Author of the Month Jonathan Lethem, his latest book and his Times essay from Boerum Hill, standing in for The Last Leaf and The Night Before, which don't center on one place. Each popup cites its source.",
-    blurb: "Five stops. This week's picks and Jonathan Lethem, from the Bay Area to Paris.",
-    stops: ["bay-area-lethem-tension", "ucla-westwood", "boerum-hill-lethem-essay", "north-atlantic", "paris-image-of-her"] },
+    note: "This week's picks with a sourced setting, plus two stops from our Author of the Month Jonathan Lethem, his latest book and his Times essay from Boerum Hill, standing in for The Last Leaf, which doesn't center on one place. The Night Before is pinned at 64 East Seventh Street, the building one of its essays is about. Each popup cites its source.",
+    blurb: "Six stops. This week's picks and Jonathan Lethem, from the Bay Area to Paris.",
+    stops: ["bay-area-lethem-tension", "ucla-westwood", "east-seventh-street", "boerum-hill-lethem-essay", "north-atlantic", "paris-image-of-her"] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",

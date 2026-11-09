@@ -80,6 +80,18 @@ BOOKS = [
          title="Don't Let Me Be Misunderstood", author="W. Jason Miller"),
     dict(slug="arrows-of-desire", cover="9781836741176.jpg", label="Film & Criticism · Verso · Oct 20, 2026",
          title="Arrows of Desire", author="Peter Wollen", byline="Peter Wollen · ed. Eshun, Fuke & Helm-Grovas"),
+    dict(slug="the-image-of-her", cover="weekly-the-image-of-her.jpg", label="Weekly Read · Yale · Jan 2026",
+         title="The Image of Her", author="Simone de Beauvoir", byline="Simone de Beauvoir · tr. Lauren Elkin"),
+    dict(slug="the-great-eastern", cover="GREATEASTERN.jpg", label="Weekly Read · Melville House",
+         title="The Great Eastern", author="Howard A. Rodman"),
+    dict(slug="the-last-leaf", cover="weekly-the-last-leaf.jpg", label="Weekly Read · Penguin Press · Nov 10",
+         title="The Last Leaf", author="Willie Nelson"),
+    dict(slug="sleeping-beauties", cover="weekly-sleeping-beauties.jpg", label="Weekly Read · Penguin Press",
+         title="Sleeping Beauties", author="David Byrne"),
+    dict(slug="the-third-eye", cover="weekly-the-third-eye.jpg", label="Weekly Read · Random House",
+         title="The Third Eye", author="George Harrison"),
+    dict(slug="the-magic-circle", cover="weekly-the-magic-circle.jpg", label="Weekly Read · MIT Press · Nov 10",
+         title="The Magic Circle", author="Trace Reddell"),
 ]
 
 # Event / list pages: no cover image; the right side is a big type block with the date.
