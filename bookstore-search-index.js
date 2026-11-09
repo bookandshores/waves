@@ -82,6 +82,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Arrows of Desire: Selected Writings 1963–2002",
+"author": "Peter Wollen",
+"isbn": "9781836741176",
+"cover": "9781836741176.jpg",
+"buy": "https://bookshop.org/a/125864/9781836741176",
+"page": "book-arrows-of-desire.html",
+"aff": true
+},
+{
 "title": "The Art of Stanley Mouse: California Dreams",
 "isbn": "9781593765460",
 "cover": "STANLEY2.jpg",
@@ -361,6 +370,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Don't Let Me Be Misunderstood: Nina Simone, Langston Hughes & the Birth of Black Power",
+"author": "W. Jason Miller",
+"isbn": "9781469698212",
+"cover": "9781469698212.jpg",
+"buy": "https://bookshop.org/a/125864/9781469698212",
+"page": "book-dont-let-me-be-misunderstood.html",
+"aff": true
+},
+{
 "title": "Dèy",
 "author": "Edwidge Danticat",
 "isbn": "9780593803523",
@@ -456,7 +474,7 @@ window.bsSearchIndex = [
 "isbn": "9781644285541",
 "cover": "GREATEASTERN.jpg",
 "buy": "https://bookshop.org/a/125864/9781644285541",
-"page": "bookstore.html",
+"page": "book-the-great-eastern.html",
 "aff": true
 },
 {
@@ -532,6 +550,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "The Image of Her",
+"author": "Simone de Beauvoir",
+"isbn": "9780300287172",
+"cover": "weekly-the-image-of-her.jpg",
+"buy": "https://bookshop.org/a/125864/9780300287172",
+"page": "book-the-image-of-her.html",
+"aff": true
+},
+{
 "title": "James",
 "author": "Percival Everett",
 "isbn": "9780385550369",
@@ -574,6 +601,15 @@ window.bsSearchIndex = [
 "cover": "Winter.png",
 "buy": "https://bookshop.org/a/125864/9798889661566",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "The Last Leaf",
+"author": "Willie Nelson",
+"isbn": "9798217059430",
+"cover": "weekly-the-last-leaf.jpg",
+"buy": "https://bookshop.org/a/125864/9798217059430",
+"page": "book-the-last-leaf.html",
 "aff": true
 },
 {
@@ -637,6 +673,15 @@ window.bsSearchIndex = [
 "cover": "IMG_2782.jpg",
 "buy": "https://bookshop.org/a/125864/9798897101887",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "The Magic Circle",
+"author": "Trace Reddell",
+"isbn": "9780262551731",
+"cover": "weekly-the-magic-circle.jpg",
+"buy": "https://bookshop.org/a/125864/9780262551731",
+"page": "book-the-magic-circle.html",
 "aff": true
 },
 {
@@ -742,7 +787,7 @@ window.bsSearchIndex = [
 "title": "The Night Before: Essays on Music, Comics, and Culture",
 "author": "David Hajdu",
 "isbn": "9780231225168",
-"cover": "9780231225168.jpg",
+"cover": "weekly-the-night-before.jpg",
 "buy": "https://bookshop.org/a/125864/9780231225168",
 "page": "book-the-night-before.html",
 "aff": true
@@ -946,6 +991,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Sleeping Beauties",
+"author": "David Byrne",
+"isbn": "9780593655276",
+"cover": "weekly-sleeping-beauties.jpg",
+"buy": "https://bookshop.org/a/125864/9780593655276",
+"page": "book-sleeping-beauties.html",
+"aff": true
+},
+{
 "title": "Small Rain",
 "author": "Garth Greenwell",
 "isbn": "9781250397508",
@@ -1060,6 +1114,15 @@ window.bsSearchIndex = [
 "cover": "n.jpg",
 "buy": "https://bookshop.org/a/125864/9798217154746",
 "page": "book-the-things-we-never-say.html",
+"aff": true
+},
+{
+"title": "The Third Eye",
+"author": "George Harrison",
+"isbn": "9798217154852",
+"cover": "weekly-the-third-eye.jpg",
+"buy": "https://bookshop.org/a/125864/9798217154852",
+"page": "book-the-third-eye.html",
 "aff": true
 },
 {
