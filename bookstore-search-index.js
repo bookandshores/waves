@@ -829,6 +829,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "On Closeness: Minoritarian Method and Forms of Relation",
+"author": "Olivia Michiko Gagnon",
+"isbn": "9781479831067",
+"cover": "9781479831067.jpg",
+"buy": "https://bookshop.org/a/125864/9781479831067",
+"page": "book-on-closeness.html",
+"aff": true
+},
+{
 "title": "The Palm House",
 "author": "Gwendoline Riley",
 "isbn": "9798896230526",

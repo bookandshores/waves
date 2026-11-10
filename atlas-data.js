@@ -591,6 +591,13 @@ window.bsAtlas = [
       page: "book-california-dreams.html",
       srcUrl: "https://softskull.com/books/california-dreams/",
       src: "Soft Skull Press book page (Mouse \"taking Haight-Ashbury by storm\" in San Francisco's counterculture renaissance); Vanity Fair, July 2012 (\"Kelley and Mouse made their posters at 715 Ashbury, across the street\"); Sotheby's (Mouse lived at 715 Ashbury across from the Dead); SF Planning / San Francisco Heritage Citywide Historic Context Statement for Counterculture (1965–1975), adopted 17 July 2024 (Mouse Studios at 715 Ashbury)" }
+  ]},
+  { id: "columbia-rmbl", name: "Rare Book and Manuscript Library, Columbia University, New York", lng: -73.9631, lat: 40.8064, area: false, cc: "US", cont: "North America", reg: ["columbia", "columbia university", "rare book and manuscript library", "rmbl", "butler library", "morningside heights", "manhattan", "new york", "new york city", "nyc"], books: [
+    { title: "On Closeness: Minoritarian Method and Forms of Relation", author: "Olivia Michiko Gagnon", year: 2026, isbn: "9781479831067", cover: "atlas/cover-on-closeness.jpg",
+      setting: "Columbia University's Rare Book and Manuscript Library in New York City, where Gagnon first encountered a 1915 lithograph by Inuk artist Nungusuituq in the Robert J. Flaherty Papers",
+      note: "A study of closeness as method in contemporary art and performance. The pin marks the library where the book opens and later returns; it does not mark every place the chapters visit. Gagnon also writes from Vancouver and of growing up in Montréal, and spends time with artworks tied to Brooklyn, Providence Canyon in Georgia, Nunavik and Greenland.",
+      page: "book-on-closeness.html",
+      src: "book-on-closeness.html (Olivia Michiko Gagnon, On Closeness: Minoritarian Method and Forms of Relation, NYU Press, 2026, pp. 1–2, 160–163: Rare Book and Manuscript Library, Columbia University, New York City; Robert Joseph Flaherty Papers)" }
   ]}
 
 ];
