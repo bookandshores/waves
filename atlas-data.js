@@ -600,6 +600,11 @@ window.bsAtlas = [
       src: "book-on-closeness.html (Olivia Michiko Gagnon, On Closeness: Minoritarian Method and Forms of Relation, NYU Press, 2026, pp. 1–2, 160–163: Rare Book and Manuscript Library, Columbia University, New York City; Robert Joseph Flaherty Papers)" }
   ]}
 
+  /* B&S: Seoul to Tokyo Weekly Reads, Nov 15, 2026 (local draft for AE packet; not live).
+     The rejected Nov 15 pins (Yeonhui-dong / The Seoul Letter Shop, Musashino / How Can My Manager Be So Stupid?, Tokyo Village Vanguard / The Bookshop Woman) have been removed.
+     None of the approved books have a publisher-named neighborhood that matches those three stops without inventing a setting.
+     Optional pins (AE decision, not added here): Park Hyatt Tokyo for Lost in Translation if the 8th is included; Toshima City for one episode in Fracture; a general Tokyo pin for Walking in Place 3, Mondo Tokyo, or Jazz Kissa only if AE accepts a city-level pin. Love at Least stays off the map. */
+
 ];
 
 /* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.
@@ -613,6 +618,13 @@ window.bsRoutes = [
     note: "This week's picks with a sourced setting, plus two stops from our Author of the Month Jonathan Lethem, his latest book and his Times essay from Boerum Hill, standing in for The Last Leaf, which doesn't center on one place. The Night Before is pinned at 64 East Seventh Street, the building one of its essays is about. Each popup cites its source.",
     blurb: "Six stops. This week's picks and Jonathan Lethem, from the Bay Area to Paris.",
     stops: ["bay-area-lethem-tension", "ucla-westwood", "east-seventh-street", "boerum-hill-lethem-essay", "north-atlantic", "paris-image-of-her"] },
+  /* B&S: Seoul to Tokyo route, Weekly Reads Nov 15 (local draft for AE packet; not live).
+     Stops are empty until AE chooses optional pins. The chip can still deep-link; the note explains that this week's picks are on the list and off the map for now.
+     Approved stub artwork is unchanged and lives outside this file. */
+  { id: "seoul-tokyo", name: "Seoul to Tokyo", eyebrow: "A reading route · Weekly Reads, Nov 15", isNew: true, order: "west to east", color: "#8b1e3f",
+    note: "This week's Weekly Reads are on the list. No pin is live yet, because none of the approved books have a publisher-named neighborhood that matches the existing Yeonhui-dong, Musashino, or central Tokyo stops without inventing a setting. Love at Least stays off the map.",
+    blurb: "A reading route. This week's picks, on the B&S Literary Atlas.",
+    stops: [] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
