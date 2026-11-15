@@ -420,19 +420,19 @@
                     @bookandshores
                 </a>
             </div>
-            <!-- B&S: Weekly Reads, Nov 8 picks (desert-road illustration; Atlas route atlas.html#weekly-reads). Covers and titles link to the book page when we have one, otherwise to the book's Buy link. -->
+            <!-- B&S: Weekly Reads, Nov 15, Seoul to Tokyo (local draft for AE packet; not live). Hero is the approved Musashino-boys stub art, used as this week's Weekly Reads illustration and as the Love at Least visual. Love at Least has no map pin (no city named in the publisher copy). Covers and titles link to publisher pages. Optional 8th (Lost in Translation / Ferriss) is not in the default grid. -->
             <style>
             .wr { max-width: 1000px; margin: 1.6rem auto 0; color: var(--black); }
             .wr-sub { font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-align: center; margin: -0.4rem 0 0; }
-            .wr-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 2.2rem; align-items: start; margin-top: 1.8rem; }
+            .wr-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: start; margin-top: 1.8rem; }
             .wr-art { position: relative; margin: 0 0 1.4rem; }
             .wr-art img.wr-hero { display: block; width: 100%; height: auto; border: 5px solid var(--black); box-shadow: 8px 8px 0 var(--black); }
             .wr-art img.wr-sig { position: absolute; right: 18px; bottom: -46px; width: 26%; height: auto; pointer-events: none; }
             .wr-aotm { display: flex; gap: 1rem; align-items: flex-end; margin-top: 2.2rem; color: var(--black); text-decoration: none; }
-            .wr-aotm img { display: block; height: 128px; width: auto; border: 4px solid var(--black); box-shadow: 5px 5px 0 var(--black); }
+            .wr-aotm img { display: block; height: 210px; width: auto; border: 4px solid var(--black); box-shadow: 5px 5px 0 var(--black); }
             .wr-badge { display: inline-block; background: var(--black); color: #fff200; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.15rem; letter-spacing: .03em; line-height: 1.1; padding: 2px 10px 4px; transform: rotate(-2.5deg); box-shadow: 4px 4px 0 #dd4522; margin-bottom: 0.5rem; }
-            .wr-nm { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.5rem; line-height: 1.05; }
-            .wr-ti { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.95rem; margin-top: 2px; }
+            .wr-nm { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 2.1rem; line-height: 1.05; }
+            .wr-ti { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 1.1rem; margin-top: 2px; }
             .wr-d { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; font-size: 0.68rem; padding: 2px 6px; margin-top: 6px; }
             .wr-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; row-gap: 2rem; }
             .wr-book { display: block; color: var(--black); text-decoration: none; }
@@ -442,6 +442,31 @@
             .wr-t { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.3rem; line-height: 1.05; margin-top: 0.9rem; }
             .wr-a { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.8rem; line-height: 1.25; margin-top: 4px; }
             .wr-cta { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(1.05rem, 3.6vw, 1.4rem); line-height: 1.4; margin: 2.2rem 0 0; }
+            .wr-eyebrow { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.78rem; letter-spacing: .12em; text-transform: uppercase; text-align: center; margin: -0.2rem 0 0.2rem; }
+            .wr-sub-b { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; color: #8b1e3f; font-size: 1.35rem; letter-spacing: .02em; margin: 0; }
+            .wr-route { position: relative; display: flex; justify-content: space-between; max-width: 560px; margin: 1.1rem auto 0; padding-top: 22px; color: var(--black); text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1rem; }
+            .wr-route::before { content: ""; position: absolute; left: 14px; right: 14px; top: 8px; border-top: 4px dashed #8b1e3f; }
+            .wr-route span { position: relative; width: 6.5rem; text-align: center; }
+            .wr-route span:first-child { text-align: left; } .wr-route span:last-child { text-align: right; }
+            .wr-route span::before { content: ""; position: absolute; top: -24px; width: 22px; height: 22px; border-radius: 50%; background: #8b1e3f; border: 3px solid var(--black); box-sizing: border-box; left: 50%; margin-left: -11px; }
+            .wr-route span:first-child::before { left: 0; margin-left: 0; } .wr-route span:last-child::before { left: auto; right: 0; margin-left: 0; }
+            .wr-route:hover span, .wr-route:focus span { text-decoration: underline; }
+            .wr-perf { border: 0; border-top: 4px dashed var(--black); margin: 2.4rem 0 0; }
+            .wr-hl { margin-top: 2.6rem; padding-left: 14px; display: flex; flex-direction: column; gap: 2.2rem; }
+            .wr-hl-row { display: contents; }
+            .wr-hl-feature { padding-top: 14px; }
+            .wr-hl-feature .wr-cov, .wr-hl-feature .wr-hl-cov { height: auto; justify-content: flex-start; }
+            .wr-hl-feature .wr-cov img { max-height: none; width: 62%; transform: rotate(-5deg); box-shadow: 12px 14px 0 var(--black), 20px 26px 22px rgba(0,0,0,.35); }
+            .wr-hl-feature:hover .wr-cov img, .wr-hl-feature:focus .wr-cov img { transform: rotate(-5deg) translateY(-4px); }
+            .wr-hl-feature .wr-t { font-size: 2.1rem; margin-top: 1.6rem; }
+            .wr-hl-feature .wr-a { font-size: 1rem; }
+            .wr-hl-feature .wr-d { font-size: 0.8rem; padding: 3px 8px; }
+            .wr-hl-small .wr-hl-cov { height: 170px; justify-content: flex-start; } .wr-hl-small .wr-hl-cov img { max-height: 170px; }
+            .wr-d-hl { background: #8b1e3f; color: #fff; }
+            @media (max-width: 760px) { .wr-hl-feature .wr-cov img { width: 70%; } .wr-hl-feature .wr-t { font-size: 1.7rem; } }
+            .wr-past { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; margin: 1rem 0 0; }
+            .wr-past a { color: var(--black); }
+            .wr-credit { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.72rem; text-align: left; margin: 1.8rem 32% 0 0; color: var(--black); }
             @media (max-width: 760px) {
                 .wr-layout { grid-template-columns: 1fr; gap: 1.6rem; }
                 .wr-art { margin-right: 18px; }
@@ -450,28 +475,51 @@
                 .wr-cov { height: 210px; }
                 .wr-cov img { max-height: 210px; }
                 .wr-t { font-size: 1.1rem; }
-                .wr-aotm img { height: 110px; }
+                .wr-aotm img { height: 160px; }
+                .wr-nm { font-size: 1.7rem; }
             }
             </style>
             <div class="wr">
-                <p class="wr-sub">New this week at bookandshores.com.</p>
+                <!-- B&S: Option B (route ticket) touches, Nov 15: ticket eyebrow, plum route line, perforation. Matches the approved social set. -->
+                <p class="wr-eyebrow">B&amp;S Literary Atlas · Admit one reader</p>
+                <p class="wr-sub wr-sub-b">Seoul to Tokyo · Nov 15</p>
+                <a class="wr-route" href="atlas.html#seoul-tokyo" aria-label="Seoul to Tokyo route on the B&amp;S Literary Atlas: Seoul, Tokyo, The Pacific"><span>Seoul</span><span>Tokyo</span><span>The Pacific</span></a>
                 <div class="wr-layout">
                     <div>
-                        <!-- B&S: original Book & Shores illustration, signed AE -->
+                        <!-- B&S: AE's approved boys illustration (stub art, leather jacket, green awning). Composite only; mug unchanged; signature overlaid; credit below. Used as the Weekly Reads hero and the Love at Least visual. Not a map pin for the novel. -->
                         <figure class="wr-art">
-                            <img class="wr-hero" src="weekly-reads-desert-illustration.jpg" width="705" height="1100" loading="lazy" alt="Book &amp; Shores illustration: by a black vintage car on a desert road, a man in a black robe raises a read me. mug while kissing a man in a Viking helmet, who reads a Weekly Reads Route B&amp;S map">
+                            <img class="wr-hero" src="weekly-reads-boys-illustration.jpg" width="1147" height="1517" loading="lazy" alt="Book &amp; Shores illustration: two men in a street kiss, one in a white tank top holding a read me. mug, the other in a black leather jacket, with a green awning behind them">
                             <img class="wr-sig" src="weekly-reads-signature.png" width="600" height="223" alt="" aria-hidden="true">
                         </figure>
+                        <p class="wr-credit">Illustrations by A. E. Goodson for Book and Shores.</p>
+                        <!-- B&S: Author of the Month (Jonathan Lethem) restored per AE; keep up until Dec 1, 2026, then remove. Same markup as before its Nov 7 removal (5f6bbf9). -->
+                        <a class="wr-aotm" href="author-of-the-month.html" aria-label="Author of the Month: Jonathan Lethem, A Different Kind of Tension, paperback Sept 1">
+                            <img src="aotm-lethem-different-kind-of-tension.jpg" width="398" height="600" loading="lazy" alt="A Different Kind of Tension by Jonathan Lethem">
+                            <span><span class="wr-badge">Author of the Month</span><span class="wr-nm">Jonathan Lethem</span><span class="wr-ti">A Different Kind of Tension</span><span class="wr-d">Paperback Sept 1</span></span>
+                        </a>
+                        <!-- B&S: From last week's Weekly Reads (Nov 8), per AE Nov 15. The Night Before: Columbia UP "Pub Date: November 2026"; NetGalley pub date Nov 17, 2026. Arrows of Desire: Verso, October 2026 (our page: Oct 20, 2026). Reuses Nov 8 covers. -->
+                        <div class="wr-hl">
+                            <div class="wr-hl-row">
+                                <a class="wr-book wr-hl-feature" href="book-the-night-before.html" aria-label="The Night Before by David Hajdu, out this week, Nov 17"><span class="wr-cov wr-hl-cov"><img src="weekly-the-night-before.jpg" width="400" height="603" loading="lazy" alt="The Night Before: Essays on Music, Comics, and Culture by David Hajdu"></span><span class="wr-t">The Night Before</span><span class="wr-a">David Hajdu</span><span class="wr-d wr-d-hl">Out this week · Nov 17</span></a>
+                                <a class="wr-book wr-hl-small" href="book-arrows-of-desire.html" aria-label="Arrows of Desire by Peter Wollen, out now"><span class="wr-cov wr-hl-cov"><img src="9781836741176.jpg" width="425" height="650" loading="lazy" alt="Arrows of Desire: Selected Writings 1963-2002 by Peter Wollen"></span><span class="wr-t">Arrows of Desire</span><span class="wr-a">Peter Wollen</span><span class="wr-d">Out now</span></a>
+                            </div>
+                        </div>
                     </div>
                     <div class="wr-grid" id="weekly-grid">
-                        <a class="wr-book weekly-card" href="book-arrows-of-desire.html" aria-label="Arrows of Desire by Peter Wollen, out now"><span class="wr-cov"><img src="9781836741176.jpg" width="425" height="650" loading="lazy" alt="Arrows of Desire: Selected Writings 1963-2002 by Peter Wollen"></span><span class="wr-t">Arrows of Desire</span><span class="wr-a">Peter Wollen</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-the-image-of-her.html" aria-label="The Image of Her by Simone de Beauvoir, translated by Lauren Elkin, out now"><span class="wr-cov"><img src="weekly-the-image-of-her.jpg" width="400" height="618" loading="lazy" alt="The Image of Her by Simone de Beauvoir, translated by Lauren Elkin"></span><span class="wr-t">The Image of Her</span><span class="wr-a">Simone de Beauvoir, tr. Lauren Elkin</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-the-great-eastern.html" aria-label="The Great Eastern by Howard A. Rodman, out now"><span class="wr-cov"><img src="weekly-the-great-eastern.jpg" width="400" height="620" loading="lazy" alt="The Great Eastern by Howard A. Rodman"></span><span class="wr-t">The Great Eastern</span><span class="wr-a">Howard A. Rodman</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-the-last-leaf.html" aria-label="The Last Leaf by Willie Nelson, out Nov 10"><span class="wr-cov"><img src="weekly-the-last-leaf.jpg" width="298" height="450" loading="lazy" alt="The Last Leaf: Reflections on Late-Life Creativity and My Longest Love Affair by Willie Nelson"></span><span class="wr-t">The Last Leaf</span><span class="wr-a">Willie Nelson</span><span class="wr-d">Nov 10</span></a>
-                        <a class="wr-book weekly-card" href="book-the-night-before.html" aria-label="The Night Before by David Hajdu, out Nov 17"><span class="wr-cov"><img src="weekly-the-night-before.jpg" width="400" height="603" loading="lazy" alt="The Night Before: Essays on Music, Comics, and Culture by David Hajdu"></span><span class="wr-t">The Night Before</span><span class="wr-a">David Hajdu</span><span class="wr-d">Nov 17</span></a>
+                        <a class="wr-book weekly-card" href="https://www.upress.umn.edu/9781517903299/long-take/" target="_blank" rel="noopener" aria-label="Long Take by Akira Kurosawa, translated by Anne McKnight, out now"><span class="wr-cov"><img src="weekly-long-take.jpg" width="1035" height="1600" loading="lazy" alt="Long Take by Akira Kurosawa, translated by Anne McKnight"></span><span class="wr-t">Long Take</span><span class="wr-a">Akira Kurosawa, tr. Anne McKnight</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://www.setmargins.press/books/fracture-japanese-graphic-design-1875-1975/" target="_blank" rel="noopener" aria-label="Fracture: Japanese Graphic Design 1875–1975 by Ian Lynam, out now"><span class="wr-cov"><img src="weekly-fracture.jpg" width="1180" height="1600" loading="lazy" alt="Fracture: Japanese Graphic Design 1875–1975 by Ian Lynam"></span><span class="wr-t">Fracture</span><span class="wr-a">Ian Lynam</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://erg.media/pages/jazz-kissa" target="_blank" rel="noopener" aria-label="Jazz Kissa: The Soul of Japanese Listening Culture by Katsumasa Kusunose, out now"><span class="wr-cov"><img src="weekly-jazz-kissa.jpg" width="1006" height="1196" loading="lazy" alt="Jazz Kissa: The Soul of Japanese Listening Culture by Katsumasa Kusunose"></span><span class="wr-t">Jazz Kissa</span><span class="wr-a">Katsumasa Kusunose</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://perimetereditions.com/mike-slack-%E2%80%93-walking-in-place-3-tokyo" target="_blank" rel="noopener" aria-label="Walking in Place 3: Tokyo by Mike Slack, out now"><span class="wr-cov"><img src="weekly-walking-in-place-3-tokyo.jpg" width="415" height="691" loading="lazy" alt="Walking in Place 3: Tokyo by Mike Slack"></span><span class="wr-t">Walking in Place 3: Tokyo</span><span class="wr-a">Mike Slack</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://sutherlandhousebooks.com/product/mondo-tokyo" target="_blank" rel="noopener" aria-label="Mondo Tokyo: Dispatches from a Secret Japan by Patrick Macias, out now"><span class="wr-cov"><img src="weekly-mondo-tokyo.jpg" width="1067" height="1600" loading="lazy" alt="Mondo Tokyo: Dispatches from a Secret Japan by Patrick Macias"></span><span class="wr-t">Mondo Tokyo</span><span class="wr-a">Patrick Macias</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://www.poetsandpunks.com/shop/p/poetspunks-banju-and-anju-book-cn5sj-4r7sn" target="_blank" rel="noopener" aria-label="Fighting for Your Right to Party by Jung Wooyoung, out now"><span class="wr-cov"><img src="weekly-fighting-for-your-right-to-party.jpg" width="334" height="478" loading="lazy" alt="Fighting for Your Right to Party by Jung Wooyoung"></span><span class="wr-t">Fighting for Your Right to Party</span><span class="wr-a">Jung Wooyoung</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://www.setmargins.press/books/energy-fields-vibrations-of-the-pacific/" target="_blank" rel="noopener" aria-label="Energy Fields: Vibrations of the Pacific, edited by Lawrence English and Robert Takahashi Novak, out now"><span class="wr-cov"><img src="weekly-energy-fields.jpg" width="1228" height="1600" loading="lazy" alt="Energy Fields: Vibrations of the Pacific, edited by Lawrence English and Robert Takahashi Novak"></span><span class="wr-t">Energy Fields</span><span class="wr-a">Lawrence English &amp; Robert Takahashi Novak, eds.</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://www.setmargins.press/books/sonic-footprints/" target="_blank" rel="noopener" aria-label="Sonic Footprints, edited by Louis Möckel, vinyl record with booklet, out now"><span class="wr-cov"><img src="weekly-sonic-footprints.jpg" width="1200" height="1197" loading="lazy" alt="Sonic Footprints, edited by Louis Möckel, vinyl record cover"></span><span class="wr-t">Sonic Footprints</span><span class="wr-a">Louis Möckel, ed. Vinyl + booklet</span><span class="wr-d">Out now</span></a>
+                        <a class="wr-book weekly-card" href="https://softskull.com/books/love-at-least/" target="_blank" rel="noopener" aria-label="Love at Least by Yukiko Motoya, translated by Kamil Spychalski, out now"><span class="wr-cov"><img src="weekly-love-at-least.jpg" width="300" height="450" loading="lazy" alt="Love at Least by Yukiko Motoya, translated by Kamil Spychalski"></span><span class="wr-t">Love at Least</span><span class="wr-a">Yukiko Motoya, tr. Kamil Spychalski</span><span class="wr-d">Out now</span></a>
                     </div>
                 </div>
-                <p class="wr-cta">Five picks for your shelf, each with a link to find your copy. Then take them on the road: <a href="atlas.html#weekly-reads">Weekly Reads Route</a>. Happy reading.</p>
+                <hr class="wr-perf" aria-hidden="true">
+                <p class="wr-cta">Nine picks for your shelf, each with a link to find your copy. Then take them on the road: <a href="atlas.html#seoul-tokyo">Seoul to Tokyo</a> on the B&amp;S Literary Atlas. Go There. Read It.</p>
+                <p class="wr-past"><a href="weekly-reads.html">Past Weekly Reads, by date →</a></p>
             </div>
         </section>
         <div class="teaser">
