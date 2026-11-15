@@ -121,3 +121,7 @@
   .jk-book { transform: rotateY(-28deg); }
   .jk-shadow { transform: translateX(-50%) scaleX(.85); opacity: .35; }
 }
+
+/* Flat cover (spin retired) */
+.wr-jk-flat { display: block; color: var(--black); text-decoration: none; }
+.wr-jk-flat .wr-cov img { display: block; }
