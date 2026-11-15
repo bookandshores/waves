@@ -453,7 +453,14 @@
             .wr-route:hover span, .wr-route:focus span { text-decoration: underline; }
             .wr-perf { border: 0; border-top: 4px dashed var(--black); margin: 2.4rem 0 0; }
             .wr-hl { margin-top: 2.4rem; }
-            .wr-hl-k { display: inline-block; background: #8b1e3f; color: #fff; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.05rem; padding: 2px 10px 4px; margin-bottom: 1rem; }
+            .wr-hl-k { display: inline-block; background: #9491d4; color: var(--black); font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.05rem; padding: 2px 10px 4px; border: 2px solid var(--black); } /* sky lavender sampled from weekly-reads-boys-illustration.jpg (40,40) = rgb(148,145,212) */
+            .wr-hl-feature .wr-cov img { transform: rotate(-5deg); box-shadow: 10px 12px 0 var(--black), 16px 20px 18px rgba(0,0,0,.35); }
+            .wr-hl-feature:hover .wr-cov img, .wr-hl-feature:focus .wr-cov img { transform: rotate(-5deg) translateY(-4px); }
+            .wr-tags { display: flex; flex-wrap: wrap; gap: 0 5px; }
+            .wr-tags .wr-d { white-space: nowrap; font-size: 0.62rem; padding: 2px 5px; }
+            .wr-hl-feature .wr-cov { padding: 10px 0 0 10px; }
+            .wr-tags .wr-d-signed { background: #fff; color: var(--black); box-shadow: inset 0 0 0 2px var(--black); }
+            .wr-hl-lab { text-align: center; margin: 1.2rem 0 0; }
             .wr-hl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
             .wr-hl-cov { height: 200px; justify-content: flex-start; } .wr-hl-cov img { max-height: 200px; }
             .wr-d-hl { background: #8b1e3f; color: #fff; }
@@ -492,11 +499,11 @@
                         </a>
                         <!-- B&S: From last week's Weekly Reads (Nov 8), per AE Nov 15. The Night Before: Columbia UP "Pub Date: November 2026"; NetGalley pub date Nov 17, 2026. Arrows of Desire: Verso, October 2026 (our page: Oct 20, 2026). Reuses Nov 8 covers. -->
                         <div class="wr-hl">
-                            <span class="wr-hl-k">From last week's reads</span>
                             <div class="wr-hl-row">
-                                <a class="wr-book" href="book-the-night-before.html" aria-label="The Night Before by David Hajdu, out this week, Nov 17"><span class="wr-cov wr-hl-cov"><img src="weekly-the-night-before.jpg" width="400" height="603" loading="lazy" alt="The Night Before: Essays on Music, Comics, and Culture by David Hajdu"></span><span class="wr-t">The Night Before</span><span class="wr-a">David Hajdu</span><span class="wr-d wr-d-hl">Out this week · Nov 17</span></a>
+                                <a class="wr-book wr-hl-feature" href="book-the-night-before.html" aria-label="The Night Before by David Hajdu, out this week, Nov 17, signed copy"><span class="wr-cov wr-hl-cov"><img src="weekly-the-night-before.jpg" width="400" height="603" loading="lazy" alt="The Night Before: Essays on Music, Comics, and Culture by David Hajdu"></span><span class="wr-t">The Night Before</span><span class="wr-a">David Hajdu</span><span class="wr-tags"><span class="wr-d wr-d-hl">Out this week · Nov 17</span><span class="wr-d wr-d-signed">Signed copy</span></span></a>
                                 <a class="wr-book" href="book-arrows-of-desire.html" aria-label="Arrows of Desire by Peter Wollen, out now"><span class="wr-cov wr-hl-cov"><img src="9781836741176.jpg" width="425" height="650" loading="lazy" alt="Arrows of Desire: Selected Writings 1963-2002 by Peter Wollen"></span><span class="wr-t">Arrows of Desire</span><span class="wr-a">Peter Wollen</span><span class="wr-d">Out now</span></a>
                             </div>
+                            <p class="wr-hl-lab"><span class="wr-hl-k">From last week's reads</span></p>
                         </div>
                     </div>
                     <div class="wr-grid" id="weekly-grid">
