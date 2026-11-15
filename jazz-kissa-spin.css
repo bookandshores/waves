@@ -1,0 +1,115 @@
+/* B&S: Jazz Kissa Version A turntable spin. Preview branch only until merged. */
+.jk-scene {
+  --jk-bw: 200px;
+  --jk-bh: calc(var(--jk-bw) * 989 / 800);
+  --jk-bd: calc(var(--jk-bw) * 80 / 800);
+  position: relative;
+  width: calc(var(--jk-bw) * 1.45);
+  height: calc(var(--jk-bh) * 1.18);
+  perspective: 1100px;
+  perspective-origin: 50% 48%;
+  display: grid;
+  place-items: center;
+}
+.jk-book {
+  width: var(--jk-bw);
+  height: var(--jk-bh);
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  will-change: transform;
+  z-index: 1;
+  animation: jk-spinY 12s linear infinite;
+}
+.jk-face {
+  position: absolute;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.jk-front, .jk-back { width: var(--jk-bw); height: var(--jk-bh); top: 0; left: 0; }
+.jk-front { transform: translateZ(calc(var(--jk-bd) / 2)); background-image: url("jazz-kissa/front-obi.jpg"); }
+.jk-back  { transform: rotateY(180deg) translateZ(calc(var(--jk-bd) / 2)); background-image: url("jazz-kissa/back.jpg"); }
+.jk-spine, .jk-edge {
+  width: var(--jk-bd);
+  height: var(--jk-bh);
+  top: 0;
+  left: calc((var(--jk-bw) - var(--jk-bd)) / 2);
+}
+.jk-spine { transform: rotateY(-90deg) translateZ(calc(var(--jk-bw) / 2)); background-image: url("jazz-kissa/spine.jpg"); }
+.jk-edge  { transform: rotateY(90deg) translateZ(calc(var(--jk-bw) / 2)); background-image: url("jazz-kissa/pages.jpg"); }
+.jk-top, .jk-bottom {
+  width: var(--jk-bw);
+  height: var(--jk-bd);
+  left: 0;
+  top: calc((var(--jk-bh) - var(--jk-bd)) / 2);
+}
+.jk-top    { transform: rotateX(90deg) translateZ(calc(var(--jk-bh) / 2)); background-image: url("jazz-kissa/top.jpg"); }
+.jk-bottom { transform: rotateX(-90deg) translateZ(calc(var(--jk-bh) / 2)); background-image: url("jazz-kissa/bottom.jpg"); }
+.jk-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  width: calc(var(--jk-bw) * 0.86);
+  height: 16px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.38) 0%, rgba(0,0,0,.12) 55%, rgba(0,0,0,0) 75%);
+  filter: blur(3px);
+  pointer-events: none;
+  z-index: 0;
+  animation: jk-shadowY 12s linear infinite;
+}
+@keyframes jk-spinY {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+@keyframes jk-shadowY {
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: .42; }
+  25%      { transform: translateX(-32%) scaleX(.62); opacity: .28; }
+  50%      { transform: translateX(-50%) scaleX(.5); opacity: .2; }
+  75%      { transform: translateX(-68%) scaleX(.62); opacity: .28; }
+}
+.jk-scene:hover .jk-book,
+.jk-scene:hover .jk-shadow { animation-play-state: paused; }
+
+/* Homepage Weekly Reads: enlarged card, Night Before highlight left as-is */
+.wr-jk { color: var(--black); text-decoration: none; }
+.wr-jk .wr-jk-cov {
+  height: 340px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.wr-jk .jk-scene { --jk-bw: 200px; }
+.wr-jk .wr-t {
+  color: var(--black);
+  text-decoration: none;
+  display: block;
+}
+.wr-jk .wr-t:hover, .wr-jk .wr-t:focus { text-decoration: underline; }
+@media (max-width: 760px) {
+  .wr-jk .wr-jk-cov { height: 280px; }
+  .wr-jk .jk-scene { --jk-bw: 160px; }
+}
+
+/* weekly-reads.html archive card, slightly larger than the 190px neighbors */
+.wra-jk { color: var(--black); text-decoration: none; }
+.wra-jk .wra-c { height: 260px; align-items: flex-end; justify-content: center; }
+.wra-jk .jk-scene { --jk-bw: 150px; }
+.wra-jk .wra-t { color: var(--black); text-decoration: none; display: block; }
+.wra-jk .wra-t:hover, .wra-jk .wra-t:focus { text-decoration: underline; }
+@media (max-width: 560px) {
+  .wra-jk .wra-c { height: 230px; }
+  .wra-jk .jk-scene { --jk-bw: 130px; }
+}
+
+/* Individual book page hero */
+.jk-hero .jk-scene { --jk-bw: 260px; }
+.jk-hero-credit { font-size: 0.8rem; color: var(--gray); margin-top: 0.5rem; text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .jk-book, .jk-shadow { animation: none !important; }
+  .jk-book { transform: rotateY(-28deg); }
+  .jk-shadow { transform: translateX(-50%) scaleX(.85); opacity: .35; }
+}
