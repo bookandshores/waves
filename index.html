@@ -442,6 +442,16 @@
             .wr-t { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.3rem; line-height: 1.05; margin-top: 0.9rem; }
             .wr-a { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.8rem; line-height: 1.25; margin-top: 4px; }
             .wr-cta { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(1.05rem, 3.6vw, 1.4rem); line-height: 1.4; margin: 2.2rem 0 0; }
+            .wr-eyebrow { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.78rem; letter-spacing: .12em; text-transform: uppercase; text-align: center; margin: -0.2rem 0 0.2rem; }
+            .wr-sub-b { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; color: #8b1e3f; font-size: 1.35rem; letter-spacing: .02em; margin: 0; }
+            .wr-route { position: relative; display: flex; justify-content: space-between; max-width: 560px; margin: 1.1rem auto 0; padding-top: 22px; color: var(--black); text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1rem; }
+            .wr-route::before { content: ""; position: absolute; left: 14px; right: 14px; top: 8px; border-top: 4px dashed #8b1e3f; }
+            .wr-route span { position: relative; width: 6.5rem; text-align: center; }
+            .wr-route span:first-child { text-align: left; } .wr-route span:last-child { text-align: right; }
+            .wr-route span::before { content: ""; position: absolute; top: -24px; width: 22px; height: 22px; border-radius: 50%; background: #8b1e3f; border: 3px solid var(--black); box-sizing: border-box; left: 50%; margin-left: -11px; }
+            .wr-route span:first-child::before { left: 0; margin-left: 0; } .wr-route span:last-child::before { left: auto; right: 0; margin-left: 0; }
+            .wr-route:hover span, .wr-route:focus span { text-decoration: underline; }
+            .wr-perf { border: 0; border-top: 4px dashed var(--black); margin: 2.4rem 0 0; }
             .wr-past { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; margin: 1rem 0 0; }
             .wr-past a { color: var(--black); }
             .wr-credit { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.72rem; text-align: left; margin: 1.8rem 32% 0 0; color: var(--black); }
@@ -457,7 +467,10 @@
             }
             </style>
             <div class="wr">
-                <p class="wr-sub">This week on the B&amp;S Literary Atlas. Seoul to Tokyo.</p>
+                <!-- B&S: Option B (route ticket) touches, Nov 15: ticket eyebrow, plum route line, perforation. Matches the approved social set. -->
+                <p class="wr-eyebrow">B&amp;S Literary Atlas · Admit one reader</p>
+                <p class="wr-sub wr-sub-b">Seoul to Tokyo · Nov 15</p>
+                <a class="wr-route" href="atlas.html#seoul-tokyo" aria-label="Seoul to Tokyo route on the B&amp;S Literary Atlas: Seoul, Tokyo, The Pacific"><span>Seoul</span><span>Tokyo</span><span>The Pacific</span></a>
                 <div class="wr-layout">
                     <div>
                         <!-- B&S: AE's approved boys illustration (stub art, leather jacket, green awning). Composite only; mug unchanged; signature overlaid; credit below. Used as the Weekly Reads hero and the Love at Least visual. Not a map pin for the novel. -->
@@ -484,6 +497,7 @@
                         <a class="wr-book weekly-card" href="https://www.setmargins.press/books/sonic-footprints/" target="_blank" rel="noopener" aria-label="Sonic Footprints, edited by Louis Möckel, vinyl record with booklet, out now"><span class="wr-cov"><img src="weekly-sonic-footprints.jpg" width="1200" height="1197" loading="lazy" alt="Sonic Footprints, edited by Louis Möckel, vinyl record cover"></span><span class="wr-t">Sonic Footprints</span><span class="wr-a">Louis Möckel, ed. Vinyl + booklet</span><span class="wr-d">Out now</span></a>
                     </div>
                 </div>
+                <hr class="wr-perf" aria-hidden="true">
                 <p class="wr-cta">Nine picks for your shelf, each with a link to find your copy. Then take them on the road: <a href="atlas.html#seoul-tokyo">Seoul to Tokyo</a> on the B&amp;S Literary Atlas. Go There. Read It.</p>
                 <p class="wr-past"><a href="weekly-reads.html">Past Weekly Reads, by date →</a></p>
             </div>
