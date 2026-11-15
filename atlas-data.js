@@ -601,27 +601,27 @@ window.bsAtlas = [
   ]}
 
   ,{ id: "seoul-korean-music", name: "Seoul, South Korea", lng: 126.9780, lat: 37.5665, area: true, cc: "KR", cont: "Asia", reg: ["seoul", "korea", "south korea", "korean music", "k-pop"], books: [
-    { title: "Fighting for Your Right to Party", author: "Jung Wooyoung", year: 2026, cover: "weekly-fighting-for-your-right-to-party.jpg",
+    { title: "Fighting for Your Right to Party", author: "Jung Wooyoung", year: 2026, cover: "weekly-fighting-for-your-right-to-party.jpg", page: "book-fighting-for-your-right-to-party.html",
       setting: "Korean popular music, 1967–2022, through 100 albums and songs and ten international collectors, DJs and writers", note: "Weekly Reads, Nov 15. The book covers Korean music, not one neighborhood, so this dashed ring marks Seoul, the country's capital, at city level. Poets & Punks is based in London and Seoul.",
       srcUrl: "https://www.poetsandpunks.com/shop/p/poetspunks-banju-and-anju-book-cn5sj-4r7sn",
       src: "Poets & Punks book page (\"explores Korean popular music through the perspectives of ten international collectors, DJs and writers\"; \"100 Korean albums and songs spanning 1967–2022\"); Poets & Punks About page (\"Based in London and Seoul\")" }
   ]}
   ,{ id: "tokyo-seoul-to-tokyo", name: "Tokyo, Japan", lng: 139.7671, lat: 35.6812, area: true, cc: "JP", cont: "Asia", reg: ["tokyo", "japan", "kanto"], books: [
-    { title: "Walking in Place 3: Tokyo", author: "Mike Slack", isbn: "9781922545565", cover: "weekly-walking-in-place-3-tokyo.jpg",
+    { title: "Walking in Place 3: Tokyo", author: "Mike Slack", isbn: "9781922545565", cover: "weekly-walking-in-place-3-tokyo.jpg", page: "book-walking-in-place-3-tokyo.html",
       setting: "Tokyo's streets, photographed on foot: \"identifiably Tokyo terrain\"", note: "Weekly Reads, Nov 15. Perimeter Editions. The dashed ring marks the city, not one street.",
       srcUrl: "https://perimetereditions.com/mike-slack-%E2%80%93-walking-in-place-3-tokyo",
       src: "Perimeter Editions book page (\"this is identifiably Tokyo terrain\"; \"the city folds in on itself to describe Tokyo's curious, utterly unique, ambience\")" },
-    { title: "Mondo Tokyo: Dispatches from a Secret Japan", author: "Patrick Macias", year: 2024, isbn: "9781990823299", cover: "weekly-mondo-tokyo.jpg",
+    { title: "Mondo Tokyo: Dispatches from a Secret Japan", author: "Patrick Macias", year: 2024, isbn: "9781990823299", cover: "weekly-mondo-tokyo.jpg", page: "book-mondo-tokyo.html",
       setting: "Tokyo in the early 2000s and the ex-pats, weirdoes and dreamers who came looking for a stranger life", note: "Weekly Reads, Nov 15. Sutherland House. The dashed ring marks the city.",
       srcUrl: "https://sutherlandhousebooks.com/product/mondo-tokyo",
       src: "Sutherland House book page (\"Tokyo, in the early aughts, was a weird place\"; \"wide-eyed ex-pats, weirdoes, and dreamers who came to Tokyo\")" },
-    { title: "Jazz Kissa: Japan's Greatest Listening Cafes", author: "Katsumasa Kusunose", cover: "weekly-jazz-kissa.jpg",
+    { title: "Jazz Kissa: Japan's Greatest Listening Cafes", author: "Katsumasa Kusunose", cover: "weekly-jazz-kissa.jpg", page: "book-jazz-kissa.html",
       setting: "Japan's jazz listening cafes, \"from the heart of Tokyo to the most remote corners of the country\"", note: "Weekly Reads, Nov 15. ERG Media. The book travels across Japan; the pin sits in Tokyo, where the publisher starts.",
       srcUrl: "https://erg.media/pages/jazz-kissa",
       src: "ERG Media book page (\"From the heart of Tokyo to the most remote corners of the country, listening bars popularly known as Jazz Kissa have shaped Japanese musical culture since the 1940s\")" }
   ]}
   ,{ id: "pacific-energy-fields", name: "The Pacific", lng: 155.0, lat: 25.0, area: true, cc: "", cont: "Pacific Ocean", reg: ["pacific", "pacific ocean", "pacific rim", "pacific plate"], books: [
-    { title: "Energy Fields: Vibrations of the Pacific", author: "Lawrence English and Robert Takahashi Novak (eds.)", year: 2025, isbn: "9789083449807", cover: "weekly-energy-fields.jpg",
+    { title: "Energy Fields: Vibrations of the Pacific", author: "Lawrence English and Robert Takahashi Novak (eds.)", year: 2025, isbn: "9789083449807", cover: "weekly-energy-fields.jpg", page: "book-energy-fields.html",
       setting: "The Pacific, \"the most dynamic tectonic plate on the face of the planet,\" read through its volcanic, seismic, nuclear and other vibrations", note: "Set Margins' #39, published with the exhibition at Chapman University (Sept 15, 2024 – Jan 19, 2025). Weekly Reads, Nov 15. The pin marks the ocean as a whole, not one place.",
       srcUrl: "https://www.setmargins.press/books/energy-fields-vibrations-of-the-pacific/",
       src: "Set Margins' book page (\"As the most dynamic tectonic plate on the face of the planet, the Pacific has been a hotbed of activity caused by volcanic, seismic, nuclear, and other vibrant forces\")" }
@@ -653,10 +653,10 @@ window.bsRoutes = [
     stops: ["seoul-korean-music", "tokyo-seoul-to-tokyo", "pacific-energy-fields"],
     /* This week's picks with no single named place: listed under the route, not pinned. */
     alsoOn: [
-      { title: "Love at Least", author: "Yukiko Motoya, tr. Kamil Spychalski", cover: "weekly-love-at-least.jpg", url: "https://softskull.com/books/love-at-least/", why: "Set in Japan; no city named." },
-      { title: "Long Take", author: "Akira Kurosawa, tr. Anne McKnight", cover: "weekly-long-take.jpg", url: "https://www.upress.umn.edu/9781517903299/long-take/", why: "A portrait of the director; no single place." },
-      { title: "Fracture", author: "Ian Lynam", cover: "weekly-fracture.jpg", url: "https://www.setmargins.press/books/fracture-japanese-graphic-design-1875-1975/", why: "Japanese graphic design, country-wide." },
-      { title: "Sonic Footprints", author: "Louis Möckel, ed. (record + booklet)", cover: "weekly-sonic-footprints.jpg", url: "https://www.setmargins.press/books/sonic-footprints/", why: "Sound along a supply chain; no place." }
+      { title: "Love at Least", author: "Yukiko Motoya, tr. Kamil Spychalski", cover: "weekly-love-at-least.jpg", url: "book-love-at-least.html", page: "book-love-at-least.html", why: "Set in Japan; no city named." },
+      { title: "Long Take", author: "Akira Kurosawa, tr. Anne McKnight", cover: "weekly-long-take.jpg", url: "book-long-take.html", page: "book-long-take.html", why: "A portrait of the director; no single place." },
+      { title: "Fracture", author: "Ian Lynam", cover: "weekly-fracture.jpg", url: "book-fracture.html", page: "book-fracture.html", why: "Japanese graphic design, country-wide." },
+      { title: "Sonic Footprints", author: "Louis Möckel, ed. (record + booklet)", cover: "weekly-sonic-footprints.jpg", url: "book-sonic-footprints.html", page: "book-sonic-footprints.html", why: "Sound along a supply chain; no place." }
     ],
     /* Route ticket stub (existing Tally forms; stubs are emailed by the B&S stub pipeline). */
     stub: { img: "route-stub-seoul-to-tokyo.jpg", alt: "Seoul to Tokyo route ticket stub: The Pacific, Energy Fields, with A. E. Goodson's illustration of two men kissing, one holding a read me. mug",
