@@ -388,7 +388,7 @@
         .ah-simple { display:flex; flex-direction:column; align-items:center; gap:.6rem; color:inherit; text-decoration:none; margin:0 auto; } .ah-simple .ah-mug { width:clamp(170px,40vw,260px); } .ah-simple .ah-title { text-align:center; } .ah-simple, .ah-simple:hover, .ah-simple:focus, .ah-simple:visited, .ah-simple .ah-title, .ah-simple:hover .ah-title { text-decoration:none; border-bottom:0; }
         .greeting-box.atlas-home :focus-visible, .ah-card :focus-visible { outline:3px solid #000; outline-offset:3px; }
     </style>
-    <link rel="stylesheet" href="jazz-kissa-spin.css">
+    <link rel="stylesheet" href="jazz-kissa-spin.css?v=2">
 </head>
 <body>
     <header>
@@ -462,14 +462,14 @@
             .wr-hl-feature .wr-t { font-size: 2.1rem; margin-top: 1.6rem; }
             .wr-hl-feature .wr-a { font-size: 1rem; }
             .wr-hl-feature .wr-d { font-size: 0.8rem; padding: 3px 8px; }
-            .wr-hl-small .wr-hl-cov { height: 170px; justify-content: flex-start; } .wr-hl-small .wr-hl-cov img { max-height: 170px; }
+            /* B&S: Arrows of Desire uses the same cover size as the route books (.wr-cov). */
             .wr-d-hl { background: #8b1e3f; color: #fff; }
             @media (max-width: 760px) { .wr-hl-feature .wr-cov img { width: 70%; } .wr-hl-feature .wr-t { font-size: 1.7rem; } }
             .wr-past { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; margin: 1rem 0 0; }
             .wr-past a { color: var(--black); }
             .wr-credit { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.72rem; text-align: left; margin: 1.8rem 32% 0 0; color: var(--black); }
             @media (max-width: 760px) {
-                /* B&S: Mobile only. Route books (Long Take first) sit under the boys image; Author of the Month, The Night Before, and Arrows of Desire follow the list. Desktop is unchanged. */
+                /* B&S: Mobile only. Route books (Long Take first) sit under the boys image; The Night Before and Arrows of Desire follow the list. Desktop is unchanged. */
                 .wr-layout { grid-template-columns: 1fr; gap: 1.6rem; }
                 .wr-col-feature { display: contents; }
                 .wr-art { order: 1; margin-right: 18px; }
@@ -498,12 +498,7 @@
                             <img class="wr-sig" src="weekly-reads-signature.png" width="600" height="223" alt="" aria-hidden="true">
                         </figure>
                         <p class="wr-credit">Illustrations by A. E. Goodson for Book and Shores.</p>
-                        <!-- B&S: Author of the Month (Jonathan Lethem) restored per AE; keep up until Dec 1, 2026, then remove. Same markup as before its Nov 7 removal (5f6bbf9). -->
-                        <a class="wr-aotm" href="author-of-the-month.html" aria-label="Author of the Month: Jonathan Lethem, A Different Kind of Tension, paperback Sept 1">
-                            <img src="aotm-lethem-different-kind-of-tension.jpg" width="398" height="600" loading="lazy" alt="A Different Kind of Tension by Jonathan Lethem">
-                            <span><span class="wr-badge">Author of the Month</span><span class="wr-nm">Jonathan Lethem</span><span class="wr-ti">A Different Kind of Tension</span><span class="wr-d">Paperback Sept 1</span></span>
-                        </a>
-                        <!-- B&S: From last week's Weekly Reads (Nov 8), per AE Nov 15. The Night Before: Columbia UP "Pub Date: November 2026"; NetGalley pub date Nov 17, 2026. Arrows of Desire: Verso, October 2026 (our page: Oct 20, 2026). Reuses Nov 8 covers. -->
+                        <!-- B&S: From last week's Weekly Reads (Nov 8), per AE Nov 15. The Night Before: Columbia UP "Pub Date: November 2026"; NetGalley pub date Nov 17, 2026. Arrows of Desire: Verso, October 2026 (our page: Oct 20, 2026). Reuses Nov 8 covers. Author of the Month is not in this section (removed from Weekly Reads only; page itself unchanged). -->
                         <div class="wr-hl">
                             <div class="wr-hl-row">
                                 <a class="wr-book wr-hl-feature" href="book-the-night-before.html" aria-label="The Night Before by David Hajdu, out this week, Nov 17"><span class="wr-cov wr-hl-cov"><img src="weekly-the-night-before.jpg" width="400" height="603" loading="lazy" alt="The Night Before: Essays on Music, Comics, and Culture by David Hajdu"></span><span class="wr-t">The Night Before</span><span class="wr-a">David Hajdu</span><span class="wr-d wr-d-hl">Out this week · Nov 17</span></a>
