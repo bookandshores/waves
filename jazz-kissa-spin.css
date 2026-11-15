@@ -73,15 +73,19 @@
 .jk-scene:hover .jk-book,
 .jk-scene:hover .jk-shadow { animation-play-state: paused; }
 
-/* Homepage Weekly Reads: enlarged card, Night Before highlight left as-is */
+/* Homepage Weekly Reads: spin scales to the route-book column so the grid stays inside the section frame. */
 .wr-jk { color: var(--black); text-decoration: none; }
 .wr-jk .wr-jk-cov {
-  height: 340px;
+  height: 260px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
-.wr-jk .jk-scene { --jk-bw: 200px; }
+.wr-jk .jk-scene {
+  width: 100%;
+  max-width: 100%;
+  --jk-bw: calc(100% / 1.45);
+}
 .wr-jk .wr-t {
   color: var(--black);
   text-decoration: none;
@@ -89,8 +93,12 @@
 }
 .wr-jk .wr-t:hover, .wr-jk .wr-t:focus { text-decoration: underline; }
 @media (max-width: 760px) {
-  .wr-jk .wr-jk-cov { height: 280px; }
-  .wr-jk .jk-scene { --jk-bw: 160px; }
+  .wr-jk .wr-jk-cov { height: 210px; }
+  .wr-jk .jk-scene {
+    width: 100%;
+    max-width: 100%;
+    --jk-bw: calc(100% / 1.45);
+  }
 }
 
 /* weekly-reads.html archive card, slightly larger than the 190px neighbors */

@@ -425,7 +425,7 @@
             <style>
             .wr { max-width: 1000px; margin: 1.6rem auto 0; color: var(--black); }
             .wr-sub { font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-align: center; margin: -0.4rem 0 0; }
-            .wr-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: start; margin-top: 1.8rem; }
+            .wr-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 2.2rem; align-items: start; margin-top: 1.8rem; }
             .wr-art { position: relative; margin: 0 0 1.4rem; }
             .wr-art img.wr-hero { display: block; width: 100%; height: auto; border: 5px solid var(--black); box-shadow: 8px 8px 0 var(--black); }
             .wr-art img.wr-sig { position: absolute; right: 18px; bottom: -46px; width: 26%; height: auto; pointer-events: none; }
@@ -435,7 +435,7 @@
             .wr-nm { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 2.1rem; line-height: 1.05; }
             .wr-ti { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 1.1rem; margin-top: 2px; }
             .wr-d { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; font-size: 0.68rem; padding: 2px 6px; margin-top: 6px; }
-            .wr-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; row-gap: 2rem; }
+            .wr-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1rem; row-gap: 2rem; } .wr-grid > * { min-width: 0; }
             .wr-book { display: block; color: var(--black); text-decoration: none; }
             .wr-cov { height: 260px; display: flex; align-items: flex-end; justify-content: center; }
             .wr-cov img { display: block; max-width: 100%; max-height: 260px; width: auto; height: auto; border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black); transition: transform .15s; }
@@ -457,7 +457,7 @@
             .wr-hl-row { display: contents; }
             .wr-hl-feature { padding-top: 14px; }
             .wr-hl-feature .wr-cov, .wr-hl-feature .wr-hl-cov { height: auto; justify-content: flex-start; }
-            .wr-hl-feature .wr-cov img { max-height: none; width: 62%; transform: rotate(-5deg); box-shadow: 12px 14px 0 var(--black), 20px 26px 22px rgba(0,0,0,.35); }
+            .wr-hl-feature .wr-cov img { max-height: none; width: 44%; transform: rotate(-5deg); box-shadow: 12px 14px 0 var(--black), 20px 26px 22px rgba(0,0,0,.35); }
             .wr-hl-feature:hover .wr-cov img, .wr-hl-feature:focus .wr-cov img { transform: rotate(-5deg) translateY(-4px); }
             .wr-hl-feature .wr-t { font-size: 2.1rem; margin-top: 1.6rem; }
             .wr-hl-feature .wr-a { font-size: 1rem; }
@@ -469,10 +469,15 @@
             .wr-past a { color: var(--black); }
             .wr-credit { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.72rem; text-align: left; margin: 1.8rem 32% 0 0; color: var(--black); }
             @media (max-width: 760px) {
+                /* B&S: Mobile only. Route books (Long Take first) sit under the boys image; Author of the Month, The Night Before, and Arrows of Desire follow the list. Desktop is unchanged. */
                 .wr-layout { grid-template-columns: 1fr; gap: 1.6rem; }
-                .wr-art { margin-right: 18px; }
+                .wr-col-feature { display: contents; }
+                .wr-art { order: 1; margin-right: 18px; }
+                .wr-credit { order: 2; }
+                .wr-grid { order: 3; }
+                .wr-aotm { order: 4; margin-top: 2.8rem; }
+                .wr-hl { order: 5; }
                 .wr-art img.wr-sig { right: -12px; bottom: -34px; width: 30%; }
-                .wr-aotm { margin-top: 2.8rem; }
                 .wr-cov { height: 210px; }
                 .wr-cov img { max-height: 210px; }
                 .wr-t { font-size: 1.1rem; }
@@ -486,7 +491,7 @@
                 <p class="wr-sub wr-sub-b">Seoul to Tokyo · Nov 15</p>
                 <a class="wr-route" href="atlas.html#seoul-tokyo" aria-label="Seoul to Tokyo route on the B&amp;S Literary Atlas: Seoul, Tokyo, The Pacific"><span>Seoul</span><span>Tokyo</span><span>The Pacific</span></a>
                 <div class="wr-layout">
-                    <div>
+                    <div class="wr-col-feature">
                         <!-- B&S: AE's approved boys illustration (stub art, leather jacket, green awning). Composite only; mug unchanged; signature overlaid; credit below. Used as the Weekly Reads hero and the Love at Least visual. Not a map pin for the novel. -->
                         <figure class="wr-art">
                             <img class="wr-hero" src="weekly-reads-boys-illustration.jpg" width="1147" height="1517" loading="lazy" alt="Book &amp; Shores illustration: two men in a street kiss, one in a white tank top holding a read me. mug, the other in a black leather jacket, with a green awning behind them">
