@@ -211,12 +211,64 @@
         });
         if (on) {
             Array.prototype.forEach.call(document.querySelectorAll("#regions button[data-region]"), function (b) { b.setAttribute("aria-pressed", "false"); });
-            var small = mapEl.clientWidth < 600;
-            map.fitBounds(routeBounds(), { padding: small ? { top: 30, bottom: 30, left: 24, right: 24 } : 70, duration: (reduce || instant) ? 0 : 1100, maxZoom: 6 });
+            // World view first; visitors zoom in with "Zoom to route" or by picking a stop.
+            // The world frame is widened so every stop stays in view; small screens center the world on the route.
+            var rb = routeBounds(), dur = (reduce || instant) ? 0 : 900;
+            if (mapEl.clientWidth < 600) {
+                map.easeTo({ center: [rb.getCenter().lng - 40, 24], zoom: Math.max(map.getMinZoom(), 0), duration: dur });
+            } else {
+                var wb = REGIONS.world.bounds;
+                map.fitBounds([[Math.min(wb[0][0], rb.getWest() - 6), Math.min(wb[0][1], rb.getSouth() - 4)], [Math.max(wb[1][0], rb.getEast() + 6), Math.max(wb[1][1], rb.getNorth() + 4)]],
+                    { padding: 46, duration: dur, maxZoom: 3 });
+            }
         }
         paintRoute();
         if (!silent) {
             try { history.replaceState(null, "", on ? "#" + ROUTE.id : location.pathname + location.search); } catch (e) { /* file:// etc. */ }
+        }
+    }
+    function zoomToRoute() {
+        if (!map || !routeStops.length) { return; }
+        if (!routeOn) { setRoute(true, true); }
+        var small = mapEl.clientWidth < 600;
+        map.fitBounds(routeBounds(), { padding: small ? { top: 40, bottom: 40, left: 30, right: 30 } : 90, duration: reduce ? 0 : 1100, maxZoom: 5 });
+    }
+    // Books on the route with no single named place, and the route ticket stub block.
+    function fillExtras() {
+        var list = document.getElementById("route-list"); if (!list) { return; }
+        var old = list.querySelectorAll(".rl-extra"); Array.prototype.forEach.call(old, function (n) { n.parentNode.removeChild(n); });
+        var note = document.getElementById("route-note");
+        if (ROUTE.alsoOn && ROUTE.alsoOn.length) {
+            var sec = el("div", "rl-extra rl-also");
+            sec.appendChild(el("h4", null, "Also on this route"));
+            sec.appendChild(el("p", "rl-also-sub", "This week's picks with no single named place. On the list, off the map."));
+            var ul = el("ul", "rl-also-ul");
+            ROUTE.alsoOn.forEach(function (b) {
+                var li = el("li"), a = el("a"); a.href = b.url; a.target = "_blank"; a.rel = "noopener";
+                var img = el("img"); img.src = b.cover; img.alt = b.title + " by " + b.author; img.loading = "lazy"; a.appendChild(img);
+                var t = el("span", "rl-also-t", b.title); a.appendChild(t);
+                a.appendChild(el("span", "rl-also-a", b.author));
+                if (b.why) { a.appendChild(el("span", "rl-also-w", b.why)); }
+                li.appendChild(a); ul.appendChild(li);
+            });
+            sec.appendChild(ul); list.insertBefore(sec, note);
+        }
+        if (ROUTE.stub) {
+            var s = ROUTE.stub, box = el("div", "rl-extra rl-stub");
+            var fig = el("img", "rl-stub-img"); fig.src = s.img; fig.alt = s.alt || ""; fig.loading = "lazy"; box.appendChild(fig);
+            var tx = el("div", "rl-stub-tx");
+            tx.appendChild(el("h4", null, "How to get your route stub"));
+            var ol = el("ol", "rl-stub-ol");
+            [["Sign up for the route. ", "Pick \u201c" + s.routeLabel + "\u201d.", s.signup, "Start the route"],
+             ["Read the route's books. ", "Any order, your pace.", null, null],
+             ["Tell us each one you finish. ", "We email you a signed, numbered stub.", s.finish, "I finished a book"]].forEach(function (st) {
+                var li = el("li"); li.appendChild(el("strong", null, st[0])); li.appendChild(document.createTextNode(st[1]));
+                if (st[2]) { var a = el("a", "rl-stub-btn", st[3] + " \u2192"); a.href = st[2]; a.target = "_blank"; a.rel = "noopener"; li.appendChild(a); }
+                ol.appendChild(li);
+            });
+            tx.appendChild(ol);
+            tx.appendChild(el("p", "rl-stub-go", "Go There. Read It."));
+            box.appendChild(tx); list.insertBefore(box, note);
         }
     }
     // Fill the banner and stop list for the current route.
@@ -240,6 +292,7 @@
         var bt = document.getElementById("route-title"); if (bt) { bt.textContent = ROUTE.name; }
         var be = document.getElementById("route-eyebrow"); if (be) { be.textContent = ROUTE.eyebrow || "A reading route"; }
         var rn = document.getElementById("route-note"); if (rn) { rn.textContent = ROUTE.note || "Each popup cites its source."; }
+        fillExtras();
     }
     function renderRoute() {
         if (!ROUTE) { return; }
@@ -256,6 +309,7 @@
             chip.setAttribute("data-route", r.id);
             chip.addEventListener("click", function () { setRoute(!(routeOn && ROUTE === r), false, false, r); });
         });
+        var rz = document.getElementById("route-zoom"); if (rz) { rz.addEventListener("click", zoomToRoute); }
         var cp = document.getElementById("route-copy"), st = document.getElementById("route-copy-status");
         cp.addEventListener("click", function () {
             var url = location.origin && location.origin !== "null" ? location.origin + location.pathname + "#" + ROUTE.id : "https://bookandshores.com/atlas.html#" + ROUTE.id;
