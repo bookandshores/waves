@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bookandshores.com/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-15</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-atlantic-city.html</loc>
@@ -53,12 +53,12 @@
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://bookandshores.com/atlas-como.html</loc>
-    <lastmod>2026-11-04</lastmod>
-  </url>
-  <url>
     <loc>https://bookandshores.com/atlas-columbia-rmbl.html</loc>
     <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/atlas-como.html</loc>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-congo.html</loc>
@@ -106,6 +106,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-haight-ashbury-715.html</loc>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-harlem.html</loc>
@@ -242,6 +243,9 @@
   <url>
     <loc>https://bookandshores.com/atlas-owens.html</loc>
     <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/atlas-pacific-energy-fields.html</loc>
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-paris-image-of-her.html</loc>
@@ -381,6 +385,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/book-california-dreams.html</loc>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/book-carol.html</loc>
@@ -556,11 +561,11 @@
   </url>
   <url>
     <loc>https://bookandshores.com/booker-2026-shortlist.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/bookstore.html</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/charlotte-verse-vino-2026.html</loc>
@@ -572,7 +577,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/gift-guide-2026.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/license-the-atlas.html</loc>
@@ -585,5 +590,8 @@
   <url>
     <loc>https://bookandshores.com/shop-posters.html</loc>
     <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/weekly-reads.html</loc>
   </url>
 </urlset>

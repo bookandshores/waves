@@ -600,6 +600,12 @@ window.bsAtlas = [
       src: "book-on-closeness.html (Olivia Michiko Gagnon, On Closeness: Minoritarian Method and Forms of Relation, NYU Press, 2026, pp. 1–2, 160–163: Rare Book and Manuscript Library, Columbia University, New York City; Robert Joseph Flaherty Papers)" }
   ]}
 
+  ,{ id: "pacific-energy-fields", name: "The Pacific", lng: 155.0, lat: 25.0, area: true, cc: "", cont: "Pacific Ocean", reg: ["pacific", "pacific ocean", "pacific rim", "pacific plate"], books: [
+    { title: "Energy Fields: Vibrations of the Pacific", author: "Lawrence English and Robert Takahashi Novak (eds.)", year: 2025, isbn: "9789083449807", cover: "weekly-energy-fields.jpg",
+      setting: "The Pacific, \"the most dynamic tectonic plate on the face of the planet,\" read through its volcanic, seismic, nuclear and other vibrations", note: "Set Margins' #39, published with the exhibition at Chapman University (Sept 15, 2024 – Jan 19, 2025). Weekly Reads, Nov 15. The pin marks the ocean as a whole, not one place.",
+      srcUrl: "https://www.setmargins.press/books/energy-fields-vibrations-of-the-pacific/",
+      src: "Set Margins' book page (\"As the most dynamic tectonic plate on the face of the planet, the Pacific has been a hotbed of activity caused by volcanic, seismic, nuclear, and other vibrant forces\")" }
+  ]}
   /* B&S: Seoul to Tokyo Weekly Reads, Nov 15, 2026 (local draft for AE packet; not live).
      The rejected Nov 15 pins (Yeonhui-dong / The Seoul Letter Shop, Musashino / How Can My Manager Be So Stupid?, Tokyo Village Vanguard / The Bookshop Woman) have been removed.
      None of the approved books have a publisher-named neighborhood that matches those three stops without inventing a setting.
@@ -622,9 +628,9 @@ window.bsRoutes = [
      Stops are empty until AE chooses optional pins. The chip can still deep-link; the note explains that this week's picks are on the list and off the map for now.
      Approved stub artwork is unchanged and lives outside this file. */
   { id: "seoul-tokyo", name: "Seoul to Tokyo", eyebrow: "A reading route · Weekly Reads, Nov 15", isNew: true, order: "west to east", color: "#8b1e3f",
-    note: "This week's Weekly Reads are on the list. No pin is live yet, because none of the approved books have a publisher-named neighborhood that matches the existing Yeonhui-dong, Musashino, or central Tokyo stops without inventing a setting. Love at Least stays off the map.",
-    blurb: "A reading route. This week's picks, on the B&S Literary Atlas.",
-    stops: [] },
+    note: "This week's Weekly Reads run from Seoul to Tokyo and out across the Pacific. Energy Fields is pinned on the ocean itself, the region its publisher names. The other picks are on the list and off the map, because their publishers don't name one place for them. Each popup cites its source.",
+    blurb: "A reading route. This week's picks, from Seoul to Tokyo and out to the Pacific.",
+    stops: ["pacific-energy-fields"] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
