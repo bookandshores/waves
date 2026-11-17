@@ -235,6 +235,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Caring for a Corpse",
+"author": "Harumi Miura (translated by Tristan Hill)",
+"isbn": "9798855427875",
+"cover": "9798855427875.jpg",
+"buy": "https://bookshop.org/a/125864/9798855427875",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "Centroeuropa",
 "author": "Vicente Luis Mora",
 "isbn": "9781954276529",
@@ -303,6 +312,15 @@ window.bsSearchIndex = [
 "isbn": "9780679758907",
 "cover": "COVERING.png",
 "buy": "https://bookshop.org/a/125864/9780679758907",
+"page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Cursed Thing",
+"author": "Nashi (translated by Jim Rion)",
+"isbn": "9781846019180",
+"cover": "9781846019180.jpg",
+"buy": "https://bookshop.org/a/125864/9781846019180",
 "page": "bookstore.html",
 "aff": true
 },
@@ -415,6 +433,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Energy Fields: Vibrations of the Pacific",
+"isbn": "9789083449807",
+"cover": "weekly-energy-fields.jpg",
+"buy": "https://bookshop.org/a/125864/9789083449807",
+"page": "book-energy-fields.html",
+"author": "",
+"aff": true
+},
+{
 "title": "Fictional Selves: A Memoir",
 "author": "Kyle MacLachlan",
 "isbn": "9798217086320",
@@ -424,12 +451,30 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "The Flower Brings Death",
+"author": "Chihiro Kurihara",
+"cover": "9780008863807.jpg",
+"buy": "https://www.harpercollins.com/products/the-flower-brings-death-chihiro-kurihara",
+"page": "bookstore.html",
+"isbn": "",
+"aff": false
+},
+{
 "title": "The Fortress of Solitude",
 "author": "Jonathan Lethem",
 "isbn": "9780375724886",
 "cover": "aotm-lethem-fortress-of-solitude.jpg",
 "buy": "https://bookshop.org/a/125864/9780375724886",
 "page": "author-of-the-month.html#9780375724886",
+"aff": true
+},
+{
+"title": "Fracture: Japanese Graphic Design 1875–1975",
+"author": "Ian Lynam",
+"isbn": "9789083449845",
+"cover": "weekly-fracture.jpg",
+"buy": "https://bookshop.org/a/125864/9789083449845",
+"page": "book-fracture.html",
 "aff": true
 },
 {
@@ -568,6 +613,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Jazz Kissa: Japan's Greatest Listening Cafes",
+"author": "Katsumasa Kusunose",
+"isbn": "9789083532004",
+"cover": "weekly-jazz-kissa.jpg",
+"buy": "https://bookshop.org/a/125864/9789083532004",
+"page": "book-jazz-kissa.html",
+"aff": true
+},
+{
 "title": "John of John",
 "author": "Douglas Stuart",
 "isbn": "9780802167194",
@@ -658,6 +712,24 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Long Take",
+"author": "Akira Kurosawa",
+"isbn": "9781517903299",
+"cover": "weekly-long-take.jpg",
+"buy": "https://bookshop.org/a/125864/9781517903299",
+"page": "book-long-take.html",
+"aff": true
+},
+{
+"title": "Love at Least",
+"author": "Yukiko Motoya",
+"isbn": "9781593768317",
+"cover": "weekly-love-at-least.jpg",
+"buy": "https://bookshop.org/a/125864/9781593768317",
+"page": "book-love-at-least.html",
+"aff": true
+},
+{
 "title": "Mad Eden",
 "author": "Morgan Thomas",
 "isbn": "9780374620158",
@@ -703,6 +775,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Mondo Tokyo: Dispatches from a Secret Japan",
+"author": "Patrick Macias",
+"isbn": "9781990823299",
+"cover": "weekly-mondo-tokyo.jpg",
+"buy": "https://bookshop.org/a/125864/9781990823299",
+"page": "book-mondo-tokyo.html",
+"aff": true
+},
+{
 "title": "Monsters of Ohio",
 "author": "John Scalzi",
 "isbn": "9780765389039",
@@ -739,6 +820,24 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "The Mountain",
+"author": "Nanami Kamon (translated by Kalau Almony)",
+"isbn": "9781668246870",
+"cover": "9781668246870.jpg",
+"buy": "https://bookshop.org/a/125864/9781668246870",
+"page": "bookstore.html",
+"aff": true
+},
+{
+"title": "The Museum of Silence",
+"author": "Yoko Ogawa (translated by Stephen Snyder)",
+"isbn": "9780593702062",
+"cover": "9780593702062.jpg",
+"buy": "https://bookshop.org/a/125864/9780593702062",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "Music Sets You Free",
 "author": "Ryuichi Sakamoto (translated by Sam Bett)",
 "isbn": "9780063416505",
@@ -771,6 +870,15 @@ window.bsSearchIndex = [
 "isbn": "9781963108651",
 "cover": "THENEAR.png",
 "buy": "https://bookshop.org/a/125864/9781963108651",
+"page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Negative Space",
+"author": "Kaori Fujino (translated by Kendall Heitzman)",
+"isbn": "9781805680413",
+"cover": "9781805680413.jpg",
+"buy": "https://bookshop.org/a/125864/9781805680413",
 "page": "bookstore.html",
 "aff": true
 },
@@ -856,11 +964,29 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Platonic Love",
+"author": "Mieko Kanai (translated by Polly Barton)",
+"isbn": "9780811239424",
+"cover": "9780811239424.jpg",
+"buy": "https://bookshop.org/a/125864/9780811239424",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "The Player and the Played",
 "author": "Max Haiven",
 "isbn": "9780262056045",
 "cover": "PLAYER.png",
 "buy": "https://bookshop.org/a/125864/9780262056045",
+"page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Please Form Pairs",
+"author": "Chiren Kina (translated by Haydn Trowell)",
+"isbn": "9781846017537",
+"cover": "9781846017537.jpg",
+"buy": "https://bookshop.org/a/125864/9781846017537",
 "page": "bookstore.html",
 "aff": true
 },
@@ -991,12 +1117,39 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Scream",
+"author": "Tokuro Nukui",
+"isbn": "9781668204740",
+"cover": "9781668204740.jpg",
+"buy": "https://bookshop.org/a/125864/9781668204740",
+"page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Sickness unto Love",
+"author": "Yuki Shasendo (translated by Michael Blaskowsky)",
+"isbn": "9798855423679",
+"cover": "9798855423679.jpg",
+"buy": "https://bookshop.org/a/125864/9798855423679",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set (pre-order)",
 "isbn": "9781419793967",
 "cover": "SimpsonsTreehouse.png",
 "buy": "https://bookshop.org/a/125864/9781419793967",
 "page": "bookstore.html",
 "author": "",
+"aff": true
+},
+{
+"title": "Six: Paths of Horror",
+"author": "Nashi",
+"isbn": "9781427888341",
+"cover": "9781427888341.jpg",
+"buy": "https://bookshop.org/a/125864/9781427888341",
+"page": "bookstore.html",
 "aff": true
 },
 {
@@ -1033,6 +1186,15 @@ window.bsSearchIndex = [
 "cover": "atlas/cover-solenoid.jpg",
 "buy": "https://bookshop.org/a/125864/9781646052028",
 "page": "bookstore.html",
+"aff": true
+},
+{
+"title": "Sonic Footprints",
+"isbn": "9789083499321",
+"cover": "weekly-sonic-footprints.jpg",
+"buy": "https://bookshop.org/a/125864/9789083499321",
+"page": "book-sonic-footprints.html",
+"author": "",
 "aff": true
 },
 {
@@ -1078,6 +1240,15 @@ window.bsSearchIndex = [
 "buy": "https://bookshop.org/a/125864/9780262049573",
 "page": "bookstore.html",
 "author": "",
+"aff": true
+},
+{
+"title": "Strange Maps",
+"author": "Uketsu (translated by Jim Rion)",
+"isbn": "9780063577268",
+"cover": "9780063577268.jpg",
+"buy": "https://bookshop.org/a/125864/9780063577268",
+"page": "bookstore.html",
 "aff": true
 },
 {
@@ -1204,6 +1375,15 @@ window.bsSearchIndex = [
 "cover": "9781324097785.jpg",
 "buy": "https://bookshop.org/a/125864/9781324097785",
 "page": "book-victorian-psycho.html",
+"aff": true
+},
+{
+"title": "Walking in Place 3: Tokyo",
+"author": "Mike Slack",
+"isbn": "9781922545565",
+"cover": "weekly-walking-in-place-3-tokyo.jpg",
+"buy": "https://bookshop.org/a/125864/9781922545565",
+"page": "book-walking-in-place-3-tokyo.html",
 "aff": true
 },
 {
