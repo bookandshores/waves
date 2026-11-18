@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bookandshores.com/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-atlantic-city.html</loc>
@@ -290,6 +290,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-seoul-korean-music.html</loc>
+    <lastmod>2026-11-15</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-sicily.html</loc>
@@ -325,6 +326,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-tokyo-seoul-to-tokyo.html</loc>
+    <lastmod>2026-11-15</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/atlas-tokyo.html</loc>
@@ -360,7 +362,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/author-of-the-month.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-15</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/book-all-them-dogs.html</loc>
@@ -395,12 +397,20 @@
     <lastmod>2026-11-10</lastmod>
   </url>
   <url>
+    <loc>https://bookandshores.com/book-caring-for-a-corpse.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://bookandshores.com/book-carol.html</loc>
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/book-centroeuropa.html</loc>
     <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-cursed-thing.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/book-dey.html</loc>
@@ -435,12 +445,12 @@
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
-    <loc>https://bookandshores.com/book-john-of-john.html</loc>
-    <lastmod>2026-11-07</lastmod>
-  </url>
-  <url>
     <loc>https://bookandshores.com/book-jazz-kissa.html</loc>
     <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-john-of-john.html</loc>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/book-learning-from-savannah.html</loc>
@@ -479,6 +489,10 @@
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
+    <loc>https://bookandshores.com/book-negative-space.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://bookandshores.com/book-night-of-a-thousand-hells.html</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
@@ -491,6 +505,14 @@
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
+    <loc>https://bookandshores.com/book-platonic-love.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-please-form-pairs.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://bookandshores.com/book-pretend-youre-dead-and-i-carry-you.html</loc>
     <lastmod>2026-11-07</lastmod>
   </url>
@@ -501,6 +523,18 @@
   <url>
     <loc>https://bookandshores.com/book-rewriting-american-architecture.html</loc>
     <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-scream.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-sickness-unto-love.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-six-paths-of-horror.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/book-sleeping-beauties.html</loc>
@@ -523,6 +557,10 @@
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
+    <loc>https://bookandshores.com/book-strange-maps.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://bookandshores.com/book-susan-sontag-collected-essays.html</loc>
     <lastmod>2026-11-07</lastmod>
   </url>
@@ -543,6 +581,10 @@
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
+    <loc>https://bookandshores.com/book-the-flower-brings-death.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://bookandshores.com/book-the-great-eastern.html</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
@@ -561,6 +603,14 @@
   <url>
     <loc>https://bookandshores.com/book-the-midnight-special.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-the-mountain.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://bookandshores.com/book-the-museum-of-silence.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/book-the-night-before.html</loc>
@@ -608,7 +658,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/bookstore.html</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/charlotte-verse-vino-2026.html</loc>
@@ -620,7 +670,7 @@
   </url>
   <url>
     <loc>https://bookandshores.com/gift-guide-2026.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-15</lastmod>
   </url>
   <url>
     <loc>https://bookandshores.com/license-the-atlas.html</loc>
