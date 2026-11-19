@@ -418,7 +418,7 @@ window.bsAtlas = [
   ]},
   { id: "cairo", name: "Cairo, Egypt", lng: 31.2357, lat: 30.0444, area: false, cc: "EG", cont: "Africa", reg: ["cairo", "egypt"], books: [
     { title: "Huna", author: "Abdelrahman ElGendy", year: 2026, isbn: "9798217153602", cover: "atlas/cover-huna.jpg",
-      setting: "Cairo in 2013, then six years in Egypt’s prisons", note: "Memoir. A debut and a 2026 National Book Award finalist for Nonfiction.",
+      setting: "Cairo in 2013, then six years in Egypt’s prisons", note: "Memoir. A debut and the 2026 National Book Award winner for Nonfiction.",
       page: "book-huna.html",
       srcUrl: "https://www.penguinrandomhouse.com/books/799613/huna-by-abdelrahman-elgendy/",
       src: "Penguin Random House book page: \"seventeen-year-old Abdelrahman ElGendy was a budding student activist in Cairo\"; six years as a political prisoner" }
@@ -432,7 +432,7 @@ window.bsAtlas = [
   ]},
   { id: "safad", name: "Safad (Safed), Galilee", lng: 35.4960, lat: 32.9646, area: false, cc: "IL", cont: "Asia", reg: ["safad", "safed", "tzfat", "galilee", "palestine", "israel"], books: [
     { title: "Paradiso 17", author: "Hannah Lillith Assadi", year: 2026, isbn: "9780593804056", cover: "atlas/cover-paradiso-17.jpg",
-      setting: "Safad, Palestine, on the edge of the 1948 Nakba, then Kuwait, a small Italian university town, New York and the Arizona desert", note: "Pinned where Sufien’s life begins. A 2026 National Book Award finalist for Fiction.",
+      setting: "Safad, Palestine, on the edge of the 1948 Nakba, then Kuwait, a small Italian university town, New York and the Arizona desert", note: "Pinned where Sufien’s life begins. The 2026 National Book Award winner for Fiction.",
       page: "book-paradiso-17.html",
       srcUrl: "https://www.penguinrandomhouse.com/books/776855/paradiso-17-by-hannah-lillith-assadi/",
       src: "Penguin Random House book page: \"Raised in Safad on the precipice of the 1948 Nakba\"; later Kuwait, a small Italian university town, New York and Arizona" }
@@ -572,7 +572,7 @@ window.bsAtlas = [
   ]}
   ,{ id: "szonden-oder", name: "Szonden, on the Oder (Prussia)", lng: 14.5506, lat: 52.3412, area: true, cc: "PL", cont: "Europe", reg: ["szonden", "oder", "prussia", "poland", "oder river"], books: [
     { title: "Centroeuropa", author: "Vicente Luis Mora", year: 2026, isbn: "9781954276529", cover: "weekly-centroeuropa.jpg",
-      setting: "Szonden, a small Prussian town on the Oder River in the 1820s (in what is now Poland): Redo Hauptshammer digs to bury his wife and finds frozen soldiers", note: "A 2026 National Book Award finalist for Translated Literature, and a Book & Shores Weekly Reads pick (Oct 25, 2026). Szonden is the novel's town; the pin sits on the Oder near Frankfurt (Oder).",
+      setting: "Szonden, a small Prussian town on the Oder River in the 1820s (in what is now Poland): Redo Hauptshammer digs to bury his wife and finds frozen soldiers", note: "The 2026 National Book Award winner for Translated Literature, and a Book & Shores Weekly Reads pick (Oct 25, 2026). Szonden is the novel's town; the pin sits on the Oder near Frankfurt (Oder).",
       page: "book-centroeuropa.html",
       srcUrl: "https://www.kirkusreviews.com/book-reviews/vicente-luis-mora/centroeuropa/",
       src: "Kirkus Reviews (\"the Prussian village of Szonden on the banks of the Oder River in the 1820s\"); Bellevue Literary Press book page; Complete Review (\"on the Oder (in what is now Poland)\")" }
@@ -666,10 +666,10 @@ window.bsRoutes = [
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
     blurb: "Seven stops, eight books, oldest to newest. Lock the door first.",
     stops: ["otranto", "geneva", "thornfield", "yorkshire", "london-gothic", "whitby", "kerry"] },
-  { id: "national-book-awards-2026", name: "National Book Awards 2026", eyebrow: "Award route · winners named Nov 18", order: "west to east", color: "#111111",
+  { id: "national-book-awards-2026", name: "National Book Awards 2026", eyebrow: "Award route · winners announced Nov 18", order: "west to east", color: "#111111",
     note: "Three of the eleven finalists (Let the Poets Govern, Mother Tongue and Spawning Season) don't center on one place, so they aren't pinned. Each popup cites its source.",
-    blurb: "Eight stops. Fiction, Nonfiction and Translated Literature finalists, from Bogotá to Galilee.",
-    stops: ["bogota", "miami", "florida", "dakar", "sicily", "cairo", "gaza", "safad"] },
+    blurb: "Nine stops. The 2026 National Book Award winners and finalists, from Bogotá to Galilee.",
+    stops: ["bogota", "miami", "florida", "dakar", "sicily", "szonden-oder", "cairo", "gaza", "safad"] },
   { id: "booker-prize-2026", name: "Booker Prize 2026", eyebrow: "Award route · winner named Nov 9", order: "west to east", color: "#7a4f00",
     note: "Five of the six shortlisted novels. May We Feed the King isn't pinned because its medieval palace and kingdom aren't named. Each popup cites its source.",
     blurb: "Five stops. The shortlist, from Kingston to the Kent coast.",
