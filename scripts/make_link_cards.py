@@ -129,11 +129,11 @@ def card_html(b):
     top = 58 + (500 - h) // 2
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}
 *{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1200px;height:630px;overflow:hidden}}
-body{{background:#f6bd28;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
+body{{background:#FFB000;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
 .frame{{position:absolute;inset:22px;border:4px solid #000}}
 .left{{position:absolute;left:70px;top:62px;width:640px;height:506px;display:flex;flex-direction:column}}
 .mark{{font-family:Oswald;font-weight:700;font-size:40px;letter-spacing:-0.01em;line-height:1}}
-.label{{margin-top:58px;align-self:flex-start;background:#000;color:#f6bd28;font-weight:600;font-size:20px;
+.label{{margin-top:58px;align-self:flex-start;background:#000;color:#FFB000;font-weight:600;font-size:20px;
   letter-spacing:.14em;text-transform:uppercase;padding:8px 14px}}
 h1{{margin-top:22px;font-family:Oswald;font-weight:700;font-size:{size}px;line-height:.95;letter-spacing:-0.02em;text-transform:uppercase}}
 .by{{margin-top:22px;font-size:28px;font-weight:500;letter-spacing:.04em}}
@@ -162,21 +162,21 @@ def event_html(ev):
     e = html.escape
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}
 *{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1200px;height:630px;overflow:hidden}}
-body{{background:#f6bd28;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
+body{{background:#FFB000;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
 .frame{{position:absolute;inset:22px;border:4px solid #000}}
 .left{{position:absolute;left:70px;top:62px;width:640px;height:506px;display:flex;flex-direction:column}}
 .mark{{font-family:Oswald;font-weight:700;font-size:40px;letter-spacing:-0.01em;line-height:1}}
-.label{{margin-top:58px;align-self:flex-start;background:#000;color:#f6bd28;font-weight:600;font-size:20px;
+.label{{margin-top:58px;align-self:flex-start;background:#000;color:#FFB000;font-weight:600;font-size:20px;
   letter-spacing:.14em;text-transform:uppercase;padding:8px 14px}}
 h1{{margin-top:22px;font-family:Oswald;font-weight:700;font-size:84px;line-height:.95;letter-spacing:-0.02em;text-transform:uppercase}}
 .by{{margin-top:22px;font-size:26px;font-weight:500;letter-spacing:.04em}}
 .foot{{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:3px solid #000;padding-top:16px;
   font-size:20px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}}
-.date{{position:absolute;right:92px;top:108px;width:340px;height:400px;background:#000;color:#f6bd28;box-shadow:14px 14px 0 #000;
+.date{{position:absolute;right:92px;top:108px;width:340px;height:400px;background:#000;color:#FFB000;box-shadow:14px 14px 0 #000;
   border:4px solid #000;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px}}
 .big{{font-family:Oswald;font-weight:700;font-size:104px;line-height:.95;letter-spacing:-0.01em;white-space:nowrap}}
 .yr{{font-family:Oswald;font-weight:500;font-size:44px;margin-top:6px}}
-.small{{margin-top:26px;border-top:3px solid #f6bd28;padding-top:14px;font-size:20px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}}
+.small{{margin-top:26px;border-top:3px solid #FFB000;padding-top:14px;font-size:20px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}}
 </style></head><body><div class="frame"></div>
 <div class="left"><div class="mark">BOOK &amp; SHORES</div>
 <div class="label">{e(ev['label'])}</div><h1>{e(ev['title'])}</h1><div class="by">{e(ev['by'])}</div>

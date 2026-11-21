@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="max-image-preview:large">
-    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
     <link rel="manifest" href="site.webmanifest">
     <title>Book and Shores | B&amp;S Literary Atlas | Go There. Read It.</title>
     <meta name="description" content="Book and Shores | B&amp;S Literary Atlas | Go There. Read It. | Reading Routes | Weekly Reads | Read Me Illustrations">
@@ -39,7 +39,7 @@
     </script>
     <style>
         :root {
-            --yellow: #f6bd28;
+            --yellow: #FFB000;
             --black: #000;
             --dark-black: #111;
             --gray: #444;
@@ -98,7 +98,7 @@
         }
         /* B&S: small "Nov 18th" tag under the National Book Awards menu link */
         .nav-booker { position: relative; display: inline-block; }
-        nav a.nav-tag { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--black); color: #f6bd28; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 999px; line-height: 1.3; }
+        nav a.nav-tag { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--black); color: #FFB000; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 999px; line-height: 1.3; }
         nav a.nav-tag:hover { color: #fff; }
         main {
             max-width: 1200px;
@@ -411,9 +411,58 @@
                 <span class="ah-title">Go There. <span>Read It.</span></span>
             </a>
         </div>
+        <!-- B&S: Atlas spotlight (AE Nov 21: "let's focus on the literary atlas"). Sits above Weekly Reads and Dates to Remember. Route links use atlas.js hash deep links; search uses atlas.html?q=. -->
+        <style>
+        .ast { max-width: 1100px; margin: 2.4rem auto; padding: 2rem clamp(1rem,4vw,2.5rem) 2.3rem; background: var(--yellow); color: var(--black); border: 4px solid var(--black); border-radius: 12px; box-shadow: 10px 10px 0 var(--black); }
+        .ast-k { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .ast-sub { font-weight: 600; border-bottom: 3px solid var(--black); padding-bottom: 1rem; margin: 0; font-size: clamp(1rem,3.4vw,1.15rem); }
+        .ast-row { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: 1.8rem; align-items: start; margin-top: 1.5rem; }
+        .ast-map { position: relative; display: block; border: 4px solid var(--black); border-radius: 10px; overflow: hidden; box-shadow: 6px 6px 0 var(--black); }
+        .ast-map img { display: block; width: 100%; height: auto; transition: transform .3s; }
+        .ast-map:hover img, .ast-map:focus img { transform: scale(1.03); }
+        .ast-map span { position: absolute; left: 12px; bottom: 12px; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.1rem; padding: 4px 12px 6px; transform: rotate(-2deg); }
+        .ast-side { display: flex; flex-direction: column; gap: 1rem; }
+        .ast-form label { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.15rem; margin-bottom: .35rem; }
+        .ast-form div { display: flex; gap: .5rem; }
+        .ast-form input { flex: 1; min-width: 0; font: inherit; font-size: 1rem; padding: .6rem .8rem; background: #fffaf0; color: #000; border: 3px solid #000; border-radius: 8px; }
+        .ast-form button { font: inherit; font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: .5rem 1rem; background: #000; color: var(--yellow); border: 3px solid #000; border-radius: 8px; cursor: pointer; }
+        .ast-form button:hover, .ast-form button:focus-visible { background: #d8312b; border-color: #d8312b; color: #fff; }
+        .ast-routes { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+        .ast-routes a { display: flex; justify-content: space-between; gap: .6rem; align-items: baseline; background: var(--black); color: #fff; text-decoration: none; border-radius: 8px; padding: .6rem .9rem; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.1rem; }
+        .ast-routes a small { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--yellow); white-space: nowrap; }
+        .ast-routes a:hover, .ast-routes a:focus { background: #8b1e3f; }
+        .ast-feature { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 1rem; align-items: center; margin-top: 1.6rem; padding-top: 1.3rem; border-top: 4px dashed var(--black); color: var(--black); text-decoration: none; }
+        .ast-feature img { width: 110px; height: 110px; object-fit: cover; object-position: 50% 20%; border: 3px solid var(--black); border-radius: 8px; box-shadow: 4px 4px 0 #c8273a; }
+        .ast-feature b { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.3rem; line-height: 1.05; }
+        .ast-feature:hover b, .ast-feature:focus b { text-decoration: underline; }
+        .ast-cta { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 1.6rem; }
+        @media (max-width: 760px) { .ast-row { grid-template-columns: 1fr; } .ast { box-shadow: 6px 6px 0 var(--black); } }
+        </style>
+        <section class="ast" id="literary-atlas" aria-labelledby="ast-title">
+            <div class="ast-k">Places in books · Our star attraction</div>
+            <h2 id="ast-title" class="bs-title">B&amp;S Literary Atlas</h2>
+            <p class="ast-sub">Go There. Read It. Every pin is a book, sourced to its stated setting, and reading routes link them into journeys.</p>
+            <div class="ast-row">
+                <a class="ast-map" href="atlas.html" aria-label="Open the B&amp;S Literary Atlas map"><img src="atlas/license-map.jpg" width="640" height="344" loading="lazy" alt="The B&amp;S Literary Atlas map: read me. mug pins across North America, the Atlantic, Europe and Africa"><span>Open the map</span></a>
+                <div class="ast-side">
+                    <form class="ast-form" action="atlas.html" method="get" role="search">
+                        <label for="ast-q">Where are you going?</label>
+                        <div><input id="ast-q" name="q" type="search" placeholder="City, country or region" autocomplete="off"><button type="submit">Go</button></div>
+                    </form>
+                    <ul class="ast-routes" aria-label="Reading routes">
+                        <li><a href="atlas.html#national-book-awards-2026">National Book Awards 2026 <small>Winners route</small></a></li>
+                        <li><a href="atlas.html#booker-prize-2026">Booker Prize 2026 <small>Winner route</small></a></li>
+                        <li><a href="atlas.html#seoul-tokyo">Seoul to Tokyo <small>Weekly Reads route</small></a></li>
+                        <li><a href="atlas.html#weekly-reads">Weekly Reads <small>West to east</small></a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="ast-feature" href="atlas.html#japanese-literature"><img src="weekly-reads-japanese-lit-illustration.jpg" width="750" height="1215" loading="lazy" alt=""><span><span class="ast-k">Now featuring</span><b>Japanese Literature</b>Our new illustration leads the Atlas this week, with the six strangest books from the collection in Weekly Reads below.</span></a>
+            <div class="ast-cta"><a href="atlas.html" class="btn">Open the Atlas</a><a href="license-the-atlas.html" class="btn">Claim a Pin</a></div>
+        </section>
         <section id="reads" class="section">
-            <h2>Weekly Reads</h2>
-            <div style="text-align: center;">
+            <h2 class="bs-title">Weekly Reads</h2>
+            <div style="text-align: left;">
                 <a href="https://x.com/bookandshores" class="x-link" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -421,105 +470,112 @@
                     @bookandshores
                 </a>
             </div>
-            <!-- B&S: Weekly Reads, Nov 15, Seoul to Tokyo (local draft for AE packet; not live). Hero is the approved Musashino-boys stub art, used as this week's Weekly Reads illustration and as the Love at Least visual. Love at Least has no map pin (no city named in the publisher copy). Covers and titles link to publisher pages. Optional 8th (Lost in Translation / Ferriss) is not in the default grid. -->
+            <!-- B&S: Weekly Reads No. 6, Nov 21, 2026: Japanese Literature, six strange ones. Picks and lines come only from each book's page copy. Hero: AE's samurai beach illustration, signed, on #FFB000. Titles go to the buy link; covers and "The details" go to each dedicated page. -->
             <style>
-            .wr { max-width: 1000px; margin: 1.6rem auto 0; color: var(--black); }
-            .wr-sub { font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-align: center; margin: -0.4rem 0 0; }
-            .wr-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 2.2rem; align-items: start; margin-top: 1.8rem; }
-            .wr-art { position: relative; margin: 0 0 1.4rem; }
-            .wr-art img.wr-hero { display: block; width: 100%; height: auto; border: 5px solid var(--black); box-shadow: 8px 8px 0 var(--black); }
-            .wr-art img.wr-sig { position: absolute; right: 18px; bottom: -46px; width: 26%; height: auto; pointer-events: none; }
-            .wr-aotm { display: flex; gap: 1rem; align-items: flex-end; margin-top: 2.2rem; color: var(--black); text-decoration: none; }
-            .wr-aotm img { display: block; height: 210px; width: auto; border: 4px solid var(--black); box-shadow: 5px 5px 0 var(--black); }
-            .wr-badge { display: inline-block; background: var(--black); color: #fff200; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.15rem; letter-spacing: .03em; line-height: 1.1; padding: 2px 10px 4px; transform: rotate(-2.5deg); box-shadow: 4px 4px 0 #dd4522; margin-bottom: 0.5rem; }
-            .wr-nm { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 2.1rem; line-height: 1.05; }
-            .wr-ti { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 1.1rem; margin-top: 2px; }
-            .wr-d { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; font-size: 0.68rem; padding: 2px 6px; margin-top: 6px; }
-            .wr-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1rem; row-gap: 2rem; } .wr-grid > * { min-width: 0; }
-            .wr-book { display: block; color: var(--black); text-decoration: none; }
-            .wr-cov { height: 260px; display: flex; align-items: flex-end; justify-content: center; }
-            .wr-cov img { display: block; max-width: 100%; max-height: 260px; width: auto; height: auto; border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black); transition: transform .15s; }
-            .wr-book:hover img, .wr-book:focus img, .wr-aotm:hover img, .wr-aotm:focus img { transform: translateY(-4px); }
-            .wr-t { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.3rem; line-height: 1.05; margin-top: 0.9rem; }
-            .wr-a { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.8rem; line-height: 1.25; margin-top: 4px; }
-            .wr-cta { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(1.05rem, 3.6vw, 1.4rem); line-height: 1.4; margin: 2.2rem 0 0; }
-            .wr-eyebrow { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.78rem; letter-spacing: .12em; text-transform: uppercase; text-align: center; margin: -0.2rem 0 0.2rem; }
-            .wr-sub-b { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; color: #8b1e3f; font-size: 1.35rem; letter-spacing: .02em; margin: 0; }
-            .wr-route { position: relative; display: flex; justify-content: space-between; max-width: 560px; margin: 1.1rem auto 0; padding-top: 22px; color: var(--black); text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1rem; }
-            .wr-route::before { content: ""; position: absolute; left: 14px; right: 14px; top: 8px; border-top: 4px dashed #8b1e3f; }
-            .wr-route span { position: relative; width: 6.5rem; text-align: center; }
-            .wr-route span:first-child { text-align: left; } .wr-route span:last-child { text-align: right; }
-            .wr-route span::before { content: ""; position: absolute; top: -24px; width: 22px; height: 22px; border-radius: 50%; background: #8b1e3f; border: 3px solid var(--black); box-sizing: border-box; left: 50%; margin-left: -11px; }
-            .wr-route span:first-child::before { left: 0; margin-left: 0; } .wr-route span:last-child::before { left: auto; right: 0; margin-left: 0; }
-            .wr-route:hover span, .wr-route:focus span { text-decoration: underline; }
-            .wr-perf { border: 0; border-top: 4px dashed var(--black); margin: 2.4rem 0 0; }
-            .wr-hl { margin-top: 2.6rem; padding-left: 14px; display: flex; flex-direction: column; gap: 2.2rem; }
-            .wr-hl-row { display: contents; }
-            .wr-hl-feature { padding-top: 14px; }
-            .wr-hl-feature .wr-cov, .wr-hl-feature .wr-hl-cov { height: auto; justify-content: flex-start; }
-            .wr-hl-feature .wr-cov img { max-height: none; width: 44%; transform: rotate(-5deg); box-shadow: 12px 14px 0 var(--black), 20px 26px 22px rgba(0,0,0,.35); }
-            .wr-hl-feature:hover .wr-cov img, .wr-hl-feature:focus .wr-cov img { transform: rotate(-5deg) translateY(-4px); }
-            .wr-hl-feature .wr-t { font-size: 2.1rem; margin-top: 1.6rem; }
-            .wr-hl-feature .wr-a { font-size: 1rem; }
-            .wr-hl-feature .wr-d { font-size: 0.8rem; padding: 3px 8px; }
-            /* B&S: Arrows of Desire uses the same cover size as the route books (.wr-cov). */
-            .wr-d-hl { background: #8b1e3f; color: #fff; }
-            @media (max-width: 760px) { .wr-hl-feature .wr-cov img { width: 70%; } .wr-hl-feature .wr-t { font-size: 1.7rem; } }
-            .wr-past { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; margin: 1rem 0 0; }
-            .wr-past a { color: var(--black); }
-            .wr-credit { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.72rem; text-align: left; margin: 1.8rem 32% 0 0; color: var(--black); }
-            @media (max-width: 760px) {
-                /* B&S: Mobile only. Route books (Long Take first) sit under the boys image; The Night Before and Arrows of Desire follow the list. Desktop is unchanged. */
-                .wr-layout { grid-template-columns: 1fr; gap: 1.6rem; }
-                .wr-col-feature { display: contents; }
-                .wr-art { order: 1; margin-right: 18px; }
-                .wr-credit { order: 2; }
-                .wr-grid { order: 3; }
-                .wr-aotm { order: 4; margin-top: 2.8rem; }
-                .wr-hl { order: 5; }
-                .wr-art img.wr-sig { right: -12px; bottom: -34px; width: 30%; }
-                .wr-cov { height: 210px; }
-                .wr-cov img { max-height: 210px; }
-                .wr-t { font-size: 1.1rem; }
-                .wr-aotm img { height: 160px; }
-                .wr-nm { font-size: 1.7rem; }
-            }
+            .wr6 { max-width: 1060px; margin: 1.4rem auto 0; color: var(--black); text-align: left; }
+            .wr6-ticket { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; border-top: 4px dashed var(--black); border-bottom: 4px dashed var(--black); padding: .55rem 0; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
+            .wr6-ticket b { background: var(--black); color: var(--yellow); padding: 2px 8px; }
+            .wr6-head { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1; margin: 1.1rem 0 0; }
+            .wr6-head span { display: inline-block; background: #c8273a; color: #fff; padding: .05em .35em .1em; transform: rotate(-2deg); box-shadow: 5px 5px 0 var(--black); }
+            .wr6-lede { font-size: clamp(1rem, 3.4vw, 1.12rem); max-width: 640px; margin: 1rem 0 0; }
+            .wr6-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 2rem; align-items: start; margin-top: 1.6rem; }
+            .wr6-art { margin: 0; position: sticky; top: 1rem; }
+            .wr6-art img { display: block; width: 100%; height: auto; border: 5px solid var(--black); box-shadow: 10px 10px 0 #c8273a, 10px 10px 0 5px var(--black); }
+            .wr6-credit { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: .72rem; margin: 1.3rem 0 0; }
+            .wr6-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.3rem 1.1rem; }
+            .wr6-card { position: relative; background: #fff6e0; border: 4px solid var(--black); border-radius: 10px; padding: 1rem .9rem 1.1rem; box-shadow: 6px 6px 0 var(--black); background-image: radial-gradient(rgba(0,0,0,.09) 1.2px, transparent 1.3px); background-size: 9px 9px; }
+            .wr6-card:nth-child(odd) { transform: rotate(-.6deg); } .wr6-card:nth-child(even) { transform: rotate(.6deg); }
+            .wr6-no { position: absolute; top: -14px; left: 12px; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: .95rem; letter-spacing: .04em; padding: 1px 9px 3px; transform: rotate(-4deg); box-shadow: 3px 3px 0 #c8273a; }
+            .wr6-cov { display: flex; justify-content: center; align-items: flex-end; height: 200px; }
+            .wr6-cov img { display: block; max-height: 200px; max-width: 100%; width: auto; height: auto; border: 3px solid var(--black); box-shadow: 5px 5px 0 #5a8fd0; transition: transform .15s; }
+            .wr6-cov:hover img, .wr6-cov:focus img { transform: translateY(-4px) rotate(-2deg); }
+            .wr6-t { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.3rem; line-height: 1.05; margin-top: .9rem; color: var(--black); text-decoration: none; }
+            .wr6-t:hover, .wr6-t:focus { text-decoration: underline; }
+            .wr6-a { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: .78rem; margin-top: 3px; }
+            .wr6-why { font-size: .92rem; line-height: 1.35; margin: .55rem 0 .6rem; }
+            .wr6-d { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; font-size: .66rem; padding: 2px 6px; }
+            .wr6-more { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: .75rem; color: var(--black); white-space: nowrap; }
+            .wr6-cta { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(1rem, 3.4vw, 1.25rem); line-height: 1.45; margin: 2.2rem 0 0; border-top: 4px dashed var(--black); padding-top: 1.4rem; }
+            .wr6-cta a, .wr6 .wr-past a { color: var(--black); }
+            .wr6 .wr-past { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; margin: 1rem 0 0; }
+            @media (max-width: 860px) { .wr6-layout { grid-template-columns: 1fr; } .wr6-art { position: static; margin-right: 15px; } }
+            @media (max-width: 520px) { .wr6-grid { grid-template-columns: 1fr; } .wr6-card { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: .9rem; align-items: start; } .wr6-cov { height: auto; margin-top: .6rem; } .wr6-cov img { max-height: 150px; } .wr6-t { margin-top: .5rem; font-size: 1.15rem; } }
             </style>
-            <div class="wr">
-                <!-- B&S: Option B (route ticket) touches, Nov 15: ticket eyebrow, plum route line, perforation. Matches the approved social set. -->
-                <p class="wr-eyebrow">B&amp;S Literary Atlas · Admit one reader</p>
-                <p class="wr-sub wr-sub-b">Seoul to Tokyo · Nov 15</p>
-                <a class="wr-route" href="atlas.html#seoul-tokyo" aria-label="Seoul to Tokyo route on the B&amp;S Literary Atlas: Seoul, Tokyo, The Pacific"><span>Seoul</span><span>Tokyo</span><span>The Pacific</span></a>
-                <div class="wr-layout">
-                    <div class="wr-col-feature">
-                        <!-- B&S: AE's approved boys illustration (stub art, leather jacket, green awning). Composite only; mug unchanged; signature overlaid; credit below. Used as the Weekly Reads hero and the Love at Least visual. Not a map pin for the novel. -->
-                        <figure class="wr-art">
-                            <img class="wr-hero" src="weekly-reads-boys-illustration.jpg" width="1147" height="1517" loading="lazy" alt="Book &amp; Shores illustration: two men in a street kiss, one in a white tank top holding a read me. mug, the other in a black leather jacket, with a green awning behind them">
-                            <img class="wr-sig" src="weekly-reads-signature.png" width="600" height="223" alt="" aria-hidden="true">
+            <div class="wr6">
+                <p class="wr6-ticket"><b>No. 6</b><span>Nov 21, 2026</span><span>Japanese Literature edition</span><span>Admit one reader</span></p>
+                <p class="wr6-head"><span>Six Strange Ones</span></p>
+                <p class="wr6-lede">A samurai on the sand, a UFO over the pier, and the six most unusual books in our Japanese Literature collection: ghosts, curses, an ominous old map and a grim reaper who looks like Orson Welles.</p>
+                <div class="wr6-layout">
+                    <div>
+                        <figure class="wr6-art">
+                            <img src="weekly-reads-japanese-lit-illustration.jpg" width="750" height="1215" loading="lazy" alt="Book &amp; Shores illustration: a pin-up woman in red samurai armor and aviator goggles sips from a read me. mug on the beach, a surfer with a Japanese Literature surfboard and a UFO over the pier behind her, signed AE">
                         </figure>
-                        <p class="wr-credit">Illustrations by A. E. Goodson for Book and Shores.</p>
-                        <!-- B&S: From last week's Weekly Reads (Nov 8), per AE Nov 15. The Night Before: Columbia UP "Pub Date: November 2026"; NetGalley pub date Nov 17, 2026. Arrows of Desire: Verso, October 2026 (our page: Oct 20, 2026). Reuses Nov 8 covers. Author of the Month is not in this section (removed from Weekly Reads only; page itself unchanged). -->
-                        <div class="wr-hl">
-                            <div class="wr-hl-row">
-                                <a class="wr-book wr-hl-feature" href="book-the-night-before.html" aria-label="The Night Before by David Hajdu, out this week, Nov 17"><span class="wr-cov wr-hl-cov"><img src="weekly-the-night-before.jpg" width="400" height="603" loading="lazy" alt="The Night Before: Essays on Music, Comics, and Culture by David Hajdu"></span><span class="wr-t">The Night Before</span><span class="wr-a">David Hajdu</span><span class="wr-d wr-d-hl">Out this week · Nov 17</span></a>
-                                <a class="wr-book wr-hl-small" href="book-arrows-of-desire.html" aria-label="Arrows of Desire by Peter Wollen, out now"><span class="wr-cov wr-hl-cov"><img src="9781836741176.jpg" width="425" height="650" loading="lazy" alt="Arrows of Desire: Selected Writings 1963-2002 by Peter Wollen"></span><span class="wr-t">Arrows of Desire</span><span class="wr-a">Peter Wollen</span><span class="wr-d">Out now</span></a>
-                            </div>
-                        </div>
+                        <p class="wr6-credit">Illustrations by A. E. Goodson for Book and Shores.</p>
                     </div>
-                    <div class="wr-grid" id="weekly-grid">
-                        <a class="wr-book weekly-card" href="book-long-take.html" aria-label="Long Take by Akira Kurosawa, translated by Anne McKnight, out now"><span class="wr-cov"><img src="weekly-long-take.jpg" width="1035" height="1600" loading="lazy" alt="Long Take by Akira Kurosawa, translated by Anne McKnight"></span><span class="wr-t">Long Take</span><span class="wr-a">Akira Kurosawa, tr. Anne McKnight</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-fracture.html" aria-label="Fracture: Japanese Graphic Design 1875–1975 by Ian Lynam, out now"><span class="wr-cov"><img src="weekly-fracture.jpg" width="1180" height="1600" loading="lazy" alt="Fracture: Japanese Graphic Design 1875–1975 by Ian Lynam"></span><span class="wr-t">Fracture</span><span class="wr-a">Ian Lynam</span><span class="wr-d">Out now</span></a>
-                        <div class="wr-book weekly-card wr-jk"><a class="wr-jk-flat" href="book-jazz-kissa.html" aria-label="Jazz Kissa: Japan&#39;s Greatest Listening Cafes by Katsumasa Kusunose, out now"><span class="wr-cov"><img src="weekly-jazz-kissa.jpg" width="1006" height="1196" loading="lazy" alt="Jazz Kissa by Katsumasa Kusunose"></span></a><a class="wr-t" href="book-jazz-kissa.html">Jazz Kissa</a><span class="wr-a">Katsumasa Kusunose</span><span class="wr-d">Out now</span></div>
-                        <a class="wr-book weekly-card" href="book-walking-in-place-3-tokyo.html" aria-label="Walking in Place 3: Tokyo by Mike Slack, out now"><span class="wr-cov"><img src="weekly-walking-in-place-3-tokyo.jpg" width="415" height="691" loading="lazy" alt="Walking in Place 3: Tokyo by Mike Slack"></span><span class="wr-t">Walking in Place 3: Tokyo</span><span class="wr-a">Mike Slack</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-mondo-tokyo.html" aria-label="Mondo Tokyo: Dispatches from a Secret Japan by Patrick Macias, out now"><span class="wr-cov"><img src="weekly-mondo-tokyo.jpg" width="1067" height="1600" loading="lazy" alt="Mondo Tokyo: Dispatches from a Secret Japan by Patrick Macias"></span><span class="wr-t">Mondo Tokyo</span><span class="wr-a">Patrick Macias</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-fighting-for-your-right-to-party.html" aria-label="Fighting for Your Right to Party by Jung Wooyoung, out now"><span class="wr-cov"><img src="weekly-fighting-for-your-right-to-party.jpg" width="334" height="478" loading="lazy" alt="Fighting for Your Right to Party by Jung Wooyoung"></span><span class="wr-t">Fighting for Your Right to Party</span><span class="wr-a">Jung Wooyoung</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-energy-fields.html" aria-label="Energy Fields: Vibrations of the Pacific, edited by Lawrence English and Robert Takahashi Novak, out now"><span class="wr-cov"><img src="weekly-energy-fields.jpg" width="1228" height="1600" loading="lazy" alt="Energy Fields: Vibrations of the Pacific, edited by Lawrence English and Robert Takahashi Novak"></span><span class="wr-t">Energy Fields</span><span class="wr-a">Lawrence English &amp; Robert Takahashi Novak, eds.</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-sonic-footprints.html" aria-label="Sonic Footprints, edited by Louis Möckel, vinyl record with booklet, out now"><span class="wr-cov"><img src="weekly-sonic-footprints.jpg" width="1200" height="1197" loading="lazy" alt="Sonic Footprints, edited by Louis Möckel, vinyl record cover"></span><span class="wr-t">Sonic Footprints</span><span class="wr-a">Louis Möckel, ed. Vinyl + booklet</span><span class="wr-d">Out now</span></a>
-                        <a class="wr-book weekly-card" href="book-love-at-least.html" aria-label="Love at Least by Yukiko Motoya, translated by Kamil Spychalski, out now"><span class="wr-cov"><img src="weekly-love-at-least.jpg" width="300" height="450" loading="lazy" alt="Love at Least by Yukiko Motoya, translated by Kamil Spychalski"></span><span class="wr-t">Love at Least</span><span class="wr-a">Yukiko Motoya, tr. Kamil Spychalski</span><span class="wr-d">Out now</span></a>
+                    <div class="wr6-grid" id="weekly-grid">
+                    <article class="wr6-card">
+                        <span class="wr6-no">No. 1</span>
+                        <a class="wr6-cov" href="book-platonic-love.html" aria-label="Platonic Love by Mieko Kanai, tr. Polly Barton, details"><img src="9780811239424.jpg" loading="lazy" alt="Cover of Platonic Love by Mieko Kanai, tr. Polly Barton"></a>
+                        <div class="wr6-txt">
+                            <a class="wr6-t" href="https://bookshop.org/a/125864/9780811239424" target="_blank" rel="noopener sponsored">Platonic Love</a>
+                            <span class="wr6-a">Mieko Kanai, tr. Polly Barton</span>
+                            <p class="wr6-why">A cat who looks like Orson Welles and is the grim reaper, a murder in a high-school secret society of knights, and a truly disturbing tale of rabbits and fathers.</p>
+                            <span class="wr6-d">Preorder · Apr 2027</span> <a class="wr6-more" href="book-platonic-love.html">The details →</a>
+                        </div>
+                    </article>
+                    <article class="wr6-card">
+                        <span class="wr6-no">No. 2</span>
+                        <a class="wr6-cov" href="book-caring-for-a-corpse.html" aria-label="Caring for a Corpse by Harumi Miura, tr. Tristan Hill, details"><img src="9798855427875.jpg" loading="lazy" alt="Cover of Caring for a Corpse by Harumi Miura, tr. Tristan Hill"></a>
+                        <div class="wr6-txt">
+                            <a class="wr6-t" href="https://bookshop.org/a/125864/9798855427875" target="_blank" rel="noopener sponsored">Caring for a Corpse</a>
+                            <span class="wr6-a">Harumi Miura, tr. Tristan Hill</span>
+                            <p class="wr6-why">A live-in caregiver in a mountain mansion, and her charge: bluish-green skin, a black bag over her head, and, she swears, already dead.</p>
+                            <span class="wr6-d">Preorder · Jan 2027</span> <a class="wr6-more" href="book-caring-for-a-corpse.html">The details →</a>
+                        </div>
+                    </article>
+                    <article class="wr6-card">
+                        <span class="wr6-no">No. 3</span>
+                        <a class="wr6-cov" href="book-six-paths-of-horror.html" aria-label="Six: Paths of Horror by Nashi, details"><img src="9781427888341.jpg" loading="lazy" alt="Cover of Six: Paths of Horror by Nashi"></a>
+                        <div class="wr6-txt">
+                            <a class="wr6-t" href="https://bookshop.org/a/125864/9781427888341" target="_blank" rel="noopener sponsored">Six: Paths of Horror</a>
+                            <span class="wr6-a">Nashi</span>
+                            <p class="wr6-why">Six doors into death: a rooftop amusement park, a 23 minute and 45 second film, the corpse of a ghost, sounds echoing through an elevator.</p>
+                            <span class="wr6-d">Out now</span> <a class="wr6-more" href="book-six-paths-of-horror.html">The details →</a>
+                        </div>
+                    </article>
+                    <article class="wr6-card">
+                        <span class="wr6-no">No. 4</span>
+                        <a class="wr6-cov" href="book-cursed-thing.html" aria-label="Cursed Thing by Nashi, tr. Jim Rion, details"><img src="9781846019180.jpg" loading="lazy" alt="Cover of Cursed Thing by Nashi, tr. Jim Rion"></a>
+                        <div class="wr6-txt">
+                            <a class="wr6-t" href="https://bookshop.org/a/125864/9781846019180" target="_blank" rel="noopener sponsored">Cursed Thing</a>
+                            <span class="wr6-a">Nashi, tr. Jim Rion</span>
+                            <p class="wr6-why">Fake-documentary horror built from forum posts, creepypastas, email chains, tampered audio, and one woman’s face littered across the city.</p>
+                            <span class="wr6-d">Preorder · Feb 2027</span> <a class="wr6-more" href="book-cursed-thing.html">The details →</a>
+                        </div>
+                    </article>
+                    <article class="wr6-card">
+                        <span class="wr6-no">No. 5</span>
+                        <a class="wr6-cov" href="book-strange-maps.html" aria-label="Strange Maps by Uketsu, tr. Jim Rion, details"><img src="9780063577268.jpg" loading="lazy" alt="Cover of Strange Maps by Uketsu, tr. Jim Rion"></a>
+                        <div class="wr6-txt">
+                            <a class="wr6-t" href="https://bookshop.org/a/125864/9780063577268" target="_blank" rel="noopener sponsored">Strange Maps</a>
+                            <span class="wr6-a">Uketsu, tr. Jim Rion</span>
+                            <p class="wr6-why">A grandmother found clutching an old map of a village, a lake, a mountain and yokai, and a tunnel steeped in ill fortune.</p>
+                            <span class="wr6-d">Preorder · Apr 2027</span> <a class="wr6-more" href="book-strange-maps.html">The details →</a>
+                        </div>
+                    </article>
+                    <article class="wr6-card">
+                        <span class="wr6-no">No. 6</span>
+                        <a class="wr6-cov" href="book-the-museum-of-silence.html" aria-label="The Museum of Silence by Yoko Ogawa, tr. Stephen Snyder, details"><img src="9780593702062.jpg" loading="lazy" alt="Cover of The Museum of Silence by Yoko Ogawa, tr. Stephen Snyder"></a>
+                        <div class="wr6-txt">
+                            <a class="wr6-t" href="https://bookshop.org/a/125864/9780593702062" target="_blank" rel="noopener sponsored">The Museum of Silence</a>
+                            <span class="wr6-a">Yoko Ogawa, tr. Stephen Snyder</span>
+                            <p class="wr6-why">A young curator builds a museum of stolen objects, each one taken from someone who died in the town.</p>
+                            <span class="wr6-d">Preorder · Jun 2027</span> <a class="wr6-more" href="book-the-museum-of-silence.html">The details →</a>
+                        </div>
+                    </article>
                     </div>
                 </div>
-                <hr class="wr-perf" aria-hidden="true">
-                <p class="wr-cta">Nine picks for your shelf, each with a link to find your copy. Then take them on the road: <a href="atlas.html#seoul-tokyo">Seoul to Tokyo</a> on the B&amp;S Literary Atlas. Go There. Read It.</p>
+                <p class="wr6-cta">Six for your shelf, each with a link to find your copy. Then chart Japan on the <a href="atlas.html#japanese-literature">B&amp;S Literary Atlas</a>. Go There. Read It.</p>
                 <p class="wr-past"><a href="weekly-reads.html">Past Weekly Reads, by date →</a></p>
             </div>
         </section>
@@ -531,7 +587,8 @@
         <style>
         .dtr { max-width: 1100px; margin: 3rem auto; padding: 2rem clamp(1rem,4vw,2.5rem); background: var(--yellow); color: var(--black); border: 4px solid var(--black); border-radius: 12px; }
         .dtr-k { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
-        .dtr h2 { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2.4rem, 8vw, 4.5rem); line-height: 0.95; letter-spacing: -0.02em; margin: 0.3rem 0; text-transform: uppercase; text-align: left; }
+        /* B&S: one title style shared by Dates to Remember, Weekly Reads and the Atlas (AE, Nov 21). */
+        h2.bs-title, .dtr h2 { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2.4rem, 8vw, 4.5rem); line-height: 0.95; letter-spacing: -0.02em; margin: 0.3rem 0; text-transform: uppercase; text-align: left; }
         .dtr-sub { font-weight: 600; border-bottom: 3px solid var(--black); padding-bottom: 1rem; margin: 0; }
         .dtr-dates { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
         .dtr-d { flex: 1 1 260px; background: var(--black); color: var(--yellow); border-radius: 10px; padding: 1rem 1.2rem; text-decoration: none; }
@@ -547,6 +604,15 @@
         .dtr-c { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #444; margin-top: 0.15rem; }
         .dtr-book.is-winner img { border-color: #dd4522; box-shadow: 5px 5px 0 #dd4522; }
         .dtr-w { display: inline-block; background: #dd4522; color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.1rem 0.4rem; border-radius: 4px; margin-top: 0.3rem; }
+        .dtr-win { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; max-width: 640px; margin: 0 auto; }
+        .dtr-win .dtr-t { font-size: 1.25rem; }
+        .dtr-all { list-style: none; margin: 1.6rem 0 0; padding: 1rem 0 0; border-top: 3px solid var(--black); display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; font-size: .92rem; }
+        .dtr-all b { display: block; font-family: 'IBM Plex Mono', monospace; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; }
+        .dtr-all a { color: var(--black); font-weight: 600; }
+        .dtr-more { margin-top: 1.5rem; }
+        .dtr-more summary { cursor: pointer; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.2rem; padding: .5rem 0; }
+        .dtr-more[open] summary { margin-bottom: 1rem; }
+        @media (max-width: 600px) { .dtr-win { gap: .8rem; } .dtr-win .dtr-t { font-size: .95rem; } }
         .dtr-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 1.8rem; text-align: center; }
         @media (max-width: 900px) { .dtr-grid { grid-template-columns: repeat(4, 1fr); } }
         @media (max-width: 600px) { .dtr-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem 0.6rem; } .dtr-t { font-size: 0.85rem; } .dtr-a { font-size: 0.68rem; } }
@@ -554,25 +620,37 @@
         </style>
         <section class="dtr" id="dates-to-remember" aria-labelledby="dtr-title">
             <div class="dtr-k">Prize season</div>
-            <h2 id="dtr-title">Dates to Remember</h2>
-            <p class="dtr-sub">The 2026 National Book Award winners, and the finalists on our shelves</p>
+            <h2 id="dtr-title" class="bs-title">Dates to Remember</h2>
+            <p class="dtr-sub">The 2026 National Book Award winners, announced Nov 18 in New York</p>
             <div class="dtr-dates">
                 <a class="dtr-d" href="atlas.html#national-book-awards-2026"><span class="n">WED NOV 18</span><span class="w">National Book Awards</span><span class="x">Winners announced</span></a>
             </div>
-            <div class="dtr-grid">
-                <a class="dtr-book is-winner" href="book-paradiso-17.html"><img src="nba26-paradiso-17.jpg" alt="Cover of Paradiso 17 by Hannah Lillith Assadi, Fiction winner" loading="lazy"><span class="dtr-t">Paradiso 17</span><span class="dtr-a">Hannah Lillith Assadi</span><span class="dtr-c">Fiction</span><span class="dtr-w">Winner</span></a>
-                <a class="dtr-book" href="book-dey.html"><img src="nba26-dey.jpg" alt="Cover of Dèy by Edwidge Danticat" loading="lazy"><span class="dtr-t">Dèy</span><span class="dtr-a">Edwidge Danticat</span><span class="dtr-c">Fiction</span></a>
-                <a class="dtr-book" href="book-pretend-youre-dead-and-i-carry-you.html"><img src="nba26-pretend-youre-dead.jpg" alt="Cover of Pretend You’re Dead and I Carry You by Julián Delgado Lopera" loading="lazy"><span class="dtr-t">Pretend You’re Dead and I Carry You</span><span class="dtr-a">Julián Delgado Lopera</span><span class="dtr-c">Fiction</span></a>
-                <a class="dtr-book" href="book-beginning-middle-end.html"><img src="nba26-beginning-middle-end.jpg" alt="Cover of Beginning Middle End by Valeria Luiselli" loading="lazy"><span class="dtr-t">Beginning Middle End</span><span class="dtr-a">Valeria Luiselli</span><span class="dtr-c">Fiction</span></a>
-                <a class="dtr-book" href="book-mad-eden.html"><img src="nba26-mad-eden.jpg" alt="Cover of Mad Eden by Morgan Thomas" loading="lazy"><span class="dtr-t">Mad Eden</span><span class="dtr-a">Morgan Thomas</span><span class="dtr-c">Fiction</span></a>
-                <a class="dtr-book is-winner" href="book-huna.html"><img src="nba26-huna.jpg" alt="Cover of Huna by Abdelrahman ElGendy, Nonfiction winner" loading="lazy"><span class="dtr-t">Huna</span><span class="dtr-a">Abdelrahman ElGendy</span><span class="dtr-c">Nonfiction</span><span class="dtr-w">Winner</span></a>
-                <a class="dtr-book" href="book-let-the-poets-govern.html"><img src="nba26-let-the-poets-govern.jpg" alt="Cover of Let the Poets Govern by Camonghne Felix" loading="lazy"><span class="dtr-t">Let the Poets Govern</span><span class="dtr-a">Camonghne Felix</span><span class="dtr-c">Nonfiction</span></a>
-                <a class="dtr-book" href="book-mother-tongue.html"><img src="nba26-mother-tongue.jpg" alt="Cover of Mother Tongue by Sara Nović" loading="lazy"><span class="dtr-t">Mother Tongue</span><span class="dtr-a">Sara Nović</span><span class="dtr-c">Nonfiction</span></a>
-                <a class="dtr-book" href="book-spawning-season.html"><img src="nba26-spawning-season.jpg" alt="Cover of Spawning Season by Joseph Osmundson" loading="lazy"><span class="dtr-t">Spawning Season</span><span class="dtr-a">Joseph Osmundson</span><span class="dtr-c">Nonfiction</span></a>
-                <a class="dtr-book is-winner" href="book-centroeuropa.html"><img src="weekly-centroeuropa.jpg" alt="Cover of Centroeuropa by Vicente Luis Mora, Translated Literature winner" loading="lazy"><span class="dtr-t">Centroeuropa</span><span class="dtr-a">Vicente Luis Mora</span><span class="dtr-c">Translated</span><span class="dtr-w">Winner</span></a>
-                <a class="dtr-book" href="book-pure-men.html"><img src="nba26-pure-men.jpg" alt="Cover of Pure Men by Mohamed Mbougar Sarr" loading="lazy"><span class="dtr-t">Pure Men</span><span class="dtr-a">Mohamed Mbougar Sarr</span><span class="dtr-c">Translated</span></a>
-                <a class="dtr-book" href="book-your-presence-is-a-danger-to-your-life.html"><img src="nba26-your-presence.jpg" alt="Cover of Your Presence Is a Danger to Your Life by Samar Yazbek" loading="lazy"><span class="dtr-t">Your Presence Is a Danger to Your Life</span><span class="dtr-a">Samar Yazbek</span><span class="dtr-c">Translated</span></a>
+            <div class="dtr-win">
+                    <a class="dtr-book is-winner" href="book-paradiso-17.html"><img src="nba26-paradiso-17.jpg" alt="Cover of Paradiso 17 by Hannah Lillith Assadi, Fiction winner" loading="lazy"><span class="dtr-t">Paradiso 17</span><span class="dtr-a">Hannah Lillith Assadi</span><span class="dtr-c">Fiction</span><span class="dtr-w">Winner</span></a>
+                    <a class="dtr-book is-winner" href="book-huna.html"><img src="nba26-huna.jpg" alt="Cover of Huna by Abdelrahman ElGendy, Nonfiction winner" loading="lazy"><span class="dtr-t">Huna</span><span class="dtr-a">Abdelrahman ElGendy</span><span class="dtr-c">Nonfiction</span><span class="dtr-w">Winner</span></a>
+                    <a class="dtr-book is-winner" href="book-centroeuropa.html"><img src="weekly-centroeuropa.jpg" alt="Cover of Centroeuropa by Vicente Luis Mora, Translated Literature winner" loading="lazy"><span class="dtr-t">Centroeuropa</span><span class="dtr-a">Vicente Luis Mora</span><span class="dtr-c">Translated</span><span class="dtr-w">Winner</span></a>
             </div>
+            <ul class="dtr-all" aria-label="All five 2026 National Book Award winners">
+                <li><b>Fiction</b> <a href="book-paradiso-17.html">Paradiso 17</a>, Hannah Lillith Assadi</li>
+                <li><b>Nonfiction</b> <a href="book-huna.html">Huna</a>, Abdelrahman ElGendy</li>
+                <li><b>Poetry</b> <a href="https://www.nationalbook.org/books/still-house-in-the-desert-an-eco-contemplation/" target="_blank" rel="noopener">Still House in the Desert</a>, Brenda Hillman</li>
+                <li><b>Translated Literature</b> <a href="book-centroeuropa.html">Centroeuropa</a>, Vicente Luis Mora, tr. Rahul Bery</li>
+                <li><b>Young People&#x27;s Literature</b> <a href="https://www.nationalbook.org/books/the-fight-of-our-lives-aids-in-america/" target="_blank" rel="noopener">The Fight of Our Lives</a>, David Levithan &amp; Gabriel Duckels</li>
+            </ul>
+            <details class="dtr-more">
+                <summary>More finalists on our shelves (9)</summary>
+                <div class="dtr-grid">
+                    <a class="dtr-book" href="book-dey.html"><img src="nba26-dey.jpg" alt="Cover of Dèy by Edwidge Danticat" loading="lazy"><span class="dtr-t">Dèy</span><span class="dtr-a">Edwidge Danticat</span><span class="dtr-c">Fiction</span></a>
+                    <a class="dtr-book" href="book-pretend-youre-dead-and-i-carry-you.html"><img src="nba26-pretend-youre-dead.jpg" alt="Cover of Pretend You’re Dead and I Carry You by Julián Delgado Lopera" loading="lazy"><span class="dtr-t">Pretend You’re Dead and I Carry You</span><span class="dtr-a">Julián Delgado Lopera</span><span class="dtr-c">Fiction</span></a>
+                    <a class="dtr-book" href="book-beginning-middle-end.html"><img src="nba26-beginning-middle-end.jpg" alt="Cover of Beginning Middle End by Valeria Luiselli" loading="lazy"><span class="dtr-t">Beginning Middle End</span><span class="dtr-a">Valeria Luiselli</span><span class="dtr-c">Fiction</span></a>
+                    <a class="dtr-book" href="book-mad-eden.html"><img src="nba26-mad-eden.jpg" alt="Cover of Mad Eden by Morgan Thomas" loading="lazy"><span class="dtr-t">Mad Eden</span><span class="dtr-a">Morgan Thomas</span><span class="dtr-c">Fiction</span></a>
+                    <a class="dtr-book" href="book-let-the-poets-govern.html"><img src="nba26-let-the-poets-govern.jpg" alt="Cover of Let the Poets Govern by Camonghne Felix" loading="lazy"><span class="dtr-t">Let the Poets Govern</span><span class="dtr-a">Camonghne Felix</span><span class="dtr-c">Nonfiction</span></a>
+                    <a class="dtr-book" href="book-mother-tongue.html"><img src="nba26-mother-tongue.jpg" alt="Cover of Mother Tongue by Sara Nović" loading="lazy"><span class="dtr-t">Mother Tongue</span><span class="dtr-a">Sara Nović</span><span class="dtr-c">Nonfiction</span></a>
+                    <a class="dtr-book" href="book-spawning-season.html"><img src="nba26-spawning-season.jpg" alt="Cover of Spawning Season by Joseph Osmundson" loading="lazy"><span class="dtr-t">Spawning Season</span><span class="dtr-a">Joseph Osmundson</span><span class="dtr-c">Nonfiction</span></a>
+                    <a class="dtr-book" href="book-pure-men.html"><img src="nba26-pure-men.jpg" alt="Cover of Pure Men by Mohamed Mbougar Sarr" loading="lazy"><span class="dtr-t">Pure Men</span><span class="dtr-a">Mohamed Mbougar Sarr</span><span class="dtr-c">Translated</span></a>
+                    <a class="dtr-book" href="book-your-presence-is-a-danger-to-your-life.html"><img src="nba26-your-presence.jpg" alt="Cover of Your Presence Is a Danger to Your Life by Samar Yazbek" loading="lazy"><span class="dtr-t">Your Presence Is a Danger to Your Life</span><span class="dtr-a">Samar Yazbek</span><span class="dtr-c">Translated</span></a>
+                </div>
+            </details>
             <div class="dtr-links">
                 <a href="national-book-awards-2026-finalists.html" class="btn">See the Winners</a>
                 <a href="atlas.html#national-book-awards-2026" class="btn">Follow the Prize Routes on the Atlas</a>

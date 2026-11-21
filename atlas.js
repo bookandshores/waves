@@ -241,7 +241,7 @@
         if (ROUTE.alsoOn && ROUTE.alsoOn.length) {
             var sec = el("div", "rl-extra rl-also");
             sec.appendChild(el("h4", null, "Also on this route"));
-            sec.appendChild(el("p", "rl-also-sub", "This week's picks with no single named place. On the list, off the map."));
+            sec.appendChild(el("p", "rl-also-sub", "Weekly Reads picks with no single named place. On the list, off the map."));
             var ul = el("ul", "rl-also-ul");
             ROUTE.alsoOn.forEach(function (b) {
                 var li = el("li"), a = el("a"); a.href = b.url; a.target = "_blank"; a.rel = "noopener";

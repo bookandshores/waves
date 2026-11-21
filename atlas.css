@@ -1,5 +1,5 @@
-/* B&S Atlas of Books. Same palette as the rest of the site: marigold #f6bd28, black, cream, poppy red, sky blue. */
-:root { --yellow:#f6bd28; --black:#000; --ink:#111; --gray:#444; --cream:#f4e9d3; --red:#d8312b; --sky:#6fb5d6; --teal:#2ba5a0; }
+/* B&S Atlas of Books. Same palette as the rest of the site: marigold #FFB000, black, cream, poppy red, sky blue. */
+:root { --yellow:#FFB000; --black:#000; --ink:#111; --gray:#444; --cream:#f4e9d3; --red:#d8312b; --sky:#6fb5d6; --teal:#2ba5a0; }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { font-size:100%; -webkit-text-size-adjust:100%; }
 body { background:var(--yellow); color:var(--black); font-family:'IBM Plex Mono',monospace; line-height:1.6; min-height:100vh; font-size:clamp(1rem,3.5vw,1.125rem); overflow-x:hidden; }

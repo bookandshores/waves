@@ -341,9 +341,9 @@ def pins_page(places, routes):
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="max-image-preview:large">
-    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
     <link rel="manifest" href="site.webmanifest">
     <title>{e(title)}</title>
     <meta name="description" content="{e(desc)}">
@@ -485,7 +485,7 @@ def cover_src(b):
     return f"file://{hi if hi.exists() else ROOT / c}"
 
 def card_html(label, h1, by, big, small, covers=(), place=""):
-    """Link card on #f6bd28. With covers: the actual book card (cover art, title/author in Oswald, place in IBM Plex Mono).
+    """Link card on #FFB000. With covers: the actual book card (cover art, title/author in Oswald, place in IBM Plex Mono).
     Without covers (index card): the count box."""
     import sys; sys.path.insert(0, str(ROOT / "scripts")); from make_link_cards import FONTS
     covers = [c for c in covers if c][:3]
@@ -504,21 +504,21 @@ def card_html(label, h1, by, big, small, covers=(), place=""):
         place_html = ""; by_html = f'<div class="by">{e(by)}</div>'; lw = 660
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{FONTS}
 *{{margin:0;padding:0;box-sizing:border-box}}html,body{{width:1200px;height:630px;overflow:hidden}}
-body{{background:#f6bd28;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
+body{{background:#FFB000;color:#000;font-family:'IBM Plex Mono',monospace;position:relative}}
 .frame{{position:absolute;inset:22px;border:4px solid #000}}
 .left{{position:absolute;left:70px;top:62px;width:{lw}px;height:506px;display:flex;flex-direction:column}}
 .mark{{font-family:Oswald;font-weight:700;font-size:40px;line-height:1}}
-.label{{margin-top:44px;align-self:flex-start;background:#000;color:#f6bd28;font-weight:600;font-size:20px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px}}
+.label{{margin-top:44px;align-self:flex-start;background:#000;color:#FFB000;font-weight:600;font-size:20px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px}}
 h1{{margin-top:20px;font-family:Oswald;font-weight:700;font-size:{size}px;line-height:.95;letter-spacing:-0.02em;text-transform:uppercase}}
 .auth{{flex-shrink:0;margin-top:14px;font-family:Oswald;font-weight:500;font-size:34px;line-height:1.1;text-transform:uppercase;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 .place{{margin-top:22px;font-size:22px;font-weight:500;letter-spacing:.06em;line-height:1.3;text-transform:uppercase}}
 .by{{margin-top:18px;font-size:22px;font-weight:500;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 .foot{{margin-top:auto;border-top:3px solid #000;padding-top:16px;font-size:20px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}}
 .cv{{position:absolute;width:auto;max-width:340px;border:4px solid #000;box-shadow:14px 14px 0 #000;background:#fff}}
-.box{{position:absolute;right:92px;top:108px;width:320px;height:400px;background:#000;color:#f6bd28;box-shadow:14px 14px 0 #000;
+.box{{position:absolute;right:92px;top:108px;width:320px;height:400px;background:#000;color:#FFB000;box-shadow:14px 14px 0 #000;
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px}}
 .big{{font-family:Oswald;font-weight:700;font-size:120px;line-height:.9}}
-.small{{margin-top:22px;border-top:3px solid #f6bd28;padding-top:14px;font-size:22px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}}
+.small{{margin-top:22px;border-top:3px solid #FFB000;padding-top:14px;font-size:22px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}}
 </style></head><body><div class="frame"></div>
 <div class="left"><div class="mark">BOOK &amp; SHORES</div><div class="label">{e(label)}</div><h1>{e(h1)}</h1>{by_html}{place_html}
 <div class="foot">bookandshores.com</div></div>
