@@ -412,7 +412,88 @@
             </a>
         </div>
         <section id="reads" class="section">
-            <h2 class="bs-title">Weekly Reads</h2>
+            <!-- B&S: Weekly Reads No. 6 (Nov 21, 2026), poster layout per AE's reference (Nov 21, 9:26 AM): title + mono subtitle + rule; art left with black drop shadow, covers 2 x 3 right; closing line + rule. Titles go to the buy link; covers and tags go to each dedicated page. -->
+            <style>
+            .wrp { max-width: 1060px; margin: 0 auto; color: var(--black); text-align: left; }
+            .wrp-sub { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(.9rem, 2.6vw, 1.15rem); text-align: center; margin: .5rem 0 0; }
+            .wrp-rule { border: 0; border-top: 5px solid var(--black); margin: 1.1rem 0 0; }
+            .wrp-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4rem; align-items: start; margin-top: 2rem; }
+            .wrp-art { margin: 0; }
+            .wrp-art img { display: block; width: 100%; height: auto; box-shadow: 10px 10px 0 var(--black); }
+            .wrp-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem 1.4rem; }
+            .wrp-book { min-width: 0; }
+            .wrp-cov { display: flex; align-items: flex-end; height: 230px; }
+            .wrp-cov img { display: block; max-width: 100%; max-height: 230px; width: auto; height: auto; box-shadow: 7px 7px 0 var(--black); transition: transform .15s; }
+            .wrp-cov:hover img, .wrp-cov:focus img { transform: translateY(-4px); }
+            .wrp-t { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.35rem; line-height: 1.05; margin-top: 1rem; color: var(--black); text-decoration: none; }
+            .wrp-t:hover, .wrp-t:focus { text-decoration: underline; }
+            .wrp-a { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: .8rem; line-height: 1.25; margin-top: 4px; }
+            .wrp-d { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; font-size: .68rem; padding: 2px 7px; margin-top: 7px; text-decoration: none; }
+            .wrp-close { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(1.05rem, 3.4vw, 1.4rem); line-height: 1.4; margin: 2.4rem 0 0; }
+            .wrp-close a { color: var(--black); }
+            .wrp-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .8rem; margin-top: 1rem; }
+            .wrp-foot .wr-past { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; margin: 0; }
+            .wrp-foot .wr-past a { color: var(--black); }
+            @media (max-width: 760px) {
+                .wrp-layout { grid-template-columns: 1fr; gap: 2.2rem; }
+                .wrp-art { margin-right: 10px; }
+                .wrp-grid { gap: 1.8rem 1rem; }
+                .wrp-cov { height: 190px; } .wrp-cov img { max-height: 190px; box-shadow: 5px 5px 0 var(--black); }
+                .wrp-t { font-size: 1.1rem; } .wrp-a { font-size: .72rem; }
+                .wrp-foot { justify-content: center; text-align: center; }
+            }
+            </style>
+            <div class="wrp">
+                <h2 class="bs-title">Weekly Reads</h2>
+                <p class="wrp-sub">New this week at bookandshores.com. Japanese Literature: six strange ones.</p>
+                <hr class="wrp-rule" aria-hidden="true">
+                <div class="wrp-layout">
+                    <figure class="wrp-art">
+                        <img src="weekly-reads-japanese-lit-panel.jpg" width="699" height="1110" loading="lazy" alt="Book &amp; Shores illustration: a pin-up woman in red samurai armor and aviator goggles sips from a read me. mug on the beach, a surfer and a UFO over the pier behind her, signed AE">
+                    </figure>
+                    <div class="wrp-grid" id="weekly-grid">
+                    <div class="wrp-book">
+                        <a class="wrp-cov" href="book-platonic-love.html" aria-label="Platonic Love by Mieko Kanai, tr. Polly Barton, details"><img src="9780811239424.jpg" loading="lazy" alt="Cover of Platonic Love by Mieko Kanai, tr. Polly Barton"></a>
+                        <a class="wrp-t" href="https://bookshop.org/a/125864/9780811239424" target="_blank" rel="noopener sponsored">Platonic Love</a>
+                        <span class="wrp-a">Mieko Kanai, tr. Polly Barton</span>
+                        <a class="wrp-d" href="book-platonic-love.html">Apr 2027</a>
+                    </div>
+                    <div class="wrp-book">
+                        <a class="wrp-cov" href="book-caring-for-a-corpse.html" aria-label="Caring for a Corpse by Harumi Miura, tr. Tristan Hill, details"><img src="9798855427875.jpg" loading="lazy" alt="Cover of Caring for a Corpse by Harumi Miura, tr. Tristan Hill"></a>
+                        <a class="wrp-t" href="https://bookshop.org/a/125864/9798855427875" target="_blank" rel="noopener sponsored">Caring for a Corpse</a>
+                        <span class="wrp-a">Harumi Miura, tr. Tristan Hill</span>
+                        <a class="wrp-d" href="book-caring-for-a-corpse.html">Jan 2027</a>
+                    </div>
+                    <div class="wrp-book">
+                        <a class="wrp-cov" href="book-six-paths-of-horror.html" aria-label="Six: Paths of Horror by Nashi, details"><img src="9781427888341.jpg" loading="lazy" alt="Cover of Six: Paths of Horror by Nashi"></a>
+                        <a class="wrp-t" href="https://bookshop.org/a/125864/9781427888341" target="_blank" rel="noopener sponsored">Six: Paths of Horror</a>
+                        <span class="wrp-a">Nashi</span>
+                        <a class="wrp-d" href="book-six-paths-of-horror.html">Out now</a>
+                    </div>
+                    <div class="wrp-book">
+                        <a class="wrp-cov" href="book-cursed-thing.html" aria-label="Cursed Thing by Nashi, tr. Jim Rion, details"><img src="9781846019180.jpg" loading="lazy" alt="Cover of Cursed Thing by Nashi, tr. Jim Rion"></a>
+                        <a class="wrp-t" href="https://bookshop.org/a/125864/9781846019180" target="_blank" rel="noopener sponsored">Cursed Thing</a>
+                        <span class="wrp-a">Nashi, tr. Jim Rion</span>
+                        <a class="wrp-d" href="book-cursed-thing.html">Feb 2027</a>
+                    </div>
+                    <div class="wrp-book">
+                        <a class="wrp-cov" href="book-strange-maps.html" aria-label="Strange Maps by Uketsu, tr. Jim Rion, details"><img src="9780063577268.jpg" loading="lazy" alt="Cover of Strange Maps by Uketsu, tr. Jim Rion"></a>
+                        <a class="wrp-t" href="https://bookshop.org/a/125864/9780063577268" target="_blank" rel="noopener sponsored">Strange Maps</a>
+                        <span class="wrp-a">Uketsu, tr. Jim Rion</span>
+                        <a class="wrp-d" href="book-strange-maps.html">Apr 2027</a>
+                    </div>
+                    <div class="wrp-book">
+                        <a class="wrp-cov" href="book-the-museum-of-silence.html" aria-label="The Museum of Silence by Yoko Ogawa, tr. Stephen Snyder, details"><img src="9780593702062.jpg" loading="lazy" alt="Cover of The Museum of Silence by Yoko Ogawa, tr. Stephen Snyder"></a>
+                        <a class="wrp-t" href="https://bookshop.org/a/125864/9780593702062" target="_blank" rel="noopener sponsored">The Museum of Silence</a>
+                        <span class="wrp-a">Yoko Ogawa, tr. Stephen Snyder</span>
+                        <a class="wrp-d" href="book-the-museum-of-silence.html">Jun 2027</a>
+                    </div>
+                    </div>
+                </div>
+                <p class="wrp-close">Six picks for your shelf, each with a link to find your copy. Then chart Japan on the <a href="atlas.html#japanese-literature">B&amp;S Literary Atlas</a>. Go There. Read It.</p>
+                <hr class="wrp-rule" aria-hidden="true">
+                <div class="wrp-foot">
+                    <p class="wr-past"><a href="weekly-reads.html">Past Weekly Reads, by date →</a></p>
             <div style="text-align: center;">
                 <a href="https://x.com/bookandshores" class="x-link" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -421,111 +502,7 @@
                     @bookandshores
                 </a>
             </div>
-            <!-- B&S: Weekly Reads No. 6, Nov 21, 2026: Japanese Literature, six strange ones. Picks and lines come only from each book's page copy. Hero: AE's samurai beach illustration, signed, on #FFB000. Titles go to the buy link; covers and "The details" go to each dedicated page. -->
-            <style>
-            .wr6 { max-width: 1060px; margin: 1.4rem auto 0; color: var(--black); text-align: left; }
-            .wr6-ticket { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; border-top: 4px dashed var(--black); border-bottom: 4px dashed var(--black); padding: .55rem 0; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
-            .wr6-ticket b { background: var(--black); color: var(--yellow); padding: 2px 8px; }
-            .wr6-head { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1; margin: 1.1rem 0 0; }
-            .wr6-head span { display: inline-block; background: var(--yellow); color: var(--black); }
-            .wr6-lede { font-size: clamp(1rem, 3.4vw, 1.12rem); max-width: 640px; margin: 1rem 0 0; }
-            .wr6-layout { display: flex; flex-direction: column; align-items: center; gap: 2.4rem; margin-top: 1.6rem; } .wr6-layout > * { width: 100%; }
-            .wr6-art { margin: 0 auto; max-width: 520px; }
-            .wr6-art img { display: block; width: 100%; height: auto; border: 0; box-shadow: none; }
-            .wr6-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 1.2rem; }
-            .wr6-card { position: relative; background: #fff6e0; border: 4px solid var(--black); border-radius: 10px; padding: 1rem .9rem 1.1rem; box-shadow: 6px 6px 0 var(--black); background-image: radial-gradient(rgba(0,0,0,.09) 1.2px, transparent 1.3px); background-size: 9px 9px; }
-            .wr6-card:nth-child(odd) { transform: rotate(-.6deg); } .wr6-card:nth-child(even) { transform: rotate(.6deg); }
-            .wr6-no { position: absolute; top: -14px; left: 12px; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: .95rem; letter-spacing: .04em; padding: 1px 9px 3px; transform: rotate(-4deg); box-shadow: 3px 3px 0 #c8273a; }
-            .wr6-cov { display: flex; justify-content: center; align-items: flex-end; height: 200px; }
-            .wr6-cov img { display: block; max-height: 200px; max-width: 100%; width: auto; height: auto; border: 3px solid var(--black); box-shadow: 5px 5px 0 #5a8fd0; transition: transform .15s; }
-            .wr6-cov:hover img, .wr6-cov:focus img { transform: translateY(-4px) rotate(-2deg); }
-            .wr6-t { display: block; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.3rem; line-height: 1.05; margin-top: .9rem; color: var(--black); text-decoration: none; }
-            .wr6-t:hover, .wr6-t:focus { text-decoration: underline; }
-            .wr6-a { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: .78rem; margin-top: 3px; }
-            .wr6-why { font-size: .92rem; line-height: 1.35; margin: .55rem 0 .6rem; }
-            .wr6-d { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; font-size: .66rem; padding: 2px 6px; }
-            .wr6-more { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: .75rem; color: var(--black); white-space: nowrap; }
-            .wr6-cta { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(1rem, 3.4vw, 1.25rem); line-height: 1.45; margin: 2.2rem 0 0; border-top: 4px dashed var(--black); padding-top: 1.4rem; }
-            .wr6-cta a, .wr6 .wr-past a { color: var(--black); }
-            .wr6 .wr-past { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; margin: 1rem 0 0; }
-            @media (max-width: 860px) { .wr6-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-            @media (max-width: 520px) { .wr6-grid { grid-template-columns: 1fr; } .wr6-card { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: .9rem; align-items: start; } .wr6-cov { height: auto; margin-top: .6rem; } .wr6-cov img { max-height: 150px; } .wr6-t { margin-top: .5rem; font-size: 1.15rem; } }
-            </style>
-            <div class="wr6">
-                <p class="wr6-ticket"><b>No. 6</b><span>Nov 21, 2026</span><span>Japanese Literature edition</span><span>Admit one reader</span></p>
-                <p class="wr6-head"><span>Six Strange Ones</span></p>
-                <p class="wr6-lede">A samurai on the sand, a UFO over the pier, and the six most unusual books in our Japanese Literature collection: ghosts, curses, an ominous old map and a grim reaper who looks like Orson Welles.</p>
-                <div class="wr6-layout">
-                    <div>
-                        <figure class="wr6-art">
-                            <img src="weekly-reads-japanese-lit-illustration.jpg?v=2" width="750" height="1215" loading="lazy" alt="Book &amp; Shores illustration: a pin-up woman in red samurai armor and aviator goggles sips from a read me. mug on the beach, a surfer with a Japanese Literature surfboard and a UFO over the pier behind her, signed AE">
-                        </figure>
-                    </div>
-                    <div class="wr6-grid" id="weekly-grid">
-                    <article class="wr6-card">
-                        <span class="wr6-no">No. 1</span>
-                        <a class="wr6-cov" href="book-platonic-love.html" aria-label="Platonic Love by Mieko Kanai, tr. Polly Barton, details"><img src="9780811239424.jpg" loading="lazy" alt="Cover of Platonic Love by Mieko Kanai, tr. Polly Barton"></a>
-                        <div class="wr6-txt">
-                            <a class="wr6-t" href="https://bookshop.org/a/125864/9780811239424" target="_blank" rel="noopener sponsored">Platonic Love</a>
-                            <span class="wr6-a">Mieko Kanai, tr. Polly Barton</span>
-                            <p class="wr6-why">A cat who looks like Orson Welles and is the grim reaper, a murder in a high-school secret society of knights, and a truly disturbing tale of rabbits and fathers.</p>
-                            <span class="wr6-d">Preorder · Apr 2027</span> <a class="wr6-more" href="book-platonic-love.html">The details →</a>
-                        </div>
-                    </article>
-                    <article class="wr6-card">
-                        <span class="wr6-no">No. 2</span>
-                        <a class="wr6-cov" href="book-caring-for-a-corpse.html" aria-label="Caring for a Corpse by Harumi Miura, tr. Tristan Hill, details"><img src="9798855427875.jpg" loading="lazy" alt="Cover of Caring for a Corpse by Harumi Miura, tr. Tristan Hill"></a>
-                        <div class="wr6-txt">
-                            <a class="wr6-t" href="https://bookshop.org/a/125864/9798855427875" target="_blank" rel="noopener sponsored">Caring for a Corpse</a>
-                            <span class="wr6-a">Harumi Miura, tr. Tristan Hill</span>
-                            <p class="wr6-why">A live-in caregiver in a mountain mansion, and her charge: bluish-green skin, a black bag over her head, and, she swears, already dead.</p>
-                            <span class="wr6-d">Preorder · Jan 2027</span> <a class="wr6-more" href="book-caring-for-a-corpse.html">The details →</a>
-                        </div>
-                    </article>
-                    <article class="wr6-card">
-                        <span class="wr6-no">No. 3</span>
-                        <a class="wr6-cov" href="book-six-paths-of-horror.html" aria-label="Six: Paths of Horror by Nashi, details"><img src="9781427888341.jpg" loading="lazy" alt="Cover of Six: Paths of Horror by Nashi"></a>
-                        <div class="wr6-txt">
-                            <a class="wr6-t" href="https://bookshop.org/a/125864/9781427888341" target="_blank" rel="noopener sponsored">Six: Paths of Horror</a>
-                            <span class="wr6-a">Nashi</span>
-                            <p class="wr6-why">Six doors into death: a rooftop amusement park, a 23 minute and 45 second film, the corpse of a ghost, sounds echoing through an elevator.</p>
-                            <span class="wr6-d">Out now</span> <a class="wr6-more" href="book-six-paths-of-horror.html">The details →</a>
-                        </div>
-                    </article>
-                    <article class="wr6-card">
-                        <span class="wr6-no">No. 4</span>
-                        <a class="wr6-cov" href="book-cursed-thing.html" aria-label="Cursed Thing by Nashi, tr. Jim Rion, details"><img src="9781846019180.jpg" loading="lazy" alt="Cover of Cursed Thing by Nashi, tr. Jim Rion"></a>
-                        <div class="wr6-txt">
-                            <a class="wr6-t" href="https://bookshop.org/a/125864/9781846019180" target="_blank" rel="noopener sponsored">Cursed Thing</a>
-                            <span class="wr6-a">Nashi, tr. Jim Rion</span>
-                            <p class="wr6-why">Fake-documentary horror built from forum posts, creepypastas, email chains, tampered audio, and one woman’s face littered across the city.</p>
-                            <span class="wr6-d">Preorder · Feb 2027</span> <a class="wr6-more" href="book-cursed-thing.html">The details →</a>
-                        </div>
-                    </article>
-                    <article class="wr6-card">
-                        <span class="wr6-no">No. 5</span>
-                        <a class="wr6-cov" href="book-strange-maps.html" aria-label="Strange Maps by Uketsu, tr. Jim Rion, details"><img src="9780063577268.jpg" loading="lazy" alt="Cover of Strange Maps by Uketsu, tr. Jim Rion"></a>
-                        <div class="wr6-txt">
-                            <a class="wr6-t" href="https://bookshop.org/a/125864/9780063577268" target="_blank" rel="noopener sponsored">Strange Maps</a>
-                            <span class="wr6-a">Uketsu, tr. Jim Rion</span>
-                            <p class="wr6-why">A grandmother found clutching an old map of a village, a lake, a mountain and yokai, and a tunnel steeped in ill fortune.</p>
-                            <span class="wr6-d">Preorder · Apr 2027</span> <a class="wr6-more" href="book-strange-maps.html">The details →</a>
-                        </div>
-                    </article>
-                    <article class="wr6-card">
-                        <span class="wr6-no">No. 6</span>
-                        <a class="wr6-cov" href="book-the-museum-of-silence.html" aria-label="The Museum of Silence by Yoko Ogawa, tr. Stephen Snyder, details"><img src="9780593702062.jpg" loading="lazy" alt="Cover of The Museum of Silence by Yoko Ogawa, tr. Stephen Snyder"></a>
-                        <div class="wr6-txt">
-                            <a class="wr6-t" href="https://bookshop.org/a/125864/9780593702062" target="_blank" rel="noopener sponsored">The Museum of Silence</a>
-                            <span class="wr6-a">Yoko Ogawa, tr. Stephen Snyder</span>
-                            <p class="wr6-why">A young curator builds a museum of stolen objects, each one taken from someone who died in the town.</p>
-                            <span class="wr6-d">Preorder · Jun 2027</span> <a class="wr6-more" href="book-the-museum-of-silence.html">The details →</a>
-                        </div>
-                    </article>
-                    </div>
                 </div>
-                <p class="wr6-cta">Six for your shelf, each with a link to find your copy. Then chart Japan on the <a href="atlas.html#japanese-literature">B&amp;S Literary Atlas</a>. Go There. Read It.</p>
-                <p class="wr-past"><a href="weekly-reads.html">Past Weekly Reads, by date →</a></p>
             </div>
         </section>
         <!-- B&S: Atlas spotlight (AE Nov 21: "let's focus on the literary atlas"). Order (AE Nov 21, 8:56 AM): GREETINGS, Weekly Reads, Atlas, Dates to Remember. Route links use atlas.js hash deep links; search uses atlas.html?q=. -->
