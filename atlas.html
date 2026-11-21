@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="max-image-preview:large">
-    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
     <link rel="manifest" href="site.webmanifest">
     <title>Go There. Read It. | Book &amp; Shores Atlas</title>
     <meta name="description" content="A world map of books and the places they are set. Tap a pin to meet the book, then take it home in print or ebook. Type a place to see books whose stories are set there.">
@@ -53,6 +53,30 @@
             <p class="tagline">Books are good for the world, so we pinned them to it. Every pin is sourced to the book's stated setting, and literary routes link them into journeys. Type any place, or tap a pin to meet the book and take it home in print or ebook.</p>
         </section>
 
+        <!-- B&S: Japanese Literature feature banner (AE illustration, signed, Nov 21). Banner only: no new Japanese Literature pins until AE says go. -->
+        <style>
+        .jl-feature { max-width: 1000px; margin: 0 auto 2.4rem; padding: 0 .5rem; scroll-margin-top: 1rem; }
+        .jl-card { display: grid; grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); gap: 1.8rem; align-items: center; background: var(--yellow); border: 4px solid var(--black); border-radius: 12px; padding: 1.4rem; box-shadow: 10px 10px 0 #c8273a, 10px 10px 0 4px var(--black); }
+        .jl-card img { display: block; width: 100%; height: auto; border: 4px solid var(--black); border-radius: 6px; }
+        .jl-card h2 { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: clamp(2rem, 6vw, 3.4rem); line-height: .95; margin: .4rem 0 .8rem; text-align: left; }
+        .jl-card p { margin: 0 0 .9rem; font-size: clamp(1rem, 3.4vw, 1.12rem); text-align: left; }
+        .jl-links { display: flex; flex-wrap: wrap; gap: .6rem; }
+        .jl-links a { display: inline-block; background: var(--black); color: var(--yellow); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; padding: .5rem .8rem; border-radius: 6px; }
+        .jl-links a:hover, .jl-links a:focus { background: #c8273a; color: #fff; }
+        @media (max-width: 760px) { .jl-card img { max-width: 360px; margin: 0 auto; } .jl-card { grid-template-columns: 1fr; box-shadow: 6px 6px 0 #c8273a, 6px 6px 0 4px var(--black); } }
+        </style>
+        <section class="jl-feature" id="japanese-literature" aria-labelledby="jl-title">
+            <div class="jl-card">
+                <img src="weekly-reads-japanese-lit-illustration.jpg" width="750" height="1215" alt="Book &amp; Shores illustration: a pin-up woman in red samurai armor and goggles sips from a read me. mug on the beach, a surfer and a UFO over the pier behind her, signed AE">
+                <div>
+                    <p class="eyebrow">Now featuring</p>
+                    <h2 id="jl-title">Japanese Literature</h2>
+                    <p>Ghost stories, curses, death games, an ominous old map and a museum of stolen things. Our Japanese Literature collection is this week's Weekly Reads, six strange ones picked from the shelf.</p>
+                    <p>Tokyo is already on the map. Go There. Read It.</p>
+                    <div class="jl-links"><a href="index.html#reads">Weekly Reads No. 6</a><a href="bookstore.html#japanese-lit">Japanese Lit in the Bookstore</a><a href="atlas-tokyo.html">Tokyo on the Atlas</a></div>
+                </div>
+            </div>
+        </section>
         <section class="map-section" aria-label="Map of books">
             <form class="place-search" id="place-search" role="search" autocomplete="off" novalidate>
                 <label for="place-q" class="ps-label">Type any place</label>

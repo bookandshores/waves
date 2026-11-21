@@ -640,16 +640,16 @@ window.bsAtlas = [
 window.bsRoutes = [
   /* Weekly Reads route: only books that were Book & Shores Weekly Reads picks (index.html history) AND already have a sourced pin above.
      Every book at each stop is a Weekly Reads pick. Picks with no single stated setting stay off the map. */
-  { id: "weekly-reads", name: "Weekly Reads", eyebrow: "A reading route · Weekly Reads, Nov 8", isNew: true, order: "west to east", color: "#1f4e79",
-    note: "This week's picks with a sourced setting, plus two stops from our Author of the Month Jonathan Lethem, his latest book and his Times essay from Boerum Hill, standing in for The Last Leaf, which doesn't center on one place. The Night Before is pinned at 64 East Seventh Street, the building one of its essays is about. Each popup cites its source.",
-    blurb: "Six stops. This week's picks and Jonathan Lethem, from the Bay Area to Paris.",
+  { id: "weekly-reads", name: "Weekly Reads", eyebrow: "A reading route · Weekly Reads, Nov 8", isNew: false, order: "west to east", color: "#1f4e79",
+    note: "The Nov 8 Weekly Reads picks with a sourced setting, plus two stops from our Author of the Month Jonathan Lethem, his latest book and his Times essay from Boerum Hill, standing in for The Last Leaf, which doesn't center on one place. The Night Before is pinned at 64 East Seventh Street, the building one of its essays is about. Each popup cites its source.",
+    blurb: "Six stops. The Nov 8 Weekly Reads picks and Jonathan Lethem, from the Bay Area to Paris.",
     stops: ["bay-area-lethem-tension", "ucla-westwood", "east-seventh-street", "boerum-hill-lethem-essay", "north-atlantic", "paris-image-of-her"] },
   /* B&S: Seoul to Tokyo route, Weekly Reads Nov 15 (local draft for AE packet; not live).
      Stops are empty until AE chooses optional pins. The chip can still deep-link; the note explains that this week's picks are on the list and off the map for now.
      Approved stub artwork is unchanged and lives outside this file. */
   { id: "seoul-tokyo", name: "Seoul to Tokyo", eyebrow: "A reading route · Weekly Reads, Nov 15", isNew: true, order: "west to east", color: "#8b1e3f",
     note: "Pins sit only where a publisher names the place. Dashed rings mark a city or region, not an address. Each popup cites its source.",
-    blurb: "Three stops. This week's picks, from Seoul to Tokyo and out to the Pacific.",
+    blurb: "Three stops. The Nov 15 Weekly Reads picks, from Seoul to Tokyo and out to the Pacific.",
     stops: ["seoul-korean-music", "tokyo-seoul-to-tokyo", "pacific-energy-fields"],
     /* This week's picks with no single named place: listed under the route, not pinned. */
     alsoOn: [
