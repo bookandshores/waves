@@ -214,7 +214,10 @@
             // World view first; visitors zoom in with "Zoom to route" or by picking a stop.
             // The world frame is widened so every stop stays in view; small screens center the world on the route.
             var rb = routeBounds(), dur = (reduce || instant) ? 0 : 900;
-            if (mapEl.clientWidth < 600) {
+            if (routeStops.length === 1) {
+                // One stop draws no line, so frame the stop itself instead of the world.
+                map.easeTo({ center: rb.getCenter(), zoom: mapEl.clientWidth < 600 ? 3.6 : 4.4, duration: dur });
+            } else if (mapEl.clientWidth < 600) {
                 map.easeTo({ center: [rb.getCenter().lng - 40, 24], zoom: Math.max(map.getMinZoom(), 0), duration: dur });
             } else {
                 var wb = REGIONS.world.bounds;

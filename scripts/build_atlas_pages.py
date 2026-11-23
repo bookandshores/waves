@@ -62,9 +62,9 @@ def head(title, desc, url, ld, card, alt):
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="max-image-preview:large">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
     <link rel="manifest" href="site.webmanifest">
     <title>{e(title)}</title>
     <meta name="description" content="{e(desc)}">

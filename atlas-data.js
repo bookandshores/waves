@@ -620,6 +620,12 @@ window.bsAtlas = [
       srcUrl: "https://erg.media/pages/jazz-kissa",
       src: "ERG Media book page (\"From the heart of Tokyo to the most remote corners of the country, listening bars popularly known as Jazz Kissa have shaped Japanese musical culture since the 1940s\")" }
   ]}
+  ,{ id: "japan-caring-for-a-corpse", name: "The Japanese mountains, Japan", heading: "Caring for a Corpse", sub: "The Japanese mountains, Japan", lng: 138.2529, lat: 36.2048, area: true, cc: "JP", cont: "Asia", reg: ["japan", "japanese mountains", "japanese alps", "honshu", "japanese literature"], books: [
+    { title: "Caring for a Corpse", author: "Harumi Miura, tr. Tristan Hill", isbn: "9798855427875", cover: "9798855427875.jpg", page: "book-caring-for-a-corpse.html",
+      setting: "A sprawling, ominous mansion \"deep in the Japanese mountains\"", note: "Weekly Reads No. 6, Nov 21. Avocado House (Yen Press). The publisher doesn't name the mountains, so the dashed ring marks Japan, not one place.",
+      srcUrl: "https://avocadohouse.com/books/9798855427875-caring-for-a-corpse",
+      src: "Avocado House book page (\"Deep in the Japanese mountains, Akane Kuriya begins a new job as a live-in caregiver. She moves into a sprawling, ominous mansion\")" }
+  ]}
   ,{ id: "pacific-energy-fields", name: "The Pacific", lng: 155.0, lat: 25.0, area: true, cc: "", cont: "Pacific Ocean", reg: ["pacific", "pacific ocean", "pacific rim", "pacific plate"], books: [
     { title: "Energy Fields: Vibrations of the Pacific", author: "Lawrence English and Robert Takahashi Novak (eds.)", year: 2025, isbn: "9789083449807", cover: "weekly-energy-fields.jpg", page: "book-energy-fields.html",
       setting: "The Pacific, \"the most dynamic tectonic plate on the face of the planet,\" read through its volcanic, seismic, nuclear and other vibrations", note: "Set Margins' #39, published with the exhibition at Chapman University (Sept 15, 2024 – Jan 19, 2025). Weekly Reads, Nov 15. The pin marks the ocean as a whole, not one place.",
@@ -647,7 +653,7 @@ window.bsRoutes = [
   /* B&S: Seoul to Tokyo route, Weekly Reads Nov 15 (local draft for AE packet; not live).
      Stops are empty until AE chooses optional pins. The chip can still deep-link; the note explains that this week's picks are on the list and off the map for now.
      Approved stub artwork is unchanged and lives outside this file. */
-  { id: "seoul-tokyo", name: "Seoul to Tokyo", eyebrow: "A reading route · Weekly Reads, Nov 15", isNew: true, order: "west to east", color: "#8b1e3f",
+  { id: "seoul-tokyo", name: "Seoul to Tokyo", eyebrow: "A reading route · Weekly Reads, Nov 15", isNew: false, order: "west to east", color: "#8b1e3f",
     note: "Pins sit only where a publisher names the place. Dashed rings mark a city or region, not an address. Each popup cites its source.",
     blurb: "Three stops. The Nov 15 Weekly Reads picks, from Seoul to Tokyo and out to the Pacific.",
     stops: ["seoul-korean-music", "tokyo-seoul-to-tokyo", "pacific-energy-fields"],
@@ -661,6 +667,19 @@ window.bsRoutes = [
     /* Route ticket stub (existing Tally forms; stubs are emailed by the B&S stub pipeline). */
     stub: { img: "route-stub-seoul-to-tokyo.jpg", alt: "Seoul to Tokyo route ticket stub: The Pacific, Energy Fields, with A. E. Goodson's illustration of two men kissing, one holding a read me. mug",
       signup: "https://tally.so/r/Z9Ed5o", finish: "https://tally.so/r/gbd5DO", routeLabel: "Weekly Reads" } },
+  /* B&S: Six Strange Ones, Weekly Reads No. 6 (Nov 21): Japanese Literature. AE's go, Nov 23. Only this week's six books.
+     Only Caring for a Corpse has a publisher-stated setting (the Japanese mountains); the other five name no real place and are listed, not pinned. */
+  { id: "six-strange-ones", name: "Six Strange Ones", eyebrow: "A reading route · Weekly Reads No. 6, Nov 21", isNew: true, order: "plus five more listed below the map", color: "#0b5d6b",
+    note: "Pins sit only where a publisher names the place. Five of this week's six books name no real place, so they're listed below the map. Each popup cites its source.",
+    blurb: "The Nov 21 Weekly Reads picks: Japanese Literature. Only Caring for a Corpse names a real place, the Japanese mountains.",
+    stops: ["japan-caring-for-a-corpse"],
+    alsoOn: [
+      { title: "Platonic Love", author: "Mieko Kanai, tr. Polly Barton", cover: "9780811239424.jpg", url: "book-platonic-love.html", page: "book-platonic-love.html", why: "Short stories; no single place." },
+      { title: "Six: Paths of Horror", author: "Nashi", cover: "9781427888341.jpg", url: "book-six-paths-of-horror.html", page: "book-six-paths-of-horror.html", why: "Six stories; no single place." },
+      { title: "Cursed Thing", author: "Nashi, tr. Jim Rion", cover: "9781846019180.jpg", url: "book-cursed-thing.html", page: "book-cursed-thing.html", why: "A city the publisher doesn't name." },
+      { title: "Strange Maps", author: "Uketsu, tr. Jim Rion", cover: "9780063577268.jpg", url: "book-strange-maps.html", page: "book-strange-maps.html", why: "A coastal village the publisher doesn't name." },
+      { title: "The Museum of Silence", author: "Yoko Ogawa, tr. Stephen Snyder", cover: "9780593702062.jpg", url: "book-the-museum-of-silence.html", page: "book-the-museum-of-silence.html", why: "A small town the publisher doesn't name." }
+    ] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
     note: "Public-domain classics show their first-edition covers. Where a book is set is cited in each popup.",
