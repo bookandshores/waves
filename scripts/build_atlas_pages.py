@@ -158,16 +158,37 @@ def card_alt(p):
         return f"Book card: {bs[0]['title']} by {bs[0]['author']}, pinned at {p['name']} on the Book & Shores Atlas. Go There. Read It."
     return f"Book card: {', '.join(b['title'] for b in bs)}, pinned at {p['name']} on the Book & Shores Atlas. Go There. Read It."
 
+
+def place_is_press(p):
+    """Press-location pins (no story setting) must not be labeled as if the book were set there."""
+    return bool(p.get("published"))
+
+def place_page_name(p):
+    if place_is_press(p):
+        return p.get("heading") or f"Published in {p['name']}"
+    return f"Books set in {p['name']}"
+
+def place_og_title(p):
+    if p.get("heading"):
+        return f"{p['heading']} · {p.get('sub', p['name'])} | Book & Shores Atlas · Go There. Read It."
+    if place_is_press(p):
+        return f"Published in {p['name']} | Book & Shores Atlas · Go There. Read It."
+    return f"Books Set in {p['name']} | Book & Shores Atlas · Go There. Read It."
+
 def place_page(p, routes):
     url = f"{SITE}/atlas-{p['id']}.html"
     n = len(p["books"])
     titles = ", ".join(b["title"] for b in p["books"])
-    title = f"{p['heading']} · {p.get('sub', p['name'])} | Book & Shores Atlas · Go There. Read It." if p.get("heading") else f"Books Set in {p['name']} | Book & Shores Atlas · Go There. Read It."
-    desc = f"{n} book{'s' if n != 1 else ''} on the Book & Shores Atlas set in {p['name']}: {titles}. Each setting is cited from the book, its publisher or a major review."
+    title = place_og_title(p)
+    if place_is_press(p):
+        desc = (f"{n} book{'s' if n != 1 else ''} on the Book & Shores Atlas, pinned at the press in {p['name']}: {titles}. "
+                "The pin marks the publisher, not a story setting. Each location is cited.")
+    else:
+        desc = f"{n} book{'s' if n != 1 else ''} on the Book & Shores Atlas set in {p['name']}: {titles}. Each setting is cited from the book, its publisher or a major review."
     if p.get("desc"): desc = p["desc"]
     if len(desc) > 300: desc = desc[:297].rsplit(" ", 1)[0] + "…"
     ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "CollectionPage", "@id": url, "url": url, "name": f"Books set in {p['name']}", "description": desc,
+        {"@type": "CollectionPage", "@id": url, "url": url, "name": place_page_name(p), "description": desc,
          "isPartOf": {"@type": "Dataset", "@id": SITE + "/atlas.html#dataset"}, "publisher": {"@id": SITE + "/#org"},
          "about": place_ld(p), "mainEntity": {"@type": "ItemList", "numberOfItems": n,
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": book_ld(b, p)} for i, b in enumerate(p["books"])]}},
@@ -181,8 +202,8 @@ def place_page(p, routes):
     out.append(f'        <p class="crumbs"><a href="atlas.html">Atlas</a> › <a href="atlas-pins.html">All the pins</a> › {e(p["name"])}</p>\n')
     out.append(f"""        <section class="place-hero">
             <p class="eyebrow">Book &amp; Shores Atlas · {e(p.get('cont', ''))}</p>
-            <h2>{e(p['heading']) if p.get('heading') else 'Books set in ' + e(p['name'])}</h2>{('<p style="font-family:Oswald,sans-serif;font-weight:400;font-size:clamp(1.2rem,3.5vw,1.6rem);text-transform:none;margin:0 0 0.8rem;">' + e(p['sub']) + '</p>') if p.get('sub') else ''}
-            <p>{(str(n) + ' issues pinned here.') if p.get('heading') else (str(n) + ' book' + ('s' if n != 1 else '') + ' pinned here.')} {'The book names a region, not an exact address, so the pin sits inside the area.' if p.get('area') else 'The pin marks the named place.'}</p>
+            <h2>{e(p['heading']) if p.get('heading') else (('Published in ' + e(p['name'])) if p.get('published') else ('Books set in ' + e(p['name'])))}</h2>{('<p style="font-family:Oswald,sans-serif;font-weight:400;font-size:clamp(1.2rem,3.5vw,1.6rem);text-transform:none;margin:0 0 0.8rem;">' + e(p['sub']) + '</p>') if p.get('sub') else ''}
+            <p>{(str(n) + ' book' + ('s' if n != 1 else '') + ' pinned here at the press, not as a story setting.') if p.get('published') else ((str(n) + ' issues pinned here.') if p.get('heading') else (str(n) + ' book' + ('s' if n != 1 else '') + ' pinned here.'))} {'The book names a region, not an exact address, so the pin sits inside the area.' if p.get('area') and not p.get('published') else ('The pin marks the press.' if p.get('published') and not p.get('area') else ('The pin marks the city of the press, not one office.' if p.get('published') else 'The pin marks the named place.'))}</p>
             <p style="margin-top:1rem;"><a class="btn" style="width:auto;" href="atlas.html#{e(p['id'])}">See it on the map →</a></p>
         </section>
 """)
@@ -309,13 +330,13 @@ def pins_page(places, routes):
     url = f"{SITE}/atlas-pins.html"
     nb = count_books(places)
     title = "All the Pins · Book & Shores Atlas · Go There. Read It."
-    desc = (f"All {len(places)} pins on the Book & Shores Atlas, a map of books at their stated settings from Book & Shores, an independent bookstore. "
+    desc = (f"All {len(places)} pins on the Book & Shores Atlas, from Book & Shores, an independent bookstore: books at their stated settings, or at the press when a book names no place. "
             f"Search {nb} books by place, title or author, or filter by region or reading route.")
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "CollectionPage", "@id": url, "url": url, "name": "All the pins on the Book & Shores Atlas", "description": desc,
          "isPartOf": {"@id": SITE + "/atlas.html#dataset"}, "publisher": {"@id": SITE + "/#org"},
          "mainEntity": {"@type": "ItemList", "name": "Pins on the Book & Shores Atlas", "numberOfItems": len(places), "itemListElement": [
-             {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/atlas-{p['id']}.html", "name": f"Books set in {p['name']}"} for i, p in enumerate(places)]}},
+             {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/atlas-{p['id']}.html", "name": place_page_name(p)} for i, p in enumerate(places)]}},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Atlas", "item": SITE + "/atlas.html"},
             {"@type": "ListItem", "position": 2, "name": "All the pins", "item": url}]},
@@ -384,7 +405,7 @@ def pins_page(places, routes):
         <section class="pins-hero" aria-labelledby="pins-title">
             <p class="eyebrow">Book &amp; Shores Atlas</p>
             <h1 id="pins-title">All the Pins</h1>
-            <p>{len(places)} pins, {nb} books. Every pin is sourced to the book's stated setting. Search by place, book or author, or narrow it down by region or reading route.</p>
+            <p>{len(places)} pins, {nb} books. Pins mark a book's stated setting, or the press when the book names no place. Search by place, book or author, or narrow it down by region or reading route.</p>
             <a class="btn" href="atlas.html">Open the map →</a>
         </section>
 
@@ -426,7 +447,7 @@ def pins_page(places, routes):
     <footer>
         <div class="footer-content">
             <p>© 2026 Book &amp; Shores, an independent bookstore • Contact: <a href="mailto:readme@bookandshores.com">readme@bookandshores.com</a></p>
-            <p class="fine">Each pin on the Book &amp; Shores Atlas marks a book's stated setting, with the source cited on its place page. Book &amp; Shores is an independent bookstore. When you buy through our links, we earn a small commission, and that supports the Atlas.</p>
+            <p class="fine">Each pin on the Book &amp; Shores Atlas marks a book's stated setting, or the press when the book names no place, with the source cited on its place page. Book &amp; Shores is an independent bookstore. When you buy through our links, we earn a small commission, and that supports the Atlas.</p>
         </div>
     </footer>
     <script>{PINS_JS}</script>
@@ -455,12 +476,12 @@ def redirect_page():
 def atlas_blocks(places, routes):
     nb = len({b.get("isbn") or b["title"] for p in places for b in p["books"]})
     ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "Dataset", "@id": SITE + "/atlas.html#dataset", "name": "Book & Shores Atlas: books mapped to their stated settings", "alternateName": "Book and Shores Atlas",
-         "description": f"Books are good for the world, so we pinned them to it. Every pin is sourced to the book's stated setting, and literary routes link them into journeys. {nb} books at {len(places)} places, every setting cited from the book, its publisher or a major review. Made by Book & Shores, an independent bookstore.",
+        {"@type": "Dataset", "@id": SITE + "/atlas.html#dataset", "name": "Book & Shores Atlas: books mapped to their stated settings or presses", "alternateName": "Book and Shores Atlas",
+         "description": f"Books are good for the world, so we pinned them to it. Every pin is sourced: a book's stated setting, or the press when the book names no place. Literary routes link them into journeys. {nb} books at {len(places)} places, each location cited from the book, its publisher or a major review. Made by Book & Shores, an independent bookstore.",
          "url": SITE + "/atlas.html", "creator": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
          "keywords": ["literary map", "books by setting", "book atlas", "literary geography", "literary travel"],
          "spatialCoverage": {"@type": "Place", "name": "World"}, "dateModified": TODAY, "isAccessibleForFree": True,
-         "hasPart": [{"@type": "CollectionPage", "url": f"{SITE}/atlas-{p['id']}.html", "name": f"Books set in {p['name']}"} for p in places]},
+         "hasPart": [{"@type": "CollectionPage", "url": f"{SITE}/atlas-{p['id']}.html", "name": place_page_name(p)} for p in places]},
         {"@type": "ItemList", "@id": SITE + "/atlas.html#pins", "name": "Pins on the Book & Shores Atlas", "numberOfItems": len(places),
          "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/atlas-{p['id']}.html", "name": p["name"]} for i, p in enumerate(places)]},
         ORG]}
@@ -538,7 +559,7 @@ def place_card(p):
         b = bs[0]; h1, by = b["title"], "by " + b["author"]
         if len(h1) > 40 and ":" in h1: h1 = h1.split(":")[0]  # long subtitle pushes the footer off the card
     else:
-        h1 = f"Books set in {p['name']}"; by = " · ".join(b["title"] for b in bs)
+        h1 = place_page_name(p); by = " · ".join(b["title"] for b in bs)
     if p.get("heading"): h1 = p["heading"]; by = p.get("cardBy", by)  # e.g. a magazine pin, not books
     return card_html(f"Book & Shores Atlas · {p.get('cont', '')}", h1, by, str(n), "book" + ("s" if n != 1 else "") + " pinned here",
                      covers=[cover_src(b) for b in bs], place=p["name"])
@@ -551,7 +572,7 @@ def cards(places, only=None):
 
 def pins_card(places):
     render_card("atlas-pins", card_html("Book & Shores Atlas · Index", "All the Pins",
-                f"Go There. Read It. {count_books(places)} books at their stated settings, each one cited.", str(len(places)), "pins"))
+                f"Go There. Read It. {count_books(places)} books at their stated settings, or at the press when a book names no place, each one cited.", str(len(places)), "pins"))
 
 if __name__ == "__main__":
     CSS = base_css()
