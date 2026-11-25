@@ -559,6 +559,15 @@ window.bsSearchIndex = [
 "aff": true
 },
 {
+"title": "Homework: A Memoir",
+"author": "Geoff Dyer",
+"isbn": "9781250437846",
+"cover": "9781250437846.jpg",
+"buy": "https://bookshop.org/a/125864/9781250437846",
+"page": "bookstore.html",
+"aff": true
+},
+{
 "title": "The Housewives Underground",
 "author": "Kaitlyn Tiffany",
 "isbn": "9780593728628",

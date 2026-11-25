@@ -1015,6 +1015,14 @@ window.bsAtlas = [
       src: "Shambhala Publications book listing (Psychedelic Therapy, 9781645476047); Shambhala contact page, 2129 13th Street, Boulder, CO 80302, https://www.shambhala.com/pages/contact" }
   ]}
 
+  ,{ id: "cheltenham", name: "Cheltenham, England", lng: -2.067, lat: 51.900, area: false, cc: "GB", cont: "Europe", reg: ["cheltenham", "gloucestershire", "cotswolds", "england"], books: [
+    { title: "Homework: A Memoir", author: "Geoff Dyer", year: 2026, isbn: "9781250437846", cover: "atlas/cover-homework.jpg",
+      setting: "Cheltenham, England, from childhood in the late 1950s to Oxford", note: "A memoir of a postwar childhood in Cheltenham. Canongate paperback, May 2026; this listing is the Picador US paperback, June 2026.",
+      page: "bookstore.html",
+      srcUrl: "https://www.theguardian.com/books/2025/may/27/homework-by-geoff-dyer-review-coming-of-age-in-70s-england",
+      src: "Blake Morrison, The Guardian, May 27, 2025 (\"growing up, as he was, in Cheltenham\"), https://www.theguardian.com/books/2025/may/27/homework-by-geoff-dyer-review-coming-of-age-in-70s-england; Canongate book page (Cheltenham Grammar School; \"This Gloucestershire lad\"), https://canongate.co.uk/books/5228-homework-a-memoir/" }
+  ]}
+
 ];
 
 /* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.
