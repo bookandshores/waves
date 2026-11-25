@@ -1,5 +1,7 @@
 // B&S Atlas of Books: pin data. Edit this file to add or change pins; atlas.js reads it.
 // RULES: every pin is a book's STATED setting (from our own book page/blurb or the publisher/major press, see "src").
+// If a book names no real place (theory, tech, essays, memoirs that span many cities, etc.), the pin is the publishing press.
+// Those pins set published: true and are labeled "Published in [city] by [press]", never as a story setting.
 // "area": true = the book names a region, not an exact address, so the pin sits inside the region (shown as a dashed ring).
 // "page": our own page for the book. "bookstore.html" means the book only has a card in our bookstore (no dedicated page yet).
 // "partner": optional, name of the press, author or organization that paid for a Launch Pin. Shows a "Partner pin" label on the card and the place page.
@@ -82,7 +84,12 @@ window.bsAtlas = [
     { title: "Office Politics", author: "Wilfrid Sheed", year: 1966, isbn: "9781961341180", cover: "atlas/cover-office-politics.jpg",
       setting: "A drab office on the east side of Manhattan: the staff of The Outsider, a small highbrow weekly, 1960s", note: "A McNally Editions reissue of the 1966 novel, and one of the books Jonathan Lethem champions as our Author of the Month for November 2026.",
       page: "author-of-the-month.html#9781961341180",
-      src: "author-of-the-month.html (Lethem's Office Politics pick); Electric Literature, \"Wilfrid Sheed's Office Politics Reconsidered\" (the office is \"somewhere on the east side of Manhattan\"); McNally Editions (publisher page: a satire of 1960s intellectual New York, set at the magazine The Outsider)" }
+      src: "author-of-the-month.html (Lethem's Office Politics pick); Electric Literature, \"Wilfrid Sheed's Office Politics Reconsidered\" (the office is \"somewhere on the east side of Manhattan\"); McNally Editions (publisher page: a satire of 1960s intellectual New York, set at the magazine The Outsider)" },
+    { title: "Audition", author: "Katie Kitamura", year: 2025, isbn: "9780593852323", cover: "Audition.png",
+      setting: "A Manhattan restaurant, where two people meet for lunch, and rehearsals for a premiere", note: "A novel by Katie Kitamura. Riverhead / Penguin Random House. Finalist for the Booker Prize and the Pulitzer Prize.",
+      page: "bookstore.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/762930/audition-by-katie-kitamura/",
+      src: "Riverhead / Penguin Random House book page (\"Two people meet for lunch in a Manhattan restaurant. She's an accomplished actress in rehearsals for an upcoming premiere\")" }
   ]},
   { id: "brooklyn", name: "Brooklyn, New York", lng: -73.9442, lat: 40.6782, area: false, cc: "US", cont: "North America", reg: ["brooklyn", "kings county", "new york", "new york city", "nyc"], books: [
     { title: "Pure Ox", author: "Mateo Askaripour", isbn: "9798217178995", cover: "atlas/cover-pure-ox.jpg",
@@ -561,7 +568,12 @@ window.bsAtlas = [
     { title: "The Image of Her", author: "Simone de Beauvoir", year: 1966, isbn: "9780300287172", cover: "weekly-the-image-of-her.jpg",
       setting: "Paris in the 1960s, where Laurence, an advertising copywriter, lives among the Parisian bourgeoisie", note: "Beauvoir's final novel (1966), translated by Lauren Elkin. Yale University Press.",
       page: "book-the-image-of-her.html", srcUrl: "https://yalebooks.yale.edu/book/9780300287172/the-image-of-her/",
-      src: "Yale University Press book page (\"the trappings of 1960s Parisian bourgeoisie\"; Laurence's career as an advertising copywriter); Waterstones / Vintage blurb (\"weekdays in Paris\")" }
+      src: "Yale University Press book page (\"the trappings of 1960s Parisian bourgeoisie\"; Laurence's career as an advertising copywriter); Waterstones / Vintage blurb (\"weekdays in Paris\")" },
+    { title: "The Contessa", author: "Benedetta Craveri, tr. Alex Andriesse", year: 2026, isbn: "9798896230465", cover: "IMG_2780.jpg",
+      setting: "Paris, where Virginia, Countess of Castiglione, was sent to persuade Napoleon III to support Italian unification", note: "A biography. New York Review Books. The countess was already renowned in Italy; this pin marks Paris, the assignment the publisher places at the center of the story.",
+      page: "bookstore.html",
+      srcUrl: "https://www.nyrb.com/products/the-contessa",
+      src: "New York Review Books book page (\"Eighteen years old when Victor Emmanuel I sent her to Paris on a special assignment\"; \"Her entrance into the haut monde of Paris\")" }
   ]}
   ,{ id: "london-school-of-night", name: "London, England (1985)", lng: -0.1276, lat: 51.5072, area: true, cc: "GB", cont: "Europe", reg: ["london", "greater london", "england"], books: [
     { title: "The School of Night", author: "Karl Ove Knausgaard", year: 2026, isbn: "9780593832820", cover: "weekly-school-of-night.jpg",
@@ -662,6 +674,347 @@ window.bsAtlas = [
      None of the approved books have a publisher-named neighborhood that matches those three stops without inventing a setting.
      Optional pins (AE decision, not added here): Park Hyatt Tokyo for Lost in Translation if the 8th is included; Toshima City for one episode in Fracture; a general Tokyo pin for Walking in Place 3, Mondo Tokyo, or Jazz Kissa only if AE accepts a city-level pin. Love at Least stays off the map. */
 
+  /* B&S: Bookstore titles added to the Atlas, Nov 25, 2026.
+     Setting pins first, then press-location pins (published: true).
+     Press pins are labeled "Published in [city] by [press]" and never as a story setting. */
+
+  ,{ id: "willingdon-manor-farm", name: "Manor Farm, near Willingdon, England", lng: 0.2501, lat: 50.8004, area: true, cc: "GB", cont: "Europe", reg: ["willingdon", "manor farm", "animal farm", "east sussex", "sussex", "england"], books: [
+    { title: "Animal Farm (75th Anniversary Edition)", author: "George Orwell", year: 1945, isbn: "9780451526342", cover: "n-5.jpg",
+      setting: "Manor Farm, near Willingdon, England, later renamed Animal Farm", note: "Signet 75th anniversary edition. Willingdon is the village named in the book; a real East Sussex village shares the name. The dashed ring marks that village, not a claimed inspiration site.",
+      page: "bookstore.html",
+      srcUrl: "https://en.wikipedia.org/wiki/Animal_Farm",
+      src: "Wikipedia (Animal Farm), plot summary: \"The animal populace of Manor Farm near Willingdon, England\"" }
+  ]}
+  ,{ id: "rue-la-boetie", name: "21 rue La Boétie, Paris", lng: 2.3169, lat: 48.8740, area: false, cc: "FR", cont: "Europe", reg: ["rue la boétie", "la boetie", "paris", "8th arrondissement", "france"], books: [
+    { title: "My Grandfather's Gallery", author: "Anne Sinclair, tr. Shaun Whiteside", year: 2014, isbn: "9781250074775", cover: "9781250074775.jpg",
+      setting: "21 rue La Boétie, Paris, the gallery of Paul Rosenberg, dealer for Picasso, Matisse and Braque", note: "A family memoir of art and war. Picador paperback.",
+      page: "book-my-grandfathers-gallery.html",
+      srcUrl: "https://bookandshores.com/book-my-grandfathers-gallery.html",
+      src: "book-my-grandfathers-gallery.html (Paul Rosenberg \"had been the Paris dealer for Picasso, Matisse and Braque, at 21 rue La Boétie\")" }
+  ]}
+  ,{ id: "silicon-valley-nerd-reich", name: "Silicon Valley, California", lng: -122.1545, lat: 37.4430, area: true, cc: "US", cont: "North America", reg: ["silicon valley", "san francisco", "bay area", "california", "palo alto"], books: [
+    { title: "The Nerd Reich: Silicon Valley Fascism and the War on Democracy", author: "Gil Durán", year: 2026, isbn: "9781668221402", cover: "n-3.jpg",
+      setting: "Silicon Valley, from San Francisco politics to the international stage", note: "Avid Reader Press / Simon & Schuster. The dashed ring marks Silicon Valley as a region, not one office.",
+      page: "bookstore.html",
+      srcUrl: "https://www.simonandschuster.com/books/The-Nerd-Reich/Gil-Duran/9781668221402",
+      src: "Avid Reader Press / Simon & Schuster book page (\"from its early days in San Francisco politics\"; \"Silicon Valley's war on democracy\"; \"From San Francisco's weaponized elections\")" }
+  ]}
+
+  ,{ id: "chicago-uchicago-press", name: "Chicago, Illinois", heading: "Published in Chicago", sub: "University of Chicago Press", cardBy: "University of Chicago Press", published: true, lng: -87.5908, lat: 41.7851, area: false, cc: "US", cont: "North America", reg: ["chicago", "hyde park", "illinois", "university of chicago press"],
+    desc: "Turning Away by Benjamin A. Saltzman, pinned at University of Chicago Press in Chicago, not as a story setting. The press address is cited.", books: [
+    { title: "Turning Away", author: "Benjamin A. Saltzman", isbn: "9780226847221", cover: "TURNING.jpg",
+      setting: "Published in Chicago by University of Chicago Press", note: "Turning Away: The Poetics of an Ancient Gesture. A study of the averted gaze in art, poetry and philosophy, from Timanthes and Plato to the present. Weekly Reads, July 2026.",
+      page: "bookstore.html",
+      srcUrl: "https://press.uchicago.edu/ucp/books/book/chicago/T/bo264591260.html",
+      src: "University of Chicago Press book page (Turning Away: The Poetics of an Ancient Gesture); Press contact page, 1427 East 60th Street, Chicago, IL 60637, https://press.uchicago.edu/press/contact.html" }
+  ]}
+  ,{ id: "cambridge-mit-press", name: "Cambridge, Massachusetts", heading: "Published in Cambridge", sub: "The MIT Press", cardBy: "The MIT Press", published: true, lng: -71.0853, lat: 42.3628, area: false, cc: "US", cont: "North America", reg: ["cambridge", "mit", "mit press", "kendall square", "massachusetts"],
+    desc: "MIT Press titles from the bookstore, pinned at the press in Cambridge, Massachusetts, not as story settings. The press address is cited.", books: [
+    { title: "Beautiful Particulars", author: "David Weinberger", isbn: "9780262054867", cover: "PARTICULARS.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A work of ideas from The MIT Press.",
+      page: "bookstore.html",
+      srcUrl: "https://mitpress.mit.edu/9780262054867/",
+      src: "The MIT Press book page (9780262054867); MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "Better Tech", author: "Francine Berman", isbn: "9780262054881", cover: "BETTERTECH.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A work of ideas from The MIT Press.",
+      page: "bookstore.html",
+      srcUrl: "https://mitpress.mit.edu/9780262054881/better-tech/",
+      src: "The MIT Press book page (Better Tech); MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "Design for Entropy: Active Inference and Technology", author: "Luca M. Possati", isbn: "9780262056267", cover: "DESIGN.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A work of ideas from The MIT Press.",
+      page: "bookstore.html",
+      src: "ISBN 9780262056267 is a The MIT Press title; MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "Life's Chemical Secret", author: "Addy Pross", isbn: "9780262054836", cover: "CHEMICAL.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A work of ideas from The MIT Press.",
+      page: "bookstore.html",
+      srcUrl: "https://doi.org/10.7551/mitpress/16156.001.0001",
+      src: "The MIT Press Direct book page (DOI 10.7551/mitpress/16156.001.0001); MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "Nary a Horse Left Standing", author: "Lee Alan Dugatkin", isbn: "9780262054546", cover: "NARY.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A work of ideas from The MIT Press.",
+      page: "bookstore.html",
+      src: "ISBN 9780262054546 is a The MIT Press title; MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "Strange Attractor", author: "Graham St John", isbn: "9780262049573", cover: "Terence.jpg",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "Strange Attractor: The Hallucinatory Life of Terence McKenna, with a foreword by Erik Davis. A biography that does not center on one named place.",
+      page: "bookstore.html",
+      srcUrl: "https://mitpress.mit.edu/9780262049573/strange-attractor/",
+      src: "The MIT Press book page (Strange Attractor: The Hallucinatory Life of Terence McKenna, Graham St John); MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "The Aesthetics of Machine Vision: Critical Terms and Ideas", author: "Edited by Kathrin Maurer, Rikke Munck Petersen, Dominique Routhier, Kassandra Wellendorf, and Kristin Veel", isbn: "9780262054171", cover: "Vision.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A critical-terms volume from The MIT Press.",
+      page: "bookstore.html",
+      src: "ISBN 9780262054171 is a The MIT Press title; MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "The Carbon Wave: A Story of Democracy, Parenthood, and the Race to Protect Our Planet", author: "Leah C. Stokes", isbn: "9780262054775", cover: "CARBON.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A work of ideas from The MIT Press. The publisher does not name one place as the book's center.",
+      page: "bookstore.html",
+      src: "ISBN 9780262054775 is a The MIT Press title; MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" },
+    { title: "The Player and the Played", author: "Max Haiven", isbn: "9780262056045", cover: "PLAYER.png",
+      setting: "Published in Cambridge, Massachusetts, by The MIT Press", note: "A work of ideas from The MIT Press.",
+      page: "bookstore.html",
+      srcUrl: "https://maxhaiven.com/player/",
+      src: "ISBN 9780262056045 is a The MIT Press title; MIT Press contact page, 255 Main Street, 9th Floor, Cambridge, MA 02142, https://mitpress.mit.edu/contact-us/" }
+  ]}
+  ,{ id: "durham-duke-press", name: "Durham, North Carolina", heading: "Published in Durham", sub: "Duke University Press", cardBy: "Duke University Press", published: true, lng: -78.9099, lat: 36.0001, area: false, cc: "US", cont: "North America", reg: ["durham", "north carolina", "duke", "duke university press"],
+    desc: "Duke University Press titles from the bookstore, pinned at the press in Durham, not as story settings. The press address is cited.", books: [
+    { title: "Archives of the Anthropocene: Visual Grammars of Deep Time", author: "Yuriko Furuhata", isbn: "9781478038948", cover: "IMG_2856.jpg",
+      setting: "Published in Durham, North Carolina, by Duke University Press", note: "A scholarly book on visual grammars of deep time.",
+      page: "bookstore.html",
+      src: "ISBN 9781478038948 is a Duke University Press title; Duke University Press contact page, 905 W. Main St. Ste 18-B, Durham, NC 27701, https://dukeupress.edu/contact" },
+    { title: "Live Dead: The Grateful Dead, Live Recordings, and the Ideology of Liveness", author: "John Brackett", isbn: "9781478025481", cover: "LIVEDEAD.png",
+      setting: "Published in Durham, North Carolina, by Duke University Press", note: "A scholarly study of Grateful Dead live recordings. The press does not name one place as the book's center.",
+      page: "bookstore.html",
+      src: "ISBN 9781478025481 is a Duke University Press title; Duke University Press contact page, 905 W. Main St. Ste 18-B, Durham, NC 27701, https://dukeupress.edu/contact" },
+    { title: "Touch of Grey, or How the Grateful Dead Became Pop Stars", author: "John Brackett", isbn: "9781478038894", cover: "TOUCHGREY.png",
+      setting: "Published in Durham, North Carolina, by Duke University Press", note: "A scholarly study of the Grateful Dead. The press does not name one place as the book's center.",
+      page: "bookstore.html",
+      src: "ISBN 9781478038894 is a Duke University Press title; Duke University Press contact page, 905 W. Main St. Ste 18-B, Durham, NC 27701, https://dukeupress.edu/contact" },
+    { title: "Worlds Beyond Bios", author: "Sophie Chao, Christine J. Winter & David Schlosberg", isbn: "9781478038870", cover: "WORLDS.png",
+      setting: "Published in Durham, North Carolina, by Duke University Press", note: "Environmental thinkers on worlds beyond the human.",
+      page: "bookstore.html",
+      src: "ISBN 9781478038870 is a Duke University Press title; Duke University Press contact page, 905 W. Main St. Ste 18-B, Durham, NC 27701, https://dukeupress.edu/contact" }
+  ]}
+  ,{ id: "new-york-columbia-press", name: "New York, New York", heading: "Published in New York", sub: "Columbia University Press", cardBy: "Columbia University Press", published: true, lng: -73.9828, lat: 40.7711, area: false, cc: "US", cont: "North America", reg: ["columbia university press", "lincoln square", "manhattan", "new york", "new york city", "nyc"],
+    desc: "The Edges of Cinema by Erika Balsom, pinned at Columbia University Press in New York, not as a story setting. The press address is cited.", books: [
+    { title: "The Edges of Cinema", author: "Erika Balsom", isbn: "9780231221337", cover: "EDGES.png",
+      setting: "Published in New York by Columbia University Press", note: "A work of film criticism and ideas from Columbia University Press.",
+      page: "bookstore.html",
+      srcUrl: "https://cup.columbia.edu/contact/",
+      src: "ISBN 9780231 is a Columbia University Press title; Columbia University Press contact page, 61 West 62 Street, New York, NY 10023, https://cup.columbia.edu/contact/" }
+  ]}
+  ,{ id: "minneapolis-coffee-house-press", name: "Minneapolis, Minnesota", heading: "Published in Minneapolis", sub: "Coffee House Press", cardBy: "Coffee House Press", published: true, lng: -93.2705, lat: 45.0000, area: false, cc: "US", cont: "North America", reg: ["minneapolis", "minnesota", "coffee house press"],
+    desc: "Helen of Nowhere by Makenna Goodman, pinned at Coffee House Press in Minneapolis. The publisher places the story in the countryside and does not name a town.", books: [
+    { title: "Helen of Nowhere", author: "Makenna Goodman", year: 2025, isbn: "9781566897358", cover: "HELEN.png",
+      setting: "Published in Minneapolis by Coffee House Press", note: "Longlisted for the 2026 Booker Prize. Coffee House Press places the story in the countryside, at an idyllic house, and does not name a town, so the pin marks the press.",
+      page: "book-helen-of-nowhere.html",
+      srcUrl: "https://coffeehousepress.org/products/helen-of-nowhere",
+      src: "Coffee House Press book page (\"In the middle of the countryside, a realtor is showing a disgraced professor around an idyllic house\"); Coffee House Press contact page, 79 Thirteenth Avenue NE, Suite 110, Minneapolis, MN 55413, https://coffeehousepress.org/pages/contact" }
+  ]}
+  ,{ id: "london-presses", name: "London, England", heading: "Published in London", sub: "Publishers in London", cardBy: "Publishers in London", published: true, lng: -0.1072, lat: 51.5114, area: true, cc: "GB", cont: "Europe", reg: ["london", "england", "uk", "octopus", "pushkin", "harpercollins", "montez"],
+    desc: "Bookstore titles whose publishers are in London, pinned at the city of the press, not as story settings. Each book names its press, with the source cited.", books: [
+    { title: "Cursed Thing", author: "Nashi, tr. Jim Rion", year: 2027, isbn: "9781846019180", cover: "9781846019180.jpg",
+      setting: "Published in London by Octopus Publishing Group", note: "Octopus describes images of a young woman's face across the city and does not name the city, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-cursed-thing.html",
+      srcUrl: "https://www.hachette.co.uk/titles/nashi/cursed-thing/9781846019180/",
+      src: "Hachette UK / Octopus book listing (Cursed Thing, 9781846019180); book-cursed-thing.html (Octopus does not name the city); Octopus contact page, Carmelite House, 50 Victoria Embankment, London EC4Y 0DZ, https://www.octopusbooks.co.uk/imprint/octopus/page/contact-octopus/" },
+    { title: "Please Form Pairs", author: "Chiren Kina, tr. Haydn Trowell", year: 2026, isbn: "9781846017537", cover: "9781846017537.jpg",
+      setting: "Published in London by Octopus Publishing Group", note: "Octopus places the story at a school in Japan and does not name a city, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-please-form-pairs.html",
+      src: "book-please-form-pairs.html (Octopus, August 2026; places the story at a school in Japan and does not name a city); Octopus contact page, Carmelite House, 50 Victoria Embankment, London EC4Y 0DZ, https://www.octopusbooks.co.uk/imprint/octopus/page/contact-octopus/" },
+    { title: "Negative Space", author: "Kaori Fujino, tr. Kendall Heitzman", year: 2027, isbn: "9781805680413", cover: "9781805680413.jpg",
+      setting: "Published in London by Pushkin Press", note: "Pushkin Press places the story in a university flat and does not name a city, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-negative-space.html",
+      src: "book-negative-space.html (Pushkin Press, March 2027; places the story in a university flat and does not name a city); Pushkin Press contact page, Somerset House, Strand, London WC2R 1LA, https://pushkinpress.com/contact/" },
+    { title: "The Flower Brings Death", author: "Chihiro Kurihara", year: 2027, isbn: "9780008863807", cover: "9780008863807.jpg",
+      setting: "Published in London by HarperCollins", note: "HarperCollins UK edition (ISBN 978-0-00). In the Japanese Lit collection. The publisher page does not name a story setting, so the pin marks the press.",
+      page: "book-the-flower-brings-death.html", buy: "https://www.harpercollins.com/products/the-flower-brings-death-chihiro-kurihara",
+      srcUrl: "https://corporate.harpercollins.co.uk/people-and-culture/about-our-offices/",
+      src: "book-the-flower-brings-death.html (HarperCollins, 23 September 2027, ISBN 9780008863807); HarperCollins UK offices page, The News Building, 1 London Bridge Street, London SE1 9GF, https://corporate.harpercollins.co.uk/people-and-culture/about-our-offices/" },
+    { title: "The Whole Routine", author: "Edward Thomasson", year: 2026, cover: "WHOLE.png",
+      setting: "Published in London by Montez Press", note: "A performance score from the Montez Press Scores imprint. The text is not tied to one named city, so the pin marks the press.",
+      page: "bookstore.html", buy: "https://www.montezpress.com/catalogue/scores/the-whole-routine/",
+      srcUrl: "https://www.montezpress.com/catalogue/scores/the-whole-routine/",
+      src: "Montez Press book page (The Whole Routine, a musical performance about control and desire); Montez Press contact page, Unit 29, Penarth Centre, Penarth Street, SE15 1TR, London, https://www.montezpress.com/about/contact/" }
+  ]}
+  ,{ id: "new-york-presses", name: "New York, New York", heading: "Published in New York", sub: "Publishers in New York", cardBy: "Publishers in New York", published: true, lng: -73.9809, lat: 40.7589, area: true, cc: "US", cont: "North America", reg: ["new york", "new york city", "nyc", "manhattan", "publishers"],
+    desc: "Bookstore titles whose publishers are in New York, pinned at the city of the press, not as story settings. Each book names its press, with the source cited.", books: [
+    { title: "A Sudden Flicker of Light: A Revisionist History of Movies", author: "David Thomson", isbn: "9781668205730", cover: "IMG_2770.jpg",
+      setting: "Published in New York by Simon & Schuster", note: "A history of movies. The book does not center on one named place, so the pin marks the press.",
+      page: "bookstore.html",
+      src: "ISBN 9781668 is a Simon & Schuster title; Simon & Schuster locations page, Corporate Headquarters, 1230 Avenue of the Americas, New York, NY 10020, https://www.simonandschuster.biz/p/locations" },
+    { title: "Birds of America", author: "Chera Hammons", year: 2026, isbn: "9780593980033", cover: "Birds.png",
+      setting: "Published in New York by Dial Press", note: "Poems steeped in the natural world. The publisher description does not name a setting, so the pin marks the press, not the author's home.",
+      page: "bookstore.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/799081/birds-of-america-by-chera-hammons/",
+      src: "Dial Press / Penguin Random House book page (\"poems steeped in the natural world\"; imprint Dial Press Trade Paperback); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Chain of Ideas", author: "Ibram X. Kendi", isbn: "9780593978023", cover: "Chain.png",
+      setting: "Published in New York by Penguin Random House", note: "A book of ideas. The publisher listing does not name one place as the book's center, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://penguinrandomhousehighereducation.com/book/?isbn=9780593978023",
+      src: "Penguin Random House higher-education book page (9780593978023); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Covering Islam", author: "Edward W. Said", isbn: "9780679758907", cover: "COVERING.png",
+      setting: "Published in New York by Vintage", note: "A work of criticism from Vintage, a Penguin Random House imprint.",
+      page: "bookstore.html",
+      src: "ISBN 9780679 is a Vintage / Penguin Random House title; Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Daylight Come: Harry Belafonte and the World He Made", author: "Joshua Jelly-Schapiro", year: 2026, isbn: "9780593652701", cover: "IMG_2776.jpg",
+      setting: "Published in New York by Penguin Press", note: "A biography that follows Belafonte from Harlem to Jamaica to the March on Washington, so it does not center on one place. The pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/716426/daylight-come-by-joshua-jelly-schapiro-curated-by-henry-louis-gates-jr/",
+      src: "Penguin Press book page (\"following him from rags to riches and from Harlem to Jamaica to the March on Washington\"); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Future Shock", author: "Alvin Toffler", isbn: "9780553277371", cover: "FUTURESHOCK.png",
+      setting: "Published in New York by Bantam", note: "A work of ideas from Bantam, a Penguin Random House imprint.",
+      page: "bookstore.html",
+      src: "ISBN 9780553 is a Bantam / Penguin Random House title; Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Let the Poets Govern", author: "Camonghne Felix", isbn: "9780593242148", cover: "9780593242148.jpg",
+      setting: "Published in New York by Penguin Random House", note: "A 2026 National Book Award finalist for Nonfiction. The book does not center on one named place, so the pin marks the press.",
+      page: "book-let-the-poets-govern.html",
+      src: "book-let-the-poets-govern.html; Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Madame Composer: The Virtuosic Genius of Clara Schumann", author: "Sarah Fritz", year: 2026, isbn: "9798897101887", cover: "IMG_2782.jpg",
+      setting: "Published in New York by Pegasus Books", note: "A biography of Clara Schumann that moves with her career and does not center on one named city, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "http://www.pegasusbooks.com/about/contact",
+      src: "Pegasus Books contact page, 148 West 37th Street, 13th Floor, New York, NY 10018, http://www.pegasusbooks.com/about/contact" },
+    { title: "Mother Tongue", author: "Sara Nović", isbn: "9780593241530", cover: "9780593241530.jpg",
+      setting: "Published in New York by Penguin Random House", note: "A 2026 National Book Award finalist for Nonfiction. The book does not center on one named place, so the pin marks the press.",
+      page: "book-mother-tongue.html",
+      src: "book-mother-tongue.html; Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Music Sets You Free", author: "Ryuichi Sakamoto, tr. Sam Bett", year: 2026, isbn: "9780063416505", cover: "IMG_2781.jpg",
+      setting: "Published in New York by HarperCollins", note: "A memoir of a career that does not center on one named city, so the pin marks the press. This edition is the HarperCollins US ISBN.",
+      page: "bookstore.html",
+      srcUrl: "https://www.harpercollins.com/pages/privacy-notice",
+      src: "HarperCollins US ISBN 9780063416505; HarperCollins Publishers privacy notice, 195 Broadway, New York, NY 10007, https://www.harpercollins.com/pages/privacy-notice" },
+    { title: "Platonic Love", author: "Mieko Kanai, tr. Polly Barton", year: 2027, isbn: "9780811239424", cover: "9780811239424.jpg",
+      setting: "Published in New York by New Directions", note: "Short stories first published in Japan in the 1970s, with no single named place, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-platonic-love.html",
+      srcUrl: "https://www.ndbooks.com/about/contact/",
+      src: "book-platonic-love.html (New Directions, April 2027; short stories, no single place); New Directions contact page, 80 Eighth Avenue, New York, NY 10011, https://www.ndbooks.com/about/contact/" },
+    { title: "Powershift", author: "Alvin Toffler", isbn: "9780553292152", cover: "POWERSHIFT.png",
+      setting: "Published in New York by Bantam", note: "A work of ideas from Bantam, a Penguin Random House imprint.",
+      page: "bookstore.html",
+      srcUrl: "https://penguinrandomhousehighereducation.com/book/?isbn=9780553292152",
+      src: "Penguin Random House higher-education book page (9780553292152); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "Push the Wall: My Life, Writing, Drawing, and the Art of Storytelling", author: "Frank Miller", year: 2026, isbn: "9781668065297", cover: "IMG_2771.jpg",
+      setting: "Published in New York by Simon & Schuster", note: "A memoir of a life and craft that does not center on one named place, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.simonandschuster.biz/books/Push-the-Wall/Frank-Miller/9781668065297",
+      src: "Simon & Schuster book page (Push the Wall); Simon & Schuster locations page, Corporate Headquarters, 1230 Avenue of the Americas, New York, NY 10020, https://www.simonandschuster.biz/p/locations" },
+    { title: "Scream", author: "Tokuro Nukui", year: 2027, isbn: "9781668204740", cover: "9781668204740.jpg",
+      setting: "Published in New York by Atria / Emily Bestler Books", note: "Atria/Emily Bestler Books places the story in contemporary Japan and does not name a city, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-scream.html",
+      src: "book-scream.html (Atria/Emily Bestler Books, July 2027; contemporary Japan, no city named); Simon & Schuster locations page, Corporate Headquarters, 1230 Avenue of the Americas, New York, NY 10020, https://www.simonandschuster.biz/p/locations" },
+    { title: "Sickness unto Love", author: "Yuki Shasendo, tr. Michael Blaskowsky", year: 2026, isbn: "9798855423679", cover: "9798855423679.jpg",
+      setting: "Published in New York by Avocado House", note: "Avocado House, an imprint of Yen Press, follows deaths across Japan and does not name a city, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-sickness-unto-love.html",
+      srcUrl: "https://yenpress.com/contacts",
+      src: "book-sickness-unto-love.html (Avocado House, November 2026; follows deaths across Japan, no city named); Avocado House about page (\"an imprint of Yen Press\"), https://avocadohouse.com/about; Yen Press mailing address, 150 W 30th Street, 6th floor, New York, New York 10001, https://yenpress.com/contacts" },
+    { title: "Sound Within Sound: Radical Composers of the Twentieth Century", author: "Kate Molleson", year: 2022, isbn: "9781419753565", cover: "9781419753565.jpg",
+      setting: "Published in New York by Abrams Press", note: "Profiles of a dozen composers who worked far from the usual capitals, so the book does not center on one place. The pin marks the press.",
+      page: "book-sound-within-sound.html",
+      srcUrl: "https://www.abramsbooks.com/contact/",
+      src: "book-sound-within-sound.html (Abrams Press hardcover, 2022); Abrams contact page, 195 Broadway, 9th Floor, New York, NY 10007, https://www.abramsbooks.com/contact/" },
+    { title: "Spawning Season", author: "Joseph Osmundson", isbn: "9781639737833", cover: "9781639737833.jpg",
+      setting: "Published in New York by Bloomsbury", note: "A 2026 National Book Award finalist for Nonfiction. The book does not center on one named place, so the pin marks the press.",
+      page: "book-spawning-season.html",
+      srcUrl: "https://www.bloomsbury.com/us/connect/about-us/offices/",
+      src: "book-spawning-season.html; Bloomsbury offices page, Bloomsbury Publishing Inc., 1359 Broadway, 12th Floor, New York, NY 10018, https://www.bloomsbury.com/us/connect/about-us/offices/" },
+    { title: "Strange Maps", author: "Uketsu, tr. Jim Rion", year: 2027, isbn: "9780063577268", cover: "9780063577268.jpg",
+      setting: "Published in New York by HarperVia", note: "HarperVia names a deserted coastal village and a town and does not name either place, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-strange-maps.html",
+      src: "book-strange-maps.html (HarperVia, April 2027; does not name the village or the town); HarperCollins Publishers privacy notice, 195 Broadway, New York, NY 10007, https://www.harpercollins.com/pages/privacy-notice" },
+    { title: "Susan Sontag: The Collected Essays", author: "Edited by David Rieff", year: 2026, isbn: "9781598538595", cover: "9781598538595.jpg",
+      setting: "Published in New York by Library of America", note: "A two-volume boxed set of Sontag's essays. An essay collection does not center on one place, so the pin marks the press.",
+      page: "book-susan-sontag-collected-essays.html",
+      srcUrl: "https://www.loa.org/contact-us/",
+      src: "book-susan-sontag-collected-essays.html (Library of America, November 3, 2026); Library of America editorial office, 14 East 60th Street, New York, NY 10022-1006, https://www.loa.org/contact-us/" },
+    { title: "The Best American Essays 2026", author: "Edited by M. Gessen", year: 2026, isbn: "9780063454446", cover: "n-1.jpg",
+      setting: "Published in New York by HarperCollins", note: "An annual anthology with no single setting, so the pin marks the press.",
+      page: "bookstore.html",
+      src: "ISBN 9780063454446 is a HarperCollins title; HarperCollins Publishers privacy notice, 195 Broadway, New York, NY 10007, https://www.harpercollins.com/pages/privacy-notice" },
+    { title: "The Friday Afternoon Club", author: "Griffin Dunne", year: 2024, isbn: "9780593652848", cover: "Friday.png",
+      setting: "Published in New York by Penguin Press", note: "A family memoir the publisher places in Hollywood and Manhattan, so it does not center on one place. The pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/717278/the-friday-afternoon-club-by-griffin-dunne/",
+      src: "Penguin Press / Penguin Books page (\"growing up among larger-than-life characters in Hollywood and Manhattan\"); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "The Land and Its People", author: "David Sedaris", isbn: "9780316264839", cover: "Sedaris.jpg",
+      setting: "Published in New York by Little, Brown and Company", note: "An essay collection that moves among many places, so it does not center on one. The pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.hachettebookgroup.com/about/",
+      src: "ISBN 9780316 is a Little, Brown title; Hachette Book Group about page (Little, Brown and Company is one of HBG's publishing groups; \"HBG is headquartered in New York City\"), https://www.hachettebookgroup.com/about/" },
+    { title: "The Mountain", author: "Nanami Kamon, tr. Kalau Almony", year: 2027, isbn: "9781668246870", cover: "9781668246870.jpg",
+      setting: "Published in New York by Saga Press", note: "Saga Press places the story at an abandoned lumber mill deep in the mountains in Japan and does not name the mountain, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-the-mountain.html",
+      src: "book-the-mountain.html (Saga Press, January 2027; does not name the mountain); Simon & Schuster locations page, Corporate Headquarters, 1230 Avenue of the Americas, New York, NY 10020, https://www.simonandschuster.biz/p/locations" },
+    { title: "The Museum of Silence", author: "Yoko Ogawa, tr. Stephen Snyder", year: 2027, isbn: "9780593702062", cover: "9780593702062.jpg",
+      setting: "Published in New York by Pantheon", note: "Pantheon places the story in a small, nondescript town and does not name the town, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-the-museum-of-silence.html",
+      src: "book-the-museum-of-silence.html (Pantheon, 8 June 2027; a small, nondescript town, unnamed); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "The Near and Distant World", author: "Bianca Stone", isbn: "9781963108651", cover: "THENEAR.png",
+      setting: "Published in New York by Penguin Random House", note: "A poetry collection. The publisher listing does not name one place as the book's center, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.penguinrandomhouse.com/books/816553/the-near-and-distant-world-by-bianca-stone/",
+      src: "Penguin Random House book page (The Near and Distant World); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "The Simpsons Treehouse of Horror Omnibus 3-Volume Box Set", author: "uncredited", isbn: "9781419793967", cover: "SimpsonsTreehouse.png",
+      setting: "Published in New York by Abrams", note: "A box set. Springfield is a fictional town the series never locates, so the pin marks the press. No author is listed on the bookstore card.",
+      page: "bookstore.html",
+      srcUrl: "https://www.abramsbooks.com/contact/",
+      src: "ISBN 9781419793967 is an Abrams title; Abrams contact page, 195 Broadway, 9th Floor, New York, NY 10007, https://www.abramsbooks.com/contact/" },
+    { title: "The Space Behind the Face: Life Stories", author: "Robert Wilson with Keith McDermott", year: 2026, isbn: "9798217061273", cover: "9798217061273.jpg",
+      setting: "Published in New York by Penguin Press", note: "A memoir that moves from small-town Texas to New York's downtown scene to stages around the world, so it does not center on one place. The pin marks the press.",
+      page: "book-space-behind-the-face.html",
+      src: "book-space-behind-the-face.html (\"from small-town Texas to New York's downtown scene to the world's stages\"); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" },
+    { title: "The Third Wave", author: "Alvin Toffler", isbn: "9780553246988", cover: "THIRDWAV.png",
+      setting: "Published in New York by Bantam", note: "A work of ideas from Bantam, a Penguin Random House imprint.",
+      page: "bookstore.html",
+      srcUrl: "https://penguinrandomhousehighereducation.com/book/?isbn=9780553246988",
+      src: "Penguin Random House higher-education book page (9780553246988); Penguin Random House, \"Headquartered in New York City,\" https://www.penguinrandomhouse.com/about-us/our-story/" }
+  ]}
+  ,{ id: "brooklyn-presses", name: "Brooklyn, New York", heading: "Published in Brooklyn", sub: "Publishers in Brooklyn", cardBy: "Publishers in Brooklyn", published: true, lng: -73.9521, lat: 40.6984, area: true, cc: "US", cont: "North America", reg: ["brooklyn", "kings county", "new york", "new york city", "nyc", "nightboat", "catapult"],
+    desc: "Bookstore titles whose publishers are in Brooklyn, pinned at the borough of the press, not as story settings. Each book names its press, with the source cited.", books: [
+    { title: "Cloud Six", author: "Amy Fusselman", year: 2026, isbn: "9781646223480", cover: "CLOUDSIX.png",
+      setting: "Published in Brooklyn by Catapult", note: "A novel whose action takes place in Cloud Six, a fictional tier of heaven, so the pin marks the press, not a place on the map.",
+      page: "bookstore.html",
+      srcUrl: "https://books.catapult.co/books/cloud-six/",
+      src: "Catapult book page (\"married couple Mam and Bunko have found themselves in Cloud Six. It's the newest, and lowest, tier of heaven\"); Counterpoint / Catapult contact page, 20 Jay Street #704, Brooklyn, NY 11201 (general inquiries: contact@catapult.co), https://www.counterpointpress.com/contact/" },
+    { title: "Unsex Me Here", author: "Aurora Mattia", year: 2025, isbn: "9781643622705", cover: "UNISEX.png",
+      setting: "Published in Brooklyn by Nightboat Books", note: "Stories that move from a West Texas town to a stalactite cavern and hotel rooms, with no single named center, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://nightboat.org/book/unsex-me-here/",
+      src: "Nightboat Books book page (\"From a West Texas town with a supernatural past to a stalactite cavern in the birthplace of Aphrodite, from hotel rooms to gardens\"); Nightboat contact page, 130 Palmetto Street, Studio 205, Brooklyn, NY 11221, https://nightboat.org/about/" }
+  ]}
+  ,{ id: "san-francisco-two-lines-press", name: "San Francisco, California", heading: "Published in San Francisco", sub: "Two Lines Press", cardBy: "Two Lines Press", published: true, lng: -122.4016, lat: 37.7895, area: false, cc: "US", cont: "North America", reg: ["san francisco", "california", "two lines press", "center for the art of translation"],
+    desc: "Blood Is Dripping onto the Courtyard by Elvira Navarro, pinned at Two Lines Press in San Francisco. The stories move among many places, so the pin marks the press.", books: [
+    { title: "Blood Is Dripping onto the Courtyard", author: "Elvira Navarro, tr. Christina MacSweeney", year: 2026, isbn: "9781966192077", cover: "BLOOD.png",
+      setting: "Published in San Francisco by Two Lines Press", note: "Stories the publisher places in towns in the middle of nowhere, abandoned buildings, and, in one piece, the Parisian suburbs, so the collection does not center on one place. The pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.twolinespress.com/shop/books/blood-is-dripping-onto-the-courtyard",
+      src: "Two Lines Press book page (\"towns in the middle of nowhere, abandoned buildings,\" and \"the cruel neglect of the Parisian suburbs\"); Center for the Art of Translation contact page (Two Lines Press is its book publishing program), 582 Market Street, Suite 700, San Francisco, CA 94104, https://www.catranslation.org/about/contact-us/" }
+  ]}
+  ,{ id: "helsinki-we-jazz", name: "Helsinki, Finland", heading: "Published in Helsinki", sub: "We Jazz", cardBy: "We Jazz", published: true, lng: 24.9575, lat: 60.1887, area: false, cc: "FI", cont: "Europe", reg: ["helsinki", "finland", "we jazz"],
+    desc: "We Jazz Issue 19: Milestones, pinned at We Jazz in Helsinki, not as a story setting. The press address is cited.", books: [
+    { title: "We Jazz Issue 19: Milestones", author: "We Jazz", cover: "WE JAZZ.png",
+      setting: "Published in Helsinki by We Jazz", note: "A magazine issue; Milestones is the issue theme. The pin marks the press.",
+      page: "bookstore.html", buy: "https://publicknowledgebooks.com/products/we-jazz-issue-19-milestones-1",
+      srcUrl: "https://wejazz.fi/info/",
+      src: "We Jazz info page (\"an independent music culture company based in Helsinki, Finland\"; We Jazz Oy, Vaasankatu 15, 00500 Helsinki, FI), https://wejazz.fi/info/" }
+  ]}
+  ,{ id: "los-angeles-srf", name: "Los Angeles, California", heading: "Published in Los Angeles", sub: "Self-Realization Fellowship", cardBy: "Self-Realization Fellowship", published: true, lng: -118.2157, lat: 34.1017, area: false, cc: "US", cont: "North America", reg: ["los angeles", "mount washington", "california", "self-realization fellowship", "srf"],
+    desc: "Autobiography of a Yogi, pinned at Self-Realization Fellowship International Headquarters in Los Angeles. The memoir spans India and California, so the pin marks the press.", books: [
+    { title: "Autobiography of a Yogi", author: "Paramahansa Yogananda", isbn: "9780876120835", cover: "9780876120835.jpg",
+      setting: "Published in Los Angeles by Self-Realization Fellowship", note: "A memoir that moves between India and California, so it does not center on one place. The pin marks the press that publishes this edition.",
+      page: "bookstore.html",
+      srcUrl: "https://yogananda.org/contact-us",
+      src: "Self-Realization Fellowship contact page (\"Where is the SRF International Headquarters located? 3880 San Rafael Avenue, Los Angeles, California 90065-3219 U.S.A.\"), https://yogananda.org/contact-us; SRF is the publisher of this edition (ISBN 9780876120835)" }
+  ]}
+  ,{ id: "los-angeles-rare-bird", name: "Los Angeles, California", heading: "Published in Los Angeles", sub: "Rare Bird Books", cardBy: "Rare Bird Books", published: true, lng: -118.2437, lat: 34.0522, area: true, cc: "US", cont: "North America", reg: ["los angeles", "california", "rare bird"],
+    desc: "Cocaine + Surfing by Chas Smith, pinned at Rare Bird Books in Los Angeles, not as a story setting.", books: [
+    { title: "Cocaine + Surfing", author: "Chas Smith", year: 2018, isbn: "9781945572814", cover: "Cocaine.png",
+      setting: "Published in Los Angeles by Rare Bird Books", note: "A history of surfing's entanglement with cocaine. The book does not center on one named place, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://rarebirdlit.com/about-rare-bird/",
+      src: "Rare Bird official About page (\"humming beneath the cultural broadband of Los Angeles\"; \"operates from a shadowy locus between Northeast LA\"), https://rarebirdlit.com/about-rare-bird/" }
+  ]}
+  ,{ id: "marina-del-rey-tokyopop", name: "Marina del Rey, California", heading: "Published in Marina del Rey", sub: "TOKYOPOP", cardBy: "TOKYOPOP", published: true, lng: -118.4486, lat: 33.9777, area: true, cc: "US", cont: "North America", reg: ["marina del rey", "los angeles", "california", "tokyopop"],
+    desc: "Six: Paths of Horror by Nashi, pinned at TOKYOPOP in Marina del Rey. The stories have no single named place, so the pin marks the press.", books: [
+    { title: "Six: Paths of Horror", author: "Nashi", year: 2026, isbn: "9781427888341", cover: "9781427888341.jpg",
+      setting: "Published in Marina del Rey, California, by TOKYOPOP", note: "Six stories with no single named place, so the pin marks the press. In the Japanese Lit collection.",
+      page: "book-six-paths-of-horror.html",
+      srcUrl: "https://tokyopop.com/pages/contact-us",
+      src: "book-six-paths-of-horror.html (TOKYOPOP, November 2026; short stories, no single place); TOKYOPOP contact page, TOKYOPOP US: 4136 Del Rey Ave, Suite 502, Marina del Rey, CA 90292, https://tokyopop.com/pages/contact-us" }
+  ]}
+  ,{ id: "madrid-alfaguara", name: "Madrid, Spain", heading: "Published in Madrid", sub: "Alfaguara", cardBy: "Alfaguara", published: true, lng: -3.6998, lat: 40.4312, area: false, cc: "ES", cont: "Europe", reg: ["madrid", "spain", "alfaguara"],
+    desc: "Desde que te vi morir by Javier Marías, pinned at Alfaguara in Madrid. The book is essays, poems and other pieces, not a story with one setting, so the pin marks the press.", books: [
+    { title: "Desde que te vi morir", author: "Javier Marías", year: 2025, isbn: "9788420477695", cover: "Javier.png",
+      setting: "Published in Madrid by Alfaguara", note: "An Alfaguara edition of essays, poems and other pieces, with no single story setting, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.penguinrandomhousegrupoeditorial.com/oficinas-y-contactos/oficina/espana/",
+      src: "Penguin Libros / Alfaguara listing (9788420477695); Penguin Random House Grupo Editorial, Spain offices (Madrid: Luchana, 23, 1a Planta, 28010 Madrid), https://www.penguinrandomhousegrupoeditorial.com/oficinas-y-contactos/oficina/espana/" }
+  ]}
+  ,{ id: "boulder-shambhala", name: "Boulder, Colorado", heading: "Published in Boulder", sub: "Shambhala Publications", cardBy: "Shambhala Publications", published: true, lng: -105.2795, lat: 40.0197, area: false, cc: "US", cont: "North America", reg: ["boulder", "colorado", "shambhala"],
+    desc: "Psychedelic Therapy, pinned at Shambhala Publications in Boulder, not as a story setting. The press address is cited.", books: [
+    { title: "Psychedelic Therapy", author: "Will Van Derveer & Keith Kurlander", isbn: "9781645476047", cover: "Psychedelic.png",
+      setting: "Published in Boulder, Colorado, by Shambhala Publications", note: "A book of ideas and practice from Shambhala. It does not center on one story setting, so the pin marks the press.",
+      page: "bookstore.html",
+      srcUrl: "https://www.shambhala.com/pages/contact",
+      src: "Shambhala Publications book listing (Psychedelic Therapy, 9781645476047); Shambhala contact page, 2129 13th Street, Boulder, CO 80302, https://www.shambhala.com/pages/contact" }
+  ]}
+
 ];
 
 /* Reading routes. A route is an ordered list of place ids, drawn as a numbered path, with its own chip above the map.
@@ -695,15 +1048,15 @@ window.bsRoutes = [
   /* B&S: Six Strange Ones, Weekly Reads No. 6 (Nov 21): Japanese Literature. AE's go, Nov 23. Only this week's six books.
      Only Caring for a Corpse has a publisher-stated setting (the Japanese mountains); the other five name no real place and are listed, not pinned. */
   { id: "six-strange-ones", name: "Six Strange Ones", eyebrow: "A reading route · Weekly Reads No. 6, Nov 21", isNew: true, order: "plus five more listed below the map", color: "#0b5d6b",
-    note: "Pins sit only where a publisher names the place. Five of this week's six books name no real place, so they're listed below the map. Each popup cites its source.",
-    blurb: "The Nov 21 Weekly Reads picks: Japanese Literature. Only Caring for a Corpse names a real place, the Japanese mountains.",
+    note: "Pins sit only where a publisher names the place. Five of this week's six books name no real place, so they're listed below the map and pinned at their presses. Each popup cites its source.",
+    blurb: "The Nov 21 Weekly Reads picks: Japanese Literature. Only Caring for a Corpse names a real place, the Japanese mountains. The other five are pinned at their presses.",
     stops: ["japan-caring-for-a-corpse"],
     alsoOn: [
-      { title: "Platonic Love", author: "Mieko Kanai, tr. Polly Barton", cover: "9780811239424.jpg", url: "book-platonic-love.html", page: "book-platonic-love.html", why: "Short stories; no single place." },
-      { title: "Six: Paths of Horror", author: "Nashi", cover: "9781427888341.jpg", url: "book-six-paths-of-horror.html", page: "book-six-paths-of-horror.html", why: "Six stories; no single place." },
-      { title: "Cursed Thing", author: "Nashi, tr. Jim Rion", cover: "9781846019180.jpg", url: "book-cursed-thing.html", page: "book-cursed-thing.html", why: "A city the publisher doesn't name." },
-      { title: "Strange Maps", author: "Uketsu, tr. Jim Rion", cover: "9780063577268.jpg", url: "book-strange-maps.html", page: "book-strange-maps.html", why: "A coastal village the publisher doesn't name." },
-      { title: "The Museum of Silence", author: "Yoko Ogawa, tr. Stephen Snyder", cover: "9780593702062.jpg", url: "book-the-museum-of-silence.html", page: "book-the-museum-of-silence.html", why: "A small town the publisher doesn't name." }
+      { title: "Platonic Love", author: "Mieko Kanai, tr. Polly Barton", cover: "9780811239424.jpg", url: "book-platonic-love.html", page: "book-platonic-love.html", why: "Short stories; no single place. Pinned at New Directions in New York." },
+      { title: "Six: Paths of Horror", author: "Nashi", cover: "9781427888341.jpg", url: "book-six-paths-of-horror.html", page: "book-six-paths-of-horror.html", why: "Six stories; no single place. Pinned at TOKYOPOP in Marina del Rey." },
+      { title: "Cursed Thing", author: "Nashi, tr. Jim Rion", cover: "9781846019180.jpg", url: "book-cursed-thing.html", page: "book-cursed-thing.html", why: "A city the publisher doesn't name. Pinned at Octopus in London." },
+      { title: "Strange Maps", author: "Uketsu, tr. Jim Rion", cover: "9780063577268.jpg", url: "book-strange-maps.html", page: "book-strange-maps.html", why: "A coastal village the publisher doesn't name. Pinned at HarperVia in New York." },
+      { title: "The Museum of Silence", author: "Yoko Ogawa, tr. Stephen Snyder", cover: "9780593702062.jpg", url: "book-the-museum-of-silence.html", page: "book-the-museum-of-silence.html", why: "A small town the publisher doesn't name. Pinned at Pantheon in New York." }
     ] },
   /* Gothic October is retired for now (hidden: true): no chip, no route; its pins stay on the map. Remove "hidden" to bring it back. */
   { id: "gothic-october", hidden: true, name: "Gothic October", eyebrow: "A reading route · Halloween 2026", moody: true, color: "#4a0f22",
@@ -711,7 +1064,7 @@ window.bsRoutes = [
     blurb: "Seven stops, eight books, oldest to newest. Lock the door first.",
     stops: ["otranto", "geneva", "thornfield", "yorkshire", "london-gothic", "whitby", "kerry"] },
   { id: "national-book-awards-2026", name: "National Book Awards 2026", eyebrow: "Award route · winners announced Nov 18", order: "west to east", color: "#111111",
-    note: "Three of the eleven finalists (Let the Poets Govern, Mother Tongue and Spawning Season) don't center on one place, so they aren't pinned. Each popup cites its source.",
+    note: "Three of the eleven finalists (Let the Poets Govern, Mother Tongue and Spawning Season) don't center on one place, so they are pinned at their presses rather than on this award route. Each popup cites its source.",
     blurb: "Nine stops. The 2026 National Book Award winners and finalists, from Bogotá to Galilee.",
     stops: ["bogota", "miami", "florida", "dakar", "sicily", "szonden-oder", "cairo", "gaza", "safad"] },
   { id: "booker-prize-2026", name: "Booker Prize 2026", eyebrow: "Award route · winner named Nov 9", order: "west to east", color: "#7a4f00",
