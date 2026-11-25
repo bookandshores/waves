@@ -400,7 +400,7 @@
     }
 
 
-    /* ---------- Place search (Photon geocoder, free, no key; matching by distance + place/country/region names) ---------- */
+    /* ---------- Place/book search (Photon geocoder, free, no key; local title/author matches first, then places) ---------- */
     var PHOTON = "https://photon.komoot.io/api/";
     var MAIL = "readme@bookandshores.com";
     var CONTS = {
@@ -439,6 +439,18 @@
         Object.keys(CONTS).forEach(function (k) { if (k.indexOf(nq) === 0) { out.push({ label: CONTS[k].label, sub: "Continent", continent: CONTS[k], type: "continent" }); } });
         return out;
     }
+    function bookHit(b, nq) { return norm(b.title).indexOf(nq) > -1 || norm(b.author).indexOf(nq) > -1; }
+    function localBooks(q) {
+        var nq = norm(q), out = [];
+        if (nq.length < 3) { return out; }
+        PLACES.forEach(function (place) {
+            (place.books || []).forEach(function (b) {
+                if (!bookHit(b, nq)) { return; }
+                out.push({ label: b.title, sub: "Book · " + b.author + " · " + place.name, type: "book", placeId: place.id });
+            });
+        });
+        return out.slice(0, 6);
+    }
     function fetchPlaces(q) {
         if (sugCtl) { try { sugCtl.abort(); } catch (e) { /* old browsers */ } }
         sugCtl = window.AbortController ? new AbortController() : null;
@@ -472,17 +484,19 @@
     }
     function suggest(q) {
         var id = ++sugReq;
+        var books = localBooks(q), conts = localConts(q);
+        sugs = books.concat(conts); sugIdx = -1; paintSug();
         setStatus("Looking…");
         return fetchPlaces(q).then(function (list) {
             if (id !== sugReq) { return null; }
             geoDown = false; sugFor = q;
-            sugs = localConts(q).concat(list); sugIdx = -1; paintSug();
-            setStatus(sugs.length ? sugs.length + (sugs.length === 1 ? " place" : " places") + " found. Use the arrow keys, then Enter." : "No place by that name. Try a bigger area or another spelling.");
+            sugs = books.concat(conts).concat(list); sugIdx = -1; paintSug();
+            setStatus(sugs.length ? sugs.length + (sugs.length === 1 ? " match" : " matches") + " found. Use the arrow keys, then Enter." : "No place or book by that name. Try a bigger area, a title, an author, or another spelling.");
             return sugs;
         }, function (err) {
             if (id !== sugReq || (err && err.name === "AbortError")) { return null; }
-            geoDown = true; sugFor = q; sugs = localConts(q); sugIdx = -1; paintSug();
-            setStatus("Place lookup isn't reachable right now. Press Go to match against our own pin names, or try again in a moment.");
+            geoDown = true; sugFor = q; sugs = books.concat(conts); sugIdx = -1; paintSug();
+            setStatus(sugs.length ? sugs.length + (sugs.length === 1 ? " match" : " matches") + " found. Place lookup isn't reachable; press Go to match our pins, titles and authors." : "Place lookup isn't reachable right now. Press Go to match against our pin names, titles and authors, or try again in a moment.");
             return sugs;
         });
     }
@@ -505,7 +519,7 @@
         e.preventDefault();
         clearTimeout(sugTimer);
         var q = qIn.value.trim();
-        if (q.length < 2) { setStatus("Type a place first."); qIn.focus(); return; }
+        if (q.length < 2) { setStatus("Type a place or book title first."); qIn.focus(); return; }
         if (sugIdx >= 0 && sugs[sugIdx]) { choose(sugs[sugIdx]); return; }
         if (sugFor === q && sugs.length) { choose(sugs[0]); return; }
         var c = localConts(q).filter(function (s) { return norm(s.label) === norm(q); })[0];
@@ -516,7 +530,11 @@
         });
     });
 
-    function choose(s) { qIn.value = s.label; closeSug(); sugs = []; landOn(s); }
+    function choose(s) {
+        qIn.value = s.label; closeSug(); sugs = [];
+        if (s.placeId) { clearSearch(); setStatus(""); showPlace(s.placeId, true); return; }
+        landOn(s);
+    }
 
     function reachFor(f) {
         var t = f.type;
@@ -529,7 +547,7 @@
     function computeHits(f) {
         var out = [];
         if (f.continent) { PLACES.forEach(function (p) { if (p.cont === f.continent.cont) { out.push({ p: p, d: 0 }); } }); return out; }
-        if (f.unknown || f.noGeo) { var nq = norm(f.label); PLACES.forEach(function (p) { if ((p.reg || []).indexOf(nq) > -1 || norm(p.name).indexOf(nq) > -1) { out.push({ p: p, d: 0 }); } }); return out; }
+        if (f.unknown || f.noGeo) { var nq = norm(f.label); PLACES.forEach(function (p) { var hit = (p.reg || []).indexOf(nq) > -1 || norm(p.name).indexOf(nq) > -1 || (p.books || []).some(function (b) { return bookHit(b, nq); }); if (hit) { out.push({ p: p, d: 0 }); } }); return out; }
         var nm = norm(f.name), R = reachFor(f), isCountry = f.type === "country", isArea = f.type === "state" || f.type === "county";
         var regOnly = false;
         if (isArea && nm) { regOnly = PLACES.some(function (p) { return (p.reg || []).indexOf(nm) > -1 && (!f.cc || f.cc === p.cc); }); }
