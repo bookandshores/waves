@@ -626,6 +626,31 @@ window.bsAtlas = [
       srcUrl: "https://avocadohouse.com/books/9798855427875-caring-for-a-corpse",
       src: "Avocado House book page (\"Deep in the Japanese mountains, Akane Kuriya begins a new job as a live-in caregiver. She moves into a sprawling, ominous mansion\")" }
   ]}
+  /* B&S: past Weekly Reads pinned Nov 24, 2026 (AE: "Every Weekly Read in the past should be on our Atlas"). Only books with a real, named setting from a citable source. */
+  ,{ id: "guyenne-creation-lake", name: "The Guyenne, southwestern France", heading: "Creation Lake", sub: "The Guyenne, southwestern France", lng: 0.62, lat: 44.6, area: true, cc: "FR", cont: "Europe", reg: ["guyenne", "aquitaine", "southwestern france", "south-west france", "france"], books: [
+    { title: "Creation Lake", author: "Rachel Kushner", isbn: "9781982116538", cover: "9781982116538.jpg", page: "book-creation-lake.html",
+      setting: "Le Moulin, an anarchist farming commune in the Guyenne, a region of old farms and prehistoric caves in southwestern France", note: "Weekly Reads, January 2026. Kushner calls her Guyenne fictional, an old name for a part of southwestern France she knows well, so the dashed ring marks the region, not one town.",
+      srcUrl: "https://www.newyorker.com/magazine/2024/10/14/creation-lake-rachel-kushner-book-review",
+      src: "The New Yorker review (\"an anarchist commune called Le Moulin, in the southwestern region of Guyenne\"); NPR interview with Kushner (\"I call it the Guyenne ... a region of southwestern France\"), https://www.npr.org/2024/09/07/nx-s1-5061496/rachel-kushner-on-her-new-spy-novel-creation-lake" }
+  ]}
+  ,{ id: "greenwich-village", name: "Greenwich Village, New York", heading: "Women in the Shadows", sub: "Greenwich Village, New York", lng: -74.0030, lat: 40.7336, area: true, cc: "US", cont: "North America", reg: ["greenwich village", "the village", "manhattan", "new york", "new york city", "nyc"], books: [
+    { title: "Women in the Shadows", author: "Ann Bannon", year: 1959, isbn: "9781573441490", cover: "Shadows.jpg", page: "book-women-in-the-shadows.html",
+      setting: "Greenwich Village, late 1950s: Laura and Beebo's apartment, the gay bars and the raids", note: "Weekly Reads, February 2026. The third Beebo Brinker novel (1959), in the Cleis Press edition.",
+      srcUrl: "https://www.annbannon.com/books-intro-womenshadows.html",
+      src: "Ann Bannon's introduction to the Cleis Press edition (Greenwich Village, its bars and police raids); the novel's opening (\"in Greenwich Village that is a pretty good record\"), Project Gutenberg; Cleis Press / Simon & Schuster book page" }
+  ]}
+  ,{ id: "mexico-reservoir-bitches", name: "Mexico", heading: "Reservoir Bitches", sub: "Mexico", lng: -102.55, lat: 23.63, area: true, cc: "MX", cont: "North America", reg: ["mexico", "méxico"], books: [
+    { title: "Reservoir Bitches", author: "Dahlia de la Cerda, tr. Julia Sanches and Heather Cleary", isbn: "9781558613119", cover: "BITCHES.png", page: "book-reservoir-bitches.html",
+      setting: "Thirteen linked stories of women across contemporary Mexico", note: "Weekly Reads, July 2026. Longlisted for the 2025 International Booker Prize. The stories range across the country, so the dashed ring marks Mexico, not one city.",
+      srcUrl: "https://thebookerprizes.com/the-booker-library/books/reservoir-bitches",
+      src: "The Booker Prizes book page (author: \"My book is about women in Mexico who survive in violent contexts\"; \"fiction from Mexico\"); Feminist Press description (\"stories about Mexican women\")" }
+  ]}
+  ,{ id: "london-edinburgh-sleeper", name: "London, England (the overnight train to Edinburgh)", heading: "I Made You Up Inside My Head", sub: "London, England (the overnight train to Edinburgh)", lng: -0.1337, lat: 51.5282, area: true, cc: "GB", cont: "Europe", reg: ["london", "edinburgh", "sleeper train", "england", "scotland", "uk"], books: [
+    { title: "I Made You Up Inside My Head", author: "Marta Pérez-Carbonell, tr. Rosalind Harvey", isbn: "9780593854105", cover: "IMG_2775.jpg", page: "book-i-made-you-up-inside-my-head.html",
+      setting: "An overnight sleeper train from London to Edinburgh, with memories of Madrid, Mallorca, Socotra and New York", note: "Weekly Reads, July 2026. The pin sits at London, where the night train sets out; the publisher does not name the station.",
+      srcUrl: "https://www.penguinrandomhouse.com/books/771163/i-made-you-up-inside-my-head-by-marta-perez-carbonell-translated-by-rosalind-harvey/",
+      src: "Riverhead / Penguin Random House book page (\"On an overnight train from London to Edinburgh\"); Publishers Weekly review (\"the monthly commute to Edinburgh\")" }
+  ]}
   ,{ id: "pacific-energy-fields", name: "The Pacific", lng: 155.0, lat: 25.0, area: true, cc: "", cont: "Pacific Ocean", reg: ["pacific", "pacific ocean", "pacific rim", "pacific plate"], books: [
     { title: "Energy Fields: Vibrations of the Pacific", author: "Lawrence English and Robert Takahashi Novak (eds.)", year: 2025, isbn: "9789083449807", cover: "weekly-energy-fields.jpg", page: "book-energy-fields.html",
       setting: "The Pacific, \"the most dynamic tectonic plate on the face of the planet,\" read through its volcanic, seismic, nuclear and other vibrations", note: "Set Margins' #39, published with the exhibition at Chapman University (Sept 15, 2024 – Jan 19, 2025). Weekly Reads, Nov 15. The pin marks the ocean as a whole, not one place.",
