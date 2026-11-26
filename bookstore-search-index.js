@@ -922,7 +922,7 @@ window.bsSearchIndex = [
 "title": "Nova Scotia House",
 "author": "Charlie Porter",
 "isbn": "9781643622002",
-"cover": "Nova.png",
+"cover": "9781643622002.jpg",
 "buy": "https://bookshop.org/a/125864/9781643622002",
 "page": "bookstore.html",
 "aff": true
