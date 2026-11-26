@@ -164,6 +164,8 @@ def place_is_press(p):
     return bool(p.get("published"))
 
 def place_page_name(p):
+    if p.get("pageName"):
+        return p["pageName"]
     if place_is_press(p):
         return p.get("heading") or f"Published in {p['name']}"
     return f"Books set in {p['name']}"
@@ -198,19 +200,37 @@ def place_page(p, routes):
             {"@type": "ListItem", "position": 3, "name": p["name"], "item": url}]},
         ORG]}
     on_routes = [r for r in routes if p["id"] in r.get("stops", [])]
+    if p.get("hero"):
+        hero_line = e(p["hero"])
+    else:
+        if p.get("published"):
+            first = str(n) + " book" + ("s" if n != 1 else "") + " pinned here at the press, not as a story setting."
+        elif p.get("heading"):
+            first = str(n) + " issues pinned here."
+        else:
+            first = str(n) + " book" + ("s" if n != 1 else "") + " pinned here."
+        if p.get("area") and not p.get("published"):
+            second = "The book names a region, not an exact address, so the pin sits inside the area."
+        elif p.get("published") and not p.get("area"):
+            second = "The pin marks the press."
+        elif p.get("published"):
+            second = "The pin marks the city of the press, not one office."
+        else:
+            second = "The pin marks the named place."
+        hero_line = first + " " + second
     out = [head(title, desc, url, ld, f"atlas-{p['id']}", card_alt(p))]
     out.append(f'        <p class="crumbs"><a href="atlas.html">Atlas</a> › <a href="atlas-pins.html">All the pins</a> › {e(p["name"])}</p>\n')
     out.append(f"""        <section class="place-hero">
             <p class="eyebrow">Book &amp; Shores Atlas · {e(p.get('cont', ''))}</p>
             <h2>{e(p['heading']) if p.get('heading') else (('Published in ' + e(p['name'])) if p.get('published') else ('Books set in ' + e(p['name'])))}</h2>{('<p style="font-family:Oswald,sans-serif;font-weight:400;font-size:clamp(1.2rem,3.5vw,1.6rem);text-transform:none;margin:0 0 0.8rem;">' + e(p['sub']) + '</p>') if p.get('sub') else ''}
-            <p>{(str(n) + ' book' + ('s' if n != 1 else '') + ' pinned here at the press, not as a story setting.') if p.get('published') else ((str(n) + ' issues pinned here.') if p.get('heading') else (str(n) + ' book' + ('s' if n != 1 else '') + ' pinned here.'))} {'The book names a region, not an exact address, so the pin sits inside the area.' if p.get('area') and not p.get('published') else ('The pin marks the press.' if p.get('published') and not p.get('area') else ('The pin marks the city of the press, not one office.' if p.get('published') else 'The pin marks the named place.'))}</p>
+            <p>{hero_line}</p>
             <p style="margin-top:1rem;"><a class="btn" style="width:auto;" href="atlas.html#{e(p['id'])}">See it on the map →</a></p>
         </section>
 """)
     for b in p["books"]:
         yr = f" ({b['year']})" if b.get("year") else ""
         cover = f'<img src="{e(b["cover"])}" alt="Cover of {e(b["title"])}" width="150" loading="lazy">' if b.get("cover") else ""
-        more = f'<a class="btn" href="{e(b["page"])}">Read our take →</a>' if b.get("page") and b["page"] != "bookstore.html" else '<a class="btn" href="bookstore.html">Find it in the bookstore →</a>'
+        more = f'<a class="btn" href="{e(b["page"])}">{e(b.get("cta") or "Read our take →")}</a>' if b.get("page") and b["page"] != "bookstore.html" else '<a class="btn" href="bookstore.html">Find it in the bookstore →</a>'
         out.append(f"""        <article class="pbook">
             <div>{cover}</div>
             <div>
