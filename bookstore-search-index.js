@@ -1356,7 +1356,7 @@ window.bsSearchIndex = [
 "isbn": "9780226847221",
 "cover": "TURNING.jpg",
 "buy": "https://bookshop.org/a/125864/9780226847221",
-"page": "bookstore.html",
+"page": "book-turning-away.html",
 "aff": true
 },
 {
