@@ -16,7 +16,6 @@
     function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
     function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
     function buyUrl(b) { return b.buy || (AFF + b.isbn); }
-    function ebookUrl(b) { return b.ebook ? "https://bookshop.org/p/books/" + b.ebook[0] + "?ean=" + b.ebook[1] + "&digital=t&affiliate=125864" : null; }
     // The "read me." mug (3D render) is every map marker. Swap atlas/mug3d-pin.png to change them all.
     function mugImg() { var im = el("img", "mug"); im.src = "atlas/mug3d-pin.png"; im.alt = ""; im.width = 44; im.height = 44; im.draggable = false; return im; }
     function newTab(a) { a.target = "_blank"; a.rel = "noopener sponsored"; return a; }
@@ -81,8 +80,6 @@
             var buy = newTab(el("a", "buy", "Buy the book")); buy.href = buyUrl(b);
             buy.setAttribute("aria-label", "Buy " + b.title + " (opens in a new tab)");
             act.appendChild(buy);
-            var eu = ebookUrl(b);
-            if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " (opens in a new tab)"); act.appendChild(eb); }
             col.appendChild(act);
             var pg;
             if (b.page) { pg = el("a", "pp-page", b.page.indexOf("book-") === 0 ? "Read our page →" : "See it in our shop →"); pg.href = b.page; }
@@ -608,8 +605,6 @@
         if (b.partner) col.appendChild(el("div", "partner-tag", "Partner pin · " + b.partner));
         var act = el("div", "sr-actions");
         var buy = newTab(el("a", "buy", "Buy the book")); buy.href = buyUrl(b); buy.setAttribute("aria-label", "Buy " + b.title + " (opens in a new tab)"); act.appendChild(buy);
-        var eu = ebookUrl(b);
-        if (eu) { var eb = newTab(el("a", "alt", "Ebook")); eb.href = eu; eb.setAttribute("aria-label", "Buy the ebook of " + b.title + " (opens in a new tab)"); act.appendChild(eb); }
         if (map) {
             var on = el("button", null, "On the map"); on.type = "button"; on.setAttribute("aria-label", "Show " + h.p.name + " on the map");
             on.addEventListener("click", function () { showPlace(h.p.id, true); });
