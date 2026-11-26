@@ -700,13 +700,14 @@ window.bsAtlas = [
       src: "Avid Reader Press / Simon & Schuster book page (\"from its early days in San Francisco politics\"; \"Silicon Valley's war on democracy\"; \"From San Francisco's weaponized elections\")" }
   ]}
 
-  ,{ id: "chicago-uchicago-press", name: "Chicago, Illinois", heading: "Published in Chicago", sub: "University of Chicago Press", cardBy: "University of Chicago Press", published: true, lng: -87.5908, lat: 41.7851, area: false, cc: "US", cont: "North America", reg: ["chicago", "hyde park", "illinois", "university of chicago press"],
-    desc: "Turning Away by Benjamin A. Saltzman, pinned at University of Chicago Press in Chicago, not as a story setting. The press address is cited.", books: [
+  ,{ id: "ancient-greece", name: "Ancient Greece", heading: "Ancient Greece", sub: "University of Chicago Press", cardBy: "University of Chicago Press", pageName: "Ancient Greece", lng: 23.7257, lat: 37.9715, area: false, cc: "GR", cont: "Europe", reg: ["ancient greece", "greece", "athens", "hellas"],
+    desc: "Turning Away by Benjamin A. Saltzman, pinned in Ancient Greece, where the gesture begins. University of Chicago Press. The book traces that gesture through later art, poetry and philosophy.",
+    hero: "1 book pinned here, where the gesture begins. The book traces that gesture through later art, poetry and philosophy.", books: [
     { title: "Turning Away", author: "Benjamin A. Saltzman", isbn: "9780226847221", cover: "TURNING.jpg",
-      setting: "Published in Chicago by University of Chicago Press", note: "Turning Away: The Poetics of an Ancient Gesture. A study of the averted gaze in art, poetry and philosophy, from Timanthes and Plato to the present. Weekly Reads, July 2026.",
-      page: "book-turning-away.html",
+      setting: "Ancient Greece, where the gesture begins", note: "Turning Away: The Poetics of an Ancient Gesture. A study of the averted gaze in art, poetry and philosophy, from Timanthes and Plato to the present. Weekly Reads, July 2026.",
+      page: "book-turning-away.html", cta: "Our page for the book →",
       srcUrl: "https://press.uchicago.edu/ucp/books/book/chicago/T/bo264591260.html",
-      src: "book-turning-away.html; University of Chicago Press book page (Turning Away: The Poetics of an Ancient Gesture); Press contact page, 1427 East 60th Street, Chicago, IL 60637, https://press.uchicago.edu/press/contact.html" }
+      src: "book-turning-away.html; University of Chicago Press book page (Turning Away: The Poetics of an Ancient Gesture starts from Timanthes's Sacrifice of Iphigenia, Plato's Republic, and other scenes)" }
   ]}
   ,{ id: "cambridge-mit-press", name: "Cambridge, Massachusetts", heading: "Published in Cambridge", sub: "The MIT Press", cardBy: "The MIT Press", published: true, lng: -71.0853, lat: 42.3628, area: false, cc: "US", cont: "North America", reg: ["cambridge", "mit", "mit press", "kendall square", "massachusetts"],
     desc: "MIT Press titles from the bookstore, pinned at the press in Cambridge, Massachusetts, not as story settings. The press address is cited.", books: [
