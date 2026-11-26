@@ -704,9 +704,9 @@ window.bsAtlas = [
     desc: "Turning Away by Benjamin A. Saltzman, pinned at University of Chicago Press in Chicago, not as a story setting. The press address is cited.", books: [
     { title: "Turning Away", author: "Benjamin A. Saltzman", isbn: "9780226847221", cover: "TURNING.jpg",
       setting: "Published in Chicago by University of Chicago Press", note: "Turning Away: The Poetics of an Ancient Gesture. A study of the averted gaze in art, poetry and philosophy, from Timanthes and Plato to the present. Weekly Reads, July 2026.",
-      page: "bookstore.html",
+      page: "book-turning-away.html",
       srcUrl: "https://press.uchicago.edu/ucp/books/book/chicago/T/bo264591260.html",
-      src: "University of Chicago Press book page (Turning Away: The Poetics of an Ancient Gesture); Press contact page, 1427 East 60th Street, Chicago, IL 60637, https://press.uchicago.edu/press/contact.html" }
+      src: "book-turning-away.html; University of Chicago Press book page (Turning Away: The Poetics of an Ancient Gesture); Press contact page, 1427 East 60th Street, Chicago, IL 60637, https://press.uchicago.edu/press/contact.html" }
   ]}
   ,{ id: "cambridge-mit-press", name: "Cambridge, Massachusetts", heading: "Published in Cambridge", sub: "The MIT Press", cardBy: "The MIT Press", published: true, lng: -71.0853, lat: 42.3628, area: false, cc: "US", cont: "North America", reg: ["cambridge", "mit", "mit press", "kendall square", "massachusetts"],
     desc: "MIT Press titles from the bookstore, pinned at the press in Cambridge, Massachusetts, not as story settings. The press address is cited.", books: [
