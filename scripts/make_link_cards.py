@@ -86,6 +86,8 @@ BOOKS = [
          title="Don't Let Me Be Misunderstood", author="W. Jason Miller"),
     dict(slug="arrows-of-desire", cover="9781836741176.jpg", label="Film & Criticism · Verso · Oct 20, 2026",
          title="Arrows of Desire", author="Peter Wollen", byline="Peter Wollen · ed. Eshun, Fuke & Helm-Grovas"),
+    dict(slug="nova-scotia-house", cover="9781643622002.jpg", label="Novel · Nightboat · Oct 21, 2025",
+         title="Nova Scotia House", author="Charlie Porter"),
     dict(slug="the-image-of-her", cover="weekly-the-image-of-her.jpg", label="Weekly Read · Yale · Jan 2026",
          title="The Image of Her", author="Simone de Beauvoir", byline="Simone de Beauvoir · tr. Lauren Elkin"),
     dict(slug="the-great-eastern", cover="GREATEASTERN.jpg", label="Weekly Read · Melville House",
