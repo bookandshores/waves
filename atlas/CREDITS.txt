@@ -64,3 +64,6 @@ og/covers/ for these pins: the same sources, resized to at most 720px tall (Baro
 
 cover-black-designers-in-chicago.jpg (and og/covers/, 9780226830551.jpg)  publisher cover, University of Chicago Press (tmm.chicagodistributioncenter.com/IsbnImages/9780226830551.jpg, shown on press.uchicago.edu), resized.
 img/editors/bdic-*.jpg  editor photos from the University of Chicago Press publicity folder for the book, credits as supplied: Chris Dingwall (Theresa Anasti), David Hartt (Ager Carlsen for PIN–UP), Daniel Schulman (Joe Mazza, Brave Lux, Inc.).
+
+Added with the Nightboat Blue cover update (branch bs/porter-blue-cover):
+cover-nova-scotia-house.jpg  official Nightboat Books cover of Nova Scotia House by Charlie Porter, from https://nightboat.org/book/nova-scotia-house/ (image: https://nightboat.org/wp-content/uploads/2025/04/smaller-2.jpg), resized to 240px wide. Replaces the Particular Books / Penguin UK orange cover previously used on the bookstore card and Atlas pin.
