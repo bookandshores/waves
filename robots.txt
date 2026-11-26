@@ -3,8 +3,6 @@ Allow: /
 # Disallow admin or sensitive paths (if any in the future)
 Disallow: /admin/
 Disallow: /private/
-# B&S: keep ebook files out of search results
-Disallow: /downloads/
 
 # B&S: search and AI answer engines are welcome to read and cite the Atlas and the bookstore.
 # Named here so the welcome is explicit; same rules as above.
@@ -28,7 +26,6 @@ User-agent: MistralAI-User
 Allow: /
 Disallow: /admin/
 Disallow: /private/
-Disallow: /downloads/
 
 Sitemap: https://bookandshores.com/sitemap.xml
 Sitemap: https://bookandshores.com/sitemap-atlas.xml

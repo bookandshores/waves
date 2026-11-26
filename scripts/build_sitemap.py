@@ -5,7 +5,7 @@ Lists every public top-level *.html page, using the .html URL form that the
 existing canonical tags use (the homepage is "/"). <lastmod> is the date of the
 last git commit that touched each page.
 
-Excluded: dl-*.html private download pages, google*.html Search Console
+Excluded: any leftover dl-*.html pages, google*.html Search Console
 verification files, 404 pages, the legacy BookandShores/ folder, and any page
 carrying a robots noindex meta tag.
 

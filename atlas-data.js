@@ -5,23 +5,22 @@
 // "area": true = the book names a region, not an exact address, so the pin sits inside the region (shown as a dashed ring).
 // "page": our own page for the book. "bookstore.html" means the book only has a card in our bookstore (no dedicated page yet).
 // "partner": optional, name of the press, author or organization that paid for a Launch Pin. Shows a "Partner pin" label on the card and the place page.
-// "ebook": [Bookshop product path, ebook EAN] copied from zoltar-machine.js (format Bookshop uses for ebook share links). Omit if none.
 // Buy link is https://bookshop.org/a/125864/<ISBN13> (affiliate ID 125864), unless "buy" gives the bookstore listing URL (e.g. a press).
 window.bsAtlas = [
   { id: "dublin", name: "Dublin, Ireland", lng: -6.2603, lat: 53.3498, area: false, cc: "IE", cont: "Europe", reg: ["dublin", "leinster", "ireland"], books: [
     { title: "All Them Dogs", author: "Djamel White", isbn: "9798217046676", cover: "atlas/cover-all-them-dogs.jpg",
       setting: "West Dublin", note: "A gangland thriller. Longlisted for the 2026 Booker Prize.",
-      page: "book-all-them-dogs.html", ebook: ["all-them-dogs-a-novel-djamel-white/6a6a2065023a0448", "9798217046690"],
+      page: "book-all-them-dogs.html",
       src: "book-all-them-dogs.html (\"West Dublin gangland\")" },
     { title: "Ambivalence: An Education", author: "Brian Dillon", isbn: "9798896231103", cover: "atlas/cover-ambivalence.jpg",
       setting: "Dublin, late 1980s and 1990s", note: "A memoir of growing up on books and ideas.",
-      page: "book-ambivalence.html", ebook: ["ambivalence-brian-dillon/5a7de895b7f5d04a", "9798896231110"],
+      page: "book-ambivalence.html",
       src: "book-ambivalence.html (\"Dublin in the late 1980s and 1990s\")" }
   ]},
   { id: "zurich", name: "Zurich, Switzerland", lng: 8.5417, lat: 47.3769, area: false, cc: "CH", cont: "Europe", reg: ["zurich", "zürich", "switzerland"], books: [
     { title: "Switzy", author: "Emma Cline", isbn: "9780593595244", cover: "atlas/cover-switzy.jpg",
       setting: "Zurich (the last stop), after London and France", note: "A last pilgrimage across Europe. Longlisted for the 2026 Booker Prize.",
-      page: "book-switzy.html", ebook: ["switzy-a-novel-emma-cline/f5a588e2ff0bd8e0", "9780593595251"],
+      page: "book-switzy.html",
       src: "book-switzy.html (flight to a clinic in Zurich; dinner in London; friend in France)" }
   ]},
   { id: "ucla-westwood", name: "UCLA, Westwood, Los Angeles", lng: -118.4452, lat: 34.0689, area: false, cc: "US", cont: "North America", reg: ["ucla", "westwood", "los angeles", "la", "california"], books: [
@@ -39,13 +38,13 @@ window.bsAtlas = [
   { id: "stockholm", name: "Stockholm, Sweden", lng: 18.0686, lat: 59.3293, area: true, cc: "SE", cont: "Europe", reg: ["stockholm"], books: [
     { title: "The Sandman", author: "Lars Kepler", isbn: "9780525433057", cover: "atlas/cover-the-sandman.jpg",
       setting: "Outside Stockholm", note: "Swedish crime thriller, translated by Neil Smith.",
-      page: "book-the-sandman.html", ebook: ["the-sandman-a-novel-lars-kepler/acc92d0235b6be2d", "9781524732257"],
+      page: "book-the-sandman.html",
       src: "book-the-sandman.html (\"Late one night outside Stockholm\")" }
   ]},
   { id: "positano", name: "Mongibello, Italy (made up)", lng: 14.4850, lat: 40.6281, area: true, cc: "IT", cont: "Europe", reg: ["positano", "campania", "amalfi coast", "mongibello"], books: [
     { title: "The Talented Mr. Ripley", author: "Patricia Highsmith", isbn: "9780393332148", cover: "atlas/cover-talented-mr-ripley.jpg",
       setting: "Mongibello, a made-up Italian coastal town (modeled on Positano)", note: "The pin sits on Positano, the real town Highsmith borrowed.",
-      page: "book-talented-mr-ripley.html", ebook: ["the-talented-mr-ripley-patricia-highsmith/ad6d888cfdc8d4fa", "9780393344721"],
+      page: "book-talented-mr-ripley.html",
       src: "book-talented-mr-ripley.html (\"the Italian coast\"); Mongibello fictional, based on Positano: NYT T Magazine 2021-03-24, Condé Nast Traveler" }
   ]},
   { id: "como", name: "Lake Como, Italy", lng: 9.2570, lat: 45.9936, area: true, cc: "IT", cont: "Europe", reg: ["como", "lake como", "lombardy", "lombardia"], books: [
@@ -63,7 +62,7 @@ window.bsAtlas = [
   { id: "kent", name: "Kent coast, England", lng: 1.2000, lat: 51.1000, area: true, cc: "GB", cont: "Europe", reg: ["kent", "england"], books: [
     { title: "The End of Everything", author: "M. John Harrison", isbn: "9798217438655", cover: "atlas/cover-the-end-of-everything.jpg",
       setting: "The coast of Kent, where a beachcomber works the Channel", note: "Shortlisted for the 2026 Booker Prize.",
-      page: "book-the-end-of-everything.html", ebook: ["the-end-of-everything-visionary-and-brilliant-china-mieville-m-john-harrison/fe6e357926af029c", "9798217438679"],
+      page: "book-the-end-of-everything.html",
       src: "booker-2026-shortlist.html (\"the coast of Kent\"); book-the-end-of-everything.html (\"the Channel\")" }
   ]},
   { id: "hebrides", name: "Outer Hebrides, Scotland", lng: -6.9000, lat: 57.9000, area: true, cc: "GB", cont: "Europe", reg: ["outer hebrides", "hebrides", "western isles", "scotland"], books: [
@@ -75,7 +74,7 @@ window.bsAtlas = [
   { id: "manhattan", name: "Manhattan, New York", lng: -73.9855, lat: 40.7580, area: false, cc: "US", cont: "North America", reg: ["manhattan", "new york", "new york city", "nyc", "new york county"], books: [
     { title: "Carol", author: "Patricia Highsmith", isbn: "9780393325997", cover: "atlas/cover-carol.jpg",
       setting: "Midtown Manhattan, at a department store toy counter, 1950s", note: "First published in 1952 as The Price of Salt.",
-      page: "book-carol.html", ebook: ["carol-patricia-highsmith/3d06ecb89c2ad4f7", "9780393345643"],
+      page: "book-carol.html",
       src: "book-carol.html (department store clerk); Frankenberg's, Manhattan: Astra Magazine, Wikipedia (Carol film)" },
     { title: "Going Down in Gotham", author: "Zoe Hansen", isbn: "9798994335628", cover: "atlas/cover-going-down-in-gotham.jpg",
       setting: "Manhattan, 1980s, by way of London", note: "A memoir of MTV, heroin, and a madam's-eye view of the city.",
@@ -126,7 +125,7 @@ window.bsAtlas = [
   { id: "lee", name: "Lee County, Virginia", lng: -83.1043, lat: 36.6826, area: true, cc: "US", cont: "North America", reg: ["lee county", "virginia", "appalachia"], books: [
     { title: "Demon Copperhead", author: "Barbara Kingsolver", isbn: "9780063251984", cover: "atlas/cover-demon-copperhead.jpg",
       setting: "Lee County, in the Appalachian mountains of southwest Virginia", note: "The pin sits on Jonesville, the county seat.",
-      page: "bookstore.html", ebook: ["demon-copperhead-a-novel-barbara-kingsolver/685df5a3bfc2305a", "9780063251991"],
+      page: "bookstore.html",
       src: "Wikipedia (Demon Copperhead); Boston Globe; barbarakingsolver.com (southern Appalachia)" }
   ]},
   { id: "kingston", name: "Kingston, Jamaica", lng: -76.7936, lat: 17.9712, area: false, cc: "JM", cont: "North America", reg: ["kingston", "jamaica", "caribbean"], books: [
@@ -144,7 +143,7 @@ window.bsAtlas = [
   { id: "hiroshima", name: "Hiroshima, Japan", lng: 132.4553, lat: 34.3853, area: false, cc: "JP", cont: "Asia", reg: ["hiroshima"], books: [
     { title: "Hiroshima, 8:15: The Lost Memoir", author: "Kiyoshi Tanimoto", isbn: "9798217197972", cover: "atlas/cover-hiroshima-8-15.jpg",
       setting: "Hiroshima, the morning of August 6, 1945", note: "Nonfiction. A survivor's memoir of one morning.",
-      page: "bookstore.html", ebook: ["what-divides-us-a-memoir-of-hiroshima-kiyoshi-tanimoto/ce9f3dc906283bdb", "9798217197996"],
+      page: "bookstore.html",
       src: "bookstore.html card excerpt (\"The world's first atomic bomb had exploded in the sky above Hiroshima\")" }
   ]}
   ,
@@ -293,7 +292,7 @@ window.bsAtlas = [
   { id: "ithaca", name: "Ithaca, New York", lng: -76.4966, lat: 42.444, area: false, cc: "US", cont: "North America", reg: ["ithaca", "tompkins county", "finger lakes", "new york", "upstate new york"], books: [
     { title: "Moosewood Cookbook", author: "Mollie Katzen", year: 1977, isbn: "9781607747390", cover: "atlas/cover-moosewood.jpg",
       setting: "Moosewood Restaurant, Ithaca, where the recipes were cooked", note: "A cookbook, not a novel. Hand-lettered recipes from a collective kitchen in Ithaca.",
-      page: "bookstore.html", ebook: ["the-moosewood-cookbook-40th-anniversary-edition-mollie-katzen/6981e1bb1d37ef2e", "9781607747406"],
+      page: "bookstore.html",
       src: "Wikipedia (Mollie Katzen; Moosewood Restaurant): Katzen helped build Moosewood Restaurant in Ithaca in 1972-73 and The Moosewood Cookbook grew out of it; the restaurant is in Ithaca, New York" }
   ]},
   { id: "somerset", name: "Somerset, England", lng: -2.8, lat: 51.1, area: true, cc: "GB", cont: "Europe", reg: ["somerset", "west country", "england", "bristol"], books: [
