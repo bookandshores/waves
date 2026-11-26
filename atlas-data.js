@@ -57,8 +57,8 @@ window.bsAtlas = [
   { id: "london-east", name: "East London, England", lng: -0.0300, lat: 51.5150, area: true, cc: "GB", cont: "Europe", reg: ["london", "east london", "greater london", "england"], books: [
     { title: "Nova Scotia House", author: "Charlie Porter", isbn: "9781643622002", cover: "atlas/cover-nova-scotia-house.jpg",
       setting: "A London council block that never gets a real address", note: "Porter calls it \"a parallel universe\" very close to London. Tower Hamlets was his starting point.",
-      page: "bookstore.html",
-      src: "bookstore.html card blurb (\"a London flat\"); Nightboat Books interview with Porter; World of Interiors (Dorset Estate, Tower Hamlets)" }
+      page: "book-nova-scotia-house.html",
+      src: "book-nova-scotia-house.html; bookstore.html card blurb (\"a London flat\"); Nightboat Books interview with Porter; World of Interiors (Dorset Estate, Tower Hamlets)" }
   ]},
   { id: "kent", name: "Kent coast, England", lng: 1.2000, lat: 51.1000, area: true, cc: "GB", cont: "Europe", reg: ["kent", "england"], books: [
     { title: "The End of Everything", author: "M. John Harrison", isbn: "9798217438655", cover: "atlas/cover-the-end-of-everything.jpg",

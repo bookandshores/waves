@@ -924,7 +924,7 @@ window.bsSearchIndex = [
 "isbn": "9781643622002",
 "cover": "9781643622002.jpg",
 "buy": "https://bookshop.org/a/125864/9781643622002",
-"page": "bookstore.html",
+"page": "book-nova-scotia-house.html",
 "aff": true
 },
 {
